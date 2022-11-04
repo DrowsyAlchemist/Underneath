@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -67,7 +68,25 @@ public class PlayerMover : MonoBehaviour
     private void Move()
     {
         _targetVelocity = ComputeVelocity(_targetVelocity);
+
+
+
+
         Vector2 move = _targetVelocity * Time.deltaTime;
+
+        //////////////////////////////////////////////////////////////
+        RaycastHit2D[] hits = new RaycastHit2D[16];
+
+
+        int hitCount = _rigidbody.Cast(move, hits, move.magnitude);
+
+        if (hitCount > 0)
+        {
+            move = move.normalized * (hits[0].distance - 0.01f);
+        }
+        ////////////////////////////////////////////////////////////
+
+
         transform.Translate(move);
     }
 
@@ -91,7 +110,7 @@ public class PlayerMover : MonoBehaviour
     {
         Vector2 resultVelocity = initialVelocity;
 
-        RaycastHit2D[] hits = new RaycastHit2D[1];
+        RaycastHit2D[] hits = new RaycastHit2D[16];
 
 
         int hitCount = _rigidbody.Cast(resultVelocity, hits, resultVelocity.magnitude * Time.deltaTime);
@@ -102,52 +121,29 @@ public class PlayerMover : MonoBehaviour
 
         if (hitCount > 0)
         {
-            //RaycastHit2D closeHit = hits[0];
-            //foreach (RaycastHit2D hit in hits)
-                //if (hit.distance < closeHit.distance)
-                    //closeHit = hit;
-
-
             Vector2 surfaseNormal = hits[0].normal;
             Vector2 surfaseAlong = new Vector2(surfaseNormal.y, -1 * surfaseNormal.x);
 
             Debug.Log(surfaseNormal);
-            Debug.DrawRay(transform.position, surfaseNormal, Color.red, 0.5f);
+            Debug.DrawRay(transform.position, surfaseNormal, Color.red);
+            Debug.DrawRay(transform.position, surfaseAlong, Color.red);
 
             if (surfaseNormal.y > _groundMinNormalY)
                 resultVelocity = resultVelocity.x * surfaseAlong;
             else if (surfaseNormal.y < -1 * _groundMinNormalY)
-                resultVelocity.y = 0;
-            else
-                resultVelocity.x = 0;
-        }
-        Debug.DrawRay(transform.position, resultVelocity, Color.green, 0.5f);
+            {
+                if (resultVelocity.y > 0)
+                    resultVelocity.y = 0;
 
-
-
-
-
-        hitCount = _rigidbody.Cast(resultVelocity, hits, resultVelocity.magnitude * Time.deltaTime);
-        if (hitCount > 0)
-        {
-            Vector2 surfaseNormal = hits[0].normal;
-            Vector2 surfaseAlong = new Vector2(surfaseNormal.y, -1 * surfaseNormal.x);
-
-            Debug.Log(surfaseNormal);
-            Debug.DrawRay(transform.position, surfaseNormal, Color.red, 0.5f);
-
-            if (surfaseNormal.y > _groundMinNormalY)
-                resultVelocity = resultVelocity.x * surfaseAlong;
-            else if (surfaseNormal.y < -1 * _groundMinNormalY)
-                resultVelocity.y = 0;
+                resultVelocity = -1 * resultVelocity.x * surfaseAlong;
+            }
             else
                 resultVelocity.x = 0;
         }
 
 
 
-
-
+        Debug.DrawRay(transform.position, resultVelocity, Color.green);
         return resultVelocity;
     }
 

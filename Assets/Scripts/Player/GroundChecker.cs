@@ -19,10 +19,10 @@ public class GroundChecker : MonoBehaviour
         RaycastHit2D[] hit = new RaycastHit2D[1];
         int hitCount = _rigidbody.Cast(Vector2.down, _filter, hit, _groundDistanse);
 
-        //if (hitCount > 0)
-        //return hit[0].point.y - (transform.position.y + _groundDistanse * _positionYModifier) < 0;
-        //else
-        //return false;
-        return hitCount > 0;
+        if (hitCount > 0)
+            return hit[0].point.y - (transform.position.y + _groundDistanse * _positionYModifier) < 0;
+        else
+            return false;
+        //return hitCount > 0;
     }
 }
