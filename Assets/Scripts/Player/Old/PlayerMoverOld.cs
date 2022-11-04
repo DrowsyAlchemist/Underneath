@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(GroundChecker))]
 [RequireComponent(typeof(MovementAnimator))]
-public class PlayerMover : MonoBehaviour
+public class PlayerMoverOld : MonoBehaviour
 {
     [SerializeField] private float _speed = 3;
     [SerializeField] private float _gravityModifier = 2;
@@ -32,6 +32,7 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
+        _isGrounded = _groundChecker.IsGrounded();
         HandleGravity();
         Jump();
         Move();
@@ -40,8 +41,6 @@ public class PlayerMover : MonoBehaviour
 
     private void HandleGravity()
     {
-        _isGrounded = _groundChecker.IsGrounded();
-
         if (_isGrounded)
             _targetVelocity.y = 0;
         else
@@ -69,23 +68,14 @@ public class PlayerMover : MonoBehaviour
     {
         _targetVelocity = ComputeVelocity(_targetVelocity);
 
-
-
-
         Vector2 move = _targetVelocity * Time.deltaTime;
 
-        //////////////////////////////////////////////////////////////
         RaycastHit2D[] hits = new RaycastHit2D[16];
-
 
         int hitCount = _rigidbody.Cast(move, hits, move.magnitude);
 
         if (hitCount > 0)
-        {
             move = move.normalized * (hits[0].distance - 0.01f);
-        }
-        ////////////////////////////////////////////////////////////
-
 
         transform.Translate(move);
     }
@@ -109,31 +99,20 @@ public class PlayerMover : MonoBehaviour
     private Vector2 ComputeVelocityAlongSurfase(Vector2 initialVelocity)
     {
         Vector2 resultVelocity = initialVelocity;
-
         RaycastHit2D[] hits = new RaycastHit2D[16];
-
-
         int hitCount = _rigidbody.Cast(resultVelocity, hits, resultVelocity.magnitude * Time.deltaTime);
-
-
-        Debug.DrawRay(transform.position, resultVelocity);
-        Debug.Log(resultVelocity);
 
         if (hitCount > 0)
         {
             Vector2 surfaseNormal = hits[0].normal;
             Vector2 surfaseAlong = new Vector2(surfaseNormal.y, -1 * surfaseNormal.x);
 
-            Debug.Log(surfaseNormal);
-            Debug.DrawRay(transform.position, surfaseNormal, Color.red);
-            Debug.DrawRay(transform.position, surfaseAlong, Color.red);
-
             if (surfaseNormal.y > _groundMinNormalY)
                 resultVelocity = resultVelocity.x * surfaseAlong;
             else if (surfaseNormal.y < -1 * _groundMinNormalY)
             {
-                if (resultVelocity.y > 0)
-                    resultVelocity.y = 0;
+                //if (resultVelocity.y > 0)
+                  //  resultVelocity.y = 0;
 
                 resultVelocity = -1 * resultVelocity.x * surfaseAlong;
             }
@@ -141,9 +120,6 @@ public class PlayerMover : MonoBehaviour
                 resultVelocity.x = 0;
         }
 
-
-
-        Debug.DrawRay(transform.position, resultVelocity, Color.green);
         return resultVelocity;
     }
 

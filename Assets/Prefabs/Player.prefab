@@ -216,17 +216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundDistanse: 0.03
   _positionYModifier: 2
-  _filter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0

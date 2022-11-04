@@ -11,7 +11,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.gameObject.layer & (1 << _layerMask)) > 0)
+        if ((_layerMask.value & (1 << collision.gameObject.layer)) > 0)
         {
             Debug.Log("Ground");
             IsGrounded = true;
@@ -20,7 +20,7 @@ public class GroundCheck : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if ((collision.gameObject.layer & (1 << _layerMask)) > 0)
+        if ((_layerMask.value & (1 << collision.gameObject.layer)) > 0)
         {
             Debug.Log("OffGround");
             IsGrounded = false;
