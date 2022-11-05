@@ -763,10 +763,12 @@ GameObject:
   m_Component:
   - component: {fileID: 458499451}
   - component: {fileID: 458499450}
+  - component: {fileID: 458499455}
   - component: {fileID: 458499452}
+  - component: {fileID: 458499457}
   - component: {fileID: 458499453}
   - component: {fileID: 458499454}
-  - component: {fileID: 458499455}
+  - component: {fileID: 458499456}
   m_Layer: 0
   m_Name: TestMover
   m_TagString: Untagged
@@ -834,7 +836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 458499448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.02, y: 3.56, z: 0}
+  m_LocalPosition: {x: -7.61, y: 4.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -874,28 +876,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c4eab9cff86cb42a39292e1923ff9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _movementAnimator: {fileID: 458499456}
   _speed: 3
   _gravityModifier: 1.5
-  _castLength: 0
+  _surfaceLayers:
+    serializedVersion: 2
+    m_Bits: 8
   _groundMinNormalY: 0.4
-  _groundChecker: {fileID: 458499454}
+  _shellOffset: 0.05
+  _groundDistanceModifier: 1.05
   _jumpForse: 7
   _maxJumpCount: 2
-  _filter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  _groundCheck: {fileID: 0}
+  _timeBeforeLanding: 0.08
+  _timeAflerGetOffGround: 0.15
 --- !u!114 &458499454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -908,22 +901,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40c0bd91b5af044a881c80a7c3686da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundDistanse: 0.01
-  _positionYModifier: 2
-  _filter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!61 &458499455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -950,6 +930,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1.3885714}
   m_EdgeRadius: 0
+--- !u!114 &458499456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458499448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92605224ac9f0bf448f4a02875e8b3bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &458499457
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458499448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dc673edfc6a4a224fa4b3f81312587ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &544871464
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,22 +2613,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d40c0bd91b5af044a881c80a7c3686da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundDistanse: 0.015
-  _positionYModifier: 2
-  _filter:
-    useTriggers: 0
-    useLayerMask: 1
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 8
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1754596834
 Rigidbody2D:
   serializedVersion: 4

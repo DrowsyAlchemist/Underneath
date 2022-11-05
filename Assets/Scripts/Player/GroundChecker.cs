@@ -3,8 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class GroundChecker : MonoBehaviour
 {
-    [SerializeField] private float _groundDistanse = 0.03f;
-    [SerializeField] private float _positionYModifier = 2;
     [SerializeField] private LayerMask _groundLayer;
 
     private Rigidbody2D _rigidbody;
@@ -17,10 +15,10 @@ public class GroundChecker : MonoBehaviour
         _contactFilter.layerMask = _groundLayer;
     }
 
-    public bool IsGrounded()
+    public bool IsGrounded(float groundDistanse)
     {
         RaycastHit2D[] hit = new RaycastHit2D[1];
-        int hitCount = _rigidbody.Cast(Vector2.down, _contactFilter, hit, _groundDistanse);
+        int hitCount = _rigidbody.Cast(Vector2.down, _contactFilter, hit, groundDistanse);
         return hitCount > 0;
     }
 }

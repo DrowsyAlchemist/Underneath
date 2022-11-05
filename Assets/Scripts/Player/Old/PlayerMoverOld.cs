@@ -32,7 +32,7 @@ public class PlayerMoverOld : MonoBehaviour
 
     private void Update()
     {
-        _isGrounded = _groundChecker.IsGrounded();
+        _isGrounded = _groundChecker.IsGrounded(0.01f);
         HandleGravity();
         Jump();
         Move();
@@ -112,7 +112,7 @@ public class PlayerMoverOld : MonoBehaviour
             else if (surfaseNormal.y < -1 * _groundMinNormalY)
             {
                 //if (resultVelocity.y > 0)
-                  //  resultVelocity.y = 0;
+                //  resultVelocity.y = 0;
 
                 resultVelocity = -1 * resultVelocity.x * surfaseAlong;
             }
