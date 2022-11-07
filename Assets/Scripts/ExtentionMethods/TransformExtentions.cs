@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class TransformExtentions 
+public static class TransformExtentions
 {
     public static void LookForwardDirection(this Transform transform, bool positiveDirection)
     {
@@ -10,5 +10,11 @@ public static class TransformExtentions
 
         if (transform.localScale.x * direction < 0)
             transform.localScale = new Vector3(-1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    }
+
+    public static void TurnToTarget(this Transform transform, Transform target)
+    {
+        bool positiveDirection = (target.position.x - transform.position.x) > 0;
+        LookForwardDirection(transform, positiveDirection);
     }
 }
