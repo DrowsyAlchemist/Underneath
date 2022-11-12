@@ -176,8 +176,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _groundMinNormalY: 0.4
-  _shellOffset: 0.03
-  _groundDistanceModifier: 1.05
+  _shellOffset: 0.05
+  _groundDistanceModifier: 1.12
   _jumpForse: 7
   _maxJumpCount: 2
   _timeBeforeLanding: 0.08

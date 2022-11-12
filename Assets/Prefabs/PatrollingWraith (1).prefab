@@ -16,8 +16,12 @@ GameObject:
   - component: {fileID: 8778008200703974821}
   - component: {fileID: 8778008200703974820}
   - component: {fileID: 8778008200703974823}
-  - component: {fileID: 8778008200703974822}
-  m_Layer: 0
+  - component: {fileID: 1462649880}
+  - component: {fileID: 1462649881}
+  - component: {fileID: 1462649882}
+  - component: {fileID: 1462649883}
+  - component: {fileID: 1462649884}
+  m_Layer: 6
   m_Name: PatrollingWraith (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +131,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.06, y: 0.12}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
 --- !u!114 &8778008200703974832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8778008200703974823}
+  - {fileID: 1462649881}
   _walkingSpeed: 1
   _eachPointDelay: 2
   _patrolPoints:
@@ -186,8 +191,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40d01d03b585bc041aea606f0897abc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 8778008200703974822}
---- !u!114 &8778008200703974822
+  _targetState: {fileID: 1462649883}
+--- !u!114 &1462649880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5308e10f734c56f42a43cd0657f6f10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 8778008200703974820}
+  _maxTargetDistance: 5
+--- !u!114 &1462649881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c35d1e10204735743aa82a98bfadb6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1462649882}
+  _viewDirectionInDegrees: 0
+  _viewingAngleInDegrees: 120
+  _viewingRange: 3
+  _targetHeightCorrection: 0.6
+--- !u!114 &1462649882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef8c430ca17f3d4ca61c8a591b11ba1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 8778008200703974823}
+  - {fileID: 1462649880}
+  _speed: 2.5
+--- !u!114 &1462649883
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,7 +254,20 @@ MonoBehaviour:
   _transitions: []
   _explosionRadius: 2
   _explosionEffect: {fileID: 7069926364230417678, guid: ac5d48485ee83ec4aa85be55143952b1, type: 3}
-  _player: {fileID: 0}
+  _speedDuringExplosion: 2
+--- !u!114 &1462649884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
 --- !u!1001 &1318010596035192327
 PrefabInstance:
   m_ObjectHideFlags: 0

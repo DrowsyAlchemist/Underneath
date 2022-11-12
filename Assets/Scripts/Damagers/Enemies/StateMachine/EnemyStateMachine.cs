@@ -3,9 +3,9 @@ using System;
 
 public class EnemyStateMachine : MonoBehaviour
 {
-    [SerializeField] private State _initialState;
+    [SerializeField] private EnemyState _initialState;
 
-    private State _currentState;
+    private EnemyState _currentState;
 
     private void Start()
     {
@@ -24,7 +24,7 @@ public class EnemyStateMachine : MonoBehaviour
             Transit(nextState);
     }
 
-    private void Transit(State newState)
+    private void Transit(EnemyState newState)
     {
         _currentState.Exit();
         _currentState = newState;
