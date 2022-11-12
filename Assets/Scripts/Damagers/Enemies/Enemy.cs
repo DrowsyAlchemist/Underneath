@@ -4,6 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAnimation))]
 public abstract class Enemy : Damager
 {
+    [SerializeField] protected EnemyPatrol Patrol;
+
     protected Collider2D Collider { get; private set; }
     protected EnemyAnimation EnemyAnimation { get; private set; }
 
@@ -21,6 +23,9 @@ public abstract class Enemy : Damager
 
     protected virtual void Attack(Player player)
     {
+        if (Patrol)
+            Patrol.StopPatrol();
+
         transform.TurnToTarget(player.transform);
         EnemyAnimation.PlayAttack();
     }

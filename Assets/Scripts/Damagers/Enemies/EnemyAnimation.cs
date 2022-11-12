@@ -13,9 +13,13 @@ public class EnemyAnimation : MonoBehaviour
 
     public Animator Animator { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         Animator = GetComponent<Animator>();
+    }
+    public virtual void PlayAttack()
+    {
+        Animator.Play(AttackAnimation);
     }
 
     public void PlayIdle()
@@ -33,10 +37,6 @@ public class EnemyAnimation : MonoBehaviour
         Animator.Play(DieAnimation);
     }
 
-    public void PlayAttack()
-    {
-        Animator.Play(AttackAnimation);
-    }
 
     public void PlayIdleBlink()
     {
