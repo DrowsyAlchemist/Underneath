@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerAnimation))]
@@ -10,10 +11,16 @@ public class Player : MonoBehaviour
     [SerializeField] private float _invulnerabilityDuration = 1;
 
     private int _currentHealth;
+    private int _money;
     private bool _isInvulnerability;
 
+    public int MaxHealth => _maxHealth;
     public PlayerMovement PlayerMovement { get; private set; }
     public PlayerAnimation PlayerAnimation { get; private set; }
+
+    public event UnityAction<int> HealthChanged;
+    public event UnityAction<int> MoneyChanged;
+
 
     private void Start()
     {
@@ -21,13 +28,15 @@ public class Player : MonoBehaviour
         PlayerMovement = GetComponent<PlayerMovement>();
 
         _currentHealth = _maxHealth;
+        HealthChanged?.Invoke(_currentHealth);
+        MoneyChanged?.Invoke(_money);
     }
 
-    public int Coins { get; private set; }
 
     public void TakeCoin()
     {
-        Coins++;
+        _money++;
+        MoneyChanged?.Invoke(_money);
     }
 
     public void TakeDamage()
@@ -35,6 +44,7 @@ public class Player : MonoBehaviour
         if (_isInvulnerability == false)
         {
             _currentHealth--;
+            HealthChanged?.Invoke(_currentHealth);
             Knock();
 
             if (_currentHealth > 0)
