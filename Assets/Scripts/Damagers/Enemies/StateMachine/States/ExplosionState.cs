@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ExplosionState : EnemyState
 {
+    [SerializeField] private int _damage = 1;
     [SerializeField] private float _explosionRadius = 2;
     [SerializeField] private ParticleSystem _explosionEffect;
 
@@ -16,7 +17,7 @@ public class ExplosionState : EnemyState
     private void Update()
     {
         float step = _speedDuringExplosion * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, Target.position, step);
+        transform.position = Vector2.MoveTowards(transform.position, Target.GetWorldCenter(), step);
     }
 
     private IEnumerator Explode()
@@ -35,9 +36,9 @@ public class ExplosionState : EnemyState
 
     private void BlowUpPlayer(Player player)
     {
-        Debug.DrawRay(transform.position, (player.transform.position - transform.position).normalized * _explosionRadius, Color.cyan, 2);
+        Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _explosionRadius, Color.cyan, 2);
 
-        if ((transform.position - player.transform.position).magnitude < _explosionRadius)
-            player.TakeDamage();
+        if ((transform.position - player.GetWorldCenter()).magnitude < _explosionRadius)
+            player.TakeDamage(_damage);
     }
 }

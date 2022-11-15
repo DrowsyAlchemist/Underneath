@@ -22,33 +22,33 @@ public class EnemyAnimator : MonoBehaviour
         Animator.Play(AttackAnimation);
     }
 
-    public void PlayIdle()
+    public virtual void PlayIdle()
     {
         Animator.Play(IdleAnimation);
     }
 
-    public void PlayHurt()
+    public virtual void PlayHurt()
     {
         Animator.Play(HurtAnimation);
     }
 
-    public void PlayDie()
+    public virtual void PlayDie()
     {
         Animator.Play(DieAnimation);
     }
 
 
-    public void PlayIdleBlink()
+    public virtual void PlayIdleBlink()
     {
         Animator.Play(IdleBlinkAnimation);
     }
 
-    public void PlayTaunt()
+    public virtual void PlayTaunt()
     {
         Animator.Play(TauntAnimation);
     }
 
-    public void PlayWalk()
+    public virtual void PlayWalk()
     {
         Animator.Play(WalkAnimation);
     }

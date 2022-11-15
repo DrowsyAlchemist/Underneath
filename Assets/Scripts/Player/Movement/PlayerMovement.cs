@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (_spaceIsPressed && _secondsAfterSpacePressed < _timeBeforeLanding)
                 JumpFromGround();
-            else
+            else if (_secondsInAir > 0)
                 _jumpsLeft = 0;
 
             _spaceIsPressed = false;

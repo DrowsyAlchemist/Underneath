@@ -1,53 +1,57 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerAnimation))]
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth = 2;
-    [SerializeField] private float _invulnerabilityDuration = 1;
-
-    private int _currentHealth;
     private int _money;
-    private bool _isInvulnerability;
+    private Collider2D _collider;
 
-    public int MaxHealth => _maxHealth;
     public PlayerMovement PlayerMovement { get; private set; }
     public PlayerAnimation PlayerAnimation { get; private set; }
+    public PlayerHealth PlayerHealth { get; private set; }
 
-    public event UnityAction<int> HealthChanged;
     public event UnityAction<int> MoneyChanged;
 
 
     private void Start()
     {
+        _collider = GetComponent<Collider2D>();
         PlayerAnimation = GetComponent<PlayerAnimation>();
         PlayerMovement = GetComponent<PlayerMovement>();
+        PlayerHealth = GetComponent<PlayerHealth>();
 
-        _currentHealth = _maxHealth;
-        HealthChanged?.Invoke(_currentHealth);
         MoneyChanged?.Invoke(_money);
     }
 
-
-    public void TakeCoin()
+    public Vector3 GetWorldCenter()
     {
-        _money++;
+        Vector3 localCenter = _collider.offset;
+        return transform.position + localCenter;
+    }
+
+    public void TakeMoney(int money)
+    {
+        if (money < 0)
+            throw new System.ArgumentOutOfRangeException();
+
+        _money += money;
         MoneyChanged?.Invoke(_money);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        if (_isInvulnerability == false)
+        if (PlayerHealth.IsInvulnerability == false)
         {
-            _currentHealth--;
-            HealthChanged?.Invoke(_currentHealth);
+            PlayerHealth.ReduceHealth(damage);
             Knock();
 
-            if (_currentHealth > 0)
+            if (PlayerHealth.CurrentHealth > 0)
                 StartCoroutine(StandUp());
             else
                 Die();
@@ -56,7 +60,6 @@ public class Player : MonoBehaviour
 
     private void Knock()
     {
-        _isInvulnerability = true;
         SetMoverActive(false);
         PlayerAnimation.PlayKnock();
     }
@@ -69,15 +72,6 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(PlayerAnimation.Animator.GetCurrentAnimatorStateInfo(0).length);
         SetMoverActive(true);
-        PlayerAnimation.PlayInvulnerability();
-        StartCoroutine(ResetInvulnerability());
-    }
-
-    private IEnumerator ResetInvulnerability()
-    {
-        yield return new WaitForSeconds(_invulnerabilityDuration);
-        _isInvulnerability = false;
-        PlayerAnimation.StopInvulnerability();
     }
 
     private void Die()

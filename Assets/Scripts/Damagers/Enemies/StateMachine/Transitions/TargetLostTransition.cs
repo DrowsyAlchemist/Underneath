@@ -6,7 +6,7 @@ public class TargetLostTransition : EnemyTransition
 
     private void FixedUpdate()
     {
-        if (Vector2.Distance(transform.position, Target.position) > _maxTargetDistance)
+        if (Vector2.Distance(transform.position, Target.GetWorldCenter()) > _maxTargetDistance)
             NeedTransit = true;
     }
 }

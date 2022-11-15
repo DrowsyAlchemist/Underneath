@@ -6,22 +6,18 @@ public class TargetSpottedTransition : EnemyTransition
     [SerializeField] private float _viewingAngleInDegrees = 90;
     [SerializeField] private float _viewingRange = 3;
 
-    [SerializeField] private float _targetHeightCorrection = 0.6f;
-
     private Vector2 _viewDirection;
     private float _viewingAngle;
-    private Vector3 _targetPointCorrection;
-
+ 
     private void Start()
     {
         _viewDirection = Quaternion.Euler(0, 0, _viewDirectionInDegrees) * transform.right;
         _viewingAngle = _viewingAngleInDegrees / 2;
-        _targetPointCorrection = Vector2.up * _targetHeightCorrection;
     }
 
     private void FixedUpdate()
     {
-        float targetDistance = Vector2.Distance(transform.position, Target.position);
+        float targetDistance = Vector2.Distance(transform.position, Target.GetWorldCenter());
         int positiveDirection = transform.localScale.x > 0 ? 1 : -1;
         Vector2 viewDirection = _viewDirection * positiveDirection;
 
@@ -30,8 +26,7 @@ public class TargetSpottedTransition : EnemyTransition
 
         if (targetDistance < _viewingRange)
         {
-            Vector2 targetLocalPosition = Target.position - transform.position + _targetPointCorrection;
-            //Vector2 viewDirection = _viewDirection * positiveDirection;
+            Vector2 targetLocalPosition = Target.GetWorldCenter() - transform.position;
             float playerAngle = Vector2.Angle(viewDirection, targetLocalPosition);
 
             if (playerAngle < _viewingAngle)

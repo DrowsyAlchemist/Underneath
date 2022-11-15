@@ -1,23 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class AttackState : EnemyState
 {
+    [SerializeField] private int _damage = 1;
+    [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _attackDelay = 0.3f;
-    [SerializeField] private Player _player;
-
-    private Collider2D _collider;
-
-    private void Start()
-    {
-        _collider = GetComponent<Collider2D>();
-    }
 
     private void Update()
     {
-        Attack(_player);
+        Attack(Target);
     }
 
     private void Attack(Player player)
@@ -31,14 +23,12 @@ public class AttackState : EnemyState
     {
         yield return new WaitForSeconds(_attackDelay);
 
-        if (_collider.IsTouchingLayers(1 << player.gameObject.layer))
-            player.TakeDamage();
+        if (Vector2.Distance(transform.position, player.GetWorldCenter()) < _attackRange)
+        {
+            player.TakeDamage(_damage);
+            Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _attackRange, Color.red, 1);
+        }
 
         enabled = false;
-    }
-
-    private void OnValidate()
-    {
-        GetComponent<Collider2D>().isTrigger = true;
     }
 }

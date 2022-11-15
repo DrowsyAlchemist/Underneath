@@ -1,6 +1,7 @@
-using UnityEngine;
-
 public class WatchState : EnemyState
 {
-
+    private void OnEnable()
+    {
+        EnemyAnimation.PlayIdle();
+    }
 }

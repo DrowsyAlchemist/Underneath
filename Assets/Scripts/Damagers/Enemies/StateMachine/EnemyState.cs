@@ -1,12 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyAnimator))]
 [RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(EnemyAnimator))]
 public abstract class EnemyState : MonoBehaviour
 {
     [SerializeField] private EnemyTransition[] _transitions;
 
-    protected Transform Target;
+    protected Player Target;
 
     protected EnemyAnimator EnemyAnimation { get; private set; }
 
@@ -14,7 +14,7 @@ public abstract class EnemyState : MonoBehaviour
     {
         enabled = false;
         EnemyAnimation = GetComponent<EnemyAnimator>();
-        Target = GetComponent<Enemy>().Target.transform;
+        Target = GetComponent<Enemy>().Target;
     }
 
     public void Enter()

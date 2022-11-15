@@ -3,10 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Spikes : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private int _damage = 1;
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
-            player.TakeDamage();
+            player.TakeDamage(_damage);
     }
 
     private void OnValidate()

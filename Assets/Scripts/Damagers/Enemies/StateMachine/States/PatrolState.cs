@@ -5,7 +5,8 @@ public class PatrolState : EnemyState
 {
     [Space]
     [Header("Patrol Settings")]
-    [SerializeField] private float _walkingSpeed = 1;
+    [SerializeField] private bool _canFly;
+    [SerializeField] private float _speed = 1;
     [SerializeField] private float _eachPointDelay = 2;
     [SerializeField] private List<Transform> _patrolPoints;
 
@@ -15,14 +16,11 @@ public class PatrolState : EnemyState
     private Transform _targetPoint;
     private float _elapsedTime;
 
-    private void Start()
-    {
-        _targetPoint = _patrolPoints[_targetPointNumber];
-    }
-
     private void OnEnable()
     {
         _elapsedTime = 0;
+        _targetPoint = _patrolPoints[_targetPointNumber];
+        transform.TurnToTarget(_targetPoint);
     }
 
     private void Update()
@@ -37,15 +35,22 @@ public class PatrolState : EnemyState
 
     private float GetDistanceToTarget(Transform target)
     {
-        return Vector2.Distance(transform.position, target.position);
+        if (_canFly)
+            return Vector2.Distance(transform.position, target.position);
+        else
+            return Mathf.Abs(transform.position.x - target.position.x);
     }
 
     private void MoveToTarget(Transform target)
     {
-        transform.TurnToTarget(target);
         EnemyAnimation.PlayWalk();
-        float step = _walkingSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        float step = _speed * Time.deltaTime;
+        Vector2 targetDirection = (target.position - transform.position).normalized;
+
+        if (_canFly)
+            transform.Translate(targetDirection * step);
+        else
+            transform.Translate((targetDirection.x > 0 ? 1 : -1) * step * Vector2.right);
     }
 
     private void SetNextTargetPoint()
@@ -61,6 +66,7 @@ public class PatrolState : EnemyState
         }
         _targetPoint = _patrolPoints[_targetPointNumber];
         _elapsedTime = 0;
+        transform.TurnToTarget(_targetPoint);
     }
 
     private void Wait()
