@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(PlayerAnimation))]
@@ -9,12 +8,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Inventory _inventory;
+
     private int _money;
     private Collider2D _collider;
 
     public PlayerMovement PlayerMovement { get; private set; }
     public PlayerAnimation PlayerAnimation { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
+    public Inventory Inventory => _inventory;
 
     public event UnityAction<int> MoneyChanged;
 

@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,7 +127,2212 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: RPG_GUI_v1_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 625
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c9f97bac74d2b45b63a2e57c662584
+      internalID: -2059324526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 625
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0eb42add85272344a638e807dfb37dc
+      internalID: -279134996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 625
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e4e34dd28b66146a51777c941fcd4a
+      internalID: -1560449843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_3
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 621
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea582f3e455a47142ad3d88aa7276da8
+      internalID: 395404706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_4
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 621
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d266118fba6bb8f4f80084a86d2267f4
+      internalID: -5124185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_5
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 621
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541a0c1779af38648a774a03bda71b7b
+      internalID: 1689362021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_6
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 616
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0563628301162e349a6e0c8106d20270
+      internalID: 2108425845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_7
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 616
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ea496d1867e27245825b991e7f59b63
+      internalID: 1467319178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_8
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 617
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2b2698d7fbc8594a82f6ecc8f927db5
+      internalID: 852457138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_9
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 615
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1f053f9d10d7c4a8e36bc1c5631863
+      internalID: 1445831099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_10
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 616
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a7dcb3eb564154eb541858e10f4995
+      internalID: -442857474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_11
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 616
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7373fdfc92571f4abb386bba0b7fd9d
+      internalID: -332168113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_12
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 617
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95655485c2399c643b02ff48e1dde32a
+      internalID: -1111466512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_13
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 615
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9923303ff84c95c489802a3160185f03
+      internalID: 552979220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_14
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 614
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d51a9a0c2a6e4646b379c7f29693515
+      internalID: -1915028748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_15
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 604
+        width: 29
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d0db933e7b0b24aae4e992793aaee0
+      internalID: 967851229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_16
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 609
+        width: 47
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd6d28f6ede7394688db44206def2d8
+      internalID: 1287904319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_17
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 589
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810d4a49bbb205a4ab1f1cc2058277bf
+      internalID: 1434172201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 589
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e240cd2d96d25f48a380f7ffea3e1cb
+      internalID: -1482610467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_19
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 589
+        width: 33
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4d53d8127fb6ea4788ff0e2d16b4b99
+      internalID: -1238652773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_20
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 580
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffccc633352b7642b40dd67c6e5646f
+      internalID: 1900607228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_21
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 580
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2edef06ca372944b75f0c3ad49e58e
+      internalID: -2017071175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_22
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 580
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f345b5f30c648ac47adceecb3d9e1e42
+      internalID: -380259869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_23
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 564
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504dbb870768382409994b0d0694d86d
+      internalID: -941973271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_24
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 564
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ab50c423c55814b9f752d5897fde66
+      internalID: -1028938883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_25
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 565
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade42ab7c1a883c4ab3c3b718e3e3ba9
+      internalID: -1842303628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_26
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 563
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f33080834b42a2944930060ce53e16d3
+      internalID: -796944163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_27
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 564
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c96b41940bfd441bad679c717fe33d
+      internalID: -2111582428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_28
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 564
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b895deda25518ac458fb250d94505b03
+      internalID: -1446214587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_29
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 565
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86f2ae84bf218354ea9b18c5a7d9edb3
+      internalID: -954054881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_30
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 563
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22e08ae1f3c06ac468c46f96396fd5cb
+      internalID: 2137543176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_31
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 570
+        width: 216
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38a3fab1f292e24e8b5296d040aa886
+      internalID: 461901444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_32
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 481
+        width: 291
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd56172b806e29e4887e8d99a33d7589
+      internalID: -2106373999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_33
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 512
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c742957f673dadd419180dff01b5c8fa
+      internalID: -978464361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_34
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 512
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec92093dc721db9429878c5d69670de8
+      internalID: -1550790842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_35
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 513
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec4dc73e270e374fbea3eec93ab52bb
+      internalID: -641895129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_36
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 511
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5969c8fbe6cda964bbb9b74db94d80e7
+      internalID: 1990544691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_37
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 512
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b2337f72242cb4d8d342b8819db86b
+      internalID: 433323108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_38
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 512
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7039ff2cf78d0e48b92a5aae36714c9
+      internalID: 971595963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_39
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 513
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f502c782198d1a04298eb664228de742
+      internalID: 538910346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_40
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 511
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66b64f6becdb50f41bf5a2cbef6b0fe5
+      internalID: -892698909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_41
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 538
+        width: 209
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2178454e76687f4aa6d608881b61fd8
+      internalID: -579697197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_42
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 475
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b2f2a6650504c41bc5ae5e9df2dd7c
+      internalID: -2084961310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_43
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 493
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969967564d24c6d4ea7e750df009dee5
+      internalID: -170039480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_44
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 493
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 054495bc75df17e46ae703772ffdc82c
+      internalID: 597272043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_45
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 497
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d36d3afd2997c3749ade27cdaab77bb8
+      internalID: 1445924804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_46
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 491
+        width: 19
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b74362bc2d2ef6448262dd248b07e87
+      internalID: -344413166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_47
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 403
+        width: 291
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f49bdd09d488248ad116e55b817eb8
+      internalID: -254885197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_48
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 460
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af5b5ee762c2a484ab033144f27e1490
+      internalID: -541602295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_49
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 460
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c7dfa8956f34243bd15c79581b9c52
+      internalID: 1208343950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_50
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 461
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f68459b7a3a6e429ecf606d21914b9
+      internalID: -1167122747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_51
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 459
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9345306a999ca9a46a03ddcf93a4284d
+      internalID: 1383011675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_52
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 460
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12df0828f82c494a9b50e9fb33f0117
+      internalID: 378297488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_53
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 460
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b5a2593ac402a4d95a6ddbaa381808
+      internalID: 2015643631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_54
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 461
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57d66b5a1a046d04291463b9d6cd6c13
+      internalID: -1550973833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_55
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 459
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dabde8979d005e40a9ce565f97ca6b0
+      internalID: -1426318755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_56
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 453
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fef2e047c05beb4bad407f71f042202
+      internalID: -1917676403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_57
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 459
+        width: 73
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f04cc034a89a2b438f1d7c63d49cc54
+      internalID: -2049006910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_58
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 453
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3955c328b75d7489e23e3069664b4a
+      internalID: 2084922816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_59
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 427
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bca8129d8831f1459c3578383daea36
+      internalID: -838370175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_60
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 384
+        width: 19
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd7aa1266fb9ad479a391180150b4fe
+      internalID: -216375368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_61
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 398
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4fc4c736c0f0674b85a18ee7de89ecb
+      internalID: 67906788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_62
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 384
+        width: 19
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00236c2c05e08f5459955b690c24e97c
+      internalID: -1924210303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_63
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 325
+        width: 291
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 779d3c7028887d443b94d0f220658cbf
+      internalID: -1963646580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_64
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 368
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb0e1f476b2955b4baaa1fd1cad862f1
+      internalID: -1679179094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_65
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 370
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f22cc9b491d6f45a7497bfe505f426
+      internalID: -719678826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_66
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 369
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebfc55d76c9de9e4bbb20c4f001352fc
+      internalID: 520683807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_67
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 369
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 800a03540514eef478ee19aac75cfdf8
+      internalID: -1860250321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_68
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 384
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47ec2d8e2e29dd49b4b4373a21c5092
+      internalID: 1866722557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_69
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 315
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa13a94475d23944484eb7430a747b30
+      internalID: 841363712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_70
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 315
+        width: 36
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dfbe811f46af5e4e946c475e0422ab6
+      internalID: 606805794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_71
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 316
+        width: 35
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38662dcf3b8e9984595faf2dfabc9453
+      internalID: 1421618930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_72
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 317
+        width: 48
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6a86231e915ce42befc24c933c5aec
+      internalID: 371113960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_73
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 339
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243a49b6709a75249af8d505dcf0ec91
+      internalID: -529030755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_74
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 347
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e447c0ae7e25c4bb80c873e08a9f90
+      internalID: -266002398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_75
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 347
+        width: 73
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f89981c086edf0f4382a834d33924259
+      internalID: -878068593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_76
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 347
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab4419aadd45204fbc3a641ae93e5da
+      internalID: -818672225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_77
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 247
+        width: 291
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac3cf5ce09d7c440a66e80938a4fd84
+      internalID: -379165398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_78
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 290
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8e9b6bc1de61c4e8964792a1f69bd3
+      internalID: 185563192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_79
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 290
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f480ac4635bfe14786ed4794f371cfd
+      internalID: -672281450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_80
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 293
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86dfb0e295a5bf241a240ca97c435bd6
+      internalID: 1248504331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_81
+      rect:
+        serializedVersion: 2
+        x: 974
+        y: 288
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5a0c53b9bbf5440b17bc77095dacf6
+      internalID: 1321188454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_82
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 266
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35dfedde1c7e27f44b2a150161648985
+      internalID: 692362964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_83
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 249
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6649701e512d2438497baaa9e8cbaa
+      internalID: -2140998751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_84
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 255
+        width: 74
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38edf5c1dfddc5542956d4aa7e35470f
+      internalID: -1364212121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_85
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 249
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64bfecbf97cb7d042bdf1a810f08c08e
+      internalID: 637667605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_86
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 231
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d119c3c1cb9f8745a34cb5374a7baef
+      internalID: 571046326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_87
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 179
+        width: 14
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1cb071fd5e067439274551ebe9570b
+      internalID: -1861997119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_88
+      rect:
+        serializedVersion: 2
+        x: 988
+        y: 179
+        width: 14
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6511c4328ae63984195c9cf40947b7b5
+      internalID: 1373727283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_89
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 129
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b419582c680ca41a467fc89ba14606
+      internalID: 170141902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_90
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 196
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd733e91999a954da3e7f5715bbd4cf
+      internalID: -145993642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_91
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 196
+        width: 43
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ee677910f38be849a8104be397f3f12
+      internalID: 297284777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_92
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 128
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a4a34458455da4cbc48dd3c0483eb1
+      internalID: -1503184037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_93
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 161
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f226d65ba2a9d5147855a17effd34236
+      internalID: -382778763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_94
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 148
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 806255045dae8704dab548800aadf170
+      internalID: 376256388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_95
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 148
+        width: 74
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc3549dcf18a1e4ca2c21b031c0d778
+      internalID: -924886793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_96
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 148
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4135378221c0774eb33073b3af5db24
+      internalID: -2111025263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_97
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 76
+        width: 21
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a1bf9c7c579de247abf3cbfb18ad65c
+      internalID: 2051780721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_98
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 104
+        width: 129
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bde0e64e1a4d1247ac696751bb82cae
+      internalID: 2002555599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_99
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 76
+        width: 21
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469403397e880bf4f8f7699418befc6c
+      internalID: 738304249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_100
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 76
+        width: 129
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a56510d1d1bf44ea8d3d6bc8da13b1
+      internalID: -685039823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_101
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 20
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 857885398b1fa80498fa1be4a8f13d5b
+      internalID: -964173121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_102
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 40
+        width: 129
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45384371a0205a45a8ac4e5df4d71b5
+      internalID: -541013010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_103
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 20
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3cc9a24cf18e6d4ea8bd3d695bdf6b8
+      internalID: -1360460518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RPG_GUI_v1_104
+      rect:
+        serializedVersion: 2
+        x: 831
+        y: 20
+        width: 129
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67ad255c9093d12409533ded00442c8d
+      internalID: -1382309537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -138,7 +2343,112 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RPG_GUI_v1_33: -978464361
+      RPG_GUI_v1_101: -964173121
+      RPG_GUI_v1_66: 520683807
+      RPG_GUI_v1_24: -1028938883
+      RPG_GUI_v1_58: 2084922816
+      RPG_GUI_v1_9: 1445831099
+      RPG_GUI_v1_57: -2049006910
+      RPG_GUI_v1_30: 2137543176
+      RPG_GUI_v1_62: -1924210303
+      RPG_GUI_v1_97: 2051780721
+      RPG_GUI_v1_34: -1550790842
+      RPG_GUI_v1_76: -818672225
+      RPG_GUI_v1_81: 1321188454
+      RPG_GUI_v1_36: 1990544691
+      RPG_GUI_v1_61: 67906788
+      RPG_GUI_v1_47: -254885197
+      RPG_GUI_v1_4: -5124185
+      RPG_GUI_v1_84: -1364212121
+      RPG_GUI_v1_71: 1421618930
+      RPG_GUI_v1_56: -1917676403
+      RPG_GUI_v1_53: 2015643631
+      RPG_GUI_v1_94: 376256388
+      RPG_GUI_v1_104: -1382309537
+      RPG_GUI_v1_20: 1900607228
+      RPG_GUI_v1_54: -1550973833
+      RPG_GUI_v1_67: -1860250321
+      RPG_GUI_v1_0: -2059324526
+      RPG_GUI_v1_87: -1861997119
+      RPG_GUI_v1_32: -2106373999
+      RPG_GUI_v1_78: 185563192
+      RPG_GUI_v1_35: -641895129
+      RPG_GUI_v1_6: 2108425845
+      RPG_GUI_v1_59: -838370175
+      RPG_GUI_v1_82: 692362964
+      RPG_GUI_v1_28: -1446214587
+      RPG_GUI_v1_31: 461901444
+      RPG_GUI_v1_85: 637667605
+      RPG_GUI_v1_102: -541013010
+      RPG_GUI_v1_12: -1111466512
+      RPG_GUI_v1_98: 2002555599
+      RPG_GUI_v1_90: -145993642
+      RPG_GUI_v1_13: 552979220
+      RPG_GUI_v1_18: -1482610467
+      RPG_GUI_v1_69: 841363712
+      RPG_GUI_v1_103: -1360460518
+      RPG_GUI_v1_10: -442857474
+      RPG_GUI_v1_27: -2111582428
+      RPG_GUI_v1_23: -941973271
+      RPG_GUI_v1_80: 1248504331
+      RPG_GUI_v1_63: -1963646580
+      RPG_GUI_v1_8: 852457138
+      RPG_GUI_v1_21: -2017071175
+      RPG_GUI_v1_65: -719678826
+      RPG_GUI_v1_52: 378297488
+      RPG_GUI_v1_55: -1426318755
+      RPG_GUI_v1_89: 170141902
+      RPG_GUI_v1_50: -1167122747
+      RPG_GUI_v1_7: 1467319178
+      RPG_GUI_v1_75: -878068593
+      RPG_GUI_v1_86: 571046326
+      RPG_GUI_v1_44: 597272043
+      RPG_GUI_v1_51: 1383011675
+      RPG_GUI_v1_91: 297284777
+      RPG_GUI_v1_60: -216375368
+      RPG_GUI_v1_43: -170039480
+      RPG_GUI_v1_68: 1866722557
+      RPG_GUI_v1_41: -579697197
+      RPG_GUI_v1_15: 967851229
+      RPG_GUI_v1_72: 371113960
+      RPG_GUI_v1_38: 971595963
+      RPG_GUI_v1_73: -529030755
+      RPG_GUI_v1_45: 1445924804
+      RPG_GUI_v1_77: -379165398
+      RPG_GUI_v1_37: 433323108
+      RPG_GUI_v1_1: -279134996
+      RPG_GUI_v1_70: 606805794
+      RPG_GUI_v1_92: -1503184037
+      RPG_GUI_v1_19: -1238652773
+      RPG_GUI_v1_26: -796944163
+      RPG_GUI_v1_74: -266002398
+      RPG_GUI_v1_100: -685039823
+      RPG_GUI_v1_95: -924886793
+      RPG_GUI_v1_49: 1208343950
+      RPG_GUI_v1_40: -892698909
+      RPG_GUI_v1_16: 1287904319
+      RPG_GUI_v1_64: -1679179094
+      RPG_GUI_v1_5: 1689362021
+      RPG_GUI_v1_88: 1373727283
+      RPG_GUI_v1_11: -332168113
+      RPG_GUI_v1_42: -2084961310
+      RPG_GUI_v1_2: -1560449843
+      RPG_GUI_v1_79: -672281450
+      RPG_GUI_v1_25: -1842303628
+      RPG_GUI_v1_3: 395404706
+      RPG_GUI_v1_83: -2140998751
+      RPG_GUI_v1_22: -380259869
+      RPG_GUI_v1_48: -541602295
+      RPG_GUI_v1_96: -2111025263
+      RPG_GUI_v1_17: 1434172201
+      RPG_GUI_v1_39: 538910346
+      RPG_GUI_v1_99: 738304249
+      RPG_GUI_v1_93: -382778763
+      RPG_GUI_v1_14: -1915028748
+      RPG_GUI_v1_46: -344413166
+      RPG_GUI_v1_29: -954054881
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
