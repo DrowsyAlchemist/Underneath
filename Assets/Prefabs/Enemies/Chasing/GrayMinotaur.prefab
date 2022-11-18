@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 5412710695781949084}
   - component: {fileID: 1173577105193810268}
   m_Layer: 6
-  m_Name: ChasingMinotaur
+  m_Name: GrayMinotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

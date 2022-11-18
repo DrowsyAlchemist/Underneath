@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 7397462560966837963}
   - component: {fileID: 3850930835912363248}
   m_Layer: 6
-  m_Name: ChasingWraith
+  m_Name: CyanWraith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

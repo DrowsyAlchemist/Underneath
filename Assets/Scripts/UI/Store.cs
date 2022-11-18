@@ -25,6 +25,7 @@ public class Store : MonoBehaviour
     private void Start()
     {
         FillStore();
+        enabled = false;
     }
 
     private void Update()

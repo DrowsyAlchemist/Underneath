@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public PlayerAnimation PlayerAnimation { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
     public Inventory Inventory => _inventory;
+    public int Money => _money;
 
     public event UnityAction<int> MoneyChanged;
 
@@ -44,6 +45,16 @@ public class Player : MonoBehaviour
 
         _money += money;
         MoneyChanged?.Invoke(_money);
+    }
+
+    public int GiveMoney(int money)
+    {
+        if (money > _money)
+            throw new System.Exception("Not enough money.");
+        
+        _money -= money;
+        MoneyChanged?.Invoke(_money);
+        return money;
     }
 
     public void TakeDamage(int damage)

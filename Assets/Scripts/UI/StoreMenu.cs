@@ -4,12 +4,13 @@ public class StoreMenu : MonoBehaviour
 {
     [SerializeField] private WareRenderer _wareRenderer;
     [SerializeField] private RectTransform _waresContainer;
+    [SerializeField] private GameObject _notEnoughMoneyPanel;
 
     private Player _player;
 
     private void Start()
     {
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void Init(Player player)
@@ -26,6 +27,14 @@ public class StoreMenu : MonoBehaviour
 
     private void OnBuyButtonClick(WareRenderer wareRenderer)
     {
-        _player.Inventory.AddPotion(wareRenderer.Potion);
+        if (_player.Money >= wareRenderer.Cost)
+        {
+            _player.GiveMoney(wareRenderer.Cost);
+            _player.Inventory.AddPotion(wareRenderer.Potion);
+        }   
+        else
+        {
+            _notEnoughMoneyPanel.SetActive(true);
+        }
     }
 }
