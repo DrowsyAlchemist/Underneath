@@ -2,38 +2,28 @@ using UnityEngine;
 
 public class TargetSpottedTransition : EnemyTransition
 {
-    [SerializeField] private float _viewDirectionInDegrees = 0;
-    [SerializeField] private float _viewingAngleInDegrees = 90;
-    [SerializeField] private float _viewingRange = 3;
+    [SerializeField] private float _radius;
+    [SerializeField] private LayerMask _obstacles;
 
-    private Vector2 _viewDirection;
-    private float _viewingAngle;
- 
+    private ContactFilter2D _contactFilter = new ContactFilter2D();
+
     private void Start()
     {
-        _viewDirection = Quaternion.Euler(0, 0, _viewDirectionInDegrees) * transform.right;
-        _viewingAngle = _viewingAngleInDegrees / 2;
+        _contactFilter.useLayerMask = true;
+        _contactFilter.layerMask = _obstacles;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        float targetDistance = Vector2.Distance(transform.position, Target.GetWorldCenter());
-        int positiveDirection = transform.localScale.x > 0 ? 1 : -1;
-        Vector2 viewDirection = _viewDirection * positiveDirection;
+        float distanceToTarget = Vector2.Distance(Target.GetWorldCenter(), transform.position);
 
-        Debug.DrawRay(transform.position, Quaternion.Euler(0, 0, _viewingAngle) * viewDirection * _viewingRange, Color.white);
-        Debug.DrawRay(transform.position, Quaternion.Euler(0, 0, -1 * _viewingAngle) * viewDirection * _viewingRange, Color.white);
-
-        if (targetDistance < _viewingRange)
+        if (distanceToTarget < _radius)
         {
-            Vector2 targetLocalPosition = Target.GetWorldCenter() - transform.position;
-            float playerAngle = Vector2.Angle(viewDirection, targetLocalPosition);
+            Vector2 direction = transform.position - Target.GetWorldCenter();
+            int hitsCount = Physics2D.Raycast(transform.position, direction, _contactFilter, new RaycastHit2D[1], distanceToTarget);
 
-            if (playerAngle < _viewingAngle)
-            {
-                Debug.DrawRay(transform.position, targetLocalPosition, Color.green);
+            if (hitsCount == 0)
                 NeedTransit = true;
-            }
         }
     }
 }
