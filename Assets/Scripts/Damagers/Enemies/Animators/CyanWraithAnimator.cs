@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CyanWraithAnimator : EnemyAnimator
+public class CyanWraithAnimator : WraithAnimator
 {
     [SerializeField] private float _sizeBeforeExplosion = 1.4f;
 
