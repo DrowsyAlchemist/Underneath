@@ -1,9 +1,17 @@
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement))]
 public class ChaseState : EnemyState
 {
     [SerializeField] private bool _canFly;
     [SerializeField] private float _speed = 2;
+
+    private EnemyMovement _enemyMovement;
+
+    private void Start()
+    {
+        _enemyMovement = GetComponent<EnemyMovement>();
+    }
 
     private void OnEnable()
     {
@@ -12,18 +20,11 @@ public class ChaseState : EnemyState
 
     private void Update()
     {
-        MoveToTarget();
-    }
-
-    private void MoveToTarget()
-    {
         transform.TurnToTarget(Target.transform);
-        float step = _speed * Time.deltaTime;
-        Vector2 targetDirection = (Target.GetWorldCenter() - transform.position).normalized;
 
         if (_canFly)
-            transform.Translate(targetDirection * step);
+            _enemyMovement.MoveToTarget(Target.GetWorldCenter(), _speed);
         else
-            transform.Translate((targetDirection.x > 0 ? 1 : -1) * step * Vector2.right);
+            _enemyMovement.MoveToTargetAlongXAxis(Target.GetWorldCenter(), _speed);
     }
 }

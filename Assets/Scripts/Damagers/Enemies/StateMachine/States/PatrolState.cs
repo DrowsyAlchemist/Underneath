@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement))]
 public class PatrolState : EnemyState
 {
     [Space]
@@ -12,9 +13,15 @@ public class PatrolState : EnemyState
 
     private const float DeltaDistance = 0.001f;
 
+    private EnemyMovement _enemyMovement;
     private int _targetPointNumber;
     private Transform _targetPoint;
     private float _elapsedTime;
+
+    private void Start()
+    {
+        _enemyMovement = GetComponent<EnemyMovement>();
+    }
 
     private void OnEnable()
     {
@@ -44,13 +51,11 @@ public class PatrolState : EnemyState
     private void MoveToTarget(Transform target)
     {
         EnemyAnimation.PlayWalk();
-        float step = _speed * Time.deltaTime;
-        Vector2 targetDirection = (target.position - transform.position).normalized;
 
         if (_canFly)
-            transform.Translate(targetDirection * step);
+            _enemyMovement.MoveToTarget(target.position, _speed);
         else
-            transform.Translate((targetDirection.x > 0 ? 1 : -1) * step * Vector2.right);
+            _enemyMovement.MoveToTargetAlongXAxis(target.position, _speed);
     }
 
     private void SetNextTargetPoint()

@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(WraithAnimator))]
-[RequireComponent(typeof(MovementInFlight))]
+[RequireComponent(typeof(EnemyMovement))]
 public class ShootState : EnemyState
 {
     [SerializeField] private Missile _missile;
@@ -19,12 +19,12 @@ public class ShootState : EnemyState
     private Missile _currentMissile;
     private float _elapsedTime;
     private WraithAnimator _animator;
-    private MovementInFlight _movementInFlight;
+    private EnemyMovement _movementInFlight;
 
     private void Start()
     {
         _animator = GetComponent<WraithAnimator>();
-        _movementInFlight = GetComponent<MovementInFlight>();
+        _movementInFlight = GetComponent<EnemyMovement>();
     }
 
     private void OnEnable()
@@ -35,13 +35,12 @@ public class ShootState : EnemyState
     private void Update()
     {
         transform.TurnToTarget(Target.transform);
-        Vector2 targetLocalPosition = Target.GetWorldCenter() - transform.position;
-        float distanseToTarget = targetLocalPosition.magnitude;
+        float distanseToTarget = Vector2.Distance(Target.GetWorldCenter(), transform.position);
 
-        if (distanseToTarget > _maxTargetDistanse)
-            ChaseTarget(targetLocalPosition);
+        if (distanseToTarget > _maxTargetDistanse || IsObstacleOnWay())
+            ChaseTarget();
         else if (distanseToTarget < _minTargetDistanse)
-            FleeFromTarget(targetLocalPosition);
+            FleeFromTarget();
         else
             _animator.PlayIdle();
 
@@ -70,20 +69,22 @@ public class ShootState : EnemyState
         missle.Launch(shotDirection, Target);
     }
 
-    private void ChaseTarget(Vector2 targetLocalPosition)
+    private bool IsObstacleOnWay()
     {
-        _animator.PlayWalk();
-        Vector2 direction = targetLocalPosition.normalized;
-        float step = _chaseSpeed * Time.deltaTime;
-        transform.Translate(step * direction);
-        //_movementInFlight.MakeStepToTarget(Target.GetWorldCenter(), _chaseSpeed);
+        Vector2 direction = Target.GetWorldCenter() - transform.position;
+        return GetComponent<Rigidbody2D>().Cast(direction, _movementInFlight.Obstacles, new RaycastHit2D[1], direction.magnitude) > 0;
     }
 
-    private void FleeFromTarget(Vector2 targetLocalPosition)
+    private void ChaseTarget()
     {
         _animator.PlayWalk();
-        Vector2 direction = -1 * targetLocalPosition.normalized;
-        transform.Translate(_fleeSpeed * Time.deltaTime * direction);
+        _movementInFlight.MoveToTarget(Target.GetWorldCenter(), _chaseSpeed);
+    }
+
+    private void FleeFromTarget()
+    {
+        _animator.PlayWalk();
+        _movementInFlight.MoveFromTarget(Target.GetWorldCenter(), _chaseSpeed);
     }
 
     private void OnValidate()

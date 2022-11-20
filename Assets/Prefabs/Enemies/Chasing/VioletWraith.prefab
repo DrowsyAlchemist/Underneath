@@ -4876,19 +4876,16 @@ GameObject:
   - component: {fileID: 7090971679254129005}
   - component: {fileID: 3421024338757663504}
   - component: {fileID: 1462649884}
+  - component: {fileID: 8728634593689442863}
   - component: {fileID: 8778008200703974821}
   - component: {fileID: 8778008200703974820}
-  - component: {fileID: 3985909891412400304}
-  - component: {fileID: 1462649882}
-  - component: {fileID: 619580413720767089}
+  - component: {fileID: 4753179310518616288}
   - component: {fileID: 3244518970722977770}
   - component: {fileID: 8778008200703974823}
   - component: {fileID: 6585468237913349479}
   - component: {fileID: 1462649880}
-  - component: {fileID: 3850930835912363248}
-  - component: {fileID: 6994771785322676721}
   - component: {fileID: 1615403769}
-  - component: {fileID: 8728634593689442863}
+  - component: {fileID: 3850930835912363248}
   m_Layer: 6
   m_Name: VioletWraith
   m_TagString: Untagged
@@ -5047,6 +5044,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
+--- !u!114 &8728634593689442863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e38a62d0ad212d49a240e6679104ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &8778008200703974821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5073,14 +5085,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 3985909891412400304}
+  - {fileID: 0}
   _canFly: 1
   _speed: 1
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &3985909891412400304
+--- !u!114 &4753179310518616288
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5092,43 +5104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c0ed14a2c6f7d4a805f8e381579d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 1462649882}
-  _radius: 8
-  _obstacles:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &1462649882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d1fbd1bdf42124fae4d613a0f1036e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 619580413720767089}
-  - {fileID: 1462649880}
-  - {fileID: 6994771785322676721}
-  _canFly: 1
-  _speed: 2
---- !u!114 &619580413720767089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec3f46eae5886cf4fa5ba1be6239efd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   _targetState: {fileID: 3244518970722977770}
-  _killZoneRadius: 5
+  _radius: 6
 --- !u!114 &3244518970722977770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5196,37 +5173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1615403769}
-  _maxTargetDistance: 5
---- !u!114 &3850930835912363248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 746e538d38ca50c42965308d431225c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 8778008200703974820}
-  _seconds: 1.5
---- !u!114 &6994771785322676721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be38ae1b7b2bd32499d4c19216520cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 1615403769}
-  _obstacles:
-    serializedVersion: 2
-    m_Bits: 8
+  _maxTargetDistance: 10
 --- !u!114 &1615403769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5241,7 +5188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 3850930835912363248}
---- !u!114 &8728634593689442863
+--- !u!114 &3850930835912363248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5250,9 +5197,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8778008200703974841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e38a62d0ad212d49a240e6679104ea6, type: 3}
+  m_Script: {fileID: 11500000, guid: 746e538d38ca50c42965308d431225c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _obstacles:
-    serializedVersion: 2
-    m_Bits: 0
+  _targetState: {fileID: 8778008200703974820}
+  _seconds: 1.5

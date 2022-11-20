@@ -14,10 +14,13 @@ public class Missile : MonoBehaviour
 
     private Vector3 _direction;
     private Player _target;
+    private Collider2D _collider;
 
     private void Awake()
     {
         enabled = false;
+        _collider = GetComponent<Collider2D>();
+        _collider.enabled = false;
     }
 
     private void Update()
@@ -27,15 +30,15 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (gameObject)
-            if ((1 << collision.gameObject.layer & _collisionLayers) > 0)
-                Explode();
+        if ((1 << collision.gameObject.layer & _collisionLayers) > 0)
+            Explode();
     }
 
     public void Launch(Vector2 direction, Player target)
     {
         _target = target;
         _direction = direction.normalized;
+        _collider.enabled = true;
         enabled = true;
     }
 
