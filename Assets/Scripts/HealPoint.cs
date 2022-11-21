@@ -2,23 +2,35 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(LightControl))]
 public class HealPoint : MonoBehaviour
 {
     [SerializeField] private float _healingSpeed = 1;
-
     private Coroutine _coroutine;
+    private LightControl _lightControl;
+
+    private void Start()
+    {
+        _lightControl = GetComponent<LightControl>();
+        _lightControl.Unlit();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
+        {
             _coroutine = StartCoroutine(HealPlayer(player));
+            _lightControl.Lit();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player _))
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
+        {
+            StopCoroutine(_coroutine);
+            _lightControl.Unlit();
+        }
     }
 
     private IEnumerator HealPlayer(Player player)

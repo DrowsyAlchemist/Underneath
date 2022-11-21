@@ -5029,7 +5029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _game: {fileID: 0}
 --- !u!114 &3421024338757663504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5057,7 +5057,6 @@ MonoBehaviour:
   _obstacles:
     serializedVersion: 2
     m_Bits: 8
-  _shellradius: 0.3
 --- !u!114 &8778008200703974821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5121,7 +5120,7 @@ MonoBehaviour:
   - {fileID: 1462649880}
   _missile: {fileID: 2314714819954507344, guid: bd6e8767033b49d4ca57eed96abc1c37, type: 3}
   _missileLocalPosition: {fileID: 5421674479792357832}
-  _secondsBetweenShots: 1.5
+  _secondsBetweenShots: 2
   _spreadInDegrees: 40
   _minTargetDistanse: 4
   _maxTargetDistanse: 7

@@ -2,10 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(LightControl))]
 public class Store : MonoBehaviour
 {
     [SerializeField] private StoreMenu _menu;
     [SerializeField] private List<Potion> _wares = new List<Potion>();
+
+    private LightControl _lightControl;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -13,17 +16,23 @@ public class Store : MonoBehaviour
         {
             _menu.Init(player);
             enabled = true;
+            _lightControl.Lit();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
+        {
             enabled = false;
+            _lightControl.Unlit();
+        }
     }
 
     private void Start()
     {
+        _lightControl = GetComponent<LightControl>();
+        _lightControl.Unlit();
         FillStore();
         enabled = false;
     }

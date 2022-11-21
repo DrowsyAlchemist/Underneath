@@ -1,12 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class CoinsRenderer : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Game _game;
     [SerializeField] private TMP_Text _coinsCount;
+
+    private Player _player;
+
+    private void Awake()
+    {
+        _player = _game.Player;
+    }
 
     private void OnEnable()
     {

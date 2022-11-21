@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
 
+    protected bool Knocked;
     private int _money;
     private Collider2D _collider;
 
@@ -21,14 +22,16 @@ public class Player : MonoBehaviour
 
     public event UnityAction<int> MoneyChanged;
 
-
-    private void Start()
+    private void Awake()
     {
         _collider = GetComponent<Collider2D>();
         PlayerAnimation = GetComponent<PlayerAnimation>();
         PlayerMovement = GetComponent<PlayerMovement>();
         PlayerHealth = GetComponent<PlayerHealth>();
+    }
 
+    private void Start()
+    {
         MoneyChanged?.Invoke(_money);
     }
 
@@ -51,7 +54,7 @@ public class Player : MonoBehaviour
     {
         if (money > _money)
             throw new System.Exception("Not enough money.");
-        
+
         _money -= money;
         MoneyChanged?.Invoke(_money);
         return money;
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
 
     private void Knock()
     {
+        Knocked = true;
         SetMoverActive(false);
         PlayerAnimation.PlayKnock();
     }
@@ -85,6 +89,7 @@ public class Player : MonoBehaviour
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(PlayerAnimation.Animator.GetCurrentAnimatorStateInfo(0).length);
         SetMoverActive(true);
+        Knocked = false;
     }
 
     private void Die()

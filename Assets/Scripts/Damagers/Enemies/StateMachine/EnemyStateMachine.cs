@@ -16,6 +16,18 @@ public class EnemyStateMachine : MonoBehaviour
         _currentState.Enter();
     }
 
+    public void Pause()
+    {
+        enabled = false;
+        _currentState.Exit();
+    }
+
+    public void Resume()
+    {
+        enabled = true;
+        _currentState.Enter();
+    }
+
     private void Update()
     {
         var nextState = _currentState.GetNextState();

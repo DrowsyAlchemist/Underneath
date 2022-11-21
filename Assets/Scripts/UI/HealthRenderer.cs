@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HealthRenderer : MonoBehaviour
 {
-    [SerializeField] private PlayerHealth _playerHealth;
+    [SerializeField] private Game _game;
 
     [SerializeField] private RectTransform _heartsView;
     [SerializeField] private RectTransform _emptyHeartsView;
@@ -12,8 +12,14 @@ public class HealthRenderer : MonoBehaviour
     [SerializeField] private Image _heart;
     [SerializeField] private Image _emptyHeart;
 
+    private PlayerHealth _playerHealth;
     private List<Image> _hearts = new List<Image>();
     private List<Image> _emptyHearts = new List<Image>();
+
+    private void Awake()
+    {
+        _playerHealth = _game.Player.PlayerHealth;
+    }
 
     private void OnEnable()
     {

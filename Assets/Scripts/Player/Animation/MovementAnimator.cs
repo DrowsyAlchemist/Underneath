@@ -1,15 +1,23 @@
 using UnityEngine;
 
-public class MovementAnimator : PlayerAnimation
+[RequireComponent(typeof(PlayerAnimation))]
+public class MovementAnimator : MonoBehaviour
 {
+    private PlayerAnimation _playerAnimation;
+
+    private void Start()
+    {
+        _playerAnimation = GetComponent<PlayerAnimation>();
+    }
+
     public void AnimateByVelocityAndGrounded(Vector2 velocity, bool isGrounded)
     {
         if (isGrounded == false)
-            PlayJump();
+            _playerAnimation.PlayJump();
         else if (velocity.x == 0)
-            PlayIdle();
+            _playerAnimation.PlayIdle();
         else
-            PlayRun();
+            _playerAnimation.PlayRun();
 
         TurnByVelocity(velocity);
     }

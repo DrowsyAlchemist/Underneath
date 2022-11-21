@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Player _player;
+    [SerializeField] private Game _game;
 
     [SerializeField] private RectTransform _potionsContainer;
     [SerializeField] private PotionRenderer _potionRenderer;
@@ -68,7 +68,7 @@ public class Inventory : MonoBehaviour
     {
         if (_highlightedPotion.Potion.TryGetComponent(out IUseable useable))
         {
-            useable.Use(_player);
+            useable.Use(_game.Player);
             Destroy(_highlightedPotion.gameObject);
             ClearDescription();
         }

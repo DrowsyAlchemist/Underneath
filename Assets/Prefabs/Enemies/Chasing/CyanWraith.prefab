@@ -133,9 +133,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06, y: 0.12}
+  m_Offset: {x: -0.0531559, y: 0.11561382}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.35806656
 --- !u!50 &7090971679254129005
 Rigidbody2D:
   serializedVersion: 4
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
+  _game: {fileID: 0}
 --- !u!114 &8778008200703974832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +231,7 @@ MonoBehaviour:
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &7324815664675188054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ MonoBehaviour:
   - {fileID: 8778008200703974823}
   - {fileID: 1462649880}
   _canFly: 1
-  _speed: 3
+  _speed: 4
 --- !u!114 &8778008200703974823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1462649883}
-  _distanse: 2
+  _distanse: 1.5
 --- !u!114 &1462649883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,9 +291,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions: []
   _damage: 1
-  _explosionRadius: 2
+  _explosionRadius: 2.5
   _explosionEffect: {fileID: 7069926364230417678, guid: ac5d48485ee83ec4aa85be55143952b1, type: 3}
-  _speedDuringExplosion: 3
+  _speedDuringExplosion: 4
+  _minDistanse: 1
 --- !u!114 &1462649880
 MonoBehaviour:
   m_ObjectHideFlags: 0
