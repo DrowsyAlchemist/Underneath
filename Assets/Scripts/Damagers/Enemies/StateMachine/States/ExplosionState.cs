@@ -8,6 +8,7 @@ public class ExplosionState : EnemyState
     [SerializeField] private ParticleSystem _explosionEffect;
 
     [SerializeField] private float _speedDuringExplosion;
+    [SerializeField] private float _minDistanse;
 
     private void OnEnable()
     {
@@ -16,8 +17,8 @@ public class ExplosionState : EnemyState
 
     private void Update()
     {
-        float step = _speedDuringExplosion * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, Target.GetWorldCenter(), step);
+        if (Vector2.Distance(Target.GetWorldCenter(), transform.position) > _minDistanse)
+            Enemy.Movement.MoveToTarget(Target.GetWorldCenter(), _speedDuringExplosion);
     }
 
     private IEnumerator Explode()

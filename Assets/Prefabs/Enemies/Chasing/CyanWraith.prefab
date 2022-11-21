@@ -18,12 +18,11 @@ GameObject:
   - component: {fileID: 5391074403635651288}
   - component: {fileID: 8778008200703974821}
   - component: {fileID: 8778008200703974820}
+  - component: {fileID: 7324815664675188054}
+  - component: {fileID: 1462649882}
   - component: {fileID: 8778008200703974823}
   - component: {fileID: 1462649883}
-  - component: {fileID: 1462649881}
-  - component: {fileID: 1462649882}
   - component: {fileID: 1462649880}
-  - component: {fileID: 6994771785322676721}
   - component: {fileID: 7397462560966837963}
   - component: {fileID: 3850930835912363248}
   m_Layer: 6
@@ -225,14 +224,44 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 8778008200703974823}
-  - {fileID: 1462649881}
+  - {fileID: 7324815664675188054}
   _canFly: 1
   _speed: 2
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7324815664675188054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1c0ed14a2c6f7d4a805f8e381579d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1462649882}
+  _radius: 6
+--- !u!114 &1462649882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d1fbd1bdf42124fae4d613a0f1036e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 8778008200703974823}
+  - {fileID: 1462649880}
+  _canFly: 1
+  _speed: 3
 --- !u!114 &8778008200703974823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1462649883}
-  _distanse: 0
+  _distanse: 2
 --- !u!114 &1462649883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,40 +293,6 @@ MonoBehaviour:
   _explosionRadius: 2
   _explosionEffect: {fileID: 7069926364230417678, guid: ac5d48485ee83ec4aa85be55143952b1, type: 3}
   _speedDuringExplosion: 3
---- !u!114 &1462649881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c35d1e10204735743aa82a98bfadb6f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 1462649882}
-  _viewDirectionInDegrees: 0
-  _viewingAngleInDegrees: 120
-  _viewingRange: 3
---- !u!114 &1462649882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d1fbd1bdf42124fae4d613a0f1036e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 8778008200703974823}
-  - {fileID: 1462649880}
-  - {fileID: 6994771785322676721}
-  _canFly: 1
-  _speed: 3
 --- !u!114 &1462649880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,23 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 7397462560966837963}
-  _maxTargetDistance: 5
---- !u!114 &6994771785322676721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be38ae1b7b2bd32499d4c19216520cdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 7397462560966837963}
-  _obstacles:
-    serializedVersion: 2
-    m_Bits: 8
+  _maxTargetDistance: 8
 --- !u!114 &7397462560966837963
 MonoBehaviour:
   m_ObjectHideFlags: 0
