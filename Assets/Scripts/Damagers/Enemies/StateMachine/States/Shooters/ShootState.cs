@@ -44,7 +44,7 @@ public class ShootState : EnemyState
         else
             _animator.PlayIdle();
 
-        if (_elapsedTime > _secondsBetweenShots)
+        if (_elapsedTime > _secondsBetweenShots && IsObstacleOnWay()==false)
             StartCoroutine(Shoot());
         else
             _elapsedTime += Time.deltaTime;

@@ -15,7 +15,7 @@ public class ChaseState : EnemyState
 
     private void OnEnable()
     {
-        EnemyAnimation.PlayWalk();
+        EnemyAnimator.PlayWalk();
     }
 
     private void Update()

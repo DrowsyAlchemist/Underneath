@@ -5,21 +5,18 @@ public abstract class EnemyTransition : MonoBehaviour
 {
     [SerializeField] private EnemyState _targetState;
 
-    private Enemy _enemy;
-    private Player _target;
-
     public EnemyState TargetState => _targetState;
     public bool NeedTransit { get; protected set; }
 
-    protected Enemy Enemy => _enemy;
-    protected Player Target => _target;
+    protected Enemy Enemy { get; private set; }
+    protected Player Target { get; private set; }
 
 
     private void Awake()
     {
         enabled = false;
-        _enemy = GetComponent<Enemy>();
-        _target = GetComponent<Enemy>().Target;
+        Enemy = GetComponent<Enemy>();
+        Target = GetComponent<Enemy>().Target;
     }
 
     private void OnEnable()

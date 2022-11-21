@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2314714819954507351}
   - component: {fileID: 2314714819954507344}
   m_Layer: 0
-  m_Name: Missile
+  m_Name: VioletMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,6 @@ MonoBehaviour:
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136
-  _missileEffect: {fileID: 2227604989866870260}
   _explosionEffect: {fileID: 6530740245177056003}
   _explosionRadius: 1.5
 --- !u!1001 &1057915274256694117
@@ -283,10 +282,5 @@ PrefabInstance:
 --- !u!4 &1186658655051745458 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7944561226916606239, guid: a5a913a1e99aa15489434cfb48dad602, type: 3}
-  m_PrefabInstance: {fileID: 9094768322728442285}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2227604989866870260 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 6979754195701415001, guid: a5a913a1e99aa15489434cfb48dad602, type: 3}
   m_PrefabInstance: {fileID: 9094768322728442285}
   m_PrefabAsset: {fileID: 0}

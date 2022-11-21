@@ -23,9 +23,9 @@ public class ExplosionState : EnemyState
     private IEnumerator Explode()
     {
         ParticleSystem effect = Instantiate(_explosionEffect, transform.position, Quaternion.identity, transform);
-        EnemyAnimation.PlayAttack();
+        EnemyAnimator.PlayAttack();
         yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(EnemyAnimation.Animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
 
         if (Target.TryGetComponent(out Player player))
             BlowUpPlayer(player);

@@ -7,7 +7,6 @@ public class EnemyAnimator : MonoBehaviour
     protected const string HurtAnimation = "Hurt";
     protected const string DieAnimation = "Die";
     protected const string AttackAnimation = "Attack";
-    protected const string IdleBlinkAnimation = "IdleBlink";
     protected const string TauntAnimation = "Taunt";
     protected const string WalkAnimation = "Walk";
 
@@ -17,6 +16,7 @@ public class EnemyAnimator : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
     }
+
     public virtual void PlayAttack()
     {
         Animator.Play(AttackAnimation);
@@ -35,12 +35,6 @@ public class EnemyAnimator : MonoBehaviour
     public virtual void PlayDie()
     {
         Animator.Play(DieAnimation);
-    }
-
-
-    public virtual void PlayIdleBlink()
-    {
-        Animator.Play(IdleBlinkAnimation);
     }
 
     public virtual void PlayTaunt()

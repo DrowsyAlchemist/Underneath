@@ -4,7 +4,6 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask _obstacles;
-    [SerializeField] private float _shellradius = 0.1f;
 
     private Rigidbody2D _rigidBody;
     private ContactFilter2D _contactFilter = new ContactFilter2D();
@@ -46,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
         if (xAxisOnly)
             direction = (direction.x > 0 ? 1 : -1) * Vector2.right;
         else
-            direction = CalculateDirectionInAir(direction, step + _shellradius);
+            direction = CalculateDirectionInAir(direction, step);
 
         transform.Translate(step * direction);
     }
@@ -55,7 +54,16 @@ public class EnemyMovement : MonoBehaviour
     {
         RaycastHit2D[] results = new RaycastHit2D[1];
         int hitsCount = _rigidBody.Cast(direction, _contactFilter, results, step);
-        return (hitsCount > 0) ? GetSurfaseAlong(results[0]) : direction;
+
+        if (hitsCount > 0)
+        {
+            direction = GetSurfaseAlong(results[0]);
+            hitsCount = _rigidBody.Cast(direction, _contactFilter, results, step);
+
+            if (hitsCount > 0)
+                direction = results[0].normal;
+        }
+        return direction;
     }
 
     private Vector2 GetSurfaseAlong(RaycastHit2D surfase)

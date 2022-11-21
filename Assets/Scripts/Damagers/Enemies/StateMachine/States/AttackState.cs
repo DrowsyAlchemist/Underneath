@@ -1,22 +1,19 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyMovement))]
 public class AttackState : EnemyState
 {
     [SerializeField] private int _damage = 1;
     [SerializeField] private float _attackRange = 1.5f;
     [SerializeField] private float _attackDelay = 0.3f;
-
-    private void Update()
+ 
+    private void OnEnable()
     {
-        Attack(Target);
-    }
-
-    private void Attack(Player player)
-    {
-        transform.TurnToTarget(player.transform);
-        EnemyAnimation.PlayAttack();
-        StartCoroutine(BeatPlayerWithDelay(player));
+        transform.TurnToTarget(Target.transform);
+        EnemyAnimator.PlayAttack();
+        StartCoroutine(BeatPlayerWithDelay(Target));
+        enabled = false;
     }
 
     private IEnumerator BeatPlayerWithDelay(Player player)
@@ -28,7 +25,5 @@ public class AttackState : EnemyState
             player.TakeDamage(_damage);
             Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _attackRange, Color.red, 1);
         }
-
-        enabled = false;
     }
 }

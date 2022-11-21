@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WraithAnimator : EnemyAnimator
 {
-    private const string CastAnimation = "CastSpell";
+    protected const string CastAnimation = "CastSpell";
 
     public virtual void PlayCastSpell()
     {

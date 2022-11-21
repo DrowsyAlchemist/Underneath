@@ -50,7 +50,7 @@ public class PatrolState : EnemyState
 
     private void MoveToTarget(Transform target)
     {
-        EnemyAnimation.PlayWalk();
+        EnemyAnimator.PlayWalk();
 
         if (_canFly)
             _enemyMovement.MoveToTarget(target.position, _speed);
@@ -76,7 +76,7 @@ public class PatrolState : EnemyState
 
     private void Wait()
     {
-        EnemyAnimation.PlayIdle();
+        EnemyAnimator.PlayIdle();
         _elapsedTime += Time.deltaTime;
     }
 }

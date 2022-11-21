@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 7090971679254129005}
   - component: {fileID: 1462649884}
   - component: {fileID: 2824876092541007434}
+  - component: {fileID: 5391074403635651288}
   - component: {fileID: 8778008200703974821}
   - component: {fileID: 8778008200703974820}
   - component: {fileID: 8778008200703974823}
   - component: {fileID: 1519812533}
   - component: {fileID: 1519812534}
-  - component: {fileID: 1519812535}
   m_Layer: 6
   m_Name: Minotaur_Brown
   m_TagString: Untagged
@@ -187,6 +187,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab851f8d147ebd4b896552bf88baec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5391074403635651288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e38a62d0ad212d49a240e6679104ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 0
+  _shellradius: 0
 --- !u!114 &8778008200703974821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,17 +277,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1519812533}
+  _damage: 1
   _attackRange: 1.5
   _attackDelay: 0.3
---- !u!114 &1519812535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ab851f8d147ebd4b896552bf88baec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

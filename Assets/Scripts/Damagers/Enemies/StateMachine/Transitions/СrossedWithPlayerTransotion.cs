@@ -1,16 +1,12 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
 public class ÑrossedWithPlayerTransotion : EnemyTransition
 {
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.TryGetComponent(out Player player))
-            NeedTransit = true;
-    }
+    [SerializeField] private float _distanse;
 
-    private void OnValidate()
+    private void Update()
     {
-        GetComponent<Collider2D>().isTrigger = true;
+        if (Vector2.Distance(transform.position, Target.GetWorldCenter()) < _distanse)
+            NeedTransit = true;
     }
 }
