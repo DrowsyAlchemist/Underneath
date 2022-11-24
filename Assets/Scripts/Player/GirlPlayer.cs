@@ -10,7 +10,7 @@ public class GirlPlayer : Player
 
     private Rigidbody2D _rigidbody;
     private AdventureGirlAnimation _animation;
-    private float _counter;
+    private float _elapsedTime;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class GirlPlayer : Player
 
     private void Update()
     {
-        if (Knocked == false && (_counter > _secondsBetweenAttacks))
+        if (Knocked == false && (_elapsedTime > _secondsBetweenAttacks))
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 KnifeAttack();
@@ -29,13 +29,13 @@ public class GirlPlayer : Player
         }
         else
         {
-            _counter += Time.deltaTime;
+            _elapsedTime += Time.deltaTime;
         }
     }
 
     private void KnifeAttack()
     {
-        _counter = 0;
+        _elapsedTime = 0;
         _animation.PlayMelee();
         int direction = (transform.localScale.x) > 0 ? 1 : -1;
         RaycastHit2D[] hits = new RaycastHit2D[8];
@@ -48,7 +48,7 @@ public class GirlPlayer : Player
 
     private void Shoot()
     {
-        _counter = 0;
+        _elapsedTime = 0;
         _animation.PlayShoot();
     }
 }

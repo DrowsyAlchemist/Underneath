@@ -10,9 +10,12 @@ public class ExplosionState : EnemyState
     [SerializeField] private float _speedDuringExplosion;
     [SerializeField] private float _minDistanse;
 
+    private Coroutine _coroutine;
+
     private void OnEnable()
     {
-        StartCoroutine(Explode());
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(Explode());
     }
 
     private void Update()
@@ -32,7 +35,9 @@ public class ExplosionState : EnemyState
             BlowUpPlayer(player);
 
         effect.transform.parent = null;
-        Destroy(gameObject);
+
+        if (gameObject)
+            Destroy(gameObject);
     }
 
     private void BlowUpPlayer(Player player)

@@ -11,7 +11,7 @@ public class PatrolState : EnemyState
     [SerializeField] private float _eachPointDelay = 2;
     [SerializeField] private List<Transform> _patrolPoints;
 
-    private const float DeltaDistance = 0.001f;
+    private const float DeltaDistance = 0.005f;
 
     private EnemyMovement _enemyMovement;
     private int _targetPointNumber;

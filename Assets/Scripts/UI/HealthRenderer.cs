@@ -16,18 +16,14 @@ public class HealthRenderer : MonoBehaviour
     private List<Image> _hearts = new List<Image>();
     private List<Image> _emptyHearts = new List<Image>();
 
-    private void Awake()
+    private void Start()
     {
         _playerHealth = _game.Player.PlayerHealth;
-    }
-
-    private void OnEnable()
-    {
         _playerHealth.HealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _playerHealth.HealthChanged -= OnHealthChanged;
         _playerHealth.MaxHealthChanged -= OnMaxHealthChanged;

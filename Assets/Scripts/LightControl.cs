@@ -12,6 +12,7 @@ public class LightControl : MonoBehaviour
     {
         float color = 1 - _fadeIntensity;
         _fadeColor = new Color(color, color, color);
+        Unlit();
     }
 
     public void Lit()

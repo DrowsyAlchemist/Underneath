@@ -1,32 +1,40 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class MovementAnimator : MonoBehaviour
 {
+    private const float Delta = 0.01f;
     private PlayerAnimation _playerAnimation;
+    private Rigidbody2D _rigidBody;
 
     private void Start()
     {
         _playerAnimation = GetComponent<PlayerAnimation>();
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    public void AnimateByVelocityAndGrounded(Vector2 velocity, bool isGrounded)
+    private void Update()
     {
-        if (isGrounded == false)
+        AnimateByVelocity();
+        TurnByVelocity();
+    }
+
+    private void AnimateByVelocity()
+    {
+        if (Mathf.Abs(_rigidBody.velocity.y) > Delta)
             _playerAnimation.PlayJump();
-        else if (velocity.x == 0)
-            _playerAnimation.PlayIdle();
-        else
+        else if (Mathf.Abs(_rigidBody.velocity.x) > Delta)
             _playerAnimation.PlayRun();
-
-        TurnByVelocity(velocity);
+        else
+            _playerAnimation.PlayIdle();
     }
 
-    private void TurnByVelocity(Vector2 velocity)
+    private void TurnByVelocity()
     {
-        if (velocity.x != 0)
+        if (Mathf.Abs(_rigidBody.velocity.x) > Delta)
         {
-            bool positiveDirection = velocity.x > 0;
+            bool positiveDirection = _rigidBody.velocity.x > 0;
             transform.LookForwardDirection(positiveDirection);
         }
     }

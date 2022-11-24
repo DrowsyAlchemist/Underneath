@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 8851834277699321411}
   - component: {fileID: 8851834277699321408}
   - component: {fileID: 8851834277699321533}
-  - component: {fileID: 3597314610883083612}
-  - component: {fileID: 8851834277699321532}
   - component: {fileID: 6261303364076750363}
-  - component: {fileID: 8851834277699321409}
+  - component: {fileID: 5806443071597600215}
+  - component: {fileID: 3597314610883083612}
+  - component: {fileID: 4421058110131949192}
   - component: {fileID: 8851834277699321410}
   - component: {fileID: 1102783554290339198}
   - component: {fileID: 4406955855483235490}
@@ -118,7 +118,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.2058415}
+  m_Size: {x: 0.48069382, y: 1.2058415}
   m_EdgeRadius: 0
 --- !u!50 &8851834277699321408
 Rigidbody2D:
@@ -128,14 +128,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8851834277699321412}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -161,30 +161,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3597314610883083612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8851834277699321412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87fa9116ff84c06449edf72ba7ba61f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8851834277699321532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8851834277699321412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92605224ac9f0bf448f4a02875e8b3bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6261303364076750363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 0}
---- !u!114 &8851834277699321409
+--- !u!114 &5806443071597600215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,21 +183,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 8851834277699321412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36c4eab9cff86cb42a39292e1923ff9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2a38ec4f84f3c3c4c81766aad8ee7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gravityModifier: 3
-  _speed: 5
-  _surfaceLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  _groundMinNormalY: 0.4
-  _shellOffset: 0.05
-  _groundDistanceModifier: 1.1
-  _jumpForse: 14
-  _maxJumpCount: 2
-  _timeBeforeLanding: 0.08
-  _timeAflerGetOffGround: 0.15
+  _speed: 2
+  _jumpForse: 2
+--- !u!114 &3597314610883083612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851834277699321412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87fa9116ff84c06449edf72ba7ba61f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4421058110131949192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8851834277699321412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da717b946eb40a14fa7034b93245a615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8851834277699321410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4594010f45a71e489714124bbe33662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 4
+  _maxHealth: 8
   _invulnerabilityDuration: 2.5
 --- !u!114 &4406955855483235490
 MonoBehaviour:

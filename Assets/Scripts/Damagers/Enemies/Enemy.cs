@@ -41,11 +41,25 @@ public class Enemy : MonoBehaviour, ITakeDamage
             _isHurting = true;
             StateMachine.Pause();
             _health -= damage;
+            //StartCoroutine(FlyAway(sourse.transform));
 
             if (_health > 0)
                 StartCoroutine(Hurt());
             else
                 StartCoroutine(Die());
+        }
+    }
+
+    private IEnumerator FlyAway(Transform sourse)
+    {
+        int direction = (transform.position.x - sourse.position.x > 0) ? 1 : -1;
+        float counter = 0;
+
+        while (counter < 0.5f)
+        {
+            transform.Translate(3 * Vector2.right * direction * Time.deltaTime);
+            counter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -63,7 +77,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
         EnemyAnimator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
-        Destroy(gameObject);
+
+        if (gameObject)
+            Destroy(gameObject);
     }
 
     private void OnValidate()
