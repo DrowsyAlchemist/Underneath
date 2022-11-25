@@ -2470,7 +2470,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506547156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.595617, y: -0.836, z: 0}
+  m_LocalPosition: {x: -32.2, y: -2.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2490,16 +2490,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a38ec4f84f3c3c4c81766aad8ee7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
-  _jumpForse: 18
+  _speed: 0
   _gravityModifier: 5
   _groundChecker: {fileID: 1607072987}
   _collider: {fileID: 506547158}
   _surfases:
     serializedVersion: 2
     m_Bits: 8
+  _groundMinNormalY: 0.6
   _shellRadius: 0.01
   _resistance: 0
+  _jumpForse: 0
+  _maxJumpCount: 2
+  _timeBeforeLanding: 0.08
+  _timeAflerGetOffGround: 0.15
 --- !u!114 &506547162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3076,10 +3080,6 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 699740596}
-    - target: {fileID: 1462649884, guid: 878377a2318c4f64ea997c246cf668f0, type: 3}
-      propertyPath: _health
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8778008200703974820, guid: 878377a2318c4f64ea997c246cf668f0, type: 3}
       propertyPath: _patrolPoints.Array.data[0]
       value: 
@@ -4379,30 +4379,10 @@ PrefabInstance:
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 581040854}
-    - target: {fileID: 4355706683339246908, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
-      propertyPath: m_Size.y
-      value: 0.026670814
-      objectReference: {fileID: 0}
-    - target: {fileID: 4355706683339246908, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4355706683339246908, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.09922618
-      objectReference: {fileID: 0}
     - target: {fileID: 4406955855483235490, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: _hurtPanel
       value: 
       objectReference: {fileID: 1059224428}
-    - target: {fileID: 8699937211585495361, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
-      propertyPath: Speed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8851834277699321411, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
-      propertyPath: m_Offset.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321412, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_Name
       value: GirlPlayer
@@ -4417,7 +4397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.68
+      value: -2.692
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6182,7 +6162,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.062164903}
+  m_Offset: {x: 0, y: 0.065071225}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6193,7 +6173,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.423975, y: 0.015737653}
+  m_Size: {x: 0.423975, y: 0.025064707}
   m_EdgeRadius: 0
 --- !u!114 &1607072987
 MonoBehaviour:
@@ -7211,7 +7191,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.8047038}
   m_AnchorMax: {x: 0.185, y: 0.8843333}
-  m_AnchoredPosition: {x: 14.652222, y: -2}
+  m_AnchoredPosition: {x: 14.652344, y: -2}
   m_SizeDelta: {x: -30.690674, y: -0.66589355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1837023585
@@ -11059,14 +11039,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1263889835794736329, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
-      propertyPath: _transitions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263889835794736329, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
-      propertyPath: _transitions.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1263889835794736331, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
       propertyPath: m_Name
       value: Minotaur
@@ -11075,18 +11047,6 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 699740596}
-    - target: {fileID: 1263889835794736333, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
-      propertyPath: _health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263889835794736335, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
-      propertyPath: _transitions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1263889835794736335, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
-      propertyPath: _transitions.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1263889835794736335, guid: 645ed5ce532d5a0428b85d8107caff91, type: 3}
       propertyPath: _patrolPoints.Array.data[0]
       value: 
@@ -11334,14 +11294,6 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 699740596}
-    - target: {fileID: 1462649884, guid: 5ca7673a4ad3473458f5298d5cde24a1, type: 3}
-      propertyPath: _health
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8778008200703974820, guid: 5ca7673a4ad3473458f5298d5cde24a1, type: 3}
-      propertyPath: _speed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8778008200703974820, guid: 5ca7673a4ad3473458f5298d5cde24a1, type: 3}
       propertyPath: _patrolPoints.Array.data[0]
       value: 
@@ -11420,10 +11372,6 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 699740596}
-    - target: {fileID: 1462649884, guid: 30c783e95cb1caa4f858eb643e625ace, type: 3}
-      propertyPath: _health
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8778008200703974820, guid: 30c783e95cb1caa4f858eb643e625ace, type: 3}
       propertyPath: _patrolPoints.Array.data[0]
       value: 
@@ -11705,10 +11653,6 @@ PrefabInstance:
       propertyPath: _game
       value: 
       objectReference: {fileID: 699740596}
-    - target: {fileID: 5412710695781949083, guid: ae20fafffb994c24bb62541abc03b18a, type: 3}
-      propertyPath: _health
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5412710695781949085, guid: ae20fafffb994c24bb62541abc03b18a, type: 3}
       propertyPath: m_Name
       value: ChasingMinotaur

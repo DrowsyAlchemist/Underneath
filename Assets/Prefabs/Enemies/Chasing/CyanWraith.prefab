@@ -133,9 +133,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0531559, y: 0.11561382}
+  m_Offset: {x: 0, y: 0.11561382}
   serializedVersion: 2
-  m_Radius: 0.35806656
+  m_Radius: 0.3
 --- !u!50 &7090971679254129005
 Rigidbody2D:
   serializedVersion: 4
@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
+  _health: 2
 --- !u!114 &8778008200703974832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 7324815664675188054}
   _canFly: 1
-  _speed: 2
+  _speed: 1
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}

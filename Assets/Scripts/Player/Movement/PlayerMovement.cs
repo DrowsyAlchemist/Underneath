@@ -2,34 +2,83 @@ using UnityEngine;
 
 public class PlayerMovement : PhysicMovement
 {
+    [SerializeField] private float _jumpForse;
+    [SerializeField] private int _maxJumpCount = 2;
+    [SerializeField] private float _timeBeforeLanding = 0.08f;
+    [SerializeField] private float _timeAflerGetOffGround = 0.15f;
+
     private bool _canInputControlled = true;
-
-    protected override void Update()
-    {
-        if (_canInputControlled)
-            GetInputVelocity();
-        else
-            Velocity.x = 0;
-
-        base.Update();
-    }
-
+    private int _jumpsLeft;
+    private bool _spaceIsPressed;
+    private float _secondsInAir;
+    private float _secondsAfterSpacePressed;
 
     public void AllowInpupControl(bool isAllowed)
     {
         _canInputControlled = isAllowed;
     }
 
+    private void Update()
+    {
+        if (_canInputControlled)
+            GetInputVelocity();
+        else
+            SetVelocityX(0);
+
+        Move();
+    }
+
     private void GetInputVelocity()
     {
-        if (Input.GetKey(KeyCode.D))
-            Velocity.x = Speed;
-        else if (Input.GetKey(KeyCode.A))
-            Velocity.x = -1 * Speed;
-        else
-            Velocity.x = 0;
+        SmartJump();
 
+        if (Input.GetKey(KeyCode.D))
+            SetVelocityX(Speed);
+        else if (Input.GetKey(KeyCode.A))
+            SetVelocityX(-1 * Speed);
+        else
+            SetVelocityX(0);
+    }
+
+    private void SmartJump()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
+        {
+            if (GroundChecker.IsGrounded || _secondsInAir < _timeAflerGetOffGround)
+                JumpFromGround();
+            else if (_jumpsLeft > 0)
+                JumpInAir();
+            else
+                _spaceIsPressed = true;
+
+            _secondsAfterSpacePressed = 0;
+        }
+        else if (GroundChecker.IsGrounded)
+        {
+            if (_spaceIsPressed && _secondsAfterSpacePressed < _timeBeforeLanding)
+                JumpFromGround();
+            else if (_secondsInAir > 0)
+                _jumpsLeft = 0;
+
+            _spaceIsPressed = false;
+            _secondsInAir = 0;
+        }
+        else
+        {
+            _secondsInAir += Time.deltaTime;
+            _secondsAfterSpacePressed += Time.deltaTime;
+        }
+    }
+
+    private void JumpFromGround()
+    {
+        Jump(_jumpForse);
+        _jumpsLeft = _maxJumpCount - 1;
+    }
+
+    private void JumpInAir()
+    {
+        Jump(_jumpForse);
+        _jumpsLeft--;
     }
 }
