@@ -21,6 +21,8 @@ public class HealthRenderer : MonoBehaviour
         _playerHealth = _game.Player.PlayerHealth;
         _playerHealth.HealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
+        OnMaxHealthChanged(_playerHealth.MaxHealth);
+        OnHealthChanged(_playerHealth.CurrentHealth);
     }
 
     private void OnDestroy()

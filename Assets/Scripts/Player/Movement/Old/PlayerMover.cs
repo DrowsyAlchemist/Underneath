@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(GroundChecker))]
+[RequireComponent(typeof(GroundCheck))]
 [RequireComponent(typeof(MovementAnimation))]
 public class PlayerMover : MonoBehaviour
 {
@@ -27,7 +27,7 @@ public class PlayerMover : MonoBehaviour
     private Vector2 _targetVelocity;
 
     private Collider2D _collider;
-    private GroundChecker _groundChecker;
+    private GroundCheck _groundChecker;
     private bool _isGrounded;
 
     private int _jumpsLeft;
@@ -48,7 +48,7 @@ public class PlayerMover : MonoBehaviour
 
     private void Start()
     {
-        _groundChecker = GetComponent<GroundChecker>();
+        _groundChecker = GetComponent<GroundCheck>();
         _collider = GetComponent<Collider2D>();
         _movementAnimator = GetComponent<MovementAnimation>();
         _contactFilter.useLayerMask = true;

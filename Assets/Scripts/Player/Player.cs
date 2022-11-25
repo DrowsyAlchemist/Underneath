@@ -77,7 +77,8 @@ public class Player : MonoBehaviour
     private void Knock()
     {
         Knocked = true;
-        PlayerMovement.enabled = false;
+        PlayerMovement.AllowAnimation(false);
+        PlayerMovement.AllowInpupControl(false);
         PlayerAnimation.PlayKnock();
     }
 
@@ -88,7 +89,8 @@ public class Player : MonoBehaviour
         PlayerAnimation.PlayStandUp();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(PlayerAnimation.Animator.GetCurrentAnimatorStateInfo(0).length);
-        PlayerMovement.enabled = true;
+        PlayerMovement.AllowAnimation(true);
+        PlayerMovement.AllowInpupControl(true);
         Knocked = false;
     }
 

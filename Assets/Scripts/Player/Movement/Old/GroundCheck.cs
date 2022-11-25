@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class GroundChecker : MonoBehaviour
+public class GroundCheck : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundLayer;
 

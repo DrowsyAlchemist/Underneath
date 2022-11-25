@@ -23,10 +23,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _player = GetComponent<Player>();
         _hurtEffect = GetComponent<PlayerHurtEffect>();
-
         CurrentHealth = _maxHealth;
-        MaxHealthChanged?.Invoke(_maxHealth);
-        HealthChanged?.Invoke(CurrentHealth);
     }
 
     public void IncreaseMaxHealth(int value)

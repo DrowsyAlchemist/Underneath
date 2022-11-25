@@ -14,7 +14,7 @@ public class Follower : MonoBehaviour
         _target = _game.Player.transform;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector2 targetPosition = _target.position + new Vector3(_xOffset, _yOffset);
         Vector2 newPosition = Vector2.Lerp(transform.position, targetPosition, _speed);
