@@ -2490,7 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a38ec4f84f3c3c4c81766aad8ee7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  Speed: 0
   _jumpForse: 18
   _gravityModifier: 5
   _groundChecker: {fileID: 1607072987}
@@ -4395,6 +4395,10 @@ PrefabInstance:
       propertyPath: _hurtPanel
       value: 
       objectReference: {fileID: 1059224428}
+    - target: {fileID: 8699937211585495361, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
+      propertyPath: Speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321411, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_Offset.x
       value: 0
@@ -4409,7 +4413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.23
+      value: -29.67
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11589,7 +11593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321412, guid: 69023fe593128a548b20410f182b37e6, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: 69023fe593128a548b20410f182b37e6, type: 3}
       propertyPath: m_RootOrder

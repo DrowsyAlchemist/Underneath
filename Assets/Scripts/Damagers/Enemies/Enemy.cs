@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
             _isHurting = true;
             StateMachine.Pause();
             _health -= damage;
-            //StartCoroutine(FlyAway(sourse.transform));
+            StartCoroutine(FlyAway(sourse.transform));
 
             if (_health > 0)
                 StartCoroutine(Hurt());
