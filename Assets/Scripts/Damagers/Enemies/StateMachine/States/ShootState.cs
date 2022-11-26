@@ -20,6 +20,7 @@ public class ShootState : EnemyState
     private float _elapsedTime;
     private WraithAnimator _animator;
     private EnemyMovement _movementInFlight;
+    private Coroutine _shootCoroutine;
 
     private void Start()
     {
@@ -30,6 +31,15 @@ public class ShootState : EnemyState
     private void OnEnable()
     {
         _elapsedTime = _secondsBetweenShots;
+    }
+
+    private void OnDisable()
+    {
+        if (_shootCoroutine != null)
+            StopCoroutine(_shootCoroutine);
+
+        if (_currentMissile != null)
+            LounchMissile(_currentMissile, dropDown: true);
     }
 
     private void Update()
@@ -44,8 +54,8 @@ public class ShootState : EnemyState
         else
             _animator.PlayIdle();
 
-        if (_elapsedTime > _secondsBetweenShots && IsObstacleOnWay()==false)
-            StartCoroutine(Shoot());
+        if (_elapsedTime > _secondsBetweenShots && IsObstacleOnWay() == false)
+            _shootCoroutine = StartCoroutine(Shoot());
         else
             _elapsedTime += Time.deltaTime;
     }
@@ -60,13 +70,18 @@ public class ShootState : EnemyState
         _currentMissile = null;
     }
 
-    private void LounchMissile(Missile missle)
+    private void LounchMissile(Missile missle, bool dropDown = false)
+    {
+        Vector2 shotDirection = dropDown ? Vector2.down : CalculateMissileDirection();
+        missle.transform.parent = null;
+        missle.Launch(shotDirection);
+    }
+
+    private Vector2 CalculateMissileDirection()
     {
         float spreadAngle = Random.Range(-1 * _spreadInDegrees / 2, _spreadInDegrees / 2);
         Vector2 shotDirection = Target.GetWorldCenter() - transform.position;
-        shotDirection = Quaternion.Euler(0, 0, spreadAngle) * shotDirection;
-        missle.transform.parent = null;
-        missle.Launch(shotDirection, Target);
+        return Quaternion.Euler(0, 0, spreadAngle) * shotDirection;
     }
 
     private bool IsObstacleOnWay()

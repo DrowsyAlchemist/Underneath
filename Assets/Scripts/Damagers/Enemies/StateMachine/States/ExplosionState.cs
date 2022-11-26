@@ -45,6 +45,6 @@ public class ExplosionState : EnemyState
         Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _explosionRadius, Color.cyan, 2);
 
         if ((transform.position - player.GetWorldCenter()).magnitude < _explosionRadius)
-            player.TakeDamage(_damage);
+            player.TakeDamage(_damage, transform.position);
     }
 }

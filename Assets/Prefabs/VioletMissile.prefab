@@ -90,7 +90,7 @@ MonoBehaviour:
   _damage: 1
   _collisionLayers:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 200
   _explosionEffect: {fileID: 6530740245177056003}
   _explosionRadius: 1.5
 --- !u!1001 &1057915274256694117

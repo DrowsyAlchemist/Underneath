@@ -6,9 +6,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerAnimation))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerHealth))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private float _dropForce = 15;
 
     protected bool Knocked;
     private int _money;
@@ -60,11 +61,14 @@ public class Player : MonoBehaviour
         return money;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 soursePosition)
     {
         if (PlayerHealth.IsInvulnerability == false)
         {
             PlayerHealth.ReduceHealth(damage);
+            Vector2 dropForce = _dropForce * (GetWorldCenter() - soursePosition).normalized;
+            Debug.DrawRay(transform.position, dropForce, Color.red, 1);
+            PlayerMovement.AddForce(dropForce);
             Knock();
 
             if (PlayerHealth.CurrentHealth > 0)

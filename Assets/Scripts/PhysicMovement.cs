@@ -4,7 +4,6 @@ using UnityEngine;
 public class PhysicMovement : MonoBehaviour
 {
     [SerializeField] private float _speed;
-
     [SerializeField] private float _gravityModifier = 4f;
     [SerializeField] private GroundChecker _groundChecker;
 
@@ -13,13 +12,12 @@ public class PhysicMovement : MonoBehaviour
     [SerializeField] private float _groundMinNormalY = 0.6f;
     [SerializeField] private float _shellRadius = 0.01f;
 
-    [SerializeField] private float _resistance;
+    [SerializeField] private float _externalForcesResistance;
 
-    private const float Delta = 0.1f;
-    private Vector2 _gravity = 9.8f * Vector2.down;
+    private const float _gravity = 9.8f;
     private ContactFilter2D _filter = new ContactFilter2D();
-    private Vector2 _gravityVelocity;
-    private Vector2 _surfaseVelocity;
+    private Vector2 _externalForcesVelocity;
+    private Vector2 _surfaceVelocity;
     private Vector2 _targetVelocity;
     private bool _canAnimate = true;
     private MovementAnimator _animator;
@@ -34,99 +32,93 @@ public class PhysicMovement : MonoBehaviour
         _filter.layerMask = _surfases;
     }
 
-    protected void Move()
-    {
-        SetGravity();
-
-        _targetVelocity = _gravityVelocity + _surfaseVelocity;
-        float step = _targetVelocity.magnitude * Time.deltaTime;
-
-        RaycastHit2D[] hits = new RaycastHit2D[1];
-        int hitsCount = _collider.Cast(_targetVelocity, _filter, hits, step);
-
-        if (hitsCount > 0)
-        {
-            Vector2 surfaseNormal = hits[0].normal;
-            Vector2 surfaseAlong = new Vector2(surfaseNormal.y, -1 * surfaseNormal.x);
-
-            if (hits[0].normal.y > _groundMinNormalY)                                               // => ground
-            {
-                _surfaseVelocity = surfaseAlong * _surfaseVelocity.x;
-                _gravityVelocity = Vector2.zero;
-            }
-            else if (hits[0].normal.y < -1 * _groundMinNormalY)                                     // => ceiling
-            {
-                _gravityVelocity = _gravityModifier * _gravity * Time.deltaTime;
-            }
-            else                                                                                    // => wall
-            {
-                _surfaseVelocity.x = 0;
-            }
-            _targetVelocity = _gravityVelocity + _surfaseVelocity;
-            step = _targetVelocity.magnitude * Time.deltaTime;
-        }
-        hitsCount = _collider.Cast(_targetVelocity, _filter, hits, step + _shellRadius);
-
-        if (hitsCount > 0)
-        {
-            Debug.Log("Zero");
-            step = hits[0].distance - _shellRadius;
-        }
-        transform.Translate(_targetVelocity.normalized * step);
-
-        if (_canAnimate)
-            _animator.AnimateByVelocityAndGrounded(_targetVelocity.normalized * step, _groundChecker.IsGrounded);
-    }
-
-    protected void Jump(float jumpForse)
-    {
-        _gravityVelocity = jumpForse * Vector2.up;
-    }
-
-    //private void AdjustVelocityByObstacle()
-    //{
-    //    RaycastHit2D[] hits = new RaycastHit2D[1];
-    //    int hitCount = _collider.Cast(_targetVelocity, _contactFilter, hits, _targetVelocity.magnitude * Time.deltaTime + _shellOffset);
-
-    //    if (hitCount > 0)
-    //    {
-    //        Vector2 surfaseNormal = hits[0].normal;
-    //        Vector2 survaseAlong = new Vector2(surfaseNormal.y, -1 * surfaseNormal.x);
-    //        Debug.DrawRay(transform.position, survaseAlong, Color.red, 1);
-
-    //        if (surfaseNormal.y > _groundMinNormalY)                        // => it's a ground
-    //            _surfaseVelocity = survaseAlong * _surfaseVelocity.x;
-    //        else if (surfaseNormal.y < -1 * _groundMinNormalY)              // => it's a ceiling
-    //            AdjustVelocityByCeiling(survaseAlong);
-    //        else                                                            // => it's a wall
-    //            _surfaseVelocity.x = 0;
-
-    //        _targetVelocity = _gravityVelocity + _surfaseVelocity;
-    //    }
-    //}
-
-    public void SetVelocity(Vector2 velocity)
-    {
-        _surfaseVelocity = velocity;
-    }
-
-    public void SetVelocityX(float velocityX)
-    {
-        _surfaseVelocity.x = velocityX;
-    }
-
-    public void SetVelocityY(float velocityY)
-    {
-        _surfaseVelocity.y = velocityY;
-    }
-
     public void AllowAnimation(bool isAllowed)
     {
         _canAnimate = isAllowed;
     }
 
+    public void AddForce(Vector2 force)
+    {
+        _externalForcesVelocity += force;
+    }
+
+    protected void Move()
+    {
+        _externalForcesVelocity.x = Mathf.MoveTowards(_externalForcesVelocity.x, 0, _externalForcesResistance * Time.deltaTime);
+        SetGravity();
+
+        if (TryGetObstacle(out RaycastHit2D obstacle))
+            AdjustVelocityByObstacle(obstacle);
+
+        Vector2 step = CalculateStep();
+        transform.Translate(step);
+
+        if (_canAnimate)
+            _animator.AnimateByVelocityAndGrounded(step, _groundChecker.IsGrounded);
+    }
+
+    protected void Jump(float jumpForse)
+    {
+        _externalForcesVelocity = jumpForse * Vector2.up;
+    }
+
+    protected void SetVelocityX(float velocityX)
+    {
+        _surfaceVelocity.x = velocityX;
+    }
+
     private void SetGravity()
     {
-        _gravityVelocity += _gravityModifier * _gravity * Time.deltaTime;
+        _externalForcesVelocity += _gravityModifier * _gravity * Time.deltaTime * Vector2.down;
+        _targetVelocity = _externalForcesVelocity + _surfaceVelocity;
+    }
+
+    private void AdjustVelocityByObstacle(RaycastHit2D obstacle)
+    {
+        if (obstacle.normal.y > _groundMinNormalY)                                   // => ground
+        {
+            _surfaceVelocity = GetSurfaceAlong(obstacle) * _surfaceVelocity.x;
+            _externalForcesVelocity.y = 0;
+        }
+        else if (obstacle.normal.y < -1 * _groundMinNormalY)                         // => ceiling
+        {
+            _externalForcesVelocity.y = _gravityModifier * _gravity * Time.deltaTime;
+        }
+        else                                                                         // => wall
+        {
+            _externalForcesVelocity.x = 0;
+            _surfaceVelocity.x = 0;
+        }
+        _targetVelocity = _externalForcesVelocity + _surfaceVelocity;
+    }
+
+    private Vector2 CalculateStep()
+    {
+        if (TryGetObstacle(out RaycastHit2D obstacle))
+            return CalculateStepByObstacle(obstacle);
+        else
+            return (_targetVelocity.magnitude * Time.deltaTime) * _targetVelocity.normalized;
+    }
+
+    private Vector2 CalculateStepByObstacle(RaycastHit2D obstacle)
+    {
+        if (obstacle.distance > _shellRadius)
+            return (obstacle.distance - _shellRadius) * _targetVelocity.normalized;
+        else
+            return obstacle.normal * Time.deltaTime;
+    }
+
+    private bool TryGetObstacle(out RaycastHit2D obstacle)
+    {
+        float step = _targetVelocity.magnitude * Time.deltaTime;
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        int hitsCount = _collider.Cast(_targetVelocity, _filter, hits, step + _shellRadius);
+        obstacle = hits[0];
+        return hitsCount > 0;
+    }
+
+    private Vector2 GetSurfaceAlong(RaycastHit2D surface)
+    {
+        return new Vector2(surface.normal.y, -1 * surface.normal.x);
     }
 }

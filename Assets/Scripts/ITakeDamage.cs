@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface ITakeDamage
 {
-    public void TakeDamage(int damage, GameObject sourse);
+    public void TakeDamage(int damage, Vector3 soursePosition);
 }

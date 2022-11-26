@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(MovementAnimation))]
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] public float _gravityModifier = 1.5f;
+    [SerializeField] private float _gravityModifier = 1.5f;
     [SerializeField] private float _speed = 3;
     [Space]
     [Header("Surface settings")]
@@ -132,7 +132,7 @@ public class PlayerMover : MonoBehaviour
 
     private void AdjustVelocityByCeiling(Vector2 ceilingAlong)
     {
-        _surfaseVelocity = -1 * ceilingAlong * _surfaseVelocity.x;
+        _surfaseVelocity = -1 * _surfaseVelocity.x * ceilingAlong;
 
         if (_gravityVelocity.y > 0)
             _gravityVelocity.y = 0;

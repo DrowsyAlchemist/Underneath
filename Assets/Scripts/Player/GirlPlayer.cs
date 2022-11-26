@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(AdventureGirlAnimation))]
 public class GirlPlayer : Player
 {
@@ -9,12 +10,14 @@ public class GirlPlayer : Player
     [SerializeField] private float _secondsBetweenAttacks;
 
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
     private AdventureGirlAnimation _animation;
     private float _elapsedTime;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _animation = GetComponent<AdventureGirlAnimation>();
     }
 
@@ -37,13 +40,13 @@ public class GirlPlayer : Player
     {
         _elapsedTime = 0;
         _animation.PlayMelee();
-        int direction = (transform.localScale.x) > 0 ? 1 : -1;
+        int direction = (_spriteRenderer.flipX) ? -1 : 1;
         RaycastHit2D[] hits = new RaycastHit2D[8];
         int hitCount = _rigidbody.Cast(direction * Vector2.right, hits, _meleeRange);
 
         for (int i = 0; i < hitCount; i++)
             if (hits[i].transform.TryGetComponent(out ITakeDamage target))
-                target.TakeDamage(_damage, gameObject);
+                target.TakeDamage(_damage, transform.position);
     }
 
     private void Shoot()

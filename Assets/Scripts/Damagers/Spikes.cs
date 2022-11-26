@@ -8,7 +8,7 @@ public class Spikes : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
-            player.TakeDamage(_damage);
+            player.TakeDamage(_damage, transform.position);
     }
 
     private void OnValidate()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : PhysicMovement
 {
-    [SerializeField] private float _jumpForse;
+    [SerializeField] private float _jumpForse = 5;
     [SerializeField] private int _maxJumpCount = 2;
     [SerializeField] private float _timeBeforeLanding = 0.08f;
     [SerializeField] private float _timeAflerGetOffGround = 0.15f;

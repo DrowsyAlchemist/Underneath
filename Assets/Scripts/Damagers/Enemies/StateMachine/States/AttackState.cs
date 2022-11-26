@@ -22,7 +22,7 @@ public class AttackState : EnemyState
 
         if (Vector2.Distance(transform.position, player.GetWorldCenter()) < _attackRange)
         {
-            player.TakeDamage(_damage);
+            player.TakeDamage(_damage, transform.position);
             Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _attackRange, Color.red, 1);
         }
     }

@@ -9,8 +9,8 @@ public class Missile : MonoBehaviour
     [SerializeField] private ParticleSystem _explosionEffect;
     [SerializeField] private float _explosionRadius;
 
+    private ContactFilter2D _filter = new ContactFilter2D();
     private Vector3 _direction;
-    private Player _target;
     private Collider2D _collider;
 
     private void Awake()
@@ -18,11 +18,12 @@ public class Missile : MonoBehaviour
         enabled = false;
         _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
+        _filter.useLayerMask = true;
+        _filter.layerMask = _collisionLayers;
     }
 
-    public void Launch(Vector2 direction, Player target)
+    public void Launch(Vector2 direction)
     {
-        _target = target;
         _direction = direction.normalized;
         _collider.enabled = true;
         enabled = true;
@@ -41,8 +42,13 @@ public class Missile : MonoBehaviour
 
     private void Explode()
     {
-        if (Vector2.Distance(_target.GetWorldCenter(), transform.position) < _explosionRadius)
-            _target.TakeDamage(_damage);
+        RaycastHit2D[] hits = new RaycastHit2D[8];
+        int hitsCount = Physics2D.CircleCast(transform.position, _explosionRadius, Vector2.zero, _filter, hits, 0);
+
+        for (int i = 0; i < hitsCount; i++)
+            if (hits[i].transform.TryGetComponent(out VioletWraith _) == false)
+                if (hits[i].transform.TryGetComponent(out ITakeDamage target))
+                    target.TakeDamage(_damage, transform.position);
 
         _explosionEffect.Play();
         _explosionEffect.transform.parent = null;
