@@ -8,17 +8,14 @@ public class CoinsRenderer : MonoBehaviour
 
     private Player _player;
 
-    private void Awake()
+    private void Start()
     {
         _player = _game.Player;
-    }
-
-    private void OnEnable()
-    {
         _player.MoneyChanged += OnMoneyChanged;
+        OnMoneyChanged(_player.Money);
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         _player.MoneyChanged -= OnMoneyChanged;
     }

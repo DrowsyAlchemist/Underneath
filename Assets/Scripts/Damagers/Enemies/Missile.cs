@@ -3,13 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Missile : MonoBehaviour
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private int _damage;
+    [SerializeField] protected float Speed;
+    [SerializeField] protected int Damage;
+    [SerializeField] protected ParticleSystem HitEffect;
     [SerializeField] private LayerMask _collisionLayers;
-    [SerializeField] private ParticleSystem _explosionEffect;
-    [SerializeField] private float _explosionRadius;
 
-    private ContactFilter2D _filter = new ContactFilter2D();
+    protected ContactFilter2D Filter = new ContactFilter2D();
     private Vector3 _direction;
     private Collider2D _collider;
 
@@ -18,11 +17,11 @@ public class Missile : MonoBehaviour
         enabled = false;
         _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
-        _filter.useLayerMask = true;
-        _filter.layerMask = _collisionLayers;
+        Filter.useLayerMask = true;
+        Filter.layerMask = _collisionLayers;
     }
 
-    public void Launch(Vector2 direction)
+    public virtual void Launch(Vector2 direction)
     {
         _direction = direction.normalized;
         _collider.enabled = true;
@@ -31,28 +30,32 @@ public class Missile : MonoBehaviour
 
     private void Update()
     {
-        transform.position += _speed * Time.deltaTime * _direction;
+        Move();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((1 << collision.gameObject.layer & _collisionLayers) > 0)
-            Explode();
+            Hit(collision);
     }
 
-    private void Explode()
+    protected virtual void Hit(Collider2D collision)
     {
-        RaycastHit2D[] hits = new RaycastHit2D[8];
-        int hitsCount = Physics2D.CircleCast(transform.position, _explosionRadius, Vector2.zero, _filter, hits, 0);
+        if (collision.transform.TryGetComponent(out ITakeDamage target))
+            target.TakeDamage(Damage, transform.position);
 
-        for (int i = 0; i < hitsCount; i++)
-            if (hits[i].transform.TryGetComponent(out VioletWraith _) == false)
-                if (hits[i].transform.TryGetComponent(out ITakeDamage target))
-                    target.TakeDamage(_damage, transform.position);
-
-        _explosionEffect.Play();
-        _explosionEffect.transform.parent = null;
+        Collapse();
+    }
+    protected void Collapse()
+    {
+        HitEffect.Play();
+        HitEffect.transform.parent = null;
         Destroy(gameObject);
+    }
+
+    private void Move()
+    {
+        transform.position += Speed * Time.deltaTime * _direction;
     }
 
     private void OnValidate()

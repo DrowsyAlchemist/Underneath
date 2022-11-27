@@ -29,6 +29,9 @@ public class MovementAnimator : MonoBehaviour
     private void TurnByVelocity(Vector2 velocity)
     {
         if (Mathf.Abs(velocity.x) > Delta)
-            _spriteRenderer.flipX = (velocity.x < 0);
+        {
+            bool positiveDirection = velocity.x > 0;
+            transform.LookForwardDirection(positiveDirection);
+        }
     }
 }

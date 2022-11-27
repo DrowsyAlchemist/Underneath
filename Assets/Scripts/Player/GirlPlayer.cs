@@ -8,6 +8,8 @@ public class GirlPlayer : Player
     [SerializeField] private int _damage;
     [SerializeField] private float _meleeRange;
     [SerializeField] private float _secondsBetweenAttacks;
+    [SerializeField] private Transform _shootPoint;
+    [SerializeField] private Bullet _bullet;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
@@ -53,5 +55,8 @@ public class GirlPlayer : Player
     {
         _elapsedTime = 0;
         _animation.PlayShoot();
+        Bullet bullet = Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+        int positiveDirection = (transform.localScale.x > 0) ? 1 : -1;
+        bullet.Launch(positiveDirection * Vector2.right);
     }
 }

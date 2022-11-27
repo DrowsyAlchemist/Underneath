@@ -31,11 +31,6 @@ public class Player : MonoBehaviour, ITakeDamage
         PlayerHealth = GetComponent<PlayerHealth>();
     }
 
-    private void Start()
-    {
-        MoneyChanged?.Invoke(_money);
-    }
-
     public Vector3 GetWorldCenter()
     {
         Vector3 localCenter = _collider.offset;

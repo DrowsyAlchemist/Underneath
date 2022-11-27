@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5421674479792357832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MissilePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 7928814139725072855}
   - component: {fileID: 7928814139725072849}
   - component: {fileID: 7928814139725072848}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WraithEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4884,7 +4884,7 @@ GameObject:
   - component: {fileID: 1462649880}
   - component: {fileID: 1615403769}
   - component: {fileID: 3850930835912363248}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VioletWraith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5031,6 +5031,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
   _health: 4
+  _ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3421024338757663504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5119,7 +5122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1462649880}
-  _missile: {fileID: 2314714819954507344, guid: bd6e8767033b49d4ca57eed96abc1c37, type: 3}
+  _missile: {fileID: 4254132603259820445, guid: bd6e8767033b49d4ca57eed96abc1c37, type: 3}
   _missileLocalPosition: {fileID: 5421674479792357832}
   _secondsBetweenShots: 2
   _spreadInDegrees: 40
