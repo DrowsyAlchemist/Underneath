@@ -11,8 +11,6 @@ public class PatrolState : EnemyState
     [SerializeField] private float _eachPointDelay = 2;
     [SerializeField] private List<Transform> _patrolPoints;
 
-    private const float DeltaDistance = 0.005f;
-
     private EnemyMovement _enemyMovement;
     private int _targetPointNumber;
     private Transform _targetPoint;
@@ -32,7 +30,7 @@ public class PatrolState : EnemyState
 
     private void Update()
     {
-        if (GetDistanceToTarget(_targetPoint) > DeltaDistance)
+        if (GetDistanceToTarget(_targetPoint) > _speed * Time.deltaTime)
             MoveToTarget(_targetPoint);
         else if (_elapsedTime < _eachPointDelay)
             Wait();

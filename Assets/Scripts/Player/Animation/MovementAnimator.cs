@@ -1,17 +1,13 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimation))]
-[RequireComponent(typeof(SpriteRenderer))]
 public class MovementAnimator : MonoBehaviour
 {
-    private const float Delta = 0.01f;
     private PlayerAnimation _playerAnimation;
-    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _playerAnimation = GetComponent<PlayerAnimation>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void AnimateByVelocityAndGrounded(Vector2 velocity, bool grounded)
@@ -20,7 +16,7 @@ public class MovementAnimator : MonoBehaviour
 
         if (grounded == false)
             _playerAnimation.PlayJump();
-        else if (Mathf.Abs(velocity.x) > Delta)
+        else if (Mathf.Abs(velocity.x) > Time.deltaTime)
             _playerAnimation.PlayRun();
         else
             _playerAnimation.PlayIdle();
@@ -28,10 +24,7 @@ public class MovementAnimator : MonoBehaviour
 
     private void TurnByVelocity(Vector2 velocity)
     {
-        if (Mathf.Abs(velocity.x) > Delta)
-        {
-            bool positiveDirection = velocity.x > 0;
-            transform.LookForwardDirection(positiveDirection);
-        }
+        if (Mathf.Abs(velocity.x) > Time.deltaTime)
+            transform.LookForwardDirection(velocity);
     }
 }

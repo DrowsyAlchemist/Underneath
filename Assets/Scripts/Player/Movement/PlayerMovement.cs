@@ -13,6 +13,11 @@ public class PlayerMovement : PhysicMovement
     private float _secondsInAir;
     private float _secondsAfterSpacePressed;
 
+    private void OnEnable()
+    {
+        _spaceIsPressed = false;
+    }
+
     public void AllowInpupControl(bool isAllowed)
     {
         _canInputControlled = isAllowed;
@@ -44,7 +49,7 @@ public class PlayerMovement : PhysicMovement
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GroundChecker.IsGrounded || _secondsInAir < _timeAflerGetOffGround)
+            if (GroundChecker.IsGrounded || (_secondsInAir < _timeAflerGetOffGround))
                 JumpFromGround();
             else if (_jumpsLeft > 0)
                 JumpInAir();

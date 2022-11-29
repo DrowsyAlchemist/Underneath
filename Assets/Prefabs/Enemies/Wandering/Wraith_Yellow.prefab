@@ -129,9 +129,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.04, y: 0.08}
+  m_Offset: {x: 0, y: 0.08}
   serializedVersion: 2
-  m_Radius: 0.55
+  m_Radius: 0.27
 --- !u!50 &7090971679254129005
 Rigidbody2D:
   serializedVersion: 4
@@ -166,6 +166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
+  _health: 0
+  _defaultDamage: 1
+  _ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &2824876092541007434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +198,7 @@ MonoBehaviour:
   _obstacles:
     serializedVersion: 2
     m_Bits: 0
+  _flyAwayDistance: 1
 --- !u!114 &8778008200703974821
 MonoBehaviour:
   m_ObjectHideFlags: 0

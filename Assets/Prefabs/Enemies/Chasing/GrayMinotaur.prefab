@@ -183,9 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
   _health: 3
-  _ground:
-    serializedVersion: 2
-    m_Bits: 0
+  _defaultDamage: 1
 --- !u!114 &4385145095391153248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,6 +211,7 @@ MonoBehaviour:
   _obstacles:
     serializedVersion: 2
     m_Bits: 0
+  _flyAwayDistance: 0
 --- !u!114 &5412710695781949080
 MonoBehaviour:
   m_ObjectHideFlags: 0

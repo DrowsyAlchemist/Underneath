@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1263889835794736182}
   - component: {fileID: 1263889835794736183}
-  - component: {fileID: 1263889835794736180}
   - component: {fileID: 1263889835794736181}
   - component: {fileID: 4377089547076934516}
+  - component: {fileID: 1263889835794736180}
   - component: {fileID: 1263889835794736333}
   - component: {fileID: 7724207166707841226}
   - component: {fileID: 7314445050979809637}
@@ -95,26 +95,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1263889835794736180
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263889835794736331}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f600d0afdb7eab146a33dab60cf087ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &1263889835794736181
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +108,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.075807035}
+  m_Offset: {x: 0, y: 0.08643031}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -139,7 +119,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.99314225}
+  m_Size: {x: 0.8, y: 0.9718957}
   m_EdgeRadius: 0
 --- !u!50 &4377089547076934516
 Rigidbody2D:
@@ -162,6 +142,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1263889835794736180
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263889835794736331}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f600d0afdb7eab146a33dab60cf087ce, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1263889835794736333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +175,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
-  _health: 2
+  _health: 20
+  _defaultDamage: 1
 --- !u!114 &7724207166707841226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,7 +203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  _flyAwayDistance: 1
 --- !u!114 &1263889835794736334
 MonoBehaviour:
   m_ObjectHideFlags: 0

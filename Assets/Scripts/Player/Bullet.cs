@@ -4,8 +4,7 @@ public class Bullet : Missile
 {
     public override void Launch(Vector2 direction)
     {
-        bool positiveDirection = transform.localScale.x > 0;
-        transform.LookForwardDirection(positiveDirection);
+        transform.LookForwardDirection(transform.localScale);
         base.Launch(direction);
     }
 }

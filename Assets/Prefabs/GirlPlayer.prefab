@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1154739442}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.628, y: 0.648, z: 0}
+  m_LocalPosition: {x: 0.646, y: 0.738, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -294,10 +294,12 @@ MonoBehaviour:
   _inventory: {fileID: 0}
   _dropForce: 15
   _damage: 1
-  _meleeRange: 1.5
-  _secondsBetweenAttacks: 0.5
-  _shootPoint: {x: 0, y: 0}
-  _bullet: {fileID: 0}
+  _knifeAttackRange: 1.5
+  _secondsBetweenKnifeAttacks: 0.5
+  _secondsBetweenShoots: 2
+  _shootPoint: {fileID: 1154739443}
+  _bullet: {fileID: 7530319251680044733, guid: 8d884b9fcff143f4ba9599300996c6b7, type: 3}
+  _knifeAttackEffect: {fileID: 0}
 --- !u!114 &8699937211585495361
 MonoBehaviour:
   m_ObjectHideFlags: 0

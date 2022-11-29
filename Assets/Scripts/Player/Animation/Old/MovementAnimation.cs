@@ -25,9 +25,6 @@ public class MovementAnimation : MonoBehaviour
     private void TurnByVelocity(Vector2 velocity)
     {
         if (velocity.x != 0)
-        {
-            bool positiveDirection = velocity.x > 0;
-            transform.LookForwardDirection(positiveDirection);
-        }
+            transform.LookForwardDirection(velocity);
     }
 }
