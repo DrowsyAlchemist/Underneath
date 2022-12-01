@@ -21,7 +21,25 @@ public class GirlPlayer : Player
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _animation = GetComponent<AdventureGirlAnimation>();
-        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * Vector3.right;
+        int direction = (transform.localScale.x > 0) ? 1 : -1;
+        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
+    }
+
+    public void IncreaseDamage(int value)
+    {
+        _damage += value;
+    }
+
+    public void ModifyAttackRange(float modifier)
+    {
+        _knifeAttackRange *= modifier;
+        int direction = (transform.localScale.x > 0) ? 1 : -1;
+        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
+    }
+
+    public void ModifyTimeBetweenShots(float modifier)
+    {
+        _secondsBetweenShoots *= modifier;
     }
 
     private void Update()

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3386784603702396240}
   - component: {fileID: 4629848112765105866}
-  - component: {fileID: 3492610503478175461}
+  - component: {fileID: -763601763844089509}
   m_Layer: 0
-  m_Name: HealingPotion
+  m_Name: ExtraHeartPotion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3492610503478175461
+--- !u!114 &-763601763844089509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7742574021481667859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57eb05cff2ca6184ab8da038966b0033, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc4bde8e84fc55498371e3b066f9195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lable: Healing potion
-  _sprite: {fileID: 21300000, guid: e212c960efbe88a478a677734790beb7, type: 3}
-  _description: Restore 2 hearts.
+  _lable: Extra heart potion
+  _sprite: {fileID: 21300000, guid: 922deab9052873c47a125ce418b292d6, type: 3}
+  _description: Increase your max health.
   _cost: 2
-  _healthPoints: 2
+  _heartsCount: 1
