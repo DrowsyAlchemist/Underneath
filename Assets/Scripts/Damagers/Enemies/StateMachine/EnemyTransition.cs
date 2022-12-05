@@ -15,12 +15,12 @@ public abstract class EnemyTransition : MonoBehaviour
     private void Awake()
     {
         enabled = false;
-        Enemy = GetComponent<Enemy>();
-        Target = GetComponent<Enemy>().Target;
     }
 
     private void OnEnable()
     {
+        Enemy = GetComponent<Enemy>();
+        Target = GetComponent<Enemy>().Target;
         NeedTransit = false;
     }
 }

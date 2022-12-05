@@ -19,11 +19,25 @@ public class PlayerHealth : MonoBehaviour
     public event UnityAction<int> MaxHealthChanged;
     public event UnityAction<int> HealthChanged;
 
-    private void Start()
+    private void Awake()
     {
         _player = GetComponent<Player>();
         _hurtEffect = GetComponent<PlayerHurtEffect>();
         CurrentHealth = _maxHealth;
+    }
+
+    public void ModifyInvulnerabilityDuration(float modifier)
+    {
+        if (modifier <= 0)
+            throw new System.ArgumentOutOfRangeException("modifier");
+
+        _invulnerabilityDuration *= modifier;
+    }
+
+    public void IncreaseMaxHealth(int value, float duration)
+    {
+        IncreaseMaxHealth(value);
+        StartCoroutine(DecreaseMaxHealth(value, duration));
     }
 
     public void IncreaseMaxHealth(int value)
@@ -32,16 +46,17 @@ public class PlayerHealth : MonoBehaviour
             throw new System.ArgumentOutOfRangeException("value");
 
         SetMaxHealth(_maxHealth + value);
+        RestoreHealth(value);
     }
 
-    public void DecreaseMaxHealth(int value)
+    private IEnumerator DecreaseMaxHealth(int value, float delay)
     {
-        if (value < 0)
-            throw new System.ArgumentOutOfRangeException("value");
-
+        yield return new WaitForSeconds(delay);
         SetMaxHealth(_maxHealth - value);
-    }
 
+        if (CurrentHealth > _maxHealth)
+            SetHealth(_maxHealth);
+    }
 
     public void ReduceHealth(int value)
     {

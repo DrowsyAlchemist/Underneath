@@ -7,19 +7,26 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAnimator))]
 public class Enemy : MonoBehaviour, ITakeDamage
 {
-    [SerializeField] private Game _game;
     [SerializeField] private int _health;
-    [SerializeField] int _defaultDamage = 1;
+    [SerializeField] private int _defaultDamage = 1;
+    [SerializeField] private ParticleSystem _hitEffect;
+    [SerializeField] private int _award;
 
+    private static AccessPoint _accessPoint;
+
+    private bool _isAlive = true;
     private Coroutine _hurtCoroutine;
 
-    public Player Target => _game.Player;
+    public Player Target => _accessPoint.Player;
     public EnemyAnimator EnemyAnimator { get; private set; }
     public EnemyMovement Movement { get; private set; }
     protected EnemyStateMachine StateMachine { get; private set; }
 
     private void Awake()
     {
+        if (_accessPoint == null)
+            _accessPoint = FindObjectOfType<AccessPoint>();
+
         EnemyAnimator = GetComponent<EnemyAnimator>();
         Movement = GetComponent<EnemyMovement>();
         StateMachine = GetComponent<EnemyStateMachine>();
@@ -28,7 +35,8 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
-            player.TakeDamage(_defaultDamage, transform.position);
+            if (_isAlive)
+                player.TakeDamage(_defaultDamage, transform.position);
     }
 
     public void TakeDamage(int damage, Vector3 attackerPosition)
@@ -37,6 +45,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
             throw new System.ArgumentOutOfRangeException();
 
         StateMachine.Pause();
+        Instantiate(_hitEffect, transform.position, Quaternion.identity, null);
         transform.LookForwardDirection(attackerPosition - transform.position);
         _health -= damage;
 
@@ -44,13 +53,9 @@ public class Enemy : MonoBehaviour, ITakeDamage
             StopCoroutine(_hurtCoroutine);
 
         if (_health > 0)
-        {
             _hurtCoroutine = StartCoroutine(Hurt(attackerPosition));
-        }
         else
-        {
             StartCoroutine(Die());
-        }
     }
 
     private IEnumerator Hurt(Vector3 attackerPosition)
@@ -67,9 +72,11 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private IEnumerator Die()
     {
+        _isAlive = false;
         EnemyAnimator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
+        _accessPoint.CoinsSpawner.Spawn(_award, transform.position);
 
         if (gameObject)
             Destroy(gameObject);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CoinsRenderer : MonoBehaviour
 {
-    [SerializeField] private Game _game;
+    [SerializeField] private AccessPoint _game;
     [SerializeField] private TMP_Text _coinsCount;
 
     private Player _player;

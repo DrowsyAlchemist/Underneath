@@ -23,6 +23,14 @@ public class PlayerMovement : PhysicMovement
         _canInputControlled = isAllowed;
     }
 
+    public void IncreaseJumpCount(int value)
+    {
+        if (value<0)
+            throw new System.ArgumentOutOfRangeException("value");
+
+        _maxJumpCount += value;
+    }
+
     private void Update()
     {
         if (_canInputControlled)

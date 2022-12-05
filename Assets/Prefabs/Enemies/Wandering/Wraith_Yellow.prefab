@@ -165,12 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 0}
   _health: 0
   _defaultDamage: 1
-  _ground:
-    serializedVersion: 2
-    m_Bits: 0
+  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
+  _award: 3
 --- !u!114 &2824876092541007434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,8 +225,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8778008200703974823}
   _canFly: 1
-  _speed: 1
-  _eachPointDelay: 2
+  _speed: 2
+  _eachPointDelay: 1.4
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -276,7 +274,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1519812533}
   _damage: 1
-  _attackRange: 2
+  _attackRange: 1.5
   _attackDelay: 0.15
 --- !u!114 &1519812535
 MonoBehaviour:

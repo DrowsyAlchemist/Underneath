@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Follower : MonoBehaviour
 {
-    [SerializeField] private Game _game;
+    [SerializeField] private AccessPoint _game;
     [SerializeField][Range(0, 1)] private float _speed;
     [SerializeField] private float _xOffset;
     [SerializeField] private float _yOffset;

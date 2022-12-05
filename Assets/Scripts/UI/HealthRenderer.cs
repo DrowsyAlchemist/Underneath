@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HealthRenderer : MonoBehaviour
 {
-    [SerializeField] private Game _game;
+    [SerializeField] private AccessPoint _game;
 
     [SerializeField] private RectTransform _heartsView;
     [SerializeField] private RectTransform _emptyHeartsView;

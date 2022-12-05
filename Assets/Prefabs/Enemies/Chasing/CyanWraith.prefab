@@ -171,6 +171,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _game: {fileID: 0}
   _health: 2
+  _defaultDamage: 1
+  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
+  _award: 5
 --- !u!114 &8778008200703974832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,6 +202,7 @@ MonoBehaviour:
   _obstacles:
     serializedVersion: 2
     m_Bits: 8
+  _flyAwayDistance: 0.5
 --- !u!114 &8778008200703974821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +234,6 @@ MonoBehaviour:
   _speed: 1
   _eachPointDelay: 2
   _patrolPoints:
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &7324815664675188054

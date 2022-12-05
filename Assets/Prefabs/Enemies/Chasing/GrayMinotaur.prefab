@@ -181,9 +181,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 0}
-  _health: 3
+  _health: 4
   _defaultDamage: 1
+  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
+  _award: 6
 --- !u!114 &4385145095391153248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,8 +211,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles:
     serializedVersion: 2
-    m_Bits: 0
-  _flyAwayDistance: 0
+    m_Bits: 8
+  _flyAwayDistance: 0.7
 --- !u!114 &5412710695781949080
 MonoBehaviour:
   m_ObjectHideFlags: 0

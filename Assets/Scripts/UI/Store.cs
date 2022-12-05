@@ -6,7 +6,7 @@ using UnityEngine;
 public class Store : MonoBehaviour
 {
     [SerializeField] private StoreMenu _menu;
-    [SerializeField] private List<Potion> _wares = new List<Potion>();
+    [SerializeField] private List<UseableItem> _wares = new List<UseableItem>();
 
     private LightControl _lightControl;
 

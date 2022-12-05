@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public abstract class Collectable : MonoBehaviour
 {
@@ -14,9 +15,9 @@ public abstract class Collectable : MonoBehaviour
         Animator = GetComponent<Animator>();
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Collected == false && collision.TryGetComponent(out Player player))
+        if (Collected == false && collision.collider.TryGetComponent(out Player player))
         {
             Collected = true;
             CollectByPlayer(player);
@@ -36,6 +37,6 @@ public abstract class Collectable : MonoBehaviour
 
     protected virtual void OnValidate()
     {
-        GetComponent<Collider2D>().isTrigger = true;
+        GetComponent<Collider2D>().isTrigger = false;
     }
 }

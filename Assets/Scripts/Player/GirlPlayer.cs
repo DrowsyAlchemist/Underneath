@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -25,9 +26,26 @@ public class GirlPlayer : Player
         _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
     }
 
+    public void SetBullet(Bullet bullet)
+    {
+        _bullet = bullet;
+    }
+
+    public void IncreaseDamage(int value, float duration)
+    {
+        IncreaseDamage(value);
+        StartCoroutine(DecreaseDamage(value, duration));
+    }
+
     public void IncreaseDamage(int value)
     {
         _damage += value;
+    }
+
+    public void ModifyAttackRange(float modifier, float delay)
+    {
+        ModifyAttackRange(modifier);
+        StartCoroutine(ModifyAttackRangeWithDelay(1 / modifier, delay));
     }
 
     public void ModifyAttackRange(float modifier)
@@ -37,9 +55,33 @@ public class GirlPlayer : Player
         _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
     }
 
+    public void ModifyTimeBetweenShots(float modifier, float delay)
+    {
+        ModifyTimeBetweenShots(modifier);
+        StartCoroutine(ModifyTimeBetweenShotsWithDelay(1 / modifier, delay));
+    }
+
     public void ModifyTimeBetweenShots(float modifier)
     {
         _secondsBetweenShoots *= modifier;
+    }
+
+    private IEnumerator DecreaseDamage(int value, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _damage -= value;
+    }
+
+    private IEnumerator ModifyAttackRangeWithDelay(float modifier, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ModifyAttackRange(modifier);
+    }
+
+    private IEnumerator ModifyTimeBetweenShotsWithDelay(float modifier, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ModifyTimeBetweenShots(modifier);
     }
 
     private void Update()

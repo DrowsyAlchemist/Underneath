@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private Game _game;
+    [SerializeField] private AccessPoint _game;
 
-    [SerializeField] private RectTransform _potionsContainer;
-    [SerializeField] private PotionRenderer _potionRenderer;
+    [SerializeField] private RectTransform _itemsContainer;
+    [SerializeField] private UseableItemRenderer _itemRenderer;
 
     [SerializeField] private Image _descriptionImage;
     [SerializeField] private TMP_Text _lable;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Button _useButton;
 
-    private List<Potion> _potions = new List<Potion>();
-    private PotionRenderer _highlightedPotion;
+    [SerializeField] private RectTransform _activeEfectsContainer;
+
+    private List<UseableItem> _items = new List<UseableItem>();
+    private UseableItemRenderer _highlightedItem;
 
     private void OnEnable()
     {
@@ -33,27 +35,27 @@ public class Inventory : MonoBehaviour
         ClearDescription();
     }
 
-    public void AddPotion(Potion potion)
+    public void AddItem(UseableItem item)
     {
-        _potions.Add(potion);
-        var potionRenderer = Instantiate(_potionRenderer, _potionsContainer);
-        potionRenderer.Render(potion);
-        potionRenderer.ButtonClicked += OnItemClick;
+        _items.Add(item);
+        var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
+        itemRenderer.Render(item);
+        itemRenderer.ButtonClicked += OnItemClick;
     }
 
-    private void OnItemClick(PotionRenderer potionRenderer)
+    private void OnItemClick(UseableItemRenderer itemRenderer)
     {
-        _highlightedPotion = potionRenderer;
-        RenderDescription(potionRenderer.Potion);
+        _highlightedItem = itemRenderer;
+        RenderDescription(itemRenderer.Item);
     }
 
-    private void RenderDescription(Potion potion)
+    private void RenderDescription(UseableItem item)
     {
-        _descriptionImage.sprite = potion.Sprite;
+        _descriptionImage.sprite = item.Sprite;
         _descriptionImage.color = Color.white;
-        _lable.text = potion.Lable;
-        _description.text = potion.Description;
-        _useButton.interactable = potion.TryGetComponent(out IUseable _);
+        _lable.text = item.Lable;
+        _description.text = item.Description;
+        _useButton.interactable = item.TryGetComponent(out UseableItem _);
     }
 
     private void ClearDescription()
@@ -66,11 +68,24 @@ public class Inventory : MonoBehaviour
 
     private void OnUseButtonClick()
     {
-        if (_highlightedPotion.Potion.TryGetComponent(out IUseable useable))
+        if (_highlightedItem.Item.TryGetComponent(out UseableItem item))
         {
-            useable.Use(_game.Player);
-            Destroy(_highlightedPotion.gameObject);
+            item.Use(_game);
             ClearDescription();
+
+            if (_highlightedItem.Item.TryGetComponent(out Potion potion))
+            {
+                _highlightedItem.transform.SetParent(_activeEfectsContainer);
+                _highlightedItem.VanishWithDelay(potion.Duration);
+            }
+            else if (_highlightedItem.Item.TryGetComponent(out PermanentEffectItem _))
+            {
+                _highlightedItem.transform.SetParent(_activeEfectsContainer);
+            }
+            else
+            {
+                Destroy(_highlightedItem.gameObject);
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ public class WareRenderer : MonoBehaviour
     [SerializeField] private TMP_Text _cost;
     [SerializeField] private Button _buyButton;
 
-    public Potion Potion { get; private set; }
+    public UseableItem Item { get; private set; }
     public int Cost => int.Parse(_cost.text);
 
     public event UnityAction<WareRenderer> ButtonClicked;
@@ -31,13 +31,13 @@ public class WareRenderer : MonoBehaviour
         _cost.text = cost.ToString();
     }
 
-    public void Render(Potion potion)
+    public void Render(UseableItem item)
     {
-        Potion = potion;
-        _image.sprite = potion.Sprite;
-        _lable.text = potion.Lable;
-        _description.text = potion.Description;
-        _cost.text = potion.Cost.ToString();
+        Item = item;
+        _image.sprite = item.Sprite;
+        _lable.text = item.Lable;
+        _description.text = item.Description;
+        _cost.text = item.Cost.ToString();
     }
 
     private void OnButtonClick()

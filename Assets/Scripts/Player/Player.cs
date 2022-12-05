@@ -12,14 +12,13 @@ public class Player : MonoBehaviour, ITakeDamage
     [SerializeField] private float _dropForce = 15;
 
     protected bool Knocked;
-    private int _money;
     private Collider2D _collider;
 
     public PlayerMovement PlayerMovement { get; private set; }
     public PlayerAnimation PlayerAnimation { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
+    public int Money { get; private set; }
     public Inventory Inventory => _inventory;
-    public int Money => _money;
 
     public event UnityAction<int> MoneyChanged;
 
@@ -33,6 +32,9 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public Vector3 GetWorldCenter()
     {
+        if (_collider==null)
+            return Vector3.zero;
+
         Vector3 localCenter = _collider.offset;
         return transform.position + localCenter;
     }
@@ -42,17 +44,17 @@ public class Player : MonoBehaviour, ITakeDamage
         if (money < 0)
             throw new System.ArgumentOutOfRangeException();
 
-        _money += money;
-        MoneyChanged?.Invoke(_money);
+        Money += money;
+        MoneyChanged?.Invoke(Money);
     }
 
     public int GiveMoney(int money)
     {
-        if (money > _money)
+        if (money > Money)
             throw new System.Exception("Not enough money.");
 
-        _money -= money;
-        MoneyChanged?.Invoke(_money);
+        Money -= money;
+        MoneyChanged?.Invoke(Money);
         return money;
     }
 
