@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53e5c7467d1beb342aaec89d0589bc22, type: 3}
-  m_Name: Wraith_Yellow
+  m_Script: {fileID: 11500000, guid: 2df61eb63f338374fb9c7101a7d68e48, type: 3}
+  m_Name: ShootTimePotion
   m_EditorClassIdentifier: 
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 5
+  _lable: ShootTimePotion
+  _sprite: {fileID: -728427160, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  _description: 
+  _cost: 2

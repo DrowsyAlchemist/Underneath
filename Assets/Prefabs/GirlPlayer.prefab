@@ -289,18 +289,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8851834277699321412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cb21b295df3e084d9b8e983475abd55, type: 3}
+  m_Script: {fileID: 11500000, guid: b791d5cd89f4b864c9ae687e1eddd76b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shootPoint: {fileID: 1154739443}
   _inventory: {fileID: 0}
   _dropForce: 15
-  _damage: 1
-  _knifeAttackRange: 1.5
-  _secondsBetweenKnifeAttacks: 0.5
-  _secondsBetweenShoots: 2
-  _shootPoint: {fileID: 1154739443}
-  _bullet: {fileID: 7530319251680044733, guid: 8d884b9fcff143f4ba9599300996c6b7, type: 3}
-  _knifeAttackEffect: {fileID: 4222722218023630652}
 --- !u!114 &8699937211585495361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4594010f45a71e489714124bbe33662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 7
+  _maxHealth: 2
   _invulnerabilityDuration: 2.5
 --- !u!114 &4406955855483235490
 MonoBehaviour:
@@ -488,10 +482,5 @@ PrefabInstance:
 --- !u!4 &2841055957241106639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2841055957898952024, guid: 9d8c3666f06d2084e9aad521aca4529b, type: 3}
-  m_PrefabInstance: {fileID: 2077224343}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &4222722218023630652 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4222722215998479019, guid: 9d8c3666f06d2084e9aad521aca4529b, type: 3}
   m_PrefabInstance: {fileID: 2077224343}
   m_PrefabAsset: {fileID: 0}

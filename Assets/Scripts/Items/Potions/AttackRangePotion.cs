@@ -4,25 +4,13 @@ public class AttackRangePotion : Potion
 {
     [SerializeField] private float _rangeModifier;
 
-    //public override void Drink(Player player)
-    //{
-    //    if (player.TryGetComponent(out GirlPlayer girlPlayer))
-    //    {
-    //        girlPlayer.ModifyAttackRange(_rangeModifier, Duration);
-    //    }
-    //    else
-    //    {
-    //        // Message
-    //    }
-    //}
-
-    public override void StartAffecting(Player player)
+    protected override void StartAffecting(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.Dagger.ModifyAttackRange(_rangeModifier);
     }
 
-    public override void StopAffecting(Player player)
+    protected override void StopAffecting(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.Dagger.ModifyAttackRange(1/_rangeModifier);
     }
 }

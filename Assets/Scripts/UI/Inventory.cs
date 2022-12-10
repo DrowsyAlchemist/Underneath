@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private AccessPoint _game;
+    [SerializeField] private AccessPoint _accessPoint;
 
     [SerializeField] private RectTransform _itemsContainer;
     [SerializeField] private ItemRenderer _itemRenderer;
@@ -15,15 +15,52 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Button _useButton;
 
-    [SerializeField] private PotionActivator _activePotionsView;
+    [SerializeField] private RectTransform _activePotionsContainer;
     [SerializeField] private PlayerSlots _playerSlots;
+
+    [SerializeField] private List<Item> _defaultItems = new List<Item>();
 
     private List<Item> _items = new List<Item>();
     private ItemRenderer _highlightedItem;
 
+    public Dagger Dagger { get; private set; }
+    public Gun Gun { get; private set; }
+
+    public void SetDagger(Dagger dagger)
+    {
+        if (dagger == null)
+            throw new System.ArgumentNullException();
+
+        Dagger = dagger;
+    }
+
+    public void TakeOffDagger()
+    {
+        Dagger = null;
+    }
+
+    public void SetGun(Gun gun)
+    {
+        if (gun == null)
+            throw new System.ArgumentNullException();
+
+        Gun = gun;
+    }
+
+    public void TakeOffGun()
+    {
+        Gun = null;
+    }
+
     private void OnEnable()
     {
         _useButton.onClick.AddListener(OnUseButtonClick);
+    }
+
+    private void Start()
+    {
+        foreach (var item in _defaultItems)
+            AddItem(item);
     }
 
     private void OnDisable()
@@ -32,15 +69,22 @@ public class Inventory : MonoBehaviour
         ClearDescription();
     }
 
-    private void Start()
-    {
-        ClearDescription();
-    }
-
     public void AddItem(Item item)
     {
         _items.Add(item);
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
+
+        if (item is Potion)
+            item = Instantiate(item, itemRenderer.transform);
+
+        if (item is EquippableItem equippableItem)
+        {
+            if (equippableItem.Type == EquippableItemType.MeleeWeapon
+                || equippableItem.Type == EquippableItemType.Gun)
+            {
+                item = Instantiate(item, _accessPoint.Player.transform);
+            }
+        }
         itemRenderer.Render(item);
         itemRenderer.ButtonClicked += OnItemClick;
     }
@@ -83,11 +127,12 @@ public class Inventory : MonoBehaviour
                 TakeOffItem(itemRenderer);
             }
             _playerSlots.SetItem(_highlightedItem);
-            equippableItem.Affect(_game.Player);
+            equippableItem.Affect(_accessPoint.Player);
         }
         else if (_highlightedItem.Item.TryGetComponent(out Potion potion))
         {
-            _activePotionsView.UsePotion(_highlightedItem);
+            _highlightedItem.transform.SetParent(_activePotionsContainer);
+            potion.Drink(_accessPoint.Player);
         }
         ClearDescription();
     }
@@ -95,6 +140,6 @@ public class Inventory : MonoBehaviour
     private void TakeOffItem(ItemRenderer itemRenderer)
     {
         itemRenderer.transform.SetParent(_itemsContainer);
-        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(_game.Player);
+        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(_accessPoint.Player);
     }
 }

@@ -97,8 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eb05cff2ca6184ab8da038966b0033, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lable: Healing potion
-  _sprite: {fileID: -1298081016, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
-  _description: Restore 2 hearts.
-  _cost: 2
+  _itemData: {fileID: 11400000, guid: 7b3f5ef8db2167c449699f44fb6e025a, type: 2}
+  _duration: 0
   _healthPoints: 2

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3386784603702396240}
   - component: {fileID: 4629848112765105866}
-  - component: {fileID: 3371087651362344395}
+  - component: {fileID: -4288446800415173191}
   m_Layer: 0
-  m_Name: ImprovedBullets
+  m_Name: GoldRevolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1aa20498e065a514fb8c086ad4dc3a22, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d3ba0183706161d4ab4124d2a97457ce, type: 3}
+  m_Color: {r: 1, g: 0.8929782, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3371087651362344395
+--- !u!114 &-4288446800415173191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,11 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7742574021481667859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716a7919301ec594785cefa0a82aa2c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 955bb548ee4fe734297426fbf13fb0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lable: Improved bullets
-  _sprite: {fileID: 21300000, guid: 1aa20498e065a514fb8c086ad4dc3a22, type: 3}
-  _description: 
-  _cost: 1
-  _extraDamage: 1
+  _itemData: {fileID: 11400000, guid: e14c8d4baebd3114fac1e9cc90bcb2fc, type: 2}
+  _type: 3
+  _bullet: {fileID: 0}
+  _secondsBetweenShoots: 2

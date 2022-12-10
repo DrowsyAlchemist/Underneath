@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3386784603702396240}
   - component: {fileID: 4629848112765105866}
-  - component: {fileID: 213089123467647644}
+  - component: {fileID: -5910256577244122115}
   m_Layer: 0
-  m_Name: DamagePotion
+  m_Name: SilverRevolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1090317050, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3ba0183706161d4ab4124d2a97457ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &213089123467647644
+--- !u!114 &-5910256577244122115
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,9 +94,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7742574021481667859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb6c6e39f875fe4e86115bf4c984b8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 955bb548ee4fe734297426fbf13fb0d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemData: {fileID: 11400000, guid: bb0c9e80f2cd56a4b8858bf472b9ab25, type: 2}
-  _duration: 20
-  extraDamage: 1
+  _itemData: {fileID: 11400000, guid: 9629442998d49464abe85ed4e0b8511f, type: 2}
+  _type: 3
+  _secondsBetweenShoots: 2
+  _bullet: {fileID: 7530319251680044733, guid: 8d884b9fcff143f4ba9599300996c6b7, type: 3}

@@ -170,9 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 2
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 5
+  _enemyData: {fileID: 11400000, guid: 8cc419a9ed1830e4abfa27a8eed56617, type: 2}
 --- !u!114 &8778008200703974832
 MonoBehaviour:
   m_ObjectHideFlags: 0

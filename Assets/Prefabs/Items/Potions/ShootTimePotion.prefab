@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1090317050, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  m_Sprite: {fileID: -728427160, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,9 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65317105fd15d0145bc81cb53adf3834, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lable: Shoot time potion
-  _sprite: {fileID: 1090317050, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
-  _description: Decrease the time between shots.
-  _cost: 1
+  _itemData: {fileID: 11400000, guid: bd22d948468b41146be470aaef8c6959, type: 2}
   _duration: 20
   timeModifier: 0.3

@@ -2,19 +2,21 @@ using UnityEngine;
 
 public class Gun : EquippableItem
 {
-    [SerializeField] private Bullet _bullet;
     [SerializeField] private float _secondsBetweenShoots;
+    [SerializeField] private Bullet _bullet;
 
     private float _timeAfterShot;
+
+    public bool CanShoot => (_timeAfterShot > _secondsBetweenShoots);
 
     private void Update()
     {
         _timeAfterShot += Time.deltaTime;
     }
 
-    public virtual void Shoot(Vector2 shootPoint, Vector2 direction)
+    public void Shoot(Vector2 shootPoint, Vector2 direction)
     {
-        if (_timeAfterShot > _secondsBetweenShoots)
+        if (CanShoot)
         {
             _timeAfterShot = 0;
             Bullet bullet = Instantiate(_bullet, shootPoint, Quaternion.identity);
@@ -24,11 +26,16 @@ public class Gun : EquippableItem
 
     public override void Affect(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.SetGun(this);
     }
 
     public override void StopAffecting(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.TakeOffGun();
+    }
+
+    public void ModifyTimeBetweenShots(float modifier)
+    {
+        _secondsBetweenShoots *= modifier;
     }
 }

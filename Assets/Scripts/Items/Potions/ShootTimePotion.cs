@@ -4,25 +4,13 @@ public class ShootTimePotion : Potion
 {
     [SerializeField] private float timeModifier;
 
-    //public override void Drink(Player player)
-    //{
-    //    if (player.TryGetComponent(out GirlPlayer girlPlayer))
-    //    {
-    //        girlPlayer.ModifyTimeBetweenShots(timeModifier, Duration);
-    //    }
-    //    else
-    //    {
-    //        // Message
-    //    }
-    //}
-
-    public override void StartAffecting(Player player)
+    protected override void StartAffecting(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.Gun.ModifyTimeBetweenShots(timeModifier);
     }
 
-    public override void StopAffecting(Player player)
+    protected override void StopAffecting(Player player)
     {
-        throw new System.NotImplementedException();
+        player.Inventory.Gun.ModifyTimeBetweenShots(1/timeModifier);
     }
 }
