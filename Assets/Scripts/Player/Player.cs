@@ -10,10 +10,12 @@ public class Player : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private Inventory _inventory;
     [SerializeField] private float _dropForce = 15;
+    //[SerializeField] private Transform _shootPoint;
 
     protected bool Knocked;
     private Collider2D _collider;
 
+   // public Transform ShootPoint => _shootPoint;
     public PlayerMovement PlayerMovement { get; private set; }
     public PlayerAnimation PlayerAnimation { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }

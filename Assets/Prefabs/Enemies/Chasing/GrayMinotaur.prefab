@@ -44,8 +44,8 @@ Transform:
   m_GameObject: {fileID: 5412710695781949085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.81, y: 0.652, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.7, y: 1.7, z: 1.7}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -182,9 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 4
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 6
+  _enemyData: {fileID: 11400000, guid: 461e69156606a78478f978986af9cf91, type: 2}
 --- !u!114 &4385145095391153248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +260,7 @@ MonoBehaviour:
   _targetState: {fileID: 1173577105193810275}
   _viewDirectionInDegrees: 10
   _viewingAngleInDegrees: 30
-  _viewingRange: 5
+  _viewingRange: 8
 --- !u!114 &5412710695781949086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 5412710695781949087}
-  _distanse: 2
+  _distanse: 2.5
 --- !u!114 &1173577105193810275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1173577105193810268}
-  _maxTargetDistance: 4
+  _maxTargetDistance: 10
 --- !u!114 &1173577105193810272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +322,7 @@ MonoBehaviour:
   _targetState: {fileID: 1173577105193810268}
   _obstacles:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 264
 --- !u!114 &1173577105193810271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +353,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 5412710695781949084}
   _damage: 1
-  _attackRange: 2
+  _attackRange: 2.7
   _attackDelay: 0.3
 --- !u!114 &1173577105193810270
 MonoBehaviour:

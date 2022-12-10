@@ -37,8 +37,8 @@ Transform:
   m_GameObject: {fileID: 1263889835794736331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.51, y: 7.22, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -174,10 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 3
+  _health: 2
+  _enemyData: {fileID: 11400000, guid: 62cd865ef3e27884d95588df0a934f59, type: 2}
 --- !u!114 &7724207166707841226
 MonoBehaviour:
   m_ObjectHideFlags: 0

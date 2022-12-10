@@ -8,17 +8,18 @@ public class Inventory : MonoBehaviour
     [SerializeField] private AccessPoint _game;
 
     [SerializeField] private RectTransform _itemsContainer;
-    [SerializeField] private UseableItemRenderer _itemRenderer;
+    [SerializeField] private ItemRenderer _itemRenderer;
 
     [SerializeField] private Image _descriptionImage;
     [SerializeField] private TMP_Text _lable;
     [SerializeField] private TMP_Text _description;
     [SerializeField] private Button _useButton;
 
-    [SerializeField] private RectTransform _activeEfectsContainer;
+    [SerializeField] private PotionActivator _activePotionsView;
+    [SerializeField] private PlayerSlots _playerSlots;
 
-    private List<UseableItem> _items = new List<UseableItem>();
-    private UseableItemRenderer _highlightedItem;
+    private List<Item> _items = new List<Item>();
+    private ItemRenderer _highlightedItem;
 
     private void OnEnable()
     {
@@ -28,6 +29,7 @@ public class Inventory : MonoBehaviour
     private void OnDisable()
     {
         _useButton.onClick.RemoveListener(OnUseButtonClick);
+        ClearDescription();
     }
 
     private void Start()
@@ -35,7 +37,7 @@ public class Inventory : MonoBehaviour
         ClearDescription();
     }
 
-    public void AddItem(UseableItem item)
+    public void AddItem(Item item)
     {
         _items.Add(item);
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
@@ -43,19 +45,19 @@ public class Inventory : MonoBehaviour
         itemRenderer.ButtonClicked += OnItemClick;
     }
 
-    private void OnItemClick(UseableItemRenderer itemRenderer)
+    private void OnItemClick(ItemRenderer itemRenderer)
     {
         _highlightedItem = itemRenderer;
         RenderDescription(itemRenderer.Item);
     }
 
-    private void RenderDescription(UseableItem item)
+    private void RenderDescription(Item item)
     {
-        _descriptionImage.sprite = item.Sprite;
+        _descriptionImage.sprite = item.ItemData.Sprite;
         _descriptionImage.color = Color.white;
-        _lable.text = item.Lable;
-        _description.text = item.Description;
-        _useButton.interactable = item.TryGetComponent(out UseableItem _);
+        _lable.text = item.ItemData.Lable;
+        _description.text = item.ItemData.Description;
+        _useButton.interactable = true;
     }
 
     private void ClearDescription()
@@ -68,24 +70,31 @@ public class Inventory : MonoBehaviour
 
     private void OnUseButtonClick()
     {
-        if (_highlightedItem.Item.TryGetComponent(out UseableItem item))
+        if (_highlightedItem.Item.TryGetComponent(out EquippableItem equippableItem))
         {
-            item.Use(_game);
-            ClearDescription();
-
-            if (_highlightedItem.Item.TryGetComponent(out Potion potion))
+            if (_highlightedItem.IsInPlayerSlot)
             {
-                _highlightedItem.transform.SetParent(_activeEfectsContainer);
-                _highlightedItem.VanishWithDelay(potion.Duration);
+                TakeOffItem(_highlightedItem);
+                return;
             }
-            else if (_highlightedItem.Item.TryGetComponent(out PermanentEffectItem _))
+            if (_playerSlots.CanEquipItem(equippableItem) == false)
             {
-                _highlightedItem.transform.SetParent(_activeEfectsContainer);
+                ItemRenderer itemRenderer = _playerSlots.GetItemOfType(equippableItem.Type);
+                TakeOffItem(itemRenderer);
             }
-            else
-            {
-                Destroy(_highlightedItem.gameObject);
-            }
+            _playerSlots.SetItem(_highlightedItem);
+            equippableItem.Affect(_game.Player);
         }
+        else if (_highlightedItem.Item.TryGetComponent(out Potion potion))
+        {
+            _activePotionsView.UsePotion(_highlightedItem);
+        }
+        ClearDescription();
+    }
+
+    private void TakeOffItem(ItemRenderer itemRenderer)
+    {
+        itemRenderer.transform.SetParent(_itemsContainer);
+        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(_game.Player);
     }
 }

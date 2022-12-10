@@ -3,13 +3,13 @@ using UnityEngine;
 public class CoinsSpawner : MonoBehaviour
 {
     [SerializeField] private Coin _coinTemplate;
-    [SerializeField] private float _maxForce;
-    [SerializeField] private float _minForce;
-    [SerializeField][Range(0, 90)] private float _maxAngle;
+    [SerializeField] private float _maxForce = 6;
+    [SerializeField] private float _minForce = 4;
+    [SerializeField][Range(0, 90)] private float _maxAngle = 30;
 
     private float _coinsModifier = 1;
 
-    public void IncreaseCoinsCount(float modifier)
+    public void ModifyCoinsCount(float modifier)
     {
         if (modifier <= 0)
             throw new System.ArgumentOutOfRangeException();

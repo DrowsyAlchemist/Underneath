@@ -42,6 +42,11 @@ public class GirlPlayer : Player
         _damage += value;
     }
 
+    public void DecreaseDamage(int value)
+    {
+        _damage -= value;
+    }
+
     public void ModifyAttackRange(float modifier, float delay)
     {
         ModifyAttackRange(modifier);
@@ -110,7 +115,7 @@ public class GirlPlayer : Player
         _animation.PlayMelee();
         int direction = (transform.localScale.x > 0) ? 1 : -1;
         RaycastHit2D[] hits = new RaycastHit2D[8];
-        int hitCount = _rigidbody.Cast(direction * Vector2.right, hits, _knifeAttackRange);
+      int hitCount = _rigidbody.Cast(direction * Vector2.right, hits, _knifeAttackRange);
 
         for (int i = 0; i < hitCount; i++)
             if (hits[i].transform.TryGetComponent(out ITakeDamage target))

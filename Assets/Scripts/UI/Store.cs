@@ -2,13 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(LightControl))]
+[RequireComponent(typeof(BrightnessController))]
 public class Store : MonoBehaviour
 {
     [SerializeField] private StoreMenu _menu;
-    [SerializeField] private List<UseableItem> _wares = new List<UseableItem>();
+    [SerializeField] private List<Item> _wares = new List<Item>();
 
-    private LightControl _lightControl;
+    private BrightnessController _lightControl;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -31,7 +31,7 @@ public class Store : MonoBehaviour
 
     private void Start()
     {
-        _lightControl = GetComponent<LightControl>();
+        _lightControl = GetComponent<BrightnessController>();
         _lightControl.Unlit();
         FillStore();
         enabled = false;

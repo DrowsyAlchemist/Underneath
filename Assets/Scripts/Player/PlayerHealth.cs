@@ -49,6 +49,14 @@ public class PlayerHealth : MonoBehaviour
         RestoreHealth(value);
     }
 
+    public void DecreaseMaxHealth(int value)
+    {
+        SetMaxHealth(_maxHealth - value);
+
+        if (CurrentHealth > _maxHealth)
+            SetHealth(_maxHealth);
+    }
+
     private IEnumerator DecreaseMaxHealth(int value, float delay)
     {
         yield return new WaitForSeconds(delay);

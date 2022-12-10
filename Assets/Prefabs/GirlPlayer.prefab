@@ -140,8 +140,8 @@ Transform:
   m_GameObject: {fileID: 8851834277699321412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.031, y: -0.018, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2832050555811605608}
   - {fileID: 1154739443}
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a38ec4f84f3c3c4c81766aad8ee7333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _speed: 7
   _gravityModifier: 4
   _groundChecker: {fileID: 7677896005647029993}
   _collider: {fileID: 8851834277699321411}
@@ -323,8 +323,8 @@ MonoBehaviour:
   _groundMinNormalY: 0.6
   _shellRadius: 0.01
   _externalForcesResistance: 70
-  _jumpForse: 18
-  _maxJumpCount: 1
+  _jumpForse: 19
+  _maxJumpCount: 2
   _timeBeforeLanding: 0.08
   _timeAflerGetOffGround: 0.08
 --- !u!114 &4765570615897907332

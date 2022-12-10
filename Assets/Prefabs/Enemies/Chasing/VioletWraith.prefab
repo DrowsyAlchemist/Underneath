@@ -4900,7 +4900,7 @@ Transform:
   m_GameObject: {fileID: 8778008200703974841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.85, y: 1.46, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7928814139725072855}
@@ -4948,7 +4948,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 00fd0b38db437f8498956fe7ee4e9ca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5029,10 +5029,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62813aea78771fe4980f8d99eb8c6ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 8
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 20
+  _health: 10
+  _enemyData: {fileID: 11400000, guid: fd9506af01acf894db08796fa029a592, type: 2}
 --- !u!114 &3421024338757663504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5108,7 +5106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3244518970722977770}
-  _radius: 10
+  _radius: 12
 --- !u!114 &3244518970722977770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5145,7 +5143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1615403769}
-  _maxTargetDistance: 12
+  _maxTargetDistance: 14
 --- !u!114 &1615403769
 MonoBehaviour:
   m_ObjectHideFlags: 0

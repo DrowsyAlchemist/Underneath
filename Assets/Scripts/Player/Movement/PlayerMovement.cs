@@ -31,6 +31,11 @@ public class PlayerMovement : PhysicMovement
         _maxJumpCount += value;
     }
 
+    public void DecreaseJumpCount(int value)
+    {
+        _maxJumpCount -= value;
+    }
+
     private void Update()
     {
         if (_canInputControlled)

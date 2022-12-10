@@ -38,8 +38,8 @@ Transform:
   m_GameObject: {fileID: 8778008200703974841}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.85, y: 1.46, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 60a9ae3156d62b0469c53365d125f2e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -165,10 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f8393292dd6604ca156249f7f712d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
-  _defaultDamage: 1
-  _hitEffect: {fileID: 7757221400648354245, guid: 62efc23f1e6008f4280931abc06b7b5b, type: 3}
-  _award: 3
+  _health: 2
+  _enemyData: {fileID: 11400000, guid: 8cc419a9ed1830e4abfa27a8eed56617, type: 2}
 --- !u!114 &2824876092541007434
 MonoBehaviour:
   m_ObjectHideFlags: 0

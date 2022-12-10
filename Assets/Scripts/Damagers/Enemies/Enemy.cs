@@ -8,9 +8,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private int _health;
-    [SerializeField] private int _defaultDamage = 1;
-    [SerializeField] private ParticleSystem _hitEffect;
-    [SerializeField] private int _award;
+    [SerializeField] private EnemyData _enemyData;
 
     private static AccessPoint _accessPoint;
 
@@ -36,7 +34,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     {
         if (collision.TryGetComponent(out Player player))
             if (_isAlive)
-                player.TakeDamage(_defaultDamage, transform.position);
+                player.TakeDamage(_enemyData.DefaultDamage, transform.position);
     }
 
     public void TakeDamage(int damage, Vector3 attackerPosition)
@@ -45,7 +43,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
             throw new System.ArgumentOutOfRangeException();
 
         StateMachine.Pause();
-        Instantiate(_hitEffect, transform.position, Quaternion.identity, null);
+        Instantiate(_enemyData.HitEffect, transform.position, Quaternion.identity, null);
         transform.LookForwardDirection(attackerPosition - transform.position);
         _health -= damage;
 
@@ -76,7 +74,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         EnemyAnimator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
-        _accessPoint.CoinsSpawner.Spawn(_award, transform.position);
+        _accessPoint.CoinsSpawner.Spawn(_enemyData.Award, transform.position);
 
         if (gameObject)
             Destroy(gameObject);

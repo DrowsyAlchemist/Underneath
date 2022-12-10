@@ -18,7 +18,7 @@ public class StoreMenu : MonoBehaviour
         _player = player;
     }
 
-    public void AddWare(UseableItem potion)
+    public void AddWare(Item potion)
     {
         var wareRenderer = Instantiate(_wareRenderer, _waresContainer);
         wareRenderer.Render(potion);
@@ -31,9 +31,6 @@ public class StoreMenu : MonoBehaviour
         {
             _player.GiveMoney(wareRenderer.Cost);
             _player.Inventory.AddItem(wareRenderer.Item);
-
-            if (wareRenderer.Item.TryGetComponent(out PermanentEffectItem _))
-                Destroy(wareRenderer.gameObject);
         }   
         else
         {

@@ -2,16 +2,16 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(LightControl))]
+[RequireComponent(typeof(BrightnessController))]
 public class HealPoint : MonoBehaviour
 {
     [SerializeField] private float _healingSpeed = 1;
     private Coroutine _coroutine;
-    private LightControl _lightControl;
+    private BrightnessController _lightControl;
 
     private void Start()
     {
-        _lightControl = GetComponent<LightControl>();
+        _lightControl = GetComponent<BrightnessController>();
         _lightControl.Unlit();
     }
 
