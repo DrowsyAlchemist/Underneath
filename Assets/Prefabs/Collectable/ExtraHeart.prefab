@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1818301568554721653}
   - component: {fileID: 161651435}
   m_Layer: 0
-  m_Name: Life
+  m_Name: ExtraHeart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

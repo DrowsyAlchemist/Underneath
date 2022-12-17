@@ -74,8 +74,8 @@ public class Inventory : MonoBehaviour
         _items.Add(item);
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
 
-        if (item is Potion)
-            item = Instantiate(item, itemRenderer.transform);
+        //if (item is Potion)
+        //item = Instantiate(item, itemRenderer.transform);
 
         if (item is EquippableItem equippableItem)
         {
@@ -131,8 +131,8 @@ public class Inventory : MonoBehaviour
         }
         else if (_highlightedItem.Item.TryGetComponent(out Potion potion))
         {
-            _highlightedItem.transform.SetParent(_activePotionsContainer);
-            potion.Drink(_accessPoint.Player);
+            Destroy(_highlightedItem.gameObject);
+            potion.Drink(_accessPoint.Player, _activePotionsContainer);
         }
         ClearDescription();
     }

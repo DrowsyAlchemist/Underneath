@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwaper : MonoBehaviour
 {
-    [SerializeField] private int _nextSceneIndex;
+    [SerializeField] private string _nextSceneName;
     [SerializeField] private Transform _nextSceneSpawnPoint;
 
     public event UnityAction<SceneSwaper> PlayerEntered;
@@ -18,6 +18,6 @@ public class SceneSwaper : MonoBehaviour
     public void SwapScene(Player player)
     {
         player.transform.position = _nextSceneSpawnPoint.position;
-        SceneManager.LoadScene(_nextSceneIndex);
+        SceneManager.LoadScene(_nextSceneName);
     }
 }
