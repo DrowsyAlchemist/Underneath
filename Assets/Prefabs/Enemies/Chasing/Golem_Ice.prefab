@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 1443988569034183710}
   - component: {fileID: 1443988569034183697}
   m_Layer: 6
-  m_Name: IceGolem
+  m_Name: Golem_Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa8d1a1a9823ec41b1bf12b98137e2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextSceneName: 
+  _nextSceneName: DungeonEntry
   _nextSceneSpawnPoint: {fileID: 1142330255}
 --- !u!4 &72781955
 Transform:
@@ -437,7 +437,7 @@ Transform:
   m_Children:
   - {fileID: 1142330255}
   m_Father: {fileID: 1724379471}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &102361472
 PrefabInstance:
@@ -2645,7 +2645,7 @@ Transform:
   m_Children:
   - {fileID: 1144833864}
   m_Father: {fileID: 1724379471}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &544871464
 GameObject:
@@ -2901,7 +2901,7 @@ Transform:
   - {fileID: 71651829}
   - {fileID: 160855999}
   m_Father: {fileID: 1724379471}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &699740596 stripped
 MonoBehaviour:
@@ -5475,7 +5475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142330254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -13.15, z: 0}
+  m_LocalPosition: {x: -0.09, y: -33.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8460,9 +8460,9 @@ Transform:
   m_Children:
   - {fileID: 2134545640}
   - {fileID: 210628240}
-  - {fileID: 72781955}
   - {fileID: 672088259}
   - {fileID: 533183429}
+  - {fileID: 72781955}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

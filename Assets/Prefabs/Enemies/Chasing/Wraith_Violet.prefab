@@ -4885,7 +4885,7 @@ GameObject:
   - component: {fileID: 1615403769}
   - component: {fileID: 3850930835912363248}
   m_Layer: 6
-  m_Name: VioletWraith
+  m_Name: Wraith_Violet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
