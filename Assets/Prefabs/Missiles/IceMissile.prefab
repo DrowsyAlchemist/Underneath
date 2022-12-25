@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 7
   Damage: 1
-  HitEffect: {fileID: 4008570186379934663, guid: bb6044755712bf94c84424df80eecbb3, type: 3}
+  HitEffectTemplate: {fileID: 0}
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136

@@ -5,7 +5,7 @@ public class Missile : MonoBehaviour
 {
     [SerializeField] protected float Speed;
     [SerializeField] protected int Damage;
-    [SerializeField] protected ParticleSystem HitEffect;
+    [SerializeField] protected ParticleSystem HitEffectTemplate;
     [SerializeField] private LayerMask _collisionLayers;
 
     protected ContactFilter2D Filter = new ContactFilter2D();
@@ -56,8 +56,7 @@ public class Missile : MonoBehaviour
     }
     protected void Collapse()
     {
-        HitEffect.Play();
-        HitEffect.transform.parent = null;
+        Instantiate(HitEffectTemplate, transform.position, Quaternion.identity, null);
         Destroy(gameObject);
     }
 
