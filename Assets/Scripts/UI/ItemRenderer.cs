@@ -6,12 +6,17 @@ using UnityEngine.UI;
 public class ItemRenderer : MonoBehaviour
 {
     [SerializeField] private Image _image;
+    [SerializeField] private Image _highlightedFrame;
     [SerializeField] private Button _button;
 
     public Item Item { get; private set; }
 
     public event UnityAction<ItemRenderer> ButtonClicked;
-    public bool IsInPlayerSlot => transform.parent.parent.TryGetComponent(out PlayerSlots _);
+
+    public void SetHighlighted(bool isHighlighted)
+    {
+        _highlightedFrame.gameObject.SetActive(isHighlighted);
+    }
 
     private void OnEnable()
     {

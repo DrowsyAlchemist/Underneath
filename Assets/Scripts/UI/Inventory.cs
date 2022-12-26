@@ -28,10 +28,7 @@ public class Inventory : MonoBehaviour
 
     public void SetDagger(Dagger dagger)
     {
-        if (dagger == null)
-            throw new System.ArgumentNullException();
-
-        Dagger = dagger;
+        Dagger = dagger ?? throw new System.ArgumentNullException();
     }
 
     public void TakeOffDagger()
@@ -41,10 +38,7 @@ public class Inventory : MonoBehaviour
 
     public void SetGun(Gun gun)
     {
-        if (gun == null)
-            throw new System.ArgumentNullException();
-
-        Gun = gun;
+        Gun = gun ?? throw new System.ArgumentNullException();
     }
 
     public void TakeOffGun()
@@ -66,6 +60,10 @@ public class Inventory : MonoBehaviour
     private void OnDisable()
     {
         _useButton.onClick.RemoveListener(OnUseButtonClick);
+
+        if (_highlightedItem != null)
+            _highlightedItem.SetHighlighted(false);
+
         ClearDescription();
     }
 
@@ -73,9 +71,6 @@ public class Inventory : MonoBehaviour
     {
         _items.Add(item);
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
-
-        //if (item is Potion)
-        //item = Instantiate(item, itemRenderer.transform);
 
         if (item is EquippableItem equippableItem)
         {
@@ -91,7 +86,11 @@ public class Inventory : MonoBehaviour
 
     private void OnItemClick(ItemRenderer itemRenderer)
     {
+        if (_highlightedItem != null)
+            _highlightedItem.SetHighlighted(false);
+
         _highlightedItem = itemRenderer;
+        _highlightedItem.SetHighlighted(true);
         RenderDescription(itemRenderer.Item);
     }
 
@@ -114,9 +113,12 @@ public class Inventory : MonoBehaviour
 
     private void OnUseButtonClick()
     {
+        _highlightedItem.SetHighlighted(false);
+        ClearDescription();
+
         if (_highlightedItem.Item.TryGetComponent(out EquippableItem equippableItem))
         {
-            if (_highlightedItem.IsInPlayerSlot)
+            if (_highlightedItem.transform.parent != _itemsContainer)
             {
                 TakeOffItem(_highlightedItem);
                 return;
@@ -134,7 +136,6 @@ public class Inventory : MonoBehaviour
             Destroy(_highlightedItem.gameObject);
             potion.Drink(_accessPoint.Player, _activePotionsContainer);
         }
-        ClearDescription();
     }
 
     private void TakeOffItem(ItemRenderer itemRenderer)

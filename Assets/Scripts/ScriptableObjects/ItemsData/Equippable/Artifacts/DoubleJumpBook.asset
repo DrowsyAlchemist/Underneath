@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DoubleJumpBook
   m_EditorClassIdentifier: 
   _lable: DoubleJumpBook
-  _sprite: {fileID: 21300000, guid: d00e18be87b67924daed94170a9e74b0, type: 3}
+  _sprite: {fileID: 21300000, guid: 002a76db75394b1479f72a86d2d760e2, type: 3}
   _description: 
   _cost: 2
