@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: ShootTimePotion
   m_EditorClassIdentifier: 
   _lable: ShootTimePotion
-  _sprite: {fileID: -728427160, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  _sprite: {fileID: 21300000, guid: 1a11cce2fa4cb6f43b0d9b9f9e594244, type: 3}
   _description: 
   _cost: 2

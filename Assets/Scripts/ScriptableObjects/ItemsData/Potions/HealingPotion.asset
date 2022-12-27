@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: HealingPotion
   m_EditorClassIdentifier: 
   _lable: HealingPotion
-  _sprite: {fileID: -1298081016, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  _sprite: {fileID: 21300000, guid: 0afcfb9d020404b429ea0206881da437, type: 3}
   _description: 
   _cost: 2
