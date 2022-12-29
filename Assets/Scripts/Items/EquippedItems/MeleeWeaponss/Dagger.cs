@@ -15,7 +15,7 @@ public class Dagger : EquippableItem
 
     private void Start()
     {
-        _player = FindObjectOfType<AccessPoint>().Player;
+        _player = AccessPoint.Player;
         _playerBody = _player.GetComponent<Rigidbody2D>();
 
         int direction = (_player.transform.localScale.x > 0) ? 1 : -1;

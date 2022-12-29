@@ -4,8 +4,11 @@ using UnityEngine;
 public class SceneLoadAnimator : MonoBehaviour
 {
     private const string LoadAnimation = "Load";
-    private const string UnloadAnimation = "UnLoad";
+    private const string UnloadAnimation = "Unload";
+
     private Animator _animator;
+
+    public float CurrentAnimationLength => _animator.GetCurrentAnimatorStateInfo(0).length;
 
     private void Start()
     {

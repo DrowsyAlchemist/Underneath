@@ -16,7 +16,7 @@ public class HealthRenderer : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth = FindObjectOfType<AccessPoint>().Player.PlayerHealth;
+        _playerHealth = AccessPoint.Player.PlayerHealth;
         _playerHealth.HealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
         OnMaxHealthChanged(_playerHealth.MaxHealth);

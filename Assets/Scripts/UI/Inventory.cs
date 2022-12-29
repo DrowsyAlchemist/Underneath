@@ -77,7 +77,7 @@ public class Inventory : MonoBehaviour
             if (equippableItem.Type == EquippableItemType.MeleeWeapon
                 || equippableItem.Type == EquippableItemType.Gun)
             {
-                item = Instantiate(item, _accessPoint.Player.transform);
+                item = Instantiate(item, AccessPoint.Player.transform);
             }
         }
         itemRenderer.Render(item);
@@ -129,18 +129,18 @@ public class Inventory : MonoBehaviour
                 TakeOffItem(itemRenderer);
             }
             _playerSlots.SetItem(_highlightedItem);
-            equippableItem.Affect(_accessPoint.Player);
+            equippableItem.Affect(AccessPoint.Player);
         }
         else if (_highlightedItem.Item.TryGetComponent(out Potion potion))
         {
             Destroy(_highlightedItem.gameObject);
-            potion.Drink(_accessPoint.Player, _activePotionsContainer);
+            potion.Drink(AccessPoint.Player, _activePotionsContainer);
         }
     }
 
     private void TakeOffItem(ItemRenderer itemRenderer)
     {
         itemRenderer.transform.SetParent(_itemsContainer);
-        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(_accessPoint.Player);
+        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(AccessPoint.Player);
     }
 }

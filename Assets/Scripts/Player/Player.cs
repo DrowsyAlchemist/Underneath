@@ -1,8 +1,6 @@
-using Newtonsoft.Json.Linq;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(AdventureGirlAnimation))]

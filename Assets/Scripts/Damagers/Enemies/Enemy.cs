@@ -10,21 +10,16 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] private int _health;
     [SerializeField] private EnemyData _enemyData;
 
-    private static AccessPoint _accessPoint;
-
     private bool _isAlive = true;
     private Coroutine _hurtCoroutine;
 
-    public Player Target => _accessPoint.Player;
+    public Player Target => AccessPoint.Player;
     public EnemyAnimator EnemyAnimator { get; private set; }
     public EnemyMovement Movement { get; private set; }
     protected EnemyStateMachine StateMachine { get; private set; }
 
     private void Awake()
     {
-        if (_accessPoint == null)
-            _accessPoint = FindObjectOfType<AccessPoint>();
-
         EnemyAnimator = GetComponent<EnemyAnimator>();
         Movement = GetComponent<EnemyMovement>();
         StateMachine = GetComponent<EnemyStateMachine>();
@@ -74,7 +69,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         EnemyAnimator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
-        _accessPoint.CoinsSpawner.Spawn(_enemyData.Award, transform.position);
+        AccessPoint.CoinsSpawner.Spawn(_enemyData.Award, transform.position);
 
         if (gameObject)
             Destroy(gameObject);

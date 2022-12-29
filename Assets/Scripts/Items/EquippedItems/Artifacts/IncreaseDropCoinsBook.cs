@@ -8,7 +8,7 @@ public class IncreaseDropCoinsBook : EquippableItem
 
     public override void Affect(Player player)
     {
-        _coinsSpawner = FindObjectOfType<AccessPoint>().CoinsSpawner;
+        _coinsSpawner = AccessPoint.CoinsSpawner;
         _coinsSpawner.ModifyCoinsCount(_modifier);
     }
 

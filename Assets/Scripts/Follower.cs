@@ -11,7 +11,7 @@ public class Follower : MonoBehaviour
 
     private void Start()
     {
-        _target = _game.Player.transform;
+        _target = AccessPoint.Player.transform;
     }
 
     private void Update()

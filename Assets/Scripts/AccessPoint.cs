@@ -4,7 +4,8 @@ public class AccessPoint : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private CoinsSpawner _coinsSpawner;
-    [SerializeField] private SceneLoadAnimator _animator;
+    [SerializeField] private SceneLoader _sceneLoader;
+    [SerializeField] private SceneLoadAnimator _sceneLoadAnimator;
 
     private static AccessPoint _instance;
 
@@ -21,6 +22,6 @@ public class AccessPoint : MonoBehaviour
         }
     }
 
-    public Player Player => _player;
-    public CoinsSpawner CoinsSpawner => _coinsSpawner;
+    public static Player Player => _instance._player;
+    public static CoinsSpawner CoinsSpawner => _instance._coinsSpawner;
 }

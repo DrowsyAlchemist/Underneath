@@ -9,7 +9,7 @@ public class CoinsRenderer : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<AccessPoint>().Player;
+        _player = AccessPoint.Player;
         _player.MoneyChanged += OnMoneyChanged;
         OnMoneyChanged(_player.Money);
     }
