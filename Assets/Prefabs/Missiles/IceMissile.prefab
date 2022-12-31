@@ -28,10 +28,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7106053359158359581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.027, y: -4.17, z: 0}
+  m_LocalPosition: {x: 8.93, y: -4.17, z: 0}
   m_LocalScale: {x: 1.5, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5056317108186076380}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -148,7 +149,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 7
   Damage: 1
-  HitEffectTemplate: {fileID: 0}
+  HitEffectTemplate: {fileID: 8742380403297884837, guid: 2b0f65041d08b1c4f9317fb33b3a7c7f, type: 3}
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136
+--- !u!1001 &1957020090120929272
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7106053359158359586}
+    m_Modifications:
+    - target: {fileID: 6702234729159895841, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_Name
+      value: SnowMissileTrailEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+--- !u!4 &5056317108186076380 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6702234729159895844, guid: 771a631db65f2e244ba9f34d56fbca60, type: 3}
+  m_PrefabInstance: {fileID: 1957020090120929272}
+  m_PrefabAsset: {fileID: 0}

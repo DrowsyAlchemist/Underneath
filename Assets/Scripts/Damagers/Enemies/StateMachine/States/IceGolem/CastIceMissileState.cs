@@ -46,7 +46,8 @@ public class CastIceMissileState : EnemyState
         ((IceGolemAnimator)Enemy.EnemyAnimator).PlayThrow();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(_lounchDelay);
-        _currentMissile = Instantiate(_iceMissile, transform.position, Quaternion.identity);
+        _currentMissile = Instantiate(_iceMissile, _lounchPoint.position, Quaternion.identity);
+        _currentMissile.transform.LookForwardDirection(_lounchPoint.position - transform.position);
         _currentMissile.Launch(transform.localScale.x * Vector2.right);
         _currentMissile = null;
     }
