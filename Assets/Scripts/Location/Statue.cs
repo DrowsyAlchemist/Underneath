@@ -4,20 +4,23 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(BrightnessController))]
-public class HealStatue : MonoBehaviour
+public class Statue : MonoBehaviour
 {
     [SerializeField] private string _targetSceneName = "Village";
     [SerializeField] private Transform _spawnPoint;
+
     [SerializeField] private float _healingSpeed = 1;
+    [SerializeField] private ParticleSystem _healingEffect;
+
     private Coroutine _coroutine;
-    private BrightnessController _lightControl;
+    private BrightnessController _brightnessController;
 
     private Player _player;
 
     private void Start()
     {
-        _lightControl = GetComponent<BrightnessController>();
-        _lightControl.Unlit();
+        _brightnessController = GetComponent<BrightnessController>();
+        _brightnessController.Unlit();
         enabled = false;
     }
 
@@ -26,8 +29,9 @@ public class HealStatue : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             enabled = true;
-            _lightControl.Lit();
+            _brightnessController.Lit();
             _player = player;
+            _healingEffect.Play();
             _coroutine = StartCoroutine(HealPlayer(player));
         }
     }
@@ -36,8 +40,9 @@ public class HealStatue : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player _))
         {
+            _healingEffect.Stop();
             StopCoroutine(_coroutine);
-            _lightControl.Unlit();
+            _brightnessController.Unlit();
             enabled = false;
         }
     }
