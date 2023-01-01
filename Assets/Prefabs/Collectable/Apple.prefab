@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7148903436826937240}
   - component: {fileID: 7148903436826937255}
   m_Layer: 0
-  m_Name: Apple
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,8 +178,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7148903437786123304}
   - component: {fileID: 7148903437786123305}
+  - component: {fileID: 691821155753915602}
   - component: {fileID: 2111252964578568967}
-  - component: {fileID: 4840870414404060224}
+  - component: {fileID: 4785856732444060338}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -196,8 +197,8 @@ Transform:
   m_GameObject: {fileID: 7148903437786123319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -24.287752, y: -1.4296743, z: 4.516007}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7148903436826937240}
   - {fileID: 7148903437177513688}
@@ -220,6 +221,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.33
+--- !u!50 &691821155753915602
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148903437786123319}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!95 &2111252964578568967
 Animator:
   serializedVersion: 4
@@ -230,7 +252,7 @@ Animator:
   m_GameObject: {fileID: 7148903437786123319}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 686a046b7f4baa04f8a0b87e0f312134, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -240,7 +262,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4840870414404060224
+--- !u!114 &4785856732444060338
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,7 +271,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7148903437786123319}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e4a823bc3e5293479be71abe165ea74, type: 3}
+  m_Script: {fileID: 11500000, guid: d57b2ffd04095e04aaf31ceca85efc45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _restoringHealth: 1

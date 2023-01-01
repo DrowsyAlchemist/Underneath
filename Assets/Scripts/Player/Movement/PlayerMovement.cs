@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerMovement : PhysicMovement
+public class PlayerMovement : PhysicsMovement
 {
     [SerializeField] private float _jumpForse = 5;
     [SerializeField] private int _maxJumpCount = 2;

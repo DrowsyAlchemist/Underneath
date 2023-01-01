@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 6831287812297915539}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.034, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6831287812583538250}
   m_RootOrder: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6e4e452d8793a0646b5add82d34da263, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d3ba0183706161d4ab4124d2a97457ce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,9 +180,9 @@ GameObject:
   - component: {fileID: 6831287812583538249}
   - component: {fileID: 6784137635984780515}
   - component: {fileID: 1818301568554721653}
-  - component: {fileID: -1952527721232644553}
+  - component: {fileID: 2004040634289703650}
   m_Layer: 0
-  m_Name: ExtraHeart
+  m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 6831287812583538251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -22.957, y: -1.755, z: 3.7187033}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6831287812297915537}
@@ -262,7 +262,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-1952527721232644553
+--- !u!114 &2004040634289703650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -271,6 +271,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6831287812583538251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1f64e838caf26d448891a931493a173, type: 3}
+  m_Script: {fileID: 11500000, guid: b0199c9476d051b47aadc37cb85bffd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _item: {fileID: -5910256577244122115, guid: 6d15af5580375e84fa86eea9f6fdbf33, type: 3}
