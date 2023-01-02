@@ -11,6 +11,7 @@ public class Statue : MonoBehaviour
 
     [SerializeField] private float _healingSpeed = 1;
     [SerializeField] private ParticleSystem _healingEffect;
+    [SerializeField] private AudioSource _healingSound;
 
     private Coroutine _coroutine;
     private BrightnessController _brightnessController;
@@ -28,6 +29,7 @@ public class Statue : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
+            _healingSound.Play();
             enabled = true;
             _brightnessController.Lit();
             _player = player;
@@ -40,6 +42,7 @@ public class Statue : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player _))
         {
+            _healingSound.Stop();
             _healingEffect.Stop();
             StopCoroutine(_coroutine);
             _brightnessController.Unlit();

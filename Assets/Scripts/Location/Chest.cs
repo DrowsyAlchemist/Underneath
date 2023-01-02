@@ -2,7 +2,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(CoinsSpawner))]
 public class Chest : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private string _id;
@@ -14,7 +13,7 @@ public class Chest : MonoBehaviour, ITakeDamage
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteAll(); // To remove
 
         _animator = GetComponent<Animator>();
         _isOpened = PlayerPrefs.GetInt(_id, defaultValue: 0) == 1;
@@ -36,7 +35,7 @@ public class Chest : MonoBehaviour, ITakeDamage
     private void Open()
     {
         _animator.Play(OpenAnimation);
-        GetComponent<CoinsSpawner>().Spawn(_coinsCount, transform.position);
+        CoinsSpawner.Spawn(_coinsCount, transform.position, useModifier: false);
     }
 
     private void OnValidate()

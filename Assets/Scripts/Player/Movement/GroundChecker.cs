@@ -10,7 +10,10 @@ public class GroundChecker : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((1 << collision.gameObject.layer & _ground) > 0)
+        {
             IsGrounded = true;
+            PlayerSounds.PlayLanding();
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

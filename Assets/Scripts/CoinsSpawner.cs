@@ -7,25 +7,42 @@ public class CoinsSpawner : MonoBehaviour
     [SerializeField] private float _minForce = 4;
     [SerializeField][Range(0, 90)] private float _maxAngle = 30;
 
+    [SerializeField] private AudioSource _coinFlipSound;
+
+    private static CoinsSpawner _instance;
     private float _coinsModifier = 1;
 
-    public void ModifyCoinsCount(float modifier)
+    private void Awake()
+    {
+        if (_instance == null)
+            _instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+    public static void ModifyCoinsCount(float modifier)
     {
         if (modifier <= 0)
             throw new System.ArgumentOutOfRangeException();
 
-        _coinsModifier *= modifier;
+        _instance._coinsModifier *= modifier;
     }
 
-    public void Spawn(int count, Vector2 position)
+    public static void Spawn(int count, Vector2 position, bool useModifier)
     {
-        for (int i = 0; i < count * _coinsModifier; i++)
-        {
-            Coin coin = Instantiate(_coinTemplate, position, Quaternion.identity, null);
-            Vector2 force = Random.Range(_minForce, _maxForce) * Vector2.up;
-            float angle = Random.Range(-1 * _maxAngle, _maxAngle);
-            force = Quaternion.Euler(0, 0, angle) * force;
-            coin.AddForce(force);
-        }
+        _instance._coinFlipSound.Play();
+        float coinsCount = count * (useModifier ? _instance._coinsModifier : 1f);
+
+        for (int i = 0; i < coinsCount; i++)
+            _instance.SpawnCoin(position);
+    }
+
+    private void SpawnCoin(Vector2 position)
+    {
+        Coin coin = Instantiate(_coinTemplate, position, Quaternion.identity, null);
+        Vector2 force = Random.Range(_minForce, _instance._maxForce) * Vector2.up;
+        float angle = Random.Range(-1 * _maxAngle, _maxAngle);
+        force = Quaternion.Euler(0, 0, angle) * force;
+        coin.AddForce(force);
     }
 }

@@ -117,6 +117,7 @@ public class Player : MonoBehaviour, ITakeDamage
         PlayerMovement.AllowAnimation(false);
         PlayerMovement.AllowInpupControl(false);
         PlayerAnimation.PlayKnock();
+        PlayerSounds.PlayHurt();
     }
 
     private IEnumerator StandUp()

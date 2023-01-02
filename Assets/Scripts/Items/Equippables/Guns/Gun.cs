@@ -4,6 +4,7 @@ public class Gun : EquippableItem
 {
     [SerializeField] private float _secondsBetweenShoots;
     [SerializeField] private Bullet _bullet;
+    [SerializeField] private AudioSource _shotSound;
 
     private float _timeAfterShot;
 
@@ -21,6 +22,7 @@ public class Gun : EquippableItem
             _timeAfterShot = 0;
             Bullet bullet = Instantiate(_bullet, shootPoint, Quaternion.identity);
             bullet.Launch(direction.normalized);
+            _shotSound.Play();
         }
     }
 

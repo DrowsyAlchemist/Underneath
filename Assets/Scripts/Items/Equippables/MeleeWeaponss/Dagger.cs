@@ -6,6 +6,7 @@ public class Dagger : EquippableItem
     [SerializeField] private float _knifeAttackRange;
     [SerializeField] private float _secondsBetweenKnifeAttacks;
     [SerializeField] private ParticleSystem _knifeAttackEffect;
+    [SerializeField] private AudioSource _swingSound;
 
     private Player _player;
     private Rigidbody2D _playerBody;
@@ -32,6 +33,7 @@ public class Dagger : EquippableItem
     {
         if (CanAttack)
         {
+            _swingSound.Play();
             _knifeAttackEffect.Play();
             _timeAfterKnifeAttack = 0;
             int direction = (_player.transform.localScale.x > 0) ? 1 : -1;

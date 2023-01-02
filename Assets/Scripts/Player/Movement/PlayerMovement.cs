@@ -90,12 +90,14 @@ public class PlayerMovement : PhysicsMovement
 
     private void JumpFromGround()
     {
+        PlayerSounds.PlayJumpFromGround();
         Jump(_jumpForse);
         _jumpsLeft = _maxJumpCount - 1;
     }
 
     private void JumpInAir()
     {
+        PlayerSounds.PlayJumpInAir();
         Jump(_jumpForse);
         _jumpsLeft--;
     }

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private int _health;
     [SerializeField] private EnemyData _enemyData;
+    [SerializeField] private EnemySounds _enemySounds;
 
     private bool _isAlive = true;
     private Coroutine _hurtCoroutine;
@@ -53,6 +54,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private IEnumerator Hurt(Vector3 attackerPosition)
     {
+        _enemySounds.PlayHurt();
         EnemyAnimator.PlayIdle();
         yield return new WaitForEndOfFrame();
         EnemyAnimator.PlayHurt();
@@ -65,11 +67,12 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private IEnumerator Die()
     {
+        _enemySounds.PlayDeath();
         _isAlive = false;
         EnemyAnimator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
-        AccessPoint.CoinsSpawner.Spawn(_enemyData.Award, transform.position);
+        CoinsSpawner.Spawn(_enemyData.Award, transform.position, useModifier: true);
 
         if (gameObject)
             Destroy(gameObject);

@@ -15,11 +15,20 @@ public class MovementAnimator : MonoBehaviour
         TurnByVelocity(velocity);
 
         if (grounded == false)
+        {
+            PlayerSounds.PlayJumpLoop();
             _playerAnimation.PlayJump();
+        }
         else if (Mathf.Abs(velocity.x) > Time.deltaTime)
+        {
+            PlayerSounds.PlayRun();
             _playerAnimation.PlayRun();
+        }
         else
+        {
+            PlayerSounds.PlayIdle();
             _playerAnimation.PlayIdle();
+        }
     }
 
     private void TurnByVelocity(Vector2 velocity)

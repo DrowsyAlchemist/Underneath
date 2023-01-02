@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class Collectable : MonoBehaviour
 {
+    [SerializeField] private AudioSource _collectedSound;
+
     protected const string CollectedAnimation = "Collected";
     protected Animator Animator;
     protected bool Collected;
@@ -19,6 +21,9 @@ public abstract class Collectable : MonoBehaviour
     {
         if (Collected == false && collision.collider.TryGetComponent(out Player player))
         {
+            if (_collectedSound.isPlaying == false)
+                _collectedSound.Play();
+
             Collected = true;
             CollectByPlayer(player);
             StartCoroutine(Vanish());
