@@ -284,6 +284,7 @@ MonoBehaviour:
   _damage: 1
   _attackRange: 2
   _attackDelay: 0.3
+  _meleeSound: {fileID: 2646214056436859953}
 --- !u!1001 &3475600400472823964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+--- !u!82 &2646214056436859953 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1478004814673861805, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+  m_PrefabInstance: {fileID: 3475600400472823964}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3441691146610150506 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2303740720419001590, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}

@@ -2,7 +2,14 @@ using UnityEngine;
 
 public class VioletMissile : Missile
 {
+    [SerializeField] private AudioSource _launchSound;
     [SerializeField] private float _explosionRadius;
+
+    public override void Launch(Vector2 direction)
+    {
+        _launchSound.Play();
+        base.Launch(direction);
+    }
 
     protected override void Hit(Collider2D collision)
     {

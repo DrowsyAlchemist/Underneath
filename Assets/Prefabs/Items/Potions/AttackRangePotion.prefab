@@ -99,4 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: 6150e89f72d3dc041b7592af0b98d303, type: 2}
   _duration: 20
+  _drinkSound: {fileID: 2635307485591919626, guid: f8868491b4f2d1545a5dc6eae166af37, type: 3}
   _rangeModifier: 2

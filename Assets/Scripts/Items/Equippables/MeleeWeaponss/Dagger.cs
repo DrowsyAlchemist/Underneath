@@ -46,16 +46,6 @@ public class Dagger : EquippableItem
         }
     }
 
-    public override void Affect(Player player)
-    {
-        player.Inventory.SetDagger(this);
-    }
-
-    public override void StopAffecting(Player player)
-    {
-        player.Inventory.TakeOffDagger();
-    }
-
     public void IncreaseDamage(int value)
     {
         _damage += value;
@@ -71,5 +61,15 @@ public class Dagger : EquippableItem
         _knifeAttackRange *= modifier;
         int direction = (_player.transform.localScale.x > 0) ? 1 : -1;
         _knifeAttackEffect.transform.position = _player.transform.position + _knifeAttackRange * direction * Vector3.right;
+    }
+
+    protected override void Affect(Player player)
+    {
+        player.Inventory.SetDagger(this);
+    }
+
+    protected override void StopAffecting(Player player)
+    {
+        player.Inventory.TakeOffDagger();
     }
 }

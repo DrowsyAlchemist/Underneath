@@ -357,6 +357,7 @@ MonoBehaviour:
   _damage: 1
   _attackRange: 2.7
   _attackDelay: 0.3
+  _meleeSound: {fileID: 9217149945119440375}
 --- !u!114 &1173577105193810270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,3 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c937143761790244987782ba330bdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &9217149945119440375 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1478004814673861805, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+  m_PrefabInstance: {fileID: 7740289757034914138}
+  m_PrefabAsset: {fileID: 0}

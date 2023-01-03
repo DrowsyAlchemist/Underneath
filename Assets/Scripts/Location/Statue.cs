@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(BrightnessController))]
 public class Statue : MonoBehaviour
 {
+    [SerializeField] private string _currentSceneName;
     [SerializeField] private string _targetSceneName = "Village";
     [SerializeField] private Transform _spawnPoint;
 
@@ -17,6 +18,8 @@ public class Statue : MonoBehaviour
     private BrightnessController _brightnessController;
 
     private Player _player;
+
+    public string SceneName => _currentSceneName;
 
     private void Start()
     {

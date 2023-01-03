@@ -7,6 +7,7 @@ public class Missile : MonoBehaviour
     [SerializeField] protected int Damage;
     [SerializeField] protected ParticleSystem HitEffectTemplate;
     [SerializeField] private LayerMask _collisionLayers;
+    [SerializeField] private AudioSource _hitSound;
 
     protected ContactFilter2D Filter = new ContactFilter2D();
     private Vector3 _direction;
@@ -57,6 +58,8 @@ public class Missile : MonoBehaviour
     protected void Collapse()
     {
         Instantiate(HitEffectTemplate, transform.position, Quaternion.identity, null);
+        _hitSound.Play();
+        _hitSound.transform.SetParent(null);
         Destroy(gameObject);
     }
 

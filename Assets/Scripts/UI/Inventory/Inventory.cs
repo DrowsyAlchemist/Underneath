@@ -128,11 +128,13 @@ public class Inventory : MonoBehaviour
                 ItemRenderer itemRenderer = _playerSlots.GetItemOfType(equippableItem.Type);
                 TakeOffItem(itemRenderer);
             }
+            UISounds.PlayEquip();
             _playerSlots.SetItem(_highlightedItem);
-            equippableItem.Affect(AccessPoint.Player);
+            equippableItem.Equip(AccessPoint.Player);
         }
         else if (_highlightedItem.Item.TryGetComponent(out Potion potion))
         {
+            UISounds.PlayDrinkPotion();
             potion.Drink(AccessPoint.Player, _activePotionsContainer);
             Destroy(_highlightedItem.gameObject);
         }
@@ -141,6 +143,6 @@ public class Inventory : MonoBehaviour
     private void TakeOffItem(ItemRenderer itemRenderer)
     {
         itemRenderer.transform.SetParent(_itemsContainer);
-        itemRenderer.Item.GetComponent<EquippableItem>().StopAffecting(AccessPoint.Player);
+        itemRenderer.Item.GetComponent<EquippableItem>().TakeOff(AccessPoint.Player);
     }
 }

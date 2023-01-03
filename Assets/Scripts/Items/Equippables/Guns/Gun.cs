@@ -26,18 +26,18 @@ public class Gun : EquippableItem
         }
     }
 
-    public override void Affect(Player player)
+    public void ModifyTimeBetweenShots(float modifier)
+    {
+        _secondsBetweenShoots *= modifier;
+    }
+
+    protected override void Affect(Player player)
     {
         player.Inventory.SetGun(this);
     }
 
-    public override void StopAffecting(Player player)
+    protected override void StopAffecting(Player player)
     {
         player.Inventory.TakeOffGun();
-    }
-
-    public void ModifyTimeBetweenShots(float modifier)
-    {
-        _secondsBetweenShoots *= modifier;
     }
 }

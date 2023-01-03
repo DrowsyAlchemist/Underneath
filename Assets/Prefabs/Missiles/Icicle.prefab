@@ -152,3 +152,4 @@ MonoBehaviour:
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136
+  _hitSound: {fileID: 0}

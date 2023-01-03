@@ -4,6 +4,7 @@ public class EnemySounds : MonoBehaviour
 {
     [SerializeField] private AudioSource _hurtSound;
     [SerializeField] private AudioSource _deathSound;
+    [SerializeField] private AudioSource _meleeSound;
 
     public void PlayHurt()
     {
@@ -13,5 +14,10 @@ public class EnemySounds : MonoBehaviour
     public void PlayDeath()
     {
         _deathSound.Play();
+    }
+
+    public void MeleeSound()
+    {
+        _meleeSound.Play();
     }
 }

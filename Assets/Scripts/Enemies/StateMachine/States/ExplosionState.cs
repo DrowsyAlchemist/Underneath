@@ -6,6 +6,7 @@ public class ExplosionState : EnemyState
     [SerializeField] private int _damage = 1;
     [SerializeField] private float _explosionRadius = 2;
     [SerializeField] private ParticleSystem _explosionEffect;
+    [SerializeField] private AudioSource _explosionSound;
 
     [SerializeField] private float _speedDuringExplosion;
     [SerializeField] private float _minDistanse;
@@ -35,6 +36,8 @@ public class ExplosionState : EnemyState
             BlowUpPlayer(player);
 
         effect.transform.parent = null;
+        _explosionSound.Play();
+        _explosionSound.transform.SetParent(null);
 
         if (gameObject)
             Destroy(gameObject);

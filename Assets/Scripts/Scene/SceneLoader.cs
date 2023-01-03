@@ -9,10 +9,13 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private SceneLoadAnimator _loadAnimator;
 
     private const int PersentsConverter = 100;
+    private const int MaxFakeProgressStep = 10;
+    private const int MinFakeProgressStep = 0;
     private static SceneLoader _instance;
 
     private AsyncOperation _loadingSceneOperation;
     private Vector3 _playerSpawnPosition;
+    private int fakeProgress;
 
     private void Awake()
     {
@@ -24,13 +27,22 @@ public class SceneLoader : MonoBehaviour
         enabled = false;
     }
 
+    private void OnEnable()
+    {
+        fakeProgress = 0;
+    }
+
     private void Update()
     {
-        int progress = Mathf.RoundToInt(_loadingSceneOperation.progress * PersentsConverter);
-        _progressText.text = progress.ToString() + " %";
+        fakeProgress += Random.Range(MinFakeProgressStep, MaxFakeProgressStep);
+        fakeProgress = Mathf.Clamp(fakeProgress, 0, 99);
+        _progressText.text = fakeProgress + " %";
 
         if (_loadingSceneOperation.isDone)
+        {
+            _progressText.text = "100 %";
             OnSceneLoaded();
+        }
     }
 
     public static void LoadScene(string sceneName, Vector3 playerSpawnPosition)
