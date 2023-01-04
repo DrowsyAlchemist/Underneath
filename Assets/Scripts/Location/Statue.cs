@@ -6,20 +6,14 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(BrightnessController))]
 public class Statue : MonoBehaviour
 {
-    [SerializeField] private string _currentSceneName;
-    [SerializeField] private string _targetSceneName = "Village";
-    [SerializeField] private Transform _spawnPoint;
-
     [SerializeField] private float _healingSpeed = 1;
     [SerializeField] private ParticleSystem _healingEffect;
     [SerializeField] private AudioSource _healingSound;
 
+    [SerializeField] private RectTransform _teleportWindow;
+
     private Coroutine _coroutine;
     private BrightnessController _brightnessController;
-
-    private Player _player;
-
-    public string SceneName => _currentSceneName;
 
     private void Start()
     {
@@ -32,10 +26,10 @@ public class Statue : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
         {
+            TeleportPoint.SetAvailable(SceneManager.GetActiveScene().name);
             _healingSound.Play();
             enabled = true;
             _brightnessController.Lit();
-            _player = player;
             _healingEffect.Play();
             _coroutine = StartCoroutine(HealPlayer(player));
         }
@@ -57,8 +51,8 @@ public class Statue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            _player.transform.position = _spawnPoint.position;
-            SceneManager.LoadScene(_targetSceneName);
+            bool isOpened = _teleportWindow.gameObject.activeSelf;
+            _teleportWindow.gameObject.SetActive(isOpened == false);
         }
     }
 
