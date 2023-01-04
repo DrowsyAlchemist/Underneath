@@ -5,7 +5,8 @@ public class TeleportPoint : MonoBehaviour
     [SerializeField] private string _targetLocationName;
     [SerializeField] private Vector2 _spawnPosition;
 
-    public bool IsDiscovered => PlayerPrefs.GetInt(_targetLocationName) == 1;
+    //public bool IsDiscovered => PlayerPrefs.GetInt(_targetLocationName) == 1;
+    public bool IsDiscovered => true;
     public string TargetLocationName => _targetLocationName;
 
     public static void SetAvailable(string scenename)

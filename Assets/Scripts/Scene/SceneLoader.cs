@@ -8,8 +8,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private TMP_Text _progressText;
     [SerializeField] private SceneLoadAnimator _loadAnimator;
 
-    private const int PersentsConverter = 100;
-    private const int MaxFakeProgressStep = 10;
+    private const int MaxFakeProgressStep = 3;
     private const int MinFakeProgressStep = 0;
     private static SceneLoader _instance;
 
@@ -30,6 +29,7 @@ public class SceneLoader : MonoBehaviour
     private void OnEnable()
     {
         fakeProgress = 0;
+        _progressText.text = "0 %";
     }
 
     private void Update()
@@ -63,8 +63,8 @@ public class SceneLoader : MonoBehaviour
     private void LoadSceneAsync(string sceneName)
     {
         AccessPoint.Player.gameObject.SetActive(false);
-        _loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
         enabled = true;
+        _loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
     }
 
     private void OnSceneLoaded()
