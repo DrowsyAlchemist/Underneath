@@ -87,7 +87,11 @@ public class ShootState : EnemyState
     private bool IsObstacleOnWay()
     {
         Vector2 direction = Target.GetWorldCenter() - transform.position;
-        return GetComponent<Rigidbody2D>().Cast(direction, _movementInFlight.Obstacles, new RaycastHit2D[1], direction.magnitude) > 0;
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        ContactFilter2D filter = _movementInFlight.Obstacles;
+        float distance = direction.magnitude;
+        Debug.DrawRay(transform.position, direction);
+        return Physics2D.Raycast(transform.position, direction, filter, hits, distance) > 0;
     }
 
     private void ChaseTarget()

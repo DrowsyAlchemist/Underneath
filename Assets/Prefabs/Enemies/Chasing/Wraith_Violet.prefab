@@ -4882,6 +4882,7 @@ GameObject:
   - component: {fileID: 4753179310518616288}
   - component: {fileID: 3244518970722977770}
   - component: {fileID: 1462649880}
+  - component: {fileID: 2829967287036291563}
   - component: {fileID: 1615403769}
   - component: {fileID: 3850930835912363248}
   m_Layer: 6
@@ -5123,6 +5124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1462649880}
+  - {fileID: 2829967287036291563}
   _missile: {fileID: 4254132603259820445, guid: bd6e8767033b49d4ca57eed96abc1c37, type: 3}
   _missileLocalPosition: {fileID: 5421674479792357832}
   _secondsBetweenShots: 2
@@ -5146,6 +5148,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1615403769}
   _maxTargetDistance: 14
+--- !u!114 &2829967287036291563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be38ae1b7b2bd32499d4c19216520cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1615403769}
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1615403769
 MonoBehaviour:
   m_ObjectHideFlags: 0

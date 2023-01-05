@@ -26,6 +26,13 @@ public class Enemy : MonoBehaviour, ITakeDamage
         StateMachine = GetComponent<EnemyStateMachine>();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out Spikes _))
+            if (_isAlive)
+                StartCoroutine(Die());
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))

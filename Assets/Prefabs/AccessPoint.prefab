@@ -1709,7 +1709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7360332243098948111
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1888,7 +1888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5585648105931876985
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3019,7 +3019,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000015698568, y: 0.00012191424}
-  m_SizeDelta: {x: 0, y: 23}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6595510757687257933
 MonoBehaviour:
@@ -4025,7 +4025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.0003290879, y: -0.00023269653}
+  m_AnchoredPosition: {x: 0.0004863034, y: -0.00023269653}
   m_SizeDelta: {x: 0, y: 56}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6111576600043747402
@@ -5580,6 +5580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4624e89ac93712143b794ad407158b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _teleportViewTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
+  _container: {fileID: 8599321942804965903}
   _teleportPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -5587,8 +5589,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _teleportViewTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
-  _container: {fileID: 8599321942804965903}
 --- !u!1 &6596545206121413483
 GameObject:
   m_ObjectHideFlags: 0
@@ -7771,6 +7771,10 @@ PrefabInstance:
       propertyPath: _hurtEffect
       value: 
       objectReference: {fileID: 7635863655896344759}
+    - target: {fileID: 2832050555811605608, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 4406955855483235490, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: _hurtPanel
       value: 
@@ -7785,11 +7789,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.71
+      value: 44.56
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.45
+      value: -71.89
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.z

@@ -15,11 +15,8 @@ public class TeleportPoint : MonoBehaviour
         {
             if (point.TargetLocationName.Equals(scenename))
             {
-                // if (point.IsDiscovered == false)
                 PlayerPrefs.SetInt(scenename, 1);
                 PlayerPrefs.Save();
-                Debug.Log($"Saved: {scenename} : 1");
-
                 return;
             }
         }

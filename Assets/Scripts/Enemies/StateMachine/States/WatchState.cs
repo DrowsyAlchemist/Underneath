@@ -1,7 +1,7 @@
 public class WatchState : EnemyState
 {
-    private void OnEnable()
+    private void Update()
     {
-        EnemyAnimator.PlayIdle();
+        
     }
 }

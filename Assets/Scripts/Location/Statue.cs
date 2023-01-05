@@ -51,9 +51,19 @@ public class Statue : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            bool isOpened = _teleportWindow.gameObject.activeSelf;
-            _teleportWindow.gameObject.SetActive(isOpened == false);
+            _teleportWindow.gameObject.SetActive(IsWindowOpen() == false);
+            Time.timeScale = IsWindowOpen() == false ? 1 : 0;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsWindowOpen())
+                _teleportWindow.gameObject.SetActive(false);
+        }
+    }
+
+    private bool IsWindowOpen()
+    {
+        return _teleportWindow.gameObject.activeSelf;
     }
 
     private IEnumerator HealPlayer(Player player)

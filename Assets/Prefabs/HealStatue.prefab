@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620260027571990238}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &279781180
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetLocationName: GoldChestLocation
-  _spawnPosition: {x: -14, y: -160}
+  _spawnPosition: {x: -79, y: -179}
 --- !u!1 &636281867
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620260027571990238}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &636281869
 MonoBehaviour:
@@ -122,7 +122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620260027571990238}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &861171082
 MonoBehaviour:
@@ -168,7 +168,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5620260027571990238}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1131997149
 MonoBehaviour:
@@ -184,52 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetLocationName: FallingPlatforms
   _spawnPosition: {x: -158, y: -144}
---- !u!1 &1490878092
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1490878093}
-  - component: {fileID: 1490878094}
-  m_Layer: 5
-  m_Name: IceLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1490878093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490878092}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -33.87, y: -113.83, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5620260027571990238}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1490878094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490878092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetLocationName: IceLocation
-  _spawnPosition: {x: -8, y: -116}
 --- !u!1 &480225363529958726
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetLocationName: DungeonEntry
-  _spawnPosition: {x: -4, y: -52}
+  _spawnPosition: {x: 6.5, y: -82}
 --- !u!1 &2390402000566655362
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,11 +688,10 @@ Transform:
   m_Children:
   - {fileID: 80859661770904113}
   - {fileID: 1921680512515709728}
+  - {fileID: 861171081}
+  - {fileID: 636281868}
   - {fileID: 1131997148}
   - {fileID: 279781179}
-  - {fileID: 1490878093}
-  - {fileID: 636281868}
-  - {fileID: 861171081}
   m_Father: {fileID: 6318849146265804796}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1082,11 +1035,10 @@ MonoBehaviour:
   _teleportPoints:
   - {fileID: 5275184305821222694}
   - {fileID: 8177212471756197832}
+  - {fileID: 861171082}
+  - {fileID: 636281869}
   - {fileID: 1131997149}
   - {fileID: 279781180}
-  - {fileID: 1490878094}
-  - {fileID: 636281869}
-  - {fileID: 861171082}
 --- !u!1 &7447592755162593363
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class TeleportWindow : MonoBehaviour
 
     private void OnStatueClick(TeleportPoint teleportPoint)
     {
+        Time.timeScale = 1;
+        gameObject.SetActive(false);
         teleportPoint.Teleport();
     }
 }
