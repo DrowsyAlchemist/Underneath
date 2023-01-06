@@ -31,6 +31,9 @@ public class Dagger : EquippableItem
 
     public void Attack()
     {
+        Debug.Log(_timeAfterKnifeAttack);
+        Debug.Log(gameObject.name);
+
         if (CanAttack)
         {
             _swingSound.Play();

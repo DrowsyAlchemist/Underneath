@@ -5110,6 +5110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3244518970722977770}
   _radius: 12
+  _canFly: 1
+  _canSeeThrowObstacles: 0
+  _maxTargetHeight: 5
+  _minTargetHeight: -2
 --- !u!114 &3244518970722977770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,6 +5152,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1615403769}
   _maxTargetDistance: 14
+  _canFly: 1
+  _maxTargetHeight: 4
+  _minTargetHeight: -3
 --- !u!114 &2829967287036291563
 MonoBehaviour:
   m_ObjectHideFlags: 0

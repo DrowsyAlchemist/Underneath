@@ -57,7 +57,10 @@ public class Statue : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (IsWindowOpen())
+            {
                 _teleportWindow.gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 

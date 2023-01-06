@@ -240,7 +240,7 @@ MonoBehaviour:
   - {fileID: 1263889835794736328}
   - {fileID: 3642781918816702602}
   _canFly: 0
-  _speed: 2
+  _speed: 1.5
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 6544057409458987417}
   - component: {fileID: 9050574586907587478}
   - component: {fileID: 5868433058892145674}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}

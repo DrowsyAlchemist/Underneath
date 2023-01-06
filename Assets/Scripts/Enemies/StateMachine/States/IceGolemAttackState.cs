@@ -1,14 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(IceGolemAnimator))]
-public class CastIceMissileState : EnemyState
+public class IceGolemAttackState : EnemyState
 {
+    [SerializeField] private Missile _icicle;
     [SerializeField] private Missile _iceMissile;
-    [SerializeField] private Transform _lounchPoint;
     [SerializeField] private float _secondsBetweenLounches;
     [SerializeField] private float _lounchDelay;
+    // [SerializeField] private Transform _iceMissileLounchPoint;
+    [SerializeField] private float _targetTrashholdHeight;
 
     private float _elapsedTime;
     private Coroutine _coroutine;
@@ -16,7 +16,7 @@ public class CastIceMissileState : EnemyState
 
     private void OnEnable()
     {
-        EnemyAnimator.PlayIdle();
+        Enemy.EnemyAnimator.PlayIdle();
         _elapsedTime = _secondsBetweenLounches / 2;
     }
 
@@ -31,8 +31,8 @@ public class CastIceMissileState : EnemyState
 
     private void Update()
     {
-        _elapsedTime += Time.deltaTime;
         transform.TurnToTarget(Target.transform);
+        _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime > _secondsBetweenLounches)
         {
@@ -46,9 +46,23 @@ public class CastIceMissileState : EnemyState
         ((IceGolemAnimator)Enemy.EnemyAnimator).PlayThrow();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(_lounchDelay);
-        _currentMissile = Instantiate(_iceMissile, _lounchPoint.position, Quaternion.identity);
-        _currentMissile.transform.LookForwardDirection(_lounchPoint.position - transform.position);
-        _currentMissile.Launch(transform.localScale.x * Vector2.right);
+        Missile template = ChooseMissile();
+        LaunchMissile(template);
+    }
+
+    private Missile ChooseMissile()
+    {
+        if ((Target.GetWorldCenter().y - transform.position.y) < _targetTrashholdHeight)
+            return _iceMissile;
+        else
+            return _icicle;
+    }
+
+    private void LaunchMissile(Missile template)
+    {
+        _currentMissile = Instantiate(template, transform.position, Quaternion.identity);
+        Vector2 direction = Target.GetWorldCenter() - transform.position;
+        _currentMissile.Launch(direction);
         _currentMissile = null;
     }
 

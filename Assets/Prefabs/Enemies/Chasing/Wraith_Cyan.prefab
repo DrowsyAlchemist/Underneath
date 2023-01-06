@@ -151,6 +151,7 @@ GameObject:
   - component: {fileID: 8778008200703974823}
   - component: {fileID: 1462649883}
   - component: {fileID: 1462649880}
+  - component: {fileID: 141030720978924071}
   - component: {fileID: 7397462560966837963}
   - component: {fileID: 3850930835912363248}
   m_Layer: 6
@@ -358,7 +359,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 7324815664675188054}
   _canFly: 1
-  _speed: 1
+  _speed: 1.5
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}
@@ -376,7 +377,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1462649882}
-  _radius: 6
+  _radius: 8
+  _canFly: 1
+  _canSeeThrowObstacles: 0
+  _maxTargetHeight: 5
+  _minTargetHeight: -2
 --- !u!114 &1462649882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,8 +397,9 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8778008200703974823}
   - {fileID: 1462649880}
+  - {fileID: 141030720978924071}
   _canFly: 1
-  _speed: 4
+  _speed: 6.5
 --- !u!114 &8778008200703974823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,7 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1462649883}
-  _distanse: 1.5
+  _distanse: 2.5
 --- !u!114 &1462649883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,11 +428,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions: []
   _damage: 1
-  _explosionRadius: 2.5
+  _explosionRadius: 4.5
   _explosionEffect: {fileID: 7069926364230417678, guid: ac5d48485ee83ec4aa85be55143952b1, type: 3}
   _explosionSound: {fileID: 5072168375072281752}
-  _speedDuringExplosion: 4
-  _minDistanse: 1
+  _speedDuringExplosion: 6
+  _minDistanse: 2
 --- !u!114 &1462649880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,7 +446,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 7397462560966837963}
-  _maxTargetDistance: 8
+  _maxTargetDistance: 10
+  _canFly: 1
+  _maxTargetHeight: 4
+  _minTargetHeight: -3
+--- !u!114 &141030720978924071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8778008200703974841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be38ae1b7b2bd32499d4c19216520cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 7397462560966837963}
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &7397462560966837963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySounds
       objectReference: {fileID: 0}
+    - target: {fileID: 531430636188726160, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 838200781995361781, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -585,6 +614,14 @@ PrefabInstance:
     - target: {fileID: 838200781995361781, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6354699262801137412, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981073993279274391, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9e3a760dedf81c42820086e5cb9181c, type: 3}

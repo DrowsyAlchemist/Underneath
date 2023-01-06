@@ -50,16 +50,16 @@ GameObject:
   - component: {fileID: 1443988569034183703}
   - component: {fileID: 1443988569034183698}
   - component: {fileID: 1443988569034183701}
+  - component: {fileID: 4148351079771186611}
   - component: {fileID: 1443988569034183696}
-  - component: {fileID: 1443988569034183704}
-  - component: {fileID: 1443988569034183707}
-  - component: {fileID: 1443988569034183706}
-  - component: {fileID: 1443988569034183709}
+  - component: {fileID: 2389440847894647267}
+  - component: {fileID: 4930062054614190938}
   - component: {fileID: 1443988569034183700}
   - component: {fileID: 1443988569034183711}
   - component: {fileID: 1443988569034183699}
   - component: {fileID: 1443988569034183710}
   - component: {fileID: 1443988569034183697}
+  - component: {fileID: 3201153468771834085}
   m_Layer: 6
   m_Name: Golem_Ice
   m_TagString: Untagged
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _obstacles:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   _flyAwayDistance: 1
 --- !u!114 &1443988569034183791
 MonoBehaviour:
@@ -270,8 +270,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c0ed14a2c6f7d4a805f8e381579d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 1443988569034183701}
+  _targetState: {fileID: 2389440847894647267}
   _radius: 10
+  _canFly: 0
+  _canSeeThrowObstacles: 0
+  _maxTargetHeight: 7
+  _minTargetHeight: -2
 --- !u!114 &1443988569034183701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,9 +291,26 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1443988569034183700}
   - {fileID: 1443988569034183696}
-  - {fileID: 1443988569034183711}
+  - {fileID: 1443988569034183697}
+  - {fileID: 4148351079771186611}
   _canFly: 0
-  _speed: 2
+  _speed: 3.5
+--- !u!114 &4148351079771186611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443988569034183777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be38ae1b7b2bd32499d4c19216520cdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 1443988569034183703}
+  _obstacles:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &1443988569034183696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,9 +323,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1c0ed14a2c6f7d4a805f8e381579d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 1443988569034183704}
-  _radius: 7
---- !u!114 &1443988569034183704
+  _targetState: {fileID: 4930062054614190938}
+  _radius: 9
+  _canFly: 0
+  _canSeeThrowObstacles: 1
+  _maxTargetHeight: 7
+  _minTargetHeight: -2
+--- !u!114 &2389440847894647267
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -313,18 +338,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1443988569034183777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8858f68757fb7084eb55a0a1385d67cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 253c1b18623b9da44a05167f43c7a731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 1443988569034183707}
-  - {fileID: 1443988569034183711}
-  - {fileID: 1443988569034183700}
-  _iceMissile: {fileID: 7396096055039368264, guid: d45e3b71815bca04c9300f960f9668da, type: 3}
-  _lounchPoint: {fileID: 1443988567297834248}
-  _secondsBetweenLounches: 3
-  _lounchDelay: 0.2
---- !u!114 &1443988569034183707
+  - {fileID: 1443988569034183710}
+--- !u!114 &4930062054614190938
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -333,45 +352,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1443988569034183777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65dbb63975c4ab9479b07d251d9a9681, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 1443988569034183706}
-  _maxHeight: 2
---- !u!114 &1443988569034183706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443988569034183777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0163d1647b65daf4aa7ddbf1d1e2e20b, type: 3}
+  m_Script: {fileID: 11500000, guid: 284ee32e7dba0f34ba38cb293abda0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: 1443988569034183709}
   - {fileID: 1443988569034183711}
   - {fileID: 1443988569034183700}
   _icicle: {fileID: 2090744709717752093, guid: 8196f5e8a206f1547a6df9b25d8a43fd, type: 3}
-  _lounchPoint: {fileID: 1443988567297834248}
-  _secondsBetweenLounches: 3
-  _lounchDelay: 0.2
---- !u!114 &1443988569034183709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443988569034183777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef17e9f6a3f363a47b97aa3c701aa0d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 1443988569034183704}
-  _minHeight: 2
+  _iceMissile: {fileID: 7396096055039368264, guid: d45e3b71815bca04c9300f960f9668da, type: 3}
+  _secondsBetweenLounches: 1.5
+  _lounchDelay: 0.3
+  _targetTrashholdHeight: 2
 --- !u!114 &1443988569034183700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,7 +390,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183701}
-  _maxTargetDistance: 8
+  _maxTargetDistance: 10
+  _canFly: 0
+  _maxTargetHeight: 10
+  _minTargetHeight: -3
 --- !u!114 &1443988569034183699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183701}
-  _seconds: 1.5
+  _seconds: 1
 --- !u!114 &1443988569034183697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +439,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183703}
-  _maxTargetDistance: 11
+  _maxTargetDistance: 12
+  _canFly: 0
+  _maxTargetHeight: 8
+  _minTargetHeight: -3
+--- !u!50 &3201153468771834085
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443988569034183777}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &4211079350383488631
 PrefabInstance:
   m_ObjectHideFlags: 0
