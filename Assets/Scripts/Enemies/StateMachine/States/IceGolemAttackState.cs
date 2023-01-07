@@ -7,7 +7,6 @@ public class IceGolemAttackState : EnemyState
     [SerializeField] private Missile _iceMissile;
     [SerializeField] private float _secondsBetweenLounches;
     [SerializeField] private float _lounchDelay;
-    // [SerializeField] private Transform _iceMissileLounchPoint;
     [SerializeField] private float _targetTrashholdHeight;
 
     private float _elapsedTime;

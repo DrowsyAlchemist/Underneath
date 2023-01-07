@@ -138,6 +138,14 @@ public class Inventory : MonoBehaviour
             potion.Drink(AccessPoint.Player, _activePotionsContainer);
             Destroy(_highlightedItem.gameObject);
         }
+        else if (_highlightedItem.Item.TryGetComponent(out GoldenKey key))
+        {
+            if (key.TryOpenLock(AccessPoint.Player.GetWorldCenter()))
+            {
+                Destroy(_highlightedItem.gameObject);
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     private void TakeOffItem(ItemRenderer itemRenderer)

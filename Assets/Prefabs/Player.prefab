@@ -682,7 +682,7 @@ GameObject:
   - component: {fileID: 2832050555811605608}
   - component: {fileID: 4355706683339246908}
   - component: {fileID: 7677896005647029993}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -697,7 +697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6900863590161286617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.005, z: 0}
+  m_LocalPosition: {x: 0, y: -0.006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   _inventory: {fileID: 0}
   _dropForce: 15
   _invulnerabilityDuration: 2
-  _hurtEffect: {fileID: 0}
+  _hurtEffect: {fileID: 4406955855483235490}
 --- !u!114 &8699937211585495361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4594010f45a71e489714124bbe33662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 2
+  _maxHealth: 10
 --- !u!114 &4406955855483235490
 MonoBehaviour:
   m_ObjectHideFlags: 0
