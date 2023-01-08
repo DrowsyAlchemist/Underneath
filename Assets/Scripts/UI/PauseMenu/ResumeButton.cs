@@ -1,24 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 
-public class ResumeButton : MonoBehaviour
+public class ResumeButton : OpenCloseButton
 {
-    [SerializeField] private Button _button;
-    [SerializeField] private RectTransform _pauseMenuPanel;
-
-    private void Start()
+    protected override void Close()
     {
-        _button.onClick.AddListener(OnButtonClick);
-    }
-
-    private void OnDestroy()
-    {
-        _button.onClick.RemoveListener(OnButtonClick);
-    }
-
-    private void OnButtonClick()
-    {
-        _pauseMenuPanel.gameObject.SetActive(false);
         Time.timeScale = 1;
+        base.Close();
     }
 }

@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private TMP_Text _progressText;
     [SerializeField] private SceneLoadAnimator _loadAnimator;
+    [SerializeField] private string _mainMenuSceneName = "MainMenu";
 
     private const int MaxFakeProgressStep = 3;
     private const int MinFakeProgressStep = 0;
@@ -18,10 +19,15 @@ public class SceneLoader : MonoBehaviour
 
     private void Awake()
     {
-        if (_instance != null)
-            Destroy(gameObject);
-        else
+        if (_instance == null)
+        {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
         enabled = false;
     }
@@ -62,7 +68,7 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadSceneAsync(string sceneName)
     {
-        AccessPoint.Player.gameObject.SetActive(false);
+        AccessPoint.SetEnable(false);
         enabled = true;
         _loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
     }
@@ -72,6 +78,8 @@ public class SceneLoader : MonoBehaviour
         enabled = false;
         _loadAnimator.PlayLoad();
         AccessPoint.Player.transform.position = _playerSpawnPosition;
-        AccessPoint.Player.gameObject.SetActive(true);
+
+        if (SceneManager.GetActiveScene().name.Equals(_mainMenuSceneName) == false)
+            AccessPoint.SetEnable(true);
     }
 }

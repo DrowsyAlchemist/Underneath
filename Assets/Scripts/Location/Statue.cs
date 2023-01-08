@@ -47,12 +47,15 @@ public class Statue : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            _teleportWindow.gameObject.SetActive(IsWindowOpen() == false);
-            Time.timeScale = IsWindowOpen() == false ? 1 : 0;
+            if (IsWindowOpen() == false)
+            {
+                _teleportWindow.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
