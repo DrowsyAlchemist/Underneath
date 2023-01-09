@@ -15,6 +15,7 @@ public class AccessPoint : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(gameObject);
+            gameObject.SetActive(false);
         }
         else
         {

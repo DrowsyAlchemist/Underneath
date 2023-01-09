@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainMenuButton : OpenCloseButton
+public class OpenMainMenuButton : OpenCloseButton
 {
     [SerializeField] private string _mainMenuSceneName;
 

@@ -7,6 +7,7 @@ public class SceneLoader : MonoBehaviour
 {
     [SerializeField] private TMP_Text _progressText;
     [SerializeField] private SceneLoadAnimator _loadAnimator;
+    [SerializeField] private SceneMusic _sceneMusic;
     [SerializeField] private string _mainMenuSceneName = "MainMenu";
 
     private const int MaxFakeProgressStep = 3;
@@ -80,6 +81,13 @@ public class SceneLoader : MonoBehaviour
         AccessPoint.Player.transform.position = _playerSpawnPosition;
 
         if (SceneManager.GetActiveScene().name.Equals(_mainMenuSceneName) == false)
+        {
             AccessPoint.SetEnable(true);
+            _sceneMusic.PlayGameMusic();
+        }
+        else
+        {
+            _sceneMusic.PlayMainMenuMusic();
+        }
     }
 }
