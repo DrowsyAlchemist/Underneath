@@ -20,6 +20,7 @@ public class MainMenu : MonoBehaviour
 
     private void OnNewGameButtonClick()
     {
+        SaveLoadManager.RemoveAllSaves();
         SceneLoader.LoadScene("Village", Vector3.zero);
     }
 

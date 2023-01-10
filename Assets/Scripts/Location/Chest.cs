@@ -13,10 +13,8 @@ public class Chest : MonoBehaviour, ITakeDamage
 
     private void Start()
     {
-        PlayerPrefs.DeleteAll(); // To remove
-
         _animator = GetComponent<Animator>();
-        _isOpened = PlayerPrefs.GetInt(_id, defaultValue: 0) == 1;
+        _isOpened = SaveLoadManager.GetBoolOrDefault(_id);
 
         if (_isOpened)
             _animator.Play(OpenAnimation);
@@ -26,9 +24,9 @@ public class Chest : MonoBehaviour, ITakeDamage
     {
         if (_isOpened == false)
         {
-            _isOpened = true;
-            PlayerPrefs.SetInt(_id, 1);
             Open();
+            _isOpened = true;
+            SaveLoadManager.SetBool(_id, true);
         }
     }
 

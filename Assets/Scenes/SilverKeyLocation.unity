@@ -56776,7 +56776,7 @@ MonoBehaviour:
   Destroyed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2073851235}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: AnimatedPlatform, Assembly-CSharp
         m_MethodName: PlayFall
         m_Mode: 1
@@ -59455,17 +59455,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7148903437786123304, guid: ac128d20f498b7442a4e8a400c836a98, type: 3}
   m_PrefabInstance: {fileID: 347790329}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2073851235 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6876539375005863972, guid: ff98a468080028a4eac24160d1668e03, type: 3}
-  m_PrefabInstance: {fileID: 6876539374560503111}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ffa20a6c8c97d843831388736becb55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2127309193
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59628,7 +59617,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 819853380660170773, guid: ff98a468080028a4eac24160d1668e03, type: 3}
       propertyPath: m_Name
-      value: AnimatedPlatform
+      value: FallingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 6772405002932966876, guid: ff98a468080028a4eac24160d1668e03, type: 3}
       propertyPath: m_RootOrder
