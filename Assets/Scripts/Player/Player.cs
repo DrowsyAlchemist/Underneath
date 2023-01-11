@@ -111,6 +111,16 @@ public class Player : MonoBehaviour, ITakeDamage
         _invulnerabilityDuration *= modifier;
     }
 
+    public void Save()
+    {
+
+    }
+
+    public void Load()
+    {
+
+    }
+
     private void Knock()
     {
         _knocked = true;
@@ -164,4 +174,14 @@ public class Player : MonoBehaviour, ITakeDamage
     {
 
     }
+
+    [System.Serializable]
+    private class PlayerSaveData
+    {
+        public float PositionX;
+        public float PositionY;
+
+    }
+
+
 }

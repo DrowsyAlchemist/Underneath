@@ -1,11 +1,10 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class Bars : MonoBehaviour
+public class Gates : MonoBehaviour
 {
-    [SerializeField] private string _barsLable;
+    [SerializeField] private string _id;
 
     private const string OpenAnimation = "Open";
     private Animator _animator;
@@ -14,7 +13,7 @@ public class Bars : MonoBehaviour
     private void OnEnable()
     {
         _animator = GetComponent<Animator>();
-        _isOpen = Convert.ToBoolean(PlayerPrefs.GetInt(_barsLable, 0));
+        _isOpen = SaveLoadManager.GetBoolOrDefault(_id);
 
         if (_isOpen)
             _animator.Play(OpenAnimation);
@@ -25,8 +24,8 @@ public class Bars : MonoBehaviour
         if (_isOpen == false)
         {
             _animator.Play(OpenAnimation);
-            PlayerPrefs.SetInt(_barsLable, 1);
-            PlayerPrefs.Save();
+            _isOpen = true;
+            SaveLoadManager.SetBool(_id, true);
         }
     }
 }

@@ -31,7 +31,7 @@ public class ItemRenderer : MonoBehaviour
     public void Render(Item item)
     {
         Item = item;
-        _image.sprite = item.ItemData.Sprite;
+        _image.sprite = item.Data.Sprite;
     }
 
     public void VanishWithDelay(float delay)

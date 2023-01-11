@@ -6,9 +6,9 @@ public class GoldenKey : Item
 
     public bool TryOpenLock(Vector2 position)
     {
-        if (FinishBars.GetDistance(position) < _radius)
+        if (FinishGates.GetDistance(position) < _radius)
         {
-            FinishBars.OpenBars();
+            FinishGates.OpenGates();
             return true;
         }
         return false;

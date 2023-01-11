@@ -34,10 +34,10 @@ public class WareRenderer : MonoBehaviour
     public void Render(Item item)
     {
         Item = item;
-        _image.sprite = item.ItemData.Sprite;
-        _lable.text = item.ItemData.Lable;
-        _description.text = item.ItemData.Description;
-        _cost.text = item.ItemData.Cost.ToString();
+        _image.sprite = item.Data.Sprite;
+        _lable.text = item.Data.Lable;
+        _description.text = item.Data.Description;
+        _cost.text = item.Data.Cost.ToString();
     }
 
     private void OnButtonClick()

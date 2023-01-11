@@ -4996,6 +4996,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -177.35
       objectReference: {fileID: 0}
+    - target: {fileID: 3938650300484761910, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6111576600043747400, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -5138,7 +5142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 693737511}
   m_Layer: 0
-  m_Name: Bars
+  m_Name: Gates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9822,9 +9826,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 693737511}
     m_Modifications:
+    - target: {fileID: -2054699982475048741, guid: 6fc29a2279ecf4c4b9aabbc57f61e0ee, type: 3}
+      propertyPath: _id
+      value: FinishGates
+      objectReference: {fileID: 0}
     - target: {fileID: 191978961383967619, guid: 6fc29a2279ecf4c4b9aabbc57f61e0ee, type: 3}
       propertyPath: m_Name
-      value: FinishBars
+      value: FinishGates
       objectReference: {fileID: 0}
     - target: {fileID: 191978961383967622, guid: 6fc29a2279ecf4c4b9aabbc57f61e0ee, type: 3}
       propertyPath: m_RootOrder

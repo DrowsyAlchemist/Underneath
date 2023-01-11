@@ -78352,7 +78352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729187896}
   m_Layer: 0
-  m_Name: Bars
+  m_Name: Gates
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86879,6 +86879,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -34.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3938650300484761910, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6111576600043747400, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -89698,9 +89702,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 729187896}
     m_Modifications:
+    - target: {fileID: 191978961383967618, guid: 7f36c1ac7b80a38439f040e3c6691d3d, type: 3}
+      propertyPath: _id
+      value: DungeonEntryGates
+      objectReference: {fileID: 0}
     - target: {fileID: 191978961383967619, guid: 7f36c1ac7b80a38439f040e3c6691d3d, type: 3}
       propertyPath: m_Name
-      value: SilverBars
+      value: SilverGates
       objectReference: {fileID: 0}
     - target: {fileID: 191978961383967622, guid: 7f36c1ac7b80a38439f040e3c6691d3d, type: 3}
       propertyPath: m_RootOrder

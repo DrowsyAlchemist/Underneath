@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class FinishBars : Bars
+public class FinishGates : Gates
 {
-    private static FinishBars _instance;
+    private static FinishGates _instance;
 
     private void Awake()
     {
@@ -17,7 +17,7 @@ public class FinishBars : Bars
         return Vector2.Distance(position, _instance.transform.position);
     }
 
-    public static void OpenBars()
+    public static void OpenGates()
     {
         _instance.Open();
     }
