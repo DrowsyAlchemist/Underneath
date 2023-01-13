@@ -7,13 +7,13 @@ public static class SaveLoadManager
     private const string FolderName = "/Saves";
     private const string Extention = ".gamesave";
     private const string TriggersFolderName = "/Triggers";
-    private static readonly string _defaultpath = Application.persistentDataPath + FolderName;
+    private static readonly string _defaultPath = Application.persistentDataPath + FolderName;
     private static readonly BinaryFormatter _binaryFormatter = new();
 
     public static void Save(string localFolderName, string fileName, object objectForSerialization)
     {
         Directory.CreateDirectory(Application.persistentDataPath + FolderName + localFolderName);
-        string path = _defaultpath + "/" + localFolderName + "/" + fileName + Extention;
+        string path = _defaultPath + "/" + localFolderName + "/" + fileName + Extention;
         FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
         _binaryFormatter.Serialize(stream, objectForSerialization);
         stream.Close();
@@ -21,7 +21,7 @@ public static class SaveLoadManager
 
     public static object GetLoadOrDefault(string localFolderName, string fileName)
     {
-        string path = _defaultpath + "/" + localFolderName + "/" + fileName + Extention;
+        string path = _defaultPath + "/" + localFolderName + "/" + fileName + Extention;
 
         if (File.Exists(path))
         {
@@ -51,8 +51,8 @@ public static class SaveLoadManager
 
     public static void RemoveAllSaves()
     {
-        if (Directory.Exists(_defaultpath))
-            Directory.Delete(_defaultpath, true);
+        if (Directory.Exists(_defaultPath))
+            Directory.Delete(_defaultPath, true);
     }
 
     [System.Serializable]

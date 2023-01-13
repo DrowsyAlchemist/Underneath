@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class Chest : MonoBehaviour, ITakeDamage
+public class Chest : MonoBehaviour, ITakeDamage, ISaveable
 {
     [SerializeField] private string _id;
     [SerializeField] private int _coinsCount;
@@ -25,9 +25,13 @@ public class Chest : MonoBehaviour, ITakeDamage
         if (_isOpened == false)
         {
             Open();
-            _isOpened = true;
-            SaveLoadManager.SetBool(_id, true);
+            _isOpened = true;      
         }
+    }
+
+    public void Save()
+    {
+        SaveLoadManager.SetBool(_id, true);
     }
 
     private void Open()

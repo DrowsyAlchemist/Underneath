@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class FallingPlatform : MonoBehaviour
+public class FallingPlatform : MonoBehaviour, ISaveable
 {
     [SerializeField] private string _id;
 
@@ -23,6 +23,10 @@ public class FallingPlatform : MonoBehaviour
     {
         _animator.Play(FallingAnimation);
         _isFallen = true;
+    }
+
+    public void Save()
+    {
         SaveLoadManager.SetBool(_id, true);
     }
 }

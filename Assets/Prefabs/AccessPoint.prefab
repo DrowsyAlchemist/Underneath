@@ -486,6 +486,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &870637436989084234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1162144319561321495}
+  m_Layer: 5
+  m_Name: TeleportPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1162144319561321495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870637436989084234}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -139.69073, y: -130.51929, z: 3.2876792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3861503314817577503}
+  - {fileID: 4211742878624801373}
+  - {fileID: 1412614962230161453}
+  - {fileID: 6260578129559445462}
+  - {fileID: 1943020241741269977}
+  - {fileID: 465464123700241314}
+  m_Father: {fileID: 3732316596595754792}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &881480720069416045
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +837,7 @@ Transform:
   - {fileID: 1356434145667845158}
   - {fileID: 8050412267235215614}
   m_Father: {fileID: 3732316596595754792}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4444633136137011361
 MonoBehaviour:
@@ -1472,6 +1509,52 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &2350587758020120533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 465464123700241314}
+  - component: {fileID: 5991549143884462821}
+  m_Layer: 5
+  m_Name: GoldChest
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &465464123700241314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350587758020120533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -82.06, y: -78.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5991549143884462821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350587758020120533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: GoldChestLocation
+  _spawnPosition: {x: -79, y: -179}
 --- !u!1 &2488203470801261255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2784,52 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &4587432982121675037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4211742878624801373}
+  - component: {fileID: 2648489504206343103}
+  m_Layer: 5
+  m_Name: DungeonEntry
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4211742878624801373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587432982121675037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2648489504206343103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587432982121675037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: DungeonEntry
+  _spawnPosition: {x: 6.5, y: -82}
 --- !u!1 &5439720493609204387
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,7 +2942,7 @@ RectTransform:
   m_Children:
   - {fileID: 2011115763654074208}
   m_Father: {fileID: 3732316596595754792}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3164,6 +3293,7 @@ RectTransform:
   - {fileID: 7360332243098948111}
   - {fileID: 4524924189539266250}
   - {fileID: 4902910422950789862}
+  - {fileID: 1162144319561321495}
   - {fileID: 3187733280089731382}
   - {fileID: 6111576601489211892}
   - {fileID: 6762077298709294630}
@@ -3175,6 +3305,98 @@ RectTransform:
   m_AnchoredPosition: {x: 134.39069, y: 125.58004}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &6089418804100647099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3861503314817577503}
+  - component: {fileID: 1862841548383351316}
+  m_Layer: 5
+  m_Name: Village
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3861503314817577503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089418804100647099}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1862841548383351316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6089418804100647099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: Village
+  _spawnPosition: {x: 27, y: -2.5}
+--- !u!1 &6091774486703892026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6260578129559445462}
+  - component: {fileID: 779338734250235685}
+  m_Layer: 5
+  m_Name: SilverChestLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6260578129559445462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091774486703892026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -204.77, y: -55.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779338734250235685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6091774486703892026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: SilverChestLocation
+  _spawnPosition: {x: -178, y: -57.5}
 --- !u!1 &6111576600043747399
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,7 +4130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3732316596595754792}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6111576601489211891
 MonoBehaviour:
@@ -4661,15 +4883,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4624e89ac93712143b794ad407158b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teleportViewTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
-  _container: {fileID: 8599321942804965903}
   _teleportPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1862841548383351316}
+  - {fileID: 2648489504206343103}
+  - {fileID: 5207482576389353270}
+  - {fileID: 779338734250235685}
+  - {fileID: 5908636633744405041}
+  - {fileID: 5991549143884462821}
+  _teleportWindow: {fileID: 3952401318847206937}
+  _teleportPointViewTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
+  _container: {fileID: 8599321942804965903}
+--- !u!1 &6359559046219518835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1943020241741269977}
+  - component: {fileID: 5908636633744405041}
+  m_Layer: 5
+  m_Name: FallingPlatforms
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1943020241741269977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359559046219518835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -184.92, y: -142.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5908636633744405041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6359559046219518835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: FallingPlatforms
+  _spawnPosition: {x: -158, y: -144}
 --- !u!1 &6450480424223041237
 GameObject:
   m_ObjectHideFlags: 0
@@ -4805,6 +5074,52 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &6606495801422960975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1412614962230161453}
+  - component: {fileID: 5207482576389353270}
+  m_Layer: 5
+  m_Name: SilverKeyLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1412614962230161453
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6606495801422960975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -281.8, y: -268.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1162144319561321495}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5207482576389353270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6606495801422960975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edca9fff1640c934b9cf5249629a3ee1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLocationName: SilverKeyLocation
+  _spawnPosition: {x: -55, y: -80.5}
 --- !u!1 &6681435409922094326
 GameObject:
   m_ObjectHideFlags: 0
@@ -7683,11 +7998,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.32
+      value: 27.9
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.47
+      value: -34.2
       objectReference: {fileID: 0}
     - target: {fileID: 8851834277699321415, guid: abdf3e400e3a3794991a5b41ddb2b5e0, type: 3}
       propertyPath: m_LocalPosition.z

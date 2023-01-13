@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Animator))]
-public class Gates : MonoBehaviour
+public class Gates : MonoBehaviour, ISaveable
 {
     [SerializeField] private string _id;
 
@@ -10,7 +10,7 @@ public class Gates : MonoBehaviour
     private Animator _animator;
     private bool _isOpen;
 
-    private void OnEnable()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
         _isOpen = SaveLoadManager.GetBoolOrDefault(_id);
@@ -25,7 +25,11 @@ public class Gates : MonoBehaviour
         {
             _animator.Play(OpenAnimation);
             _isOpen = true;
-            SaveLoadManager.SetBool(_id, true);
         }
+    }
+
+    public void Save()
+    {
+        SaveLoadManager.SetBool(_id, true);
     }
 }

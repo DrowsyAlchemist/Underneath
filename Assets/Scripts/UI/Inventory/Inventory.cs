@@ -143,5 +143,7 @@ public class Inventory : MonoBehaviour
         itemRenderer.transform.SetParent(_itemsContainer);
         var equippableItem = itemRenderer.Item.GetComponent<EquippableItem>();
         equippableItem.TakeOff(AccessPoint.Player);
-     }
+    }
+
+
 }

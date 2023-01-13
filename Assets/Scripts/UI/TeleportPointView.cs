@@ -17,8 +17,19 @@ public class TeleportPointView : MonoBehaviour
     {
         _teleportPoint = point;
         _lable.text = point.TargetLocationName;
-        _button.interactable = point.IsDiscovered;
-        _discoveredFrame.gameObject.SetActive(point.IsDiscovered);
+        _button.interactable = point.IsAvailable;
+
+        if (point.IsAvailable)
+            OnPointBecameAvailable(point);
+        else
+            point.BecameAvailable += OnPointBecameAvailable;
+    }
+
+    private void OnPointBecameAvailable(TeleportPoint point)
+    {
+        _button.interactable = point.IsAvailable;
+        _discoveredFrame.gameObject.SetActive(point.IsAvailable);
+        point.BecameAvailable -= OnPointBecameAvailable;
     }
 
     private void Start()
