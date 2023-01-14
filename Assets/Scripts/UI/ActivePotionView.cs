@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ActivePotionView : MonoBehaviour
 {
-    public static ActivePotionView Create(ITemporaryEffect potion, Transform container)
+    public static ActivePotionView Create(Potion potion, Transform container)
     {
         ActivePotionView potionView = new GameObject().AddComponent<ActivePotionView>();
         potionView.gameObject.AddComponent<Image>().sprite = potion.Data.Sprite;
@@ -13,7 +13,7 @@ public class ActivePotionView : MonoBehaviour
         return potionView;
     }
 
-    private void OnPotionStopAffecting(ITemporaryEffect potion)
+    private void OnPotionStopAffecting(Potion potion)
     {
         potion.AffectingFinished -= OnPotionStopAffecting;
         Destroy(gameObject);

@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private Transform _shootPoint;
-    [SerializeField] private Inventory _inventory;
+    [SerializeField] private InventioryView _inventoryView;
     [SerializeField] private float _dropForce = 15;
 
     [SerializeField] private float _invulnerabilityDuration = 2;
@@ -22,7 +22,7 @@ public class Player : MonoBehaviour, ITakeDamage
     public PlayerMovement PlayerMovement { get; private set; }
     public AdventureGirlAnimation PlayerAnimation { get; private set; }
     public PlayerHealth PlayerHealth { get; private set; }
-    public Inventory Inventory => _inventory;
+    public Inventory Inventory => _inventoryView.Inventory;
     public int Money { get; private set; }
 
     public event UnityAction<int> MoneyChanged;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(int damage, Vector3 soursePosition)
     {
-        if (damage<0)
+        if (damage < 0)
             throw new System.ArgumentOutOfRangeException();
 
         if (_isInvulnerability == false)
@@ -109,16 +109,6 @@ public class Player : MonoBehaviour, ITakeDamage
             throw new System.ArgumentOutOfRangeException("modifier");
 
         _invulnerabilityDuration *= modifier;
-    }
-
-    public void Save()
-    {
-
-    }
-
-    public void Load()
-    {
-
     }
 
     private void Knock()
@@ -174,14 +164,4 @@ public class Player : MonoBehaviour, ITakeDamage
     {
 
     }
-
-    [System.Serializable]
-    private class PlayerSaveData
-    {
-        public float PositionX;
-        public float PositionY;
-
-    }
-
-
 }

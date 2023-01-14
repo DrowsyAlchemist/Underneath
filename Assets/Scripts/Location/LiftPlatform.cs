@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class LiftPlatform : MonoBehaviour
+public class LiftPlatform : MonoBehaviour, ISaveable
 {
     [SerializeField] private string _id;
     [SerializeField] private Transform _playerPoint;
@@ -26,6 +26,10 @@ public class LiftPlatform : MonoBehaviour
         playerTransform.position = _playerPoint.position;
         _animator.Play(LiftAnimation);
         _isActivated = true;
+    }
+
+    public void Save()
+    {
         SaveLoadManager.SetBool(_id, true);
     }
 }

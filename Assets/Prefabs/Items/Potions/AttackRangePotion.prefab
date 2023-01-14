@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -479667297, guid: 102a3ca856163234792e7e690c4179ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c23f926c397108d439c320e97e5f39ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,5 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: 6150e89f72d3dc041b7592af0b98d303, type: 2}
   _duration: 20
-  _drinkSound: {fileID: 2635307485591919626, guid: f8868491b4f2d1545a5dc6eae166af37, type: 3}
   _rangeModifier: 2

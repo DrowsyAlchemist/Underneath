@@ -2,20 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Potion : Item, ITemporaryEffect
+public abstract class Potion : Item
 {
     [SerializeField] private float _duration;
 
-    public event UnityAction<ITemporaryEffect> AffectingFinished;
+    public event UnityAction<Potion> AffectingFinished;
 
-    public void Drink(Player player, Transform viewContainer = null)
+    public void Drink(Player player)
     {
         var instance = Instantiate(this, null);
         StartAffecting(player);
         instance.StartCoroutine(CancelAffectingAndDestroy(instance, player));
-
-        if (viewContainer != null)
-            ActivePotionView.Create(instance, viewContainer);
     }
 
     protected abstract void StartAffecting(Player player);

@@ -18,7 +18,7 @@ public class InventoryButton : MonoBehaviour
 
     private void Start()
     {
-        _inventoryPanel.SetActive(false);
+        //_inventoryPanel.SetActive(false);
     }
 
     private void LateUpdate()

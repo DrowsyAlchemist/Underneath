@@ -9,14 +9,28 @@ public abstract class EquippableItem : Item
 
     public void Equip(Player player)
     {
-        Affect(player);
-        IsEquipped = true;
+        if (IsEquipped == false)
+        {
+            Affect(player);
+            IsEquipped = true;
+        }
+        else
+        {
+            throw new System.InvalidOperationException();
+        }
     }
 
     public void TakeOff(Player player)
     {
-        StopAffecting(player);
-        IsEquipped = false;
+        if (IsEquipped)
+        {
+            StopAffecting(player);
+            IsEquipped = false;
+        }
+        else
+        {
+            throw new System.InvalidOperationException();
+        }
     }
 
     protected abstract void Affect(Player player);
