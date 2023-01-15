@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour, ITakeDamage
 {
     [SerializeField] private Transform _shootPoint;
-    [SerializeField] private InventioryView _inventoryView;
+    [SerializeField] private InventioryWindow _inventoryView;
     [SerializeField] private float _dropForce = 15;
 
     [SerializeField] private float _invulnerabilityDuration = 2;
@@ -46,11 +46,8 @@ public class Player : MonoBehaviour, ITakeDamage
         }
     }
 
-    public Vector3 GetWorldCenter()
+    public Vector3 GetPosition()
     {
-        if (_collider == null)
-            return Vector3.zero;
-
         Vector3 localCenter = _collider.offset;
         return transform.position + localCenter;
     }
@@ -90,7 +87,7 @@ public class Player : MonoBehaviour, ITakeDamage
             _hurtEffect.Play();
             PlayerHealth.ReduceHealth(damage);
 
-            Vector2 dropForce = _dropForce * (GetWorldCenter() - soursePosition).normalized;
+            Vector2 dropForce = _dropForce * (GetPosition() - soursePosition).normalized;
             Debug.DrawRay(transform.position, dropForce, Color.red, 1);
             PlayerMovement.AddForce(dropForce);
 

@@ -1568,7 +1568,7 @@ GameObject:
   - component: {fileID: 7671539265116902277}
   - component: {fileID: 3125725156206494762}
   m_Layer: 5
-  m_Name: Inventory (Panel)
+  m_Name: InventoryWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1653,7 +1653,7 @@ MonoBehaviour:
   _itemRenderer: {fileID: 6684524573230741298, guid: 12741de6417ad5d419d0b4b68b0a64f9, type: 3}
   _itemDescription: {fileID: 627902972029984433}
   _useButton: {fileID: 2614460482135189592}
-  _activePotionsContainer: {fileID: 6111576600043747400}
+  _activePotionsView: {fileID: 963521007108985558}
   _playerSlots: {fileID: 1514870938080672085}
   _defaultItems:
   - {fileID: -5910256577244122115, guid: 6d15af5580375e84fa86eea9f6fdbf33, type: 3}
@@ -3833,8 +3833,9 @@ GameObject:
   - component: {fileID: 6111576600722170046}
   - component: {fileID: 6111576600722170045}
   - component: {fileID: 6111576600722170044}
+  - component: {fileID: 963521007108985558}
   m_Layer: 5
-  m_Name: ActiveEffectsView
+  m_Name: ActivePotionsView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3929,6 +3930,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &963521007108985558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111576600722170042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445eb684f6273f84eb6015280182a640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activePotionsContainer: {fileID: 6111576600043747400}
+  _activePotionRenderer: {fileID: 7607751132230259127, guid: f258e73fc3b97054aac34d6ac69c3745, type: 3}
 --- !u!1 &6111576601029259200
 GameObject:
   m_ObjectHideFlags: 0
@@ -4888,7 +4903,7 @@ MonoBehaviour:
   - {fileID: 5908636633744405041}
   - {fileID: 5991549143884462821}
   _teleportWindow: {fileID: 3952401318847206937}
-  _teleportPointViewTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
+  _teleportPointRendererTemplate: {fileID: 7925373816468896555, guid: 2515417ce7d7b0045b1360a17f0b318e, type: 3}
   _container: {fileID: 8599321942804965903}
 --- !u!1 &6359559046219518835
 GameObject:

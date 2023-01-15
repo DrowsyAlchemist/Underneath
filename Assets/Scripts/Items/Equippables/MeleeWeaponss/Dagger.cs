@@ -8,20 +8,14 @@ public class Dagger : EquippableItem
     [SerializeField] private ParticleSystem _knifeAttackEffect;
     [SerializeField] private AudioSource _swingSound;
 
-    private Player _player;
     private Rigidbody2D _playerBody;
     private float _timeAfterKnifeAttack;
 
     public bool CanAttack => (_timeAfterKnifeAttack > _secondsBetweenKnifeAttacks);
 
-    private void Start()
+    private void Awake()
     {
-        _player = AccessPoint.Player;
-        _playerBody = _player.GetComponent<Rigidbody2D>();
-
-        int direction = (_player.transform.localScale.x > 0) ? 1 : -1;
-        _knifeAttackEffect = Instantiate(_knifeAttackEffect, _player.transform);
-        _knifeAttackEffect.transform.position = _player.transform.position + _knifeAttackRange * direction * Vector3.right;
+        _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
     }
 
     private void Update()
@@ -31,21 +25,18 @@ public class Dagger : EquippableItem
 
     public void Attack()
     {
-        Debug.Log(_timeAfterKnifeAttack);
-        Debug.Log(gameObject.name);
-
         if (CanAttack)
         {
             _swingSound.Play();
             _knifeAttackEffect.Play();
             _timeAfterKnifeAttack = 0;
-            int direction = (_player.transform.localScale.x > 0) ? 1 : -1;
+            int direction = (transform.localScale.x > 0) ? 1 : -1;
             RaycastHit2D[] hits = new RaycastHit2D[8];
             int hitCount = _playerBody.Cast(direction * Vector2.right, hits, _knifeAttackRange);
 
             for (int i = 0; i < hitCount; i++)
                 if (hits[i].transform.TryGetComponent(out ITakeDamage target))
-                    target.TakeDamage(_damage, _player.transform.position);
+                    target.TakeDamage(_damage, transform.position);
         }
     }
 
@@ -62,12 +53,20 @@ public class Dagger : EquippableItem
     public void ModifyAttackRange(float modifier)
     {
         _knifeAttackRange *= modifier;
-        int direction = (_player.transform.localScale.x > 0) ? 1 : -1;
-        _knifeAttackEffect.transform.position = _player.transform.position + _knifeAttackRange * direction * Vector3.right;
+        int direction = (transform.parent.localScale.x > 0) ? 1 : -1;
+        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
     }
 
     protected override void Affect(Player player)
     {
+        transform.SetParent(player.transform,false);
+        transform.position = player.transform.position;
+        _playerBody = player.GetComponent<Rigidbody2D>();
+
+        int direction = (player.transform.localScale.x > 0) ? 1 : -1;
+        Vector2 effectPosition = transform.position + _knifeAttackRange * direction * Vector3.right;
+        _knifeAttackEffect.transform.position = effectPosition;
+
         player.Inventory.SetDagger(this);
     }
 

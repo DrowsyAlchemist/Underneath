@@ -17,7 +17,7 @@ public class TargetInSightTransition : EnemyTransition
 
     private void FixedUpdate()
     {
-        float targetDistance = Vector2.Distance(transform.position, Target.GetWorldCenter());
+        float targetDistance = Vector2.Distance(transform.position, Target.GetPosition());
         int positiveDirection = transform.localScale.x > 0 ? 1 : -1;
         Vector2 viewDirection = _viewDirection * positiveDirection;
 
@@ -26,7 +26,7 @@ public class TargetInSightTransition : EnemyTransition
 
         if (targetDistance < _viewingRange)
         {
-            Vector2 targetLocalPosition = Target.GetWorldCenter() - transform.position;
+            Vector2 targetLocalPosition = Target.GetPosition() - transform.position;
             float playerAngle = Vector2.Angle(viewDirection, targetLocalPosition);
 
             if (playerAngle < _viewingAngle)

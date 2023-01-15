@@ -4,17 +4,18 @@ using UnityEngine.Events;
 
 public class Inventory
 {
-    private List<Item> _items = new List<Item>();
-
-    public Inventory()
-    {
-
-    }
+    private readonly Player _player;
+    private readonly List<Item> _items = new List<Item>();
 
     public Dagger Dagger { get; private set; }
     public Gun Gun { get; private set; }
 
     public event UnityAction<Item> ItemAdded;
+
+    public Inventory(Player player)
+    {
+        _player = player;
+    }
 
     public void SetDagger(Dagger dagger)
     {
@@ -61,19 +62,19 @@ public class Inventory
     private void UseEquippableItem(EquippableItem equippableItem)
     {
         if (equippableItem.IsEquipped)
-            equippableItem.TakeOff(AccessPoint.Player);
+            equippableItem.TakeOff(_player);
         else
-            equippableItem.Equip(AccessPoint.Player);
+            equippableItem.Equip(_player);
     }
 
     private void UsePotion(Potion potion)
     {
-        potion.Drink(AccessPoint.Player);
+        potion.Drink(_player);
     }
 
     private void UseKey(GoldenKey key)
     {
-        Vector2 playerPosition = AccessPoint.Player.GetWorldCenter();
+        Vector2 playerPosition = _player.GetPosition();
 
         if (key.CanOpen(playerPosition))
             key.OpenLock(playerPosition);

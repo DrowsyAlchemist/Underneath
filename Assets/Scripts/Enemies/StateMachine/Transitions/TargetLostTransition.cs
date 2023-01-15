@@ -10,7 +10,7 @@ public class TargetLostTransition : EnemyTransition
 
     private void FixedUpdate()
     {
-        if ((Vector2.Distance(transform.position, Target.GetWorldCenter()) > _maxTargetDistance))
+        if ((Vector2.Distance(transform.position, Target.GetPosition()) > _maxTargetDistance))
             NeedTransit = true;
 
         if (_canFly == false)
@@ -19,10 +19,10 @@ public class TargetLostTransition : EnemyTransition
 
     private void CheckVertical()
     {
-        if (Target.GetWorldCenter().y - transform.position.y > _maxTargetHeight)
+        if (Target.GetPosition().y - transform.position.y > _maxTargetHeight)
             NeedTransit = true;
 
-        if (Target.GetWorldCenter().y - transform.position.y < _minTargetHeight)
+        if (Target.GetPosition().y - transform.position.y < _minTargetHeight)
             NeedTransit = true;
     }
 }

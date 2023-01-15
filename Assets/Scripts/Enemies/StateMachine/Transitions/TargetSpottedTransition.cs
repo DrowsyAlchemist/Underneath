@@ -12,7 +12,7 @@ public class TargetSpottedTransition : EnemyTransition
     private void FixedUpdate()
     {
         {   // Debug
-            Vector2 dir = (Target.GetWorldCenter() - transform.position).normalized * _radius;//
+            Vector2 dir = (Target.GetPosition() - transform.position).normalized * _radius;//
             Debug.DrawRay(transform.position, dir);//
         }
 
@@ -25,10 +25,10 @@ public class TargetSpottedTransition : EnemyTransition
 
     private bool IsVerticalInvalid()
     {
-        if (Target.GetWorldCenter().y - transform.position.y > _maxTargetHeight)
+        if (Target.GetPosition().y - transform.position.y > _maxTargetHeight)
             return true;
 
-        if (Target.GetWorldCenter().y - transform.position.y < _minTargetHeight)
+        if (Target.GetPosition().y - transform.position.y < _minTargetHeight)
             return true;
 
         return false;
@@ -36,7 +36,7 @@ public class TargetSpottedTransition : EnemyTransition
 
     private bool IsTargetInDeadZone()
     {
-        var direction = Target.GetWorldCenter() - transform.position;
+        var direction = Target.GetPosition() - transform.position;
 
         if (direction.magnitude < _radius)
         {

@@ -6,7 +6,7 @@ public class ÑrossedWithPlayerTransotion : EnemyTransition
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, Target.GetWorldCenter()) < _distanse)
+        if (Vector2.Distance(transform.position, Target.GetPosition()) < _distanse)
             NeedTransit = true;
     }
 }

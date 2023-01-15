@@ -26,7 +26,7 @@ public class Coin : Collectable
         while (gameObject)
         {
             elapsedTime += Time.deltaTime * _collectedSpeed;
-            transform.position = Vector2.Lerp(transform.position, player.GetWorldCenter(), elapsedTime);
+            transform.position = Vector2.Lerp(transform.position, player.GetPosition(), elapsedTime);
             yield return null;
         }
     }

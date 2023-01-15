@@ -5,7 +5,7 @@ public abstract class EquippableItem : Item
     [SerializeField] private EquippableItemType _type;
 
     public EquippableItemType Type => _type;
-    public bool IsEquipped { get; private set; }
+    public bool IsEquipped  { get; private set; }
 
     public void Equip(Player player)
     {

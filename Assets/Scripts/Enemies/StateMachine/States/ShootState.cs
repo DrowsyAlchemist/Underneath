@@ -45,7 +45,7 @@ public class ShootState : EnemyState
     private void Update()
     {
         transform.TurnToTarget(Target.transform);
-        float distanseToTarget = Vector2.Distance(Target.GetWorldCenter(), transform.position);
+        float distanseToTarget = Vector2.Distance(Target.GetPosition(), transform.position);
 
         if (distanseToTarget > _maxTargetDistanse || IsObstacleOnWay())
             ChaseTarget();
@@ -80,13 +80,13 @@ public class ShootState : EnemyState
     private Vector2 CalculateMissileDirection()
     {
         float spreadAngle = Random.Range(-1 * _spreadInDegrees / 2, _spreadInDegrees / 2);
-        Vector2 shotDirection = Target.GetWorldCenter() - transform.position;
+        Vector2 shotDirection = Target.GetPosition() - transform.position;
         return Quaternion.Euler(0, 0, spreadAngle) * shotDirection;
     }
 
     private bool IsObstacleOnWay()
     {
-        Vector2 direction = Target.GetWorldCenter() - transform.position;
+        Vector2 direction = Target.GetPosition() - transform.position;
         RaycastHit2D[] hits = new RaycastHit2D[1];
         ContactFilter2D filter = _movementInFlight.Obstacles;
         float distance = direction.magnitude;
@@ -97,13 +97,13 @@ public class ShootState : EnemyState
     private void ChaseTarget()
     {
         _animator.PlayWalk();
-        _movementInFlight.MoveToTarget(Target.GetWorldCenter(), _chaseSpeed);
+        _movementInFlight.MoveToTarget(Target.GetPosition(), _chaseSpeed);
     }
 
     private void FleeFromTarget()
     {
         _animator.PlayWalk();
-        _movementInFlight.MoveFromTarget(Target.GetWorldCenter(), _chaseSpeed);
+        _movementInFlight.MoveFromTarget(Target.GetPosition(), _chaseSpeed);
     }
 
     private void OnValidate()

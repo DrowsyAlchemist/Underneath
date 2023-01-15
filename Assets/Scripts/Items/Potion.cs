@@ -6,23 +6,25 @@ public abstract class Potion : Item
 {
     [SerializeField] private float _duration;
 
-    public event UnityAction<Potion> AffectingFinished;
+    public float Duration => _duration;
+
+    public event UnityAction AffectingFinished;
 
     public void Drink(Player player)
     {
-        var instance = Instantiate(this, null);
+        var instance = Instantiate(this, player.transform);
         StartAffecting(player);
-        instance.StartCoroutine(CancelAffectingAndDestroy(instance, player));
+        instance.StartCoroutine(instance.CancelAffectingAndDestroy(player));
     }
 
     protected abstract void StartAffecting(Player player);
     protected abstract void StopAffecting(Player player);
 
-    private IEnumerator CancelAffectingAndDestroy(Potion instance, Player player)
+    private IEnumerator CancelAffectingAndDestroy(Player player)
     {
         yield return new WaitForSeconds(_duration);
         StopAffecting(player);
-        instance.AffectingFinished?.Invoke(instance);
-        Destroy(instance.gameObject);
+        AffectingFinished?.Invoke();
+        Destroy(gameObject);
     }
 }

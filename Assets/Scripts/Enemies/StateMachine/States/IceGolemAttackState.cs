@@ -51,7 +51,7 @@ public class IceGolemAttackState : EnemyState
 
     private Missile ChooseMissile()
     {
-        if ((Target.GetWorldCenter().y - transform.position.y) < _targetTrashholdHeight)
+        if ((Target.GetPosition().y - transform.position.y) < _targetTrashholdHeight)
             return _iceMissile;
         else
             return _icicle;
@@ -60,7 +60,7 @@ public class IceGolemAttackState : EnemyState
     private void LaunchMissile(Missile template)
     {
         _currentMissile = Instantiate(template, transform.position, Quaternion.identity);
-        Vector2 direction = Target.GetWorldCenter() - transform.position;
+        Vector2 direction = Target.GetPosition() - transform.position;
         _currentMissile.Launch(direction);
         _currentMissile = null;
     }

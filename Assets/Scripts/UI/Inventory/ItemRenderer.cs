@@ -30,7 +30,11 @@ public class ItemRenderer : MonoBehaviour
 
     public void Render(Item item)
     {
-        Item = item;
+        if (item is Dagger || item is Gun)
+            Item = Instantiate(item, transform);
+        else
+            Item = item;
+
         _image.sprite = item.Data.Sprite;
     }
 

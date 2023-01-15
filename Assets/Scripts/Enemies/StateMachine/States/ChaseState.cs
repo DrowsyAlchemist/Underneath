@@ -23,8 +23,8 @@ public class ChaseState : EnemyState
         transform.TurnToTarget(Target.transform);
 
         if (_canFly)
-            _enemyMovement.MoveToTarget(Target.GetWorldCenter(), _speed);
+            _enemyMovement.MoveToTarget(Target.GetPosition(), _speed);
         else
-            _enemyMovement.MoveToTargetAlongXAxis(Target.GetWorldCenter(), _speed);
+            _enemyMovement.MoveToTargetAlongXAxis(Target.GetPosition(), _speed);
     }
 }

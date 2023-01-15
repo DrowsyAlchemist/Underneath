@@ -33,6 +33,7 @@ public class Gun : EquippableItem
 
     protected override void Affect(Player player)
     {
+        transform.SetParent(player.transform, false);
         player.Inventory.SetGun(this);
     }
 

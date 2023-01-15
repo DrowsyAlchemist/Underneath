@@ -21,8 +21,8 @@ public class ExplosionState : EnemyState
 
     private void Update()
     {
-        if (Vector2.Distance(Target.GetWorldCenter(), transform.position) > _minDistanse)
-            Enemy.Movement.MoveToTarget(Target.GetWorldCenter(), _speedDuringExplosion);
+        if (Vector2.Distance(Target.GetPosition(), transform.position) > _minDistanse)
+            Enemy.Movement.MoveToTarget(Target.GetPosition(), _speedDuringExplosion);
     }
 
     private IEnumerator Explode()
@@ -45,9 +45,9 @@ public class ExplosionState : EnemyState
 
     private void BlowUpPlayer(Player player)
     {
-        Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _explosionRadius, Color.cyan, 2);
+        Debug.DrawRay(transform.position, (player.GetPosition() - transform.position).normalized * _explosionRadius, Color.cyan, 2);
 
-        if ((transform.position - player.GetWorldCenter()).magnitude < _explosionRadius)
+        if ((transform.position - player.GetPosition()).magnitude < _explosionRadius)
             player.TakeDamage(_damage, transform.position);
     }
 }

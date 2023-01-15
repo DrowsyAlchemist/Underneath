@@ -22,10 +22,10 @@ public class AttackState : EnemyState
         _meleeSound.Play();
         yield return new WaitForSeconds(_attackDelay);
 
-        if (Vector2.Distance(transform.position, player.GetWorldCenter()) < _attackRange)
+        if (Vector2.Distance(transform.position, player.GetPosition()) < _attackRange)
         {
             player.TakeDamage(_damage, transform.position);
-            Debug.DrawRay(transform.position, (player.GetWorldCenter() - transform.position).normalized * _attackRange, Color.red, 1);
+            Debug.DrawRay(transform.position, (player.GetPosition() - transform.position).normalized * _attackRange, Color.red, 1);
         }
     }
 }
