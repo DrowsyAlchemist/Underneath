@@ -52,16 +52,6 @@ public class InventioryWindow : MonoBehaviour
     private void AddItem(Item item)
     {
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
-        //////////////////////////////////////////////////////////////////////
-        //if (item is EquippableItem equippableItem)
-        //{
-        //    if (equippableItem.Type == EquippableItemType.MeleeWeapon
-        //        || equippableItem.Type == EquippableItemType.Gun)
-        //    {
-        //        item = Instantiate(item, AccessPoint.Player.transform);
-        //    }
-        //}
-        /////////////////////////////////////////////////////////////////////
         itemRenderer.Render(item);
         itemRenderer.ButtonClicked += OnItemClick;
     }
@@ -92,7 +82,7 @@ public class InventioryWindow : MonoBehaviour
                 SetPotion(_highlightedItem);
                 break;
             case GoldenKey:
-                DestroyKey(_highlightedItem);
+                Inventory.KeyUsed += OnKeyUsed;
                 break;
         }
         Inventory.UseItem(_highlightedItem.Item);
@@ -124,10 +114,28 @@ public class InventioryWindow : MonoBehaviour
         Destroy(itemRenderer.gameObject);
     }
 
-    private void DestroyKey(ItemRenderer itemRenderer)
+    private void OnKeyUsed(bool result)
     {
-        Destroy(itemRenderer.gameObject);
-        gameObject.SetActive(false);
+        Inventory.KeyUsed -= OnKeyUsed;
+
+        if (result)
+        {
+            if (_highlightedItem != null && _highlightedItem.Item is GoldenKey)
+            {
+                Destroy(_highlightedItem);
+                gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                throw new System.Exception("Valid itemRenderer is not found.");
+            }
+        }
+        else
+        {
+            string message = "I don't see the gates. Maybe I should get closer.";
+            MessageCreator.ShowMessage(message, (RectTransform)transform, MessageType.Message);
+        }
     }
 
     private void TakeOffItem(ItemRenderer itemRenderer)

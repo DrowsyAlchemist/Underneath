@@ -16,6 +16,7 @@ public class Dagger : EquippableItem
     private void Awake()
     {
         _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
+        _playerBody = AccessPoint.Player.GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -60,14 +61,15 @@ public class Dagger : EquippableItem
     protected override void Affect(Player player)
     {
         transform.SetParent(player.transform,false);
-        transform.position = player.transform.position;
-        _playerBody = player.GetComponent<Rigidbody2D>();
-
-        int direction = (player.transform.localScale.x > 0) ? 1 : -1;
-        Vector2 effectPosition = transform.position + _knifeAttackRange * direction * Vector3.right;
-        _knifeAttackEffect.transform.position = effectPosition;
-
+        SetEffectPosition(player);
         player.Inventory.SetDagger(this);
+    }
+
+    private void SetEffectPosition(Player player)
+    {
+        int direction = (player.transform.localScale.x > 0) ? 1 : -1;
+        Vector2 effectPosition = player.transform.position + _knifeAttackRange * direction * Vector3.right;
+        _knifeAttackEffect.transform.position = effectPosition;
     }
 
     protected override void StopAffecting(Player player)

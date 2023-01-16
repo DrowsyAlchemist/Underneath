@@ -29,7 +29,7 @@ public class StoreMenu : MonoBehaviour
         }   
         else
         {
-            _notEnoughMoneyPanel.SetActive(true);
+            MessageCreator.ShowMessage("Not enough money :(", (RectTransform)transform, MessageType.Message);
         }
     }
 }

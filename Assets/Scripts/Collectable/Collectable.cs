@@ -8,23 +8,27 @@ public abstract class Collectable : MonoBehaviour
 {
     [SerializeField] private AudioSource _collectedSound;
 
-    protected const string CollectedAnimation = "Collected";
-    protected Animator Animator;
-    protected bool Collected;
+    private const string CollectedAnimation = "Collected";
+    private const int CollectedAnimationLayerIndex = 1;
+    private Animator _animator;
+    private bool _isCollected;
 
     private void Start()
     {
-        Animator = GetComponent<Animator>();
+        if (_collectedSound == null)
+            throw new System.Exception("Audio sourse is not assigned.");
+
+        _animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (Collected == false && collision.collider.TryGetComponent(out Player player))
+        if (_isCollected == false && collision.collider.TryGetComponent(out Player player))
         {
             if (_collectedSound.isPlaying == false)
                 _collectedSound.Play();
 
-            Collected = true;
+            _isCollected = true;
             CollectByPlayer(player);
             StartCoroutine(Vanish());
         }
@@ -34,14 +38,10 @@ public abstract class Collectable : MonoBehaviour
 
     private IEnumerator Vanish()
     {
-        Animator.Play(CollectedAnimation);
+        _animator.Play(CollectedAnimation);
         yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(Animator.GetCurrentAnimatorStateInfo(1).length);
+        float delay = _animator.GetCurrentAnimatorStateInfo(CollectedAnimationLayerIndex).length;
+        yield return new WaitForSeconds(delay);
         Destroy(gameObject);
-    }
-
-    protected virtual void OnValidate()
-    {
-        GetComponent<Collider2D>().isTrigger = false;
     }
 }

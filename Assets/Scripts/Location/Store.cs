@@ -30,6 +30,8 @@ public class Store : MonoBehaviour
         {
             enabled = true;
             _lightControl.Lit();
+            string message = "Press \"S\" to open store.";
+            MessageCreator.ShowMessage(message, AccessPoint.InterfaceCanvas, MessageType.Tip);
         }
     }
 

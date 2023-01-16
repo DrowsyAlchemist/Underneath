@@ -1,6 +1,5 @@
+using System;
 using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
 
 public class Inventory
 {
@@ -10,7 +9,8 @@ public class Inventory
     public Dagger Dagger { get; private set; }
     public Gun Gun { get; private set; }
 
-    public event UnityAction<Item> ItemAdded;
+    public event Action<Item> ItemAdded;
+    public event Action<bool> KeyUsed;
 
     public Inventory(Player player)
     {
@@ -74,11 +74,7 @@ public class Inventory
 
     private void UseKey(GoldenKey key)
     {
-        Vector2 playerPosition = _player.GetPosition();
-
-        if (key.CanOpen(playerPosition))
-            key.OpenLock(playerPosition);
-        else
-            AddItem(key);
+        bool result = key.TryOpenGates(_player);
+        KeyUsed?.Invoke(result);
     }
 }

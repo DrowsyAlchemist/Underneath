@@ -16,11 +16,6 @@ public class InventoryButton : MonoBehaviour
         _button.onClick.RemoveListener(OpenInventoryPanel);
     }
 
-    private void Start()
-    {
-        //_inventoryPanel.SetActive(false);
-    }
-
     private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.I))

@@ -8,6 +8,8 @@ public class TeleportArea : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
         {
             enabled = true;
+            string message = "Press \"T\" to open available teleport points.";
+            MessageCreator.ShowMessage(message, AccessPoint.InterfaceCanvas, MessageType.Tip);
         }
     }
 

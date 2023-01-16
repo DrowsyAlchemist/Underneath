@@ -1,0 +1,41 @@
+using System.Collections;
+using UnityEngine;
+
+[RequireComponent(typeof(Animator))]
+public abstract class MessageWindow : MonoBehaviour
+{
+    [SerializeField] private TMPro.TMP_Text _text;
+
+    private const string ShowAnimation = "Show";
+    private const string CloseAnimation = "Close";
+
+    private Animator _animator;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        gameObject.SetActive(false);
+    }
+
+    public void Show(string message)
+    {
+        _text.text = message;
+        gameObject.SetActive(true);
+        _animator.Play(ShowAnimation);
+    }
+
+    public void Close(float delay = 0)
+    {
+        _animator.Play(CloseAnimation);
+        StartCoroutine(DestroyAfterAnimation(delay));
+    }
+
+    private IEnumerator DestroyAfterAnimation(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _animator.Play(CloseAnimation);
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        Destroy(gameObject);
+    }
+}
