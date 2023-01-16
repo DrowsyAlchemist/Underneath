@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: 9629442998d49464abe85ed4e0b8511f, type: 2}
-  _type: 3
-  _secondsBetweenShoots: 2
+  _type: 5
+  _secondsBetweenShots: 2
   _bullet: {fileID: 7530319251680044733, guid: 8d884b9fcff143f4ba9599300996c6b7, type: 3}
   _shotSound: {fileID: 1039614389904420648}
 --- !u!82 &1039614389904420648

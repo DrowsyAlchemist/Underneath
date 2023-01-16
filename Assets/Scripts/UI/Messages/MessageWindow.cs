@@ -14,7 +14,11 @@ public abstract class MessageWindow : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject);
     }
 
     public void Show(string message)
@@ -26,16 +30,15 @@ public abstract class MessageWindow : MonoBehaviour
 
     public void Close(float delay = 0)
     {
-        _animator.Play(CloseAnimation);
         StartCoroutine(DestroyAfterAnimation(delay));
     }
 
     private IEnumerator DestroyAfterAnimation(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSecondsRealtime(delay);
         _animator.Play(CloseAnimation);
         yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSecondsRealtime(_animator.GetCurrentAnimatorStateInfo(0).length);
         Destroy(gameObject);
     }
 }

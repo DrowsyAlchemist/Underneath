@@ -12,27 +12,26 @@ public class PlayerSlots : MonoBehaviour
 
     public void SetItem(ItemRenderer itemRenderer)
     {
-        if (itemRenderer.Item.TryGetComponent(out EquippableItem item) == false)
-            throw new ArgumentException("Item should be equippable.");
+        var item = itemRenderer.Item;
 
         if (CanEquipItem(item) == false)
             throw new InvalidOperationException($"The slot for type {item.Type} is already occupied.");
 
         switch (item.Type)
         {
-            case EquippableItemType.HeadGear:
+            case ItemType.HeadGear:
                 itemRenderer.transform.SetParent(_headGearSlot);
                 break;
-            case EquippableItemType.BodyArmor:
+            case ItemType.BodyArmor:
                 itemRenderer.transform.SetParent(_bodyArmorSlot);
                 break;
-            case EquippableItemType.MeleeWeapon:
+            case ItemType.MeleeWeapon:
                 itemRenderer.transform.SetParent(_meleeWeaponSlot);
                 break;
-            case EquippableItemType.Gun:
+            case ItemType.Gun:
                 itemRenderer.transform.SetParent(_gunSlot);
                 break;
-            case EquippableItemType.Artifact:
+            case ItemType.Artifact:
                 itemRenderer.transform.SetParent(GetEmptyArtifactSlot());
                 break;
             default:
@@ -40,20 +39,20 @@ public class PlayerSlots : MonoBehaviour
         }
     }
 
-    public bool CanEquipItem(EquippableItem item)
+    public bool CanEquipItem(Item item)
     {
         return item.Type switch
         {
-            EquippableItemType.HeadGear => _headGearSlot.transform.childCount == 0,
-            EquippableItemType.BodyArmor => _bodyArmorSlot.transform.childCount == 0,
-            EquippableItemType.MeleeWeapon => _meleeWeaponSlot.transform.childCount == 0,
-            EquippableItemType.Gun => _gunSlot.transform.childCount == 0,
-            EquippableItemType.Artifact => CanEquipArtifact(),
+            ItemType.HeadGear => _headGearSlot.transform.childCount == 0,
+            ItemType.BodyArmor => _bodyArmorSlot.transform.childCount == 0,
+            ItemType.MeleeWeapon => _meleeWeaponSlot.transform.childCount == 0,
+            ItemType.Gun => _gunSlot.transform.childCount == 0,
+            ItemType.Artifact => CanEquipArtifact(),
             _ => throw new Exception($"Type {item.Type} is invalid."),
         };
     }
 
-    public ItemRenderer GetItemOfType(EquippableItemType type)
+    public ItemRenderer GetItemOfType(ItemType type)
     {
         try
         {
@@ -84,15 +83,15 @@ public class PlayerSlots : MonoBehaviour
         throw new Exception($"There are no empty artifact slots.");
     }
 
-    private ItemRenderer FindItemOfType(EquippableItemType type)
+    private ItemRenderer FindItemOfType(ItemType type)
     {
         return type switch
         {
-            EquippableItemType.HeadGear => _headGearSlot.GetChild(0).GetComponent<ItemRenderer>(),
-            EquippableItemType.BodyArmor => _bodyArmorSlot.GetChild(0).GetComponent<ItemRenderer>(),
-            EquippableItemType.MeleeWeapon => _meleeWeaponSlot.GetChild(0).GetComponent<ItemRenderer>(),
-            EquippableItemType.Gun => _gunSlot.GetChild(0).GetComponent<ItemRenderer>(),
-            EquippableItemType.Artifact => _artifactsSlots[^1].GetChild(0).GetComponent<ItemRenderer>(),
+            ItemType.HeadGear => _headGearSlot.GetChild(0).GetComponent<ItemRenderer>(),
+            ItemType.BodyArmor => _bodyArmorSlot.GetChild(0).GetComponent<ItemRenderer>(),
+            ItemType.MeleeWeapon => _meleeWeaponSlot.GetChild(0).GetComponent<ItemRenderer>(),
+            ItemType.Gun => _gunSlot.GetChild(0).GetComponent<ItemRenderer>(),
+            ItemType.Artifact => _artifactsSlots[^1].GetChild(0).GetComponent<ItemRenderer>(),
             _ => throw new InvalidOperationException($"Type {type} is invalid."),
         };
     }

@@ -7,6 +7,7 @@ public class IncreaseDamagePotion : Potion
     protected override void StartAffecting(Player player)
     {
         player.Inventory.Dagger.IncreaseDamage(extraDamage);
+        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

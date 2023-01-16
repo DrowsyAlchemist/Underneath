@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Dagger : EquippableItem
+public class Dagger : AffectingItem
 {
     [SerializeField] private int _damage;
     [SerializeField] private float _knifeAttackRange;
@@ -17,6 +17,7 @@ public class Dagger : EquippableItem
     {
         _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
         _playerBody = AccessPoint.Player.GetComponent<Rigidbody2D>();
+        _timeAfterKnifeAttack = _secondsBetweenKnifeAttacks;
     }
 
     private void Update()
@@ -31,9 +32,10 @@ public class Dagger : EquippableItem
             _swingSound.Play();
             _knifeAttackEffect.Play();
             _timeAfterKnifeAttack = 0;
-            int direction = (transform.localScale.x > 0) ? 1 : -1;
+
+            Vector2 direction = (_playerBody.transform.localScale.x > 0) ? Vector2.right : Vector2.left;
             RaycastHit2D[] hits = new RaycastHit2D[8];
-            int hitCount = _playerBody.Cast(direction * Vector2.right, hits, _knifeAttackRange);
+            int hitCount = _playerBody.Cast(direction, hits, _knifeAttackRange);
 
             for (int i = 0; i < hitCount; i++)
                 if (hits[i].transform.TryGetComponent(out ITakeDamage target))
@@ -54,22 +56,20 @@ public class Dagger : EquippableItem
     public void ModifyAttackRange(float modifier)
     {
         _knifeAttackRange *= modifier;
-        int direction = (transform.parent.localScale.x > 0) ? 1 : -1;
-        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction * Vector3.right;
+        SetEffectPosition();
     }
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
-        transform.SetParent(player.transform,false);
-        SetEffectPosition(player);
+        transform.SetParent(player.transform, false);
+        SetEffectPosition();
         player.Inventory.SetDagger(this);
     }
 
-    private void SetEffectPosition(Player player)
+    private void SetEffectPosition()
     {
-        int direction = (player.transform.localScale.x > 0) ? 1 : -1;
-        Vector2 effectPosition = player.transform.position + _knifeAttackRange * direction * Vector3.right;
-        _knifeAttackEffect.transform.position = effectPosition;
+        Vector3 direction = (transform.localScale.x > 0) ? Vector2.right : Vector2.left;
+        _knifeAttackEffect.transform.position = transform.position + _knifeAttackRange * direction;
     }
 
     protected override void StopAffecting(Player player)

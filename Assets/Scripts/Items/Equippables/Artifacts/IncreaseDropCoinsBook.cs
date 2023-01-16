@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class IncreaseDropCoinsBook : EquippableItem
+public class IncreaseDropCoinsBook : AffectingItem
 {
     [SerializeField] private float _modifier;
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
         CoinsSpawner.ModifyCoinsCount(_modifier);
     }

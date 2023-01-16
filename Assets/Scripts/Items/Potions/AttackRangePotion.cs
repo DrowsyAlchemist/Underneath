@@ -7,6 +7,7 @@ public class AttackRangePotion : Potion
     protected override void StartAffecting(Player player)
     {
         player.Inventory.Dagger.ModifyAttackRange(_rangeModifier);
+        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

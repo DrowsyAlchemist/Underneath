@@ -4,14 +4,14 @@ using UnityEngine.UI;
 
 public class InventioryWindow : MonoBehaviour
 {
-    [SerializeField] private RectTransform _itemsContainer;
     [SerializeField] private ItemRenderer _itemRenderer;
-    [SerializeField] private ItemDescription _itemDescription;
-    [SerializeField] private Button _useButton;
 
+    [SerializeField] private RectTransform _itemsContainer;
     [SerializeField] private ActivePotionsView _activePotionsView;
-
     [SerializeField] private PlayerSlots _playerSlots;
+
+    [SerializeField] private ItemDescriptionRenderer _itemDescription;
+    [SerializeField] private Button _useButton;
 
     [SerializeField] private List<Item> _defaultItems;
 
@@ -33,6 +33,9 @@ public class InventioryWindow : MonoBehaviour
     private void OnDestroy()
     {
         Inventory.ItemAdded -= AddItem;
+
+        for (int i = 0; i < _itemsContainer.childCount; i++)
+            _itemsContainer.GetChild(i).GetComponent<ItemRenderer>().ButtonClicked -= OnItemClick;
     }
 
     private void OnEnable()
@@ -75,11 +78,8 @@ public class InventioryWindow : MonoBehaviour
 
         switch (_highlightedItem.Item)
         {
-            case EquippableItem:
-                SetEquippableItem(_highlightedItem);
-                break;
-            case Potion:
-                SetPotion(_highlightedItem);
+            case AffectingItem:
+                SetAffectingItem(_highlightedItem);
                 break;
             case GoldenKey:
                 Inventory.KeyUsed += OnKeyUsed;
@@ -88,22 +88,12 @@ public class InventioryWindow : MonoBehaviour
         Inventory.UseItem(_highlightedItem.Item);
     }
 
-    private void SetEquippableItem(ItemRenderer itemRenderer)
+    private void SetAffectingItem(ItemRenderer itemRenderer)
     {
-        var item = itemRenderer.Item as EquippableItem;
-
-        if (item.IsEquipped)
-        {
-            TakeOffItem(_highlightedItem);
-        }
+        if (itemRenderer.Item is Potion)
+            SetPotion(itemRenderer);
         else
-        {
-            if (_playerSlots.CanEquipItem(item) == false)
-                TakeOffItem(_playerSlots.GetItemOfType(item.Type));
-
-            _playerSlots.SetItem(_highlightedItem);
-        }
-        UISounds.PlayEquip();
+            EquipItem(itemRenderer);
     }
 
     private void SetPotion(ItemRenderer itemRenderer)
@@ -114,12 +104,38 @@ public class InventioryWindow : MonoBehaviour
         Destroy(itemRenderer.gameObject);
     }
 
+    private void EquipItem(ItemRenderer itemRenderer)
+    {
+        var itemToEquip = itemRenderer.Item as AffectingItem;
+
+        if (itemToEquip.IsAffecting)
+        {
+            TakeOffItem(itemRenderer);
+        }
+        else
+        {
+            if (_playerSlots.CanEquipItem(itemToEquip) == false)
+            {
+                var equippedItemRenderer = _playerSlots.GetItemOfType(itemToEquip.Type);
+                TakeOffItem(equippedItemRenderer);
+                Inventory.UseItem(equippedItemRenderer.Item);
+            }
+            _playerSlots.SetItem(itemRenderer);
+        }
+        UISounds.PlayEquip();
+    }
+
+    private void TakeOffItem(ItemRenderer itemRenderer)
+    {
+        itemRenderer.transform.SetParent(_itemsContainer);
+    }
+
     private void OnKeyUsed(bool result)
     {
-        Inventory.KeyUsed -= OnKeyUsed;
-
         if (result)
         {
+            Inventory.KeyUsed -= OnKeyUsed;
+
             if (_highlightedItem != null && _highlightedItem.Item is GoldenKey)
             {
                 Destroy(_highlightedItem);
@@ -136,10 +152,5 @@ public class InventioryWindow : MonoBehaviour
             string message = "I don't see the gates. Maybe I should get closer.";
             MessageCreator.ShowMessage(message, (RectTransform)transform, MessageType.Message);
         }
-    }
-
-    private void TakeOffItem(ItemRenderer itemRenderer)
-    {
-        itemRenderer.transform.SetParent(_itemsContainer);
     }
 }

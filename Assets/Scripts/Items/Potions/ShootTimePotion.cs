@@ -7,6 +7,7 @@ public class ShootTimePotion : Potion
     protected override void StartAffecting(Player player)
     {
         player.Inventory.Gun.ModifyTimeBetweenShots(timeModifier);
+        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

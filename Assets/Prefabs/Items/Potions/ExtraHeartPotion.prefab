@@ -98,5 +98,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: fc461acd1f35ca04f98bec78a05d0cee, type: 2}
+  _type: 1
   _duration: 5
   _heartsCount: 2

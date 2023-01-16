@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class DoubleJumpBook : EquippableItem
+public class DoubleJumpBook : AffectingItem
 {
     [SerializeField] private int _extraJumps;
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
         player.PlayerMovement.IncreaseJumpCount(_extraJumps);
     }

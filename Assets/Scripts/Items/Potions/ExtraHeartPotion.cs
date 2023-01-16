@@ -7,6 +7,7 @@ public class ExtraHeartPotion : Potion
     protected override void StartAffecting(Player player)
     {
         player.PlayerHealth.IncreaseMaxHealth(_heartsCount);
+        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

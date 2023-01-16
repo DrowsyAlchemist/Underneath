@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: fd8a087bd5fa51e40b154b3b62fe5d2a, type: 2}
-  _type: 2
+  _type: 4
   _damage: 1
   _knifeAttackRange: 2
   _secondsBetweenKnifeAttacks: 0.6

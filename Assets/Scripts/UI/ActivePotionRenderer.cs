@@ -9,6 +9,7 @@ public class ActivePotionRenderer : MonoBehaviour
     public void Render(Potion potion)
     {
         _image.sprite = potion.Data.Sprite;
+        potion.transform.SetParent(transform);
         StartCoroutine(DestroyWithDelay(potion.Duration));
     }
 

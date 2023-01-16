@@ -5,7 +5,6 @@ public class Message : MessageWindow
 {
     [SerializeField] private Button _closeButton;
 
-
     private void Start()
     {
         _closeButton.onClick.AddListener(OnCloseButtonClick);

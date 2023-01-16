@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Armor : EquippableItem
+public class Armor : AffectingItem
 {
     [SerializeField] private int _extraHearts;
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
         player.PlayerHealth.IncreaseMaxHealth(_extraHearts);
     }

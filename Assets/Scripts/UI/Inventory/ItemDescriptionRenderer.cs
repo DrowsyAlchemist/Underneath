@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemDescription : MonoBehaviour
+public class ItemDescriptionRenderer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _lable;
     [SerializeField] private Image _image;

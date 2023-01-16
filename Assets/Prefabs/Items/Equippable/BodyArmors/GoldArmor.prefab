@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: a206f79dea342e149881dd0c74418ac2, type: 2}
-  _type: 1
+  _type: 3
   _extraHearts: 2

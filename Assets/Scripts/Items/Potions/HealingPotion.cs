@@ -7,6 +7,7 @@ public class HealingPotion : Potion
     protected override void StartAffecting(Player player)
     {
         player.PlayerHealth.RestoreHealth(_healthPoints);
+        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

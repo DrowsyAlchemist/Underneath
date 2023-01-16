@@ -1,14 +1,19 @@
 using UnityEngine;
 
-public class Gun : EquippableItem
+public class Gun : AffectingItem
 {
-    [SerializeField] private float _secondsBetweenShoots;
+    [SerializeField] private float _secondsBetweenShots;
     [SerializeField] private Bullet _bullet;
     [SerializeField] private AudioSource _shotSound;
 
     private float _timeAfterShot;
 
-    public bool CanShoot => (_timeAfterShot > _secondsBetweenShoots);
+    public bool CanShoot => (_timeAfterShot > _secondsBetweenShots);
+
+    private void Start()
+    {
+        _timeAfterShot = _secondsBetweenShots;
+    }
 
     private void Update()
     {
@@ -28,10 +33,10 @@ public class Gun : EquippableItem
 
     public void ModifyTimeBetweenShots(float modifier)
     {
-        _secondsBetweenShoots *= modifier;
+        _secondsBetweenShots *= modifier;
     }
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
         transform.SetParent(player.transform, false);
         player.Inventory.SetGun(this);

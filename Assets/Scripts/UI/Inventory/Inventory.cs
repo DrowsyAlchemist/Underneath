@@ -47,29 +47,23 @@ public class Inventory
     {
         switch (item)
         {
-            case EquippableItem equippableItem:
-                UseEquippableItem(equippableItem);
-                break;
-            case Potion potion:
-                UsePotion(potion);
+            case AffectingItem affectingItem:
+                UseAffectingItem(affectingItem);
                 break;
             case GoldenKey key:
                 UseKey(key);
                 break;
+            default:
+                throw new InvalidOperationException();
         }
     }
 
-    private void UseEquippableItem(EquippableItem equippableItem)
+    private void UseAffectingItem(AffectingItem affectingItem)
     {
-        if (equippableItem.IsEquipped)
-            equippableItem.TakeOff(_player);
+        if (affectingItem.IsAffecting)
+            affectingItem.CancelEffect(_player);
         else
-            equippableItem.Equip(_player);
-    }
-
-    private void UsePotion(Potion potion)
-    {
-        potion.Drink(_player);
+            affectingItem.ApplyEffect(_player);
     }
 
     private void UseKey(GoldenKey key)
