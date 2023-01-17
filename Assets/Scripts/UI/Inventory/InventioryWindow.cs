@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventioryWindow : MonoBehaviour
+public class InventioryWindow : MonoBehaviour, ISaveable
 {
     [SerializeField] private ItemRenderer _itemRenderer;
 
@@ -13,20 +13,54 @@ public class InventioryWindow : MonoBehaviour
     [SerializeField] private ItemDescriptionRenderer _itemDescription;
     [SerializeField] private Button _useButton;
 
-    [SerializeField] private List<Item> _defaultItems;
-
+    private const string SavesFolder = "Inventory";
+    private const string SaveFileName = "Items";
+    private const string ItemsFolder = "Items";
     private ItemRenderer _highlightedItem;
+    private List<ItemRenderer> _itemRenderers = new List<ItemRenderer>();
 
     public Inventory Inventory { get; private set; }
 
+    public void Save()
+    {
+        Inventory.Save();
+    }
+
+    public void ResetInventory()
+    {
+        if (_itemRenderers.Count > 0)
+        {
+            foreach (var itemRenderer in _itemRenderers)
+                Destroy(itemRenderer.gameObject);
+
+            _itemRenderers.Clear();
+        }
+    }
+
+    private void Load()
+    {
+        ResetInventory();
+        var itemFileNames = SaveLoadManager.GetLoadOrDefault<List<string>>(SavesFolder, SaveFileName);
+
+        if (itemFileNames == null)
+            return;
+
+        foreach (var fileName in itemFileNames)
+        {
+            string localPath = ItemsFolder + "/" + fileName;
+            Item item = Resources.Load<Item>(localPath);
+
+            if (item == null)
+                throw new System.Exception($"Can't find valid item on path: " + localPath);
+
+            Inventory.AddItem(item);
+        }
+    }
+
     private void Start()
     {
-        Inventory = new Inventory(AccessPoint.Player);
+        Inventory = Inventory.GetInventory(AccessPoint.Player);
         Inventory.ItemAdded += AddItem;
-
-        foreach (var item in _defaultItems)
-            Inventory.AddItem(item);
-
         gameObject.SetActive(false);
     }
 
@@ -40,6 +74,9 @@ public class InventioryWindow : MonoBehaviour
 
     private void OnEnable()
     {
+        if (Inventory != null && Inventory.IsEmpty)
+            Load();
+
         _useButton.onClick.AddListener(OnUseButtonClick);
         _useButton.interactable = false;
     }
@@ -55,6 +92,7 @@ public class InventioryWindow : MonoBehaviour
     private void AddItem(Item item)
     {
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
+        _itemRenderers.Add(itemRenderer);
         itemRenderer.Render(item);
         itemRenderer.ButtonClicked += OnItemClick;
     }

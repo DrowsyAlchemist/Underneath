@@ -10,8 +10,9 @@ public class Gun : AffectingItem
 
     public bool CanShoot => (_timeAfterShot > _secondsBetweenShots);
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         _timeAfterShot = _secondsBetweenShots;
     }
 

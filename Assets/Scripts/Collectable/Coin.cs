@@ -22,7 +22,7 @@ public class Coin : Collectable
     protected override void CollectByPlayer(Player player)
     {
         StartCoroutine(MoveToPlayer(player));
-        player.TakeMoney(CoinWorth);
+        player.Wallet.TakeMoney(CoinWorth);
     }
 
     private IEnumerator MoveToPlayer(Player player)

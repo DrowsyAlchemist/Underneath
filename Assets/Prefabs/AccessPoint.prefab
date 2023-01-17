@@ -1649,15 +1649,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271db3f70afba044ca7ff63f8dd50446, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemsContainer: {fileID: 3938650300484761910}
   _itemRenderer: {fileID: 6684524573230741298, guid: 12741de6417ad5d419d0b4b68b0a64f9, type: 3}
-  _itemDescription: {fileID: 627902972029984433}
-  _useButton: {fileID: 2614460482135189592}
+  _itemsContainer: {fileID: 3938650300484761910}
   _activePotionsView: {fileID: 963521007108985558}
   _playerSlots: {fileID: 1514870938080672085}
-  _defaultItems:
-  - {fileID: -5910256577244122115, guid: 6d15af5580375e84fa86eea9f6fdbf33, type: 3}
-  - {fileID: -2288829761726499222, guid: 1230444e6677d2542a20e8e673ae3dfd, type: 3}
+  _itemDescription: {fileID: 627902972029984433}
+  _useButton: {fileID: 2614460482135189592}
+  _defaultItems: []
 --- !u!1 &2557391572556245215
 GameObject:
   m_ObjectHideFlags: 0

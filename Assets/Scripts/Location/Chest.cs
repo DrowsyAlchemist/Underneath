@@ -7,6 +7,7 @@ public class Chest : MonoBehaviour, ITakeDamage, ISaveable
     [SerializeField] private string _id;
     [SerializeField] private int _coinsCount;
 
+    private const string SavesFolderName = "Chests";
     private const string OpenAnimation = "Open";
     private Animator _animator;
     private bool _isOpened;
@@ -14,7 +15,7 @@ public class Chest : MonoBehaviour, ITakeDamage, ISaveable
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _isOpened = SaveLoadManager.GetBoolOrDefault(_id);
+        _isOpened = SaveLoadManager.GetLoadOrDefault<bool>(SavesFolderName, _id);
 
         if (_isOpened)
             _animator.Play(OpenAnimation);
@@ -25,13 +26,13 @@ public class Chest : MonoBehaviour, ITakeDamage, ISaveable
         if (_isOpened == false)
         {
             Open();
-            _isOpened = true;      
+            _isOpened = true;
         }
     }
 
     public void Save()
     {
-        SaveLoadManager.SetBool(_id, true);
+        SaveLoadManager.Save(SavesFolderName, _id, _isOpened);
     }
 
     private void Open()

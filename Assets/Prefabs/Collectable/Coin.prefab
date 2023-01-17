@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectedSound: {fileID: -5299922199065008193}
-  _collectedDuration: 0.333
+  _collectionDuration: 0.33
 --- !u!82 &-5299922199065008193
 AudioSource:
   m_ObjectHideFlags: 0

@@ -13,8 +13,9 @@ public class Dagger : AffectingItem
 
     public bool CanAttack => (_timeAfterKnifeAttack > _secondsBetweenKnifeAttacks);
 
-    private void Awake()
+    protected override void Start()
     {
+        base.Start();
         _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
         _playerBody = AccessPoint.Player.GetComponent<Rigidbody2D>();
         _timeAfterKnifeAttack = _secondsBetweenKnifeAttacks;

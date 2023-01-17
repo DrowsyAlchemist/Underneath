@@ -6,11 +6,11 @@ public class Armor : AffectingItem
 
     protected override void StartAffecting(Player player)
     {
-        player.PlayerHealth.IncreaseMaxHealth(_extraHearts);
+        player.Health.IncreaseMaxHealth(_extraHearts);
     }
 
     protected override void StopAffecting(Player player)
     {
-        player.PlayerHealth.DecreaseMaxHealth(_extraHearts);
+        player.Health.DecreaseMaxHealth(_extraHearts);
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: GoldRevolver
   m_EditorClassIdentifier: 
   _lable: Gold revolver
-  _sprite: {fileID: 21300000, guid: d3ba0183706161d4ab4124d2a97457ce, type: 3}
+  _sprite: {fileID: 21300000, guid: e854396d87b9ef343aaa7670894adcab, type: 3}
   _description: 
   _cost: 2
+  _saveFileName: GoldRevolver

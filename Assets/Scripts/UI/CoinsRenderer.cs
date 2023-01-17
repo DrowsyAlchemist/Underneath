@@ -5,18 +5,18 @@ public class CoinsRenderer : MonoBehaviour
 {
     [SerializeField] private TMP_Text _coinsCount;
 
-    private Player _player;
+    private Wallet _playerWallet;
 
     private void Start()
     {
-        _player = AccessPoint.Player;
-        _player.MoneyChanged += OnMoneyChanged;
-        OnMoneyChanged(_player.Money);
+        _playerWallet = AccessPoint.Player.Wallet;
+        _playerWallet.MoneyChanged += OnMoneyChanged;
+        OnMoneyChanged(_playerWallet.Money);
     }
 
     private void OnDestroy()
     {
-        _player.MoneyChanged -= OnMoneyChanged;
+        _playerWallet.MoneyChanged -= OnMoneyChanged;
     }
 
     private void OnMoneyChanged(int money)

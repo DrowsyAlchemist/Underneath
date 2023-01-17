@@ -10,13 +10,13 @@ public class HealthRenderer : MonoBehaviour
     [SerializeField] private Image _heart;
     [SerializeField] private Image _emptyHeart;
 
-    private PlayerHealth _playerHealth;
+    private Health _playerHealth;
     private List<Image> _hearts = new List<Image>();
     private List<Image> _emptyHearts = new List<Image>();
 
     private void Start()
     {
-        _playerHealth = AccessPoint.Player.PlayerHealth;
+        _playerHealth = AccessPoint.Player.Health;
         _playerHealth.HealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
         OnMaxHealthChanged(_playerHealth.MaxHealth);

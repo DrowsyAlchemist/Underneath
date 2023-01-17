@@ -1,9 +1,9 @@
-public class Apple : Collectable
+public class Apple : Bubble
 {
     private const int RestoringHealth = 1;
 
-    protected override void CollectByPlayer(Player player)
+    protected override void Collect(Player player)
     {
-        player.PlayerHealth.RestoreHealth(RestoringHealth);
+        player.Health.RestoreHealth(RestoringHealth);
     }
 }

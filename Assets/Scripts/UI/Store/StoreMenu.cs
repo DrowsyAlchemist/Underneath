@@ -6,11 +6,13 @@ public class StoreMenu : MonoBehaviour
     [SerializeField] private RectTransform _waresContainer;
     [SerializeField] private GameObject _notEnoughMoneyPanel;
 
-    private Player _player;
+    private Inventory _playerInventory;
+    private Wallet _playerWallet;
 
     private void Start()
     {
-        _player = AccessPoint.Player;
+        _playerInventory = AccessPoint.Player.Inventory;
+        _playerWallet = AccessPoint.Player.Wallet;
     }
 
     public void AddWare(Item potion)
@@ -22,11 +24,11 @@ public class StoreMenu : MonoBehaviour
 
     private void OnBuyButtonClick(WareRenderer wareRenderer)
     {
-        if (_player.Money >= wareRenderer.Cost)
+        if (_playerWallet.Money >= wareRenderer.Cost)
         {
-            _player.GiveMoney(wareRenderer.Cost);
-            _player.Inventory.AddItem(wareRenderer.Item);
-        }   
+            _playerWallet.GiveMoney(wareRenderer.Cost);
+            _playerInventory.AddItem(wareRenderer.Item);
+        }
         else
         {
             MessageCreator.ShowMessage("Not enough money :(", (RectTransform)transform, MessageType.Message);

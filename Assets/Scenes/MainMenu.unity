@@ -136,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2195873683088199252, guid: 5608856acaf451e448c3b6e1ef09e613, type: 3}
       propertyPath: m_fontSize
-      value: 47.75
+      value: 53.35
       objectReference: {fileID: 0}
     - target: {fileID: 4138023807169842594, guid: 5608856acaf451e448c3b6e1ef09e613, type: 3}
       propertyPath: m_Pivot.x
@@ -225,10 +225,6 @@ PrefabInstance:
     - target: {fileID: 5263842735433204801, guid: 5608856acaf451e448c3b6e1ef09e613, type: 3}
       propertyPath: m_Name
       value: ContinueButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8546638382216343628, guid: 5608856acaf451e448c3b6e1ef09e613, type: 3}
-      propertyPath: m_Interactable
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8890383108239403144, guid: 5608856acaf451e448c3b6e1ef09e613, type: 3}
       propertyPath: m_AnchoredPosition.x

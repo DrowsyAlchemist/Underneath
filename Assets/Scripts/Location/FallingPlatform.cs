@@ -5,6 +5,7 @@ public class FallingPlatform : MonoBehaviour, ISaveable
 {
     [SerializeField] private string _id;
 
+    private const string SavesFolderName = "Platforms";
     private const string FallingAnimation = "Falling";
 
     private bool _isFallen;
@@ -13,7 +14,7 @@ public class FallingPlatform : MonoBehaviour, ISaveable
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _isFallen = SaveLoadManager.GetBoolOrDefault(_id);
+        _isFallen = SaveLoadManager.GetLoadOrDefault<bool>(SavesFolderName, _id);
 
         if (_isFallen)
             _animator.Play(FallingAnimation);
@@ -27,6 +28,6 @@ public class FallingPlatform : MonoBehaviour, ISaveable
 
     public void Save()
     {
-        SaveLoadManager.SetBool(_id, true);
+        SaveLoadManager.Save(SavesFolderName, _id, _isFallen);
     }
 }

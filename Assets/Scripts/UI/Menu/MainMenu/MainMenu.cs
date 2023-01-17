@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     private void OnNewGameButtonClick()
     {
         SaveLoadManager.RemoveAllSaves();
+        AccessPoint.Player.ResetPlayer();
         SceneLoader.LoadScene("Village", Vector3.zero);
     }
 

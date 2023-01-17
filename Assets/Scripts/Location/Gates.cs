@@ -6,6 +6,7 @@ public class Gates : MonoBehaviour, ISaveable
 {
     [SerializeField] private string _id;
 
+    private const string SavesFolder = "Gates";
     private const string OpenAnimation = "Open";
     private Animator _animator;
     private bool _isOpen;
@@ -13,7 +14,7 @@ public class Gates : MonoBehaviour, ISaveable
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _isOpen = SaveLoadManager.GetBoolOrDefault(_id);
+        _isOpen = SaveLoadManager.GetLoadOrDefault<bool>(SavesFolder, _id);
 
         if (_isOpen)
             _animator.Play(OpenAnimation);
@@ -30,6 +31,6 @@ public class Gates : MonoBehaviour, ISaveable
 
     public void Save()
     {
-        SaveLoadManager.SetBool(_id, true);
+        SaveLoadManager.Save(SavesFolder, _id, true);
     }
 }

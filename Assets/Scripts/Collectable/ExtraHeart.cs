@@ -1,9 +1,9 @@
-public class ExtraHeart : Collectable
+public class ExtraHeart : Bubble
 {
     private const int ExtraHeartsCount = 1;
 
-    protected override void CollectByPlayer(Player player)
+    protected override void Collect(Player player)
     {
-        player.PlayerHealth.IncreaseMaxHealth(ExtraHeartsCount);
+        player.Health.IncreaseMaxHealth(ExtraHeartsCount);
     }
 }

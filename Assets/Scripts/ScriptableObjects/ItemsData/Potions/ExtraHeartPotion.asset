@@ -16,3 +16,4 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 2bb4d37bdf6839d4a8461ffd6a74939e, type: 3}
   _description: 
   _cost: 2
+  _saveFileName: ExtraHeartPotion

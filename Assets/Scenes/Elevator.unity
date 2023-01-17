@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 569236404}
   - component: {fileID: 569236406}
   - component: {fileID: 569236405}
+  - component: {fileID: 569236407}
   m_Layer: 0
   m_Name: ToVillage
   m_TagString: Untagged
@@ -273,6 +274,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5309601, y: 3.9725342}
   m_EdgeRadius: 0
+--- !u!114 &569236407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569236403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &687022041
 GameObject:
   m_ObjectHideFlags: 0
@@ -92627,6 +92640,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8599321942804965903, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
 --- !u!1 &897830394
@@ -92640,6 +92657,7 @@ GameObject:
   - component: {fileID: 897830397}
   - component: {fileID: 897830396}
   - component: {fileID: 897830395}
+  - component: {fileID: 897830398}
   m_Layer: 0
   m_Name: ToGoldChest
   m_TagString: Untagged
@@ -92703,6 +92721,18 @@ Transform:
   m_Father: {fileID: 1994799369}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897830398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897830394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1483378166
 GameObject:
   m_ObjectHideFlags: 0

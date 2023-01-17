@@ -5,13 +5,14 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(AdventureGirlAnimation))]
 [RequireComponent(typeof(PlayerMovement))]
-[RequireComponent(typeof(PlayerHealth))]
-public class Player : MonoBehaviour, ITakeDamage
+[RequireComponent(typeof(Health))]
+public class Player : MonoBehaviour, ITakeDamage, ISaveable
 {
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private InventioryWindow _inventoryView;
     [SerializeField] private float _dropForce = 15;
 
+    [SerializeField] private int _initialHealth = 4;
     [SerializeField] private float _invulnerabilityDuration = 2;
     [SerializeField] private PlayerHurtEffect _hurtEffect;
 
@@ -21,18 +22,23 @@ public class Player : MonoBehaviour, ITakeDamage
 
     public PlayerMovement PlayerMovement { get; private set; }
     public AdventureGirlAnimation PlayerAnimation { get; private set; }
-    public PlayerHealth PlayerHealth { get; private set; }
+    public Health Health { get; private set; }
     public Inventory Inventory => _inventoryView.Inventory;
-    public int Money { get; private set; }
+    public Wallet Wallet { get; private set; }
 
-    public event UnityAction<int> MoneyChanged;
+    public void ResetPlayer()
+    {
+        Health = Health.GetLoadOrDefault(_initialHealth);
+        Wallet = Wallet.GetLoadOrDefault();
+        _inventoryView.ResetInventory();
+    }
 
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
         PlayerAnimation = GetComponent<AdventureGirlAnimation>();
         PlayerMovement = GetComponent<PlayerMovement>();
-        PlayerHealth = GetComponent<PlayerHealth>();
+        ResetPlayer();
     }
 
     private void Update()
@@ -46,32 +52,16 @@ public class Player : MonoBehaviour, ITakeDamage
         }
     }
 
+    public void Save()
+    {
+        Wallet.Save();
+        Health.Save();
+    }
+
     public Vector3 GetPosition()
     {
         Vector3 localCenter = _collider.offset;
         return transform.position + localCenter;
-    }
-
-    public void TakeMoney(int money)
-    {
-        if (money < 0)
-            throw new System.ArgumentOutOfRangeException();
-
-        Money += money;
-        MoneyChanged?.Invoke(Money);
-    }
-
-    public int GiveMoney(int money)
-    {
-        if (money < 0)
-            throw new System.ArgumentOutOfRangeException();
-
-        if (money > Money)
-            throw new System.InvalidOperationException("Not enough money. Check money count first.");
-
-        Money -= money;
-        MoneyChanged?.Invoke(Money);
-        return money;
     }
 
     public void TakeDamage(int damage, Vector3 soursePosition)
@@ -85,7 +75,7 @@ public class Player : MonoBehaviour, ITakeDamage
             StartCoroutine(PlayInvulnerability());
 
             _hurtEffect.Play();
-            PlayerHealth.ReduceHealth(damage);
+            Health.ReduceHealth(damage);
 
             Vector2 dropForce = _dropForce * (GetPosition() - soursePosition).normalized;
             Debug.DrawRay(transform.position, dropForce, Color.red, 1);
@@ -93,7 +83,7 @@ public class Player : MonoBehaviour, ITakeDamage
 
             Knock();
 
-            if (PlayerHealth.CurrentHealth > 0)
+            if (Health.CurrentHealth > 0)
                 StartCoroutine(StandUp());
             else
                 Die();

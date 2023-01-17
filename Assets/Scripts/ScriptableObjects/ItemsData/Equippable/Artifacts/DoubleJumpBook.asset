@@ -16,3 +16,4 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 002a76db75394b1479f72a86d2d760e2, type: 3}
   _description: 
   _cost: 2
+  _saveFileName: DoubleJumpBook

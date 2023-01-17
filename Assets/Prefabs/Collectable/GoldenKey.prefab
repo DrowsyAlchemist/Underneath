@@ -276,7 +276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectedSound: {fileID: 6564036364801711280}
-  _item: {fileID: 6238839720017269516, guid: 15b17a904d5755b4398c8f6f5d65b8ef, type: 3}
+  _id: GoldenKeyBubble
+  _item: {fileID: 6238839720017269516, guid: ccebd29e182c853418a204db3400228d, type: 3}
 --- !u!82 &6564036364801711280
 AudioSource:
   m_ObjectHideFlags: 0

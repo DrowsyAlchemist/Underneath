@@ -11,24 +11,26 @@ public abstract class Collectable : MonoBehaviour
     private const string CollectedAnimation = "Collected";
     private const int CollectedAnimationLayerIndex = 1;
     private Animator _animator;
-    private bool _isCollected;
+    private Collider2D _collider;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (_collectedSound == null)
             throw new System.Exception("Audio sourse is not assigned.");
 
         _animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isCollected == false && collision.collider.TryGetComponent(out Player player))
+        if (collision.collider.TryGetComponent(out Player player))
         {
+            _collider.enabled = false;
+
             if (_collectedSound.isPlaying == false)
                 _collectedSound.Play();
 
-            _isCollected = true;
             CollectByPlayer(player);
             StartCoroutine(Vanish());
         }
@@ -42,6 +44,6 @@ public abstract class Collectable : MonoBehaviour
         yield return new WaitForEndOfFrame();
         float delay = _animator.GetCurrentAnimatorStateInfo(CollectedAnimationLayerIndex).length;
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

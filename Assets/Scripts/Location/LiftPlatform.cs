@@ -6,6 +6,7 @@ public class LiftPlatform : MonoBehaviour, ISaveable
     [SerializeField] private string _id;
     [SerializeField] private Transform _playerPoint;
 
+    private const string SavesFolderName = "Platforms";
     private const string LiftAnimation = "Lift";
 
     private bool _isActivated;
@@ -14,7 +15,7 @@ public class LiftPlatform : MonoBehaviour, ISaveable
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        _isActivated = SaveLoadManager.GetBoolOrDefault(_id);
+        _isActivated = SaveLoadManager.GetLoadOrDefault<bool>(SavesFolderName, _id);
 
         if (_isActivated)
             _animator.Play(LiftAnimation);
@@ -30,6 +31,6 @@ public class LiftPlatform : MonoBehaviour, ISaveable
 
     public void Save()
     {
-        SaveLoadManager.SetBool(_id, true);
+        SaveLoadManager.Save(SavesFolderName, _id, true);
     }
 }

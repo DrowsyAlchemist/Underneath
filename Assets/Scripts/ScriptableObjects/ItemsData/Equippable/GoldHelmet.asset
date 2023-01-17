@@ -16,3 +16,4 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 0cfcc15e04fb32f4980f2b54edcd13fd, type: 3}
   _description: 
   _cost: 2
+  _saveFileName: GoldHelmet

@@ -3,18 +3,46 @@ using System.Collections.Generic;
 
 public class Inventory
 {
+    private static Inventory _instance;
     private readonly Player _player;
     private readonly List<Item> _items = new List<Item>();
 
+    public bool IsEmpty => _items.Count == 0;
     public Dagger Dagger { get; private set; }
     public Gun Gun { get; private set; }
 
     public event Action<Item> ItemAdded;
     public event Action<bool> KeyUsed;
 
-    public Inventory(Player player)
+    private Inventory(Player player)
     {
         _player = player;
+    }
+
+    public static Inventory GetInventory(Player player)
+    {
+        if (_instance == null)
+            _instance = new Inventory(player);
+
+        _instance.Reset();
+        return _instance;
+    }
+
+    private void Reset()
+    {
+        _items.Clear();
+        Dagger = null;
+        Gun = null;
+    }
+
+    public void Save()
+    {
+        List<string> itemsToSave = new List<string>();
+
+        foreach (Item item in _items)
+            itemsToSave.Add(item.Data.SaveFileName);
+
+        SaveLoadManager.Save("Inventory", "Items", itemsToSave);
     }
 
     public void SetDagger(Dagger dagger)
@@ -64,6 +92,9 @@ public class Inventory
             affectingItem.CancelEffect(_player);
         else
             affectingItem.ApplyEffect(_player);
+
+        if (affectingItem.Type == ItemType.Potion)
+            _items.Remove(affectingItem);
     }
 
     private void UseKey(GoldenKey key)

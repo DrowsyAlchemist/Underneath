@@ -1359,6 +1359,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8599321942804965903, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11aeeeb36dc17e54e899287a3e5e8b53, type: 3}
 --- !u!1 &274157968
@@ -2533,6 +2537,7 @@ GameObject:
   - component: {fileID: 468983854}
   - component: {fileID: 468983856}
   - component: {fileID: 468983855}
+  - component: {fileID: 468983857}
   m_Layer: 0
   m_Name: ToFallingPlatforms
   m_TagString: Untagged
@@ -2596,6 +2601,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.384323, y: 0.40437317}
   m_EdgeRadius: 0
+--- !u!114 &468983857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468983853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473266122
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,6 +2624,7 @@ GameObject:
   - component: {fileID: 473266123}
   - component: {fileID: 473266125}
   - component: {fileID: 473266124}
+  - component: {fileID: 473266126}
   m_Layer: 0
   m_Name: ToSilverKey (1)
   m_TagString: Untagged
@@ -2670,6 +2688,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3956461, y: 4.259186}
   m_EdgeRadius: 0
+--- !u!114 &473266126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473266122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &477439207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4788,6 +4818,7 @@ GameObject:
   - component: {fileID: 820015972}
   - component: {fileID: 820015974}
   - component: {fileID: 820015973}
+  - component: {fileID: 820015975}
   m_Layer: 0
   m_Name: ToSilverKey
   m_TagString: Untagged
@@ -4851,6 +4882,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3956461, y: 4.662018}
   m_EdgeRadius: 0
+--- !u!114 &820015975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820015971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &841864422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5685,6 +5728,7 @@ GameObject:
   - component: {fileID: 1082050698}
   - component: {fileID: 1082050700}
   - component: {fileID: 1082050699}
+  - component: {fileID: 1082050701}
   m_Layer: 0
   m_Name: ToFallingPlatforms (1)
   m_TagString: Untagged
@@ -5748,6 +5792,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.384323, y: 0.40437317}
   m_EdgeRadius: 0
+--- !u!114 &1082050701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082050697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aacb9ace0d73ec43a1177451e236f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1092650799
 GameObject:
   m_ObjectHideFlags: 0

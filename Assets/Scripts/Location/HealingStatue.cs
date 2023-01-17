@@ -47,7 +47,7 @@ public class HealingStatue : MonoBehaviour
         while (enabled)
         {
             yield return new WaitForSeconds(_healingSpeed);
-            player.PlayerHealth.RestoreHealth(1);
+            player.Health.RestoreHealth(1);
         }
     }
 

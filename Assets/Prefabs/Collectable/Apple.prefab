@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collectedSound: {fileID: -286351382954161292}
+  _id: AppleBubble
 --- !u!82 &-286351382954161292
 AudioSource:
   m_ObjectHideFlags: 0
