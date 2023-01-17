@@ -21,12 +21,16 @@ public class MainMenu : MonoBehaviour
     private void OnNewGameButtonClick()
     {
         SaveLoadManager.RemoveAllSaves();
-        AccessPoint.Player.ResetPlayer();
-        SceneLoader.LoadScene("Village", Vector3.zero);
+        var player = AccessPoint.Player;
+        player.ResetPlayer();
+        SceneLoader.LoadScene("Village", player.GetSavedPosition());
     }
 
     private void OnContinueButtonClick()
     {
-        SceneLoader.LoadScene("Village", Vector3.zero);
+        var player = AccessPoint.Player;
+        string sceneName = player.GetSavedSceneName();
+        sceneName ??= "Village";
+        SceneLoader.LoadScene(sceneName, player.GetSavedPosition());
     }
 }

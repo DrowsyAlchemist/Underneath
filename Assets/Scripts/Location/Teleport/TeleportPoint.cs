@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TeleportPoint : MonoBehaviour, ISaveable
+public class TeleportPoint : MonoBehaviour
 {
     [SerializeField] private string _targetLocationName;
     [SerializeField] private Vector2 _spawnPosition;
@@ -14,11 +14,6 @@ public class TeleportPoint : MonoBehaviour, ISaveable
 
     public event UnityAction<TeleportPoint> BecameAvailable;
 
-    private void Start()
-    {
-        //IsAvailable = SaveLoadManager.GetBoolOrDefault(_id);
-    }
-
     public void Teleport()
     {
         SceneLoader.LoadScene(_targetLocationName, _spawnPosition);
@@ -28,14 +23,8 @@ public class TeleportPoint : MonoBehaviour, ISaveable
     {
         if (IsAvailable == false)
         {
-            //IsAvailable = true;
             SaveLoadManager.Save(SavesFolderName, _id, true);
             BecameAvailable?.Invoke(this);
         }
-    }
-
-    public void Save()
-    {
-        //SaveLoadManager.SetBool(_id, IsAvailable);
     }
 }

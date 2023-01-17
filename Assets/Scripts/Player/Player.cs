@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(AdventureGirlAnimation))]
@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     [SerializeField] private float _invulnerabilityDuration = 2;
     [SerializeField] private PlayerHurtEffect _hurtEffect;
 
+    private const string SavesFolderName = "Player";
+    private const string PositionFileName = "Position";
     private Collider2D _collider;
     private bool _knocked;
     private bool _isInvulnerability;
@@ -52,10 +54,40 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         }
     }
 
+    public string GetSavedSceneName()
+    {
+        var position = SaveLoadManager.GetLoadOrDefault<PlayerPosition>(SavesFolderName, PositionFileName);
+
+        if (position == null)
+            return default;
+        else
+            return position.SceneName;
+    }
+
+    public Vector3 GetSavedPosition()
+    {
+        var position = SaveLoadManager.GetLoadOrDefault<PlayerPosition>(SavesFolderName, PositionFileName);
+
+        if (position == null)
+            return default;
+        else
+            return new Vector3(position.X, position.Y, position.Z);
+    }
+
     public void Save()
     {
         Wallet.Save();
         Health.Save();
+
+        string sceneName = SceneManager.GetActiveScene().name;
+        var teleportArea = FindObjectOfType<TeleportArea>();
+
+        if (teleportArea == null)
+            throw new System.Exception($"Can't find TeleportArea on scene \"{sceneName}\"");
+
+        Vector3 spawnPosition = teleportArea.Position;
+        var playerPosition = new PlayerPosition(sceneName, spawnPosition);
+        SaveLoadManager.Save(SavesFolderName, PositionFileName, playerPosition);
     }
 
     public Vector3 GetPosition()
@@ -150,5 +182,22 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     private void Die()
     {
 
+    }
+
+    [System.Serializable]
+    private class PlayerPosition
+    {
+        public string SceneName;
+        public float X;
+        public float Y;
+        public float Z;
+
+        public PlayerPosition(string sceneName, Vector3 vector)
+        {
+            SceneName = sceneName;
+            X = vector.x;
+            Y = vector.y;
+            Z = vector.z;
+        }
     }
 }
