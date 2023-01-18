@@ -27,7 +27,7 @@ public class StoreMenu : MonoBehaviour
         if (_playerWallet.Money >= wareRenderer.Cost)
         {
             _playerWallet.GiveMoney(wareRenderer.Cost);
-            _playerInventory.AddItem(wareRenderer.Item);
+            _playerInventory.AddItem(Instantiate(wareRenderer.Item));
         }
         else
         {

@@ -4,8 +4,9 @@ using UnityEngine.UI;
 
 public class InventioryWindow : MonoBehaviour, ISaveable
 {
-    [SerializeField] private ItemRenderer _itemRenderer;
+    [SerializeField] private Player _player;
 
+    [SerializeField] private ItemRenderer _itemRenderer;
     [SerializeField] private RectTransform _itemsContainer;
     [SerializeField] private ActivePotionsView _activePotionsView;
     [SerializeField] private PlayerSlots _playerSlots;
@@ -13,60 +14,28 @@ public class InventioryWindow : MonoBehaviour, ISaveable
     [SerializeField] private ItemDescriptionRenderer _itemDescription;
     [SerializeField] private Button _useButton;
 
-    private const string SavesFolder = "Inventory";
-    private const string SaveFileName = "Items";
-    private const string ItemsFolder = "Items";
     private ItemRenderer _highlightedItem;
     private List<ItemRenderer> _itemRenderers = new List<ItemRenderer>();
 
-    public Inventory Inventory { get; private set; }
+    public Inventory _inventory;
 
     public void Save()
     {
-        Inventory.Save();
-    }
-
-    public void ResetInventory()
-    {
-        if (_itemRenderers.Count > 0)
-        {
-            foreach (var itemRenderer in _itemRenderers)
-                Destroy(itemRenderer.gameObject);
-
-            _itemRenderers.Clear();
-        }
-    }
-
-    private void Load()
-    {
-        ResetInventory();
-        var itemFileNames = SaveLoadManager.GetLoadOrDefault<List<string>>(SavesFolder, SaveFileName);
-
-        if (itemFileNames == null)
-            return;
-
-        foreach (var fileName in itemFileNames)
-        {
-            string localPath = ItemsFolder + "/" + fileName;
-            Item item = Resources.Load<Item>(localPath);
-
-            if (item == null)
-                throw new System.Exception($"Can't find valid item on path: " + localPath);
-
-            Inventory.AddItem(item);
-        }
+        _inventory.Save();
     }
 
     private void Start()
     {
-        Inventory = Inventory.GetInventory(AccessPoint.Player);
-        Inventory.ItemAdded += AddItem;
+        _inventory = _player.Inventory;
+        _inventory.ItemAdded += OnItemAdded;
+        _inventory.Cleared += OnInventoryCleared;
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        Inventory.ItemAdded -= AddItem;
+        _inventory.ItemAdded -= OnItemAdded;
+        _inventory.Cleared -= OnInventoryCleared;
 
         for (int i = 0; i < _itemsContainer.childCount; i++)
             _itemsContainer.GetChild(i).GetComponent<ItemRenderer>().ButtonClicked -= OnItemClick;
@@ -74,9 +43,6 @@ public class InventioryWindow : MonoBehaviour, ISaveable
 
     private void OnEnable()
     {
-        if (Inventory != null && Inventory.IsEmpty)
-            Load();
-
         _useButton.onClick.AddListener(OnUseButtonClick);
         _useButton.interactable = false;
     }
@@ -89,12 +55,34 @@ public class InventioryWindow : MonoBehaviour, ISaveable
             _highlightedItem.SetHighlighted(false);
     }
 
-    private void AddItem(Item item)
+    private void OnInventoryCleared()
     {
+        if (_itemRenderers.Count > 0)
+        {
+            foreach (var itemRenderer in _itemRenderers)
+            {
+                TakeOffItem(itemRenderer);
+                Destroy(itemRenderer.gameObject);
+            }
+            _itemRenderers.Clear();
+        }
+    }
+
+    private void OnItemAdded(Item item, bool isEquipped)
+    {
+        if (item.name.Contains("Clone") == false)
+            item = Instantiate(item);
+
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
         _itemRenderers.Add(itemRenderer);
         itemRenderer.Render(item);
         itemRenderer.ButtonClicked += OnItemClick;
+
+        if (isEquipped)
+        {
+            ((AffectingItem)item).SetAffecting();
+            _playerSlots.SetItem(itemRenderer);
+        }
     }
 
     private void OnItemClick(ItemRenderer itemRenderer)
@@ -120,10 +108,10 @@ public class InventioryWindow : MonoBehaviour, ISaveable
                 SetAffectingItem(_highlightedItem);
                 break;
             case GoldenKey:
-                Inventory.KeyUsed += OnKeyUsed;
+                _inventory.KeyUsed += OnKeyUsed;
                 break;
         }
-        Inventory.UseItem(_highlightedItem.Item);
+        _inventory.UseItem(_highlightedItem.Item);
     }
 
     private void SetAffectingItem(ItemRenderer itemRenderer)
@@ -156,7 +144,7 @@ public class InventioryWindow : MonoBehaviour, ISaveable
             {
                 var equippedItemRenderer = _playerSlots.GetItemOfType(itemToEquip.Type);
                 TakeOffItem(equippedItemRenderer);
-                Inventory.UseItem(equippedItemRenderer.Item);
+                _inventory.UseItem(equippedItemRenderer.Item);
             }
             _playerSlots.SetItem(itemRenderer);
         }
@@ -172,7 +160,7 @@ public class InventioryWindow : MonoBehaviour, ISaveable
     {
         if (result)
         {
-            Inventory.KeyUsed -= OnKeyUsed;
+            _inventory.KeyUsed -= OnKeyUsed;
 
             if (_highlightedItem != null && _highlightedItem.Item is GoldenKey)
             {

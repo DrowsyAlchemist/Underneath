@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class CoinsRenderer : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _coinsCount;
+    [SerializeField] private TMP_Text _coinsCountText;
+    [SerializeField] private Player _player;
 
     private Wallet _playerWallet;
 
     private void Start()
     {
-        _playerWallet = AccessPoint.Player.Wallet;
+        _playerWallet = _player.Wallet;
         _playerWallet.MoneyChanged += OnMoneyChanged;
         OnMoneyChanged(_playerWallet.Money);
     }
@@ -21,6 +22,6 @@ public class CoinsRenderer : MonoBehaviour
 
     private void OnMoneyChanged(int money)
     {
-        _coinsCount.text = money.ToString();
+        _coinsCountText.text = money.ToString();
     }
 }

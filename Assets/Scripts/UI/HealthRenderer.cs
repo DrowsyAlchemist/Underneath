@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class HealthRenderer : MonoBehaviour
 {
+    [SerializeField] private Player _player;
     [SerializeField] private RectTransform _heartsView;
     [SerializeField] private RectTransform _emptyHeartsView;
 
@@ -16,8 +17,8 @@ public class HealthRenderer : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth = AccessPoint.Player.Health;
-        _playerHealth.HealthChanged += OnHealthChanged;
+        _playerHealth = _player.Health;
+        _playerHealth.CurrentHealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
         OnMaxHealthChanged(_playerHealth.MaxHealth);
         OnHealthChanged(_playerHealth.CurrentHealth);
@@ -25,7 +26,7 @@ public class HealthRenderer : MonoBehaviour
 
     private void OnDestroy()
     {
-        _playerHealth.HealthChanged -= OnHealthChanged;
+        _playerHealth.CurrentHealthChanged -= OnHealthChanged;
         _playerHealth.MaxHealthChanged -= OnMaxHealthChanged;
     }
 

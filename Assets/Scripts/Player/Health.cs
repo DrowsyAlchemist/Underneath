@@ -14,26 +14,26 @@ public class Health
     public int CurrentHealth { get; private set; }
 
     public event Action<int> MaxHealthChanged;
-    public event Action<int> HealthChanged;
+    public event Action<int> CurrentHealthChanged;
 
     private Health()
     {
 
     }
 
-    public static Health GetLoadOrDefault(int maxHealth)
+    public static Health LoadLastSaveOrDefault(int defafultHealth)
     {
-        if (maxHealth <= 0)
+        if (defafultHealth <= 0)
             throw new ArgumentOutOfRangeException("maxHealth");
 
         if (_instance == null)
             _instance = new Health();
 
-        _instance.Reset(maxHealth);
+        _instance.LoadOrSetDefault(defafultHealth);
         return _instance;
     }
 
-    private void Reset(int maxHealth)
+    private void LoadOrSetDefault(int maxHealth)
     {
         _maxHealth = SaveLoadManager.GetLoadOrDefault<int>(SavesFolderName, MaxHealthFileName);
         CurrentHealth = SaveLoadManager.GetLoadOrDefault<int>(SavesFolderName, CurrentHealthFileName);
@@ -50,8 +50,8 @@ public class Health
             if (CurrentHealth == default)
                 CurrentHealth = _maxHealth;
         }
-        MaxHealthChanged?.Invoke(CurrentHealth);
-        HealthChanged?.Invoke(_maxHealth);
+        MaxHealthChanged?.Invoke(_maxHealth);
+        CurrentHealthChanged?.Invoke(CurrentHealth);
     }
 
     public void Save()
@@ -106,6 +106,6 @@ public class Health
     private void SetHealth(int health)
     {
         CurrentHealth = Mathf.Clamp(health, 0, _maxHealth);
-        HealthChanged?.Invoke(CurrentHealth);
+        CurrentHealthChanged?.Invoke(CurrentHealth);
     }
 }

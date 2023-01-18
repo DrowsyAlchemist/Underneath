@@ -9,7 +9,6 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour, ITakeDamage, ISaveable
 {
     [SerializeField] private Transform _shootPoint;
-    [SerializeField] private InventioryWindow _inventoryView;
     [SerializeField] private float _dropForce = 15;
 
     [SerializeField] private int _initialHealth = 4;
@@ -18,6 +17,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
 
     private const string SavesFolderName = "Player";
     private const string PositionFileName = "Position";
+    private static Player _instance;
     private Collider2D _collider;
     private bool _knocked;
     private bool _isInvulnerability;
@@ -25,22 +25,39 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     public PlayerMovement PlayerMovement { get; private set; }
     public AdventureGirlAnimation PlayerAnimation { get; private set; }
     public Health Health { get; private set; }
-    public Inventory Inventory => _inventoryView.Inventory;
+    public Inventory Inventory { get; private set; }
     public Wallet Wallet { get; private set; }
 
     public void ResetPlayer()
     {
-        Health = Health.GetLoadOrDefault(_initialHealth);
+        Health = Health.LoadLastSaveOrDefault(_initialHealth);
         Wallet = Wallet.GetLoadOrDefault();
-        _inventoryView.ResetInventory();
+
+        if (Inventory != null)
+        {
+            if (Inventory.Gun != null)
+                Destroy(Inventory.Gun.gameObject);
+
+            if (Inventory.Dagger != null)
+                Destroy(Inventory.Dagger.gameObject);
+        }
+        Inventory = Inventory.LoadLastSaveOrDefault(this);
     }
 
     private void Awake()
     {
-        _collider = GetComponent<Collider2D>();
-        PlayerAnimation = GetComponent<AdventureGirlAnimation>();
-        PlayerMovement = GetComponent<PlayerMovement>();
-        ResetPlayer();
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _instance = this;
+            _collider = GetComponent<Collider2D>();
+            PlayerAnimation = GetComponent<AdventureGirlAnimation>();
+            PlayerMovement = GetComponent<PlayerMovement>();
+            ResetPlayer();
+        }
     }
 
     private void Update()

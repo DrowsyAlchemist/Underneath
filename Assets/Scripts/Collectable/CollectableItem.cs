@@ -6,6 +6,6 @@ public class CollectableItem : Bubble
 
     protected override void Collect(Player player)
     {
-        player.Inventory.AddItem(_item);
+        player.Inventory.AddItem(Instantiate(_item));
     }
 }

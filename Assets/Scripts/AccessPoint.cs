@@ -7,6 +7,7 @@ public class AccessPoint : MonoBehaviour
 
     private static AccessPoint _instance;
 
+    public static bool HasInstance => _instance != null;
     public static Transform Transform => _instance.transform;
     public static Player Player => _instance._player;
     public static RectTransform InterfaceCanvas => _instance._interfaceCanvas;
@@ -24,6 +25,11 @@ public class AccessPoint : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //private void Start()
+    //{
+    //    gameObject.SetActive(false);
+    //}
 
     public static void SetEnable(bool value)
     {

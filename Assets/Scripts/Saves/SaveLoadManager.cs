@@ -21,7 +21,6 @@ public static class SaveLoadManager
     public static T GetLoadOrDefault<T>(string localFolderName, string fileName)
     {
         string path = _defaultPath + "/" + localFolderName + "/" + fileName + Extention;
-        Debug.Log("Saves path: " + path);
 
         if (File.Exists(path))
         {

@@ -4,9 +4,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Collider2D))]
 public class SavePoint : MonoBehaviour
 {
-    private const string SavesFolderName = "Player";
-    private const string PlayerPositionFileName = "Position";
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player _))

@@ -6,6 +6,15 @@ public abstract class AffectingItem : Item
 
     public event UnityAction AffectingFinished;
 
+
+    public void SetAffecting()
+    {
+        if (IsAffecting == false)
+            IsAffecting = true;
+        else
+            throw new System.InvalidOperationException("Item is already affecting.");
+    }
+
     public void ApplyEffect(Player player)
     {
         if (IsAffecting == false)
