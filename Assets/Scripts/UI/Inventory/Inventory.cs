@@ -16,7 +16,7 @@ public class Inventory
     public Gun Gun { get; private set; }
 
     public event Action Cleared;
-    public event Action<Item, bool> ItemAdded;
+    public event Action<Item> ItemAdded;
     public event Action<bool> KeyUsed;
 
     private Inventory(Player player)
@@ -56,8 +56,13 @@ public class Inventory
             if (item == null)
                 throw new System.Exception($"Can't find valid item on path: " + localPath);
 
-            AddItemWithFlag(item, itemSave.IsAffecting);
+            CreateItemWithFlag(item, itemSave.IsAffecting);
         }
+    }
+
+    public Item[] GetItems()
+    {
+        return _items.ToArray();
     }
 
     public void Save()
@@ -81,7 +86,7 @@ public class Inventory
 
     public void SetDagger(Dagger dagger)
     {
-        Dagger = dagger ?? throw new System.ArgumentNullException();
+        Dagger = dagger ?? throw new ArgumentNullException();
     }
 
     public void TakeOffDagger()
@@ -91,7 +96,7 @@ public class Inventory
 
     public void SetGun(Gun gun)
     {
-        Gun = gun ?? throw new System.ArgumentNullException();
+        Gun = gun ?? throw new ArgumentNullException();
     }
 
     public void TakeOffGun()
@@ -99,16 +104,30 @@ public class Inventory
         Gun = null;
     }
 
-    public void AddItem(Item item)
+    public void AddItem(Item itemTemplate)
     {
-        item.transform.SetParent(_player.transform);
-        AddItemWithFlag(item);
+        CreateItemWithFlag(itemTemplate);
     }
 
-    private void AddItemWithFlag(Item item, bool isAffecting = false)
+    private void CreateItemWithFlag(Item itemTemplate, bool isEquipped = false)
     {
+        var item = UnityEngine.Object.Instantiate(itemTemplate, _player.transform);
+
+        if (isEquipped)
+        {
+            if (item is Dagger dagger)
+            {
+                dagger.Init(_player);
+                SetDagger(dagger);
+            }
+            else if (item is Gun gun)
+            {
+                SetGun(gun);
+            }
+            ((AffectingItem)item).SetAffecting();
+        }
         _items.Add(item);
-        ItemAdded?.Invoke(item, isAffecting);
+        ItemAdded?.Invoke(item);
     }
 
     public void UseItem(Item item)

@@ -9,6 +9,8 @@ public static class SaveLoadManager
     private static readonly string _defaultPath = Application.persistentDataPath + FolderName;
     private static readonly BinaryFormatter _binaryFormatter = new();
 
+    public static bool HasSaves => Directory.Exists(_defaultPath);
+
     public static void Save<T>(string localFolderName, string fileName, T objectForSerialization)
     {
         Directory.CreateDirectory(Application.persistentDataPath + FolderName + "/" + localFolderName);

@@ -1,9 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class SavePoint : MonoBehaviour
 {
+    [SerializeField] private Transform _spawnPoint;
+
+    public Transform SpawnPoint => _spawnPoint;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player _))

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventioryWindow : MonoBehaviour, ISaveable
+public class InventioryWindow : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
@@ -19,16 +19,17 @@ public class InventioryWindow : MonoBehaviour, ISaveable
 
     public Inventory _inventory;
 
-    public void Save()
-    {
-        _inventory.Save();
-    }
-
     private void Start()
     {
         _inventory = _player.Inventory;
         _inventory.ItemAdded += OnItemAdded;
         _inventory.Cleared += OnInventoryCleared;
+
+        var inventoryItems = _inventory.GetItems();
+
+        foreach (var item in inventoryItems)
+            OnItemAdded(item);
+
         gameObject.SetActive(false);
     }
 
@@ -68,20 +69,21 @@ public class InventioryWindow : MonoBehaviour, ISaveable
         }
     }
 
-    private void OnItemAdded(Item item, bool isEquipped)
+    private void OnItemAdded(Item item)
     {
-        if (item.name.Contains("Clone") == false)
-            item = Instantiate(item);
-
         var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
         _itemRenderers.Add(itemRenderer);
+        item.transform.SetParent(itemRenderer.transform);
         itemRenderer.Render(item);
         itemRenderer.ButtonClicked += OnItemClick;
 
-        if (isEquipped)
+        if (item is AffectingItem affectingItem)
         {
-            ((AffectingItem)item).SetAffecting();
-            _playerSlots.SetItem(itemRenderer);
+            if (affectingItem.IsAffecting)
+            {
+                _playerSlots.SetItem(itemRenderer);
+                item.transform.SetParent(_player.transform);
+            }
         }
     }
 

@@ -1653,7 +1653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72949f7f2535fbb43aa485ce906cf1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _game: {fileID: 0}
   _speed: 0.03
   _xOffset: 0
   _yOffset: 2

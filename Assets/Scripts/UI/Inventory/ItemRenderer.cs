@@ -31,7 +31,6 @@ public class ItemRenderer : MonoBehaviour
     public void Render(Item item)
     {
         Item = item;
-        item.transform.SetParent(transform);
         _image.sprite = item.Data.Sprite;
     }
 

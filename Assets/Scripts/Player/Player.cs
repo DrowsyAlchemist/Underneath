@@ -31,7 +31,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     public void ResetPlayer()
     {
         Health = Health.LoadLastSaveOrDefault(_initialHealth);
-        Wallet = Wallet.GetLoadOrDefault();
+        Wallet = Wallet.GetLastSaveOrDefault();
 
         if (Inventory != null)
         {
@@ -56,7 +56,6 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
             _collider = GetComponent<Collider2D>();
             PlayerAnimation = GetComponent<AdventureGirlAnimation>();
             PlayerMovement = GetComponent<PlayerMovement>();
-            ResetPlayer();
         }
     }
 
@@ -95,14 +94,29 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     {
         Wallet.Save();
         Health.Save();
+        Inventory.Save();
 
         string sceneName = SceneManager.GetActiveScene().name;
-        var teleportArea = FindObjectOfType<TeleportArea>();
+        var savePoints = FindObjectsOfType<SavePoint>();
 
-        if (teleportArea == null)
+        if (savePoints == null)
             throw new System.Exception($"Can't find TeleportArea on scene \"{sceneName}\"");
 
-        Vector3 spawnPosition = teleportArea.Position;
+        float minDistanse = float.MaxValue;
+        SavePoint nearestPoint = null;
+
+        foreach (var savePoint in savePoints)
+        {
+            float distance = Vector2.Distance(transform.position, savePoint.SpawnPoint.position);
+
+            if (distance < minDistanse)
+            {
+                minDistanse = distance;
+                nearestPoint = savePoint;
+            }
+        }
+        Vector3 spawnPosition = nearestPoint.SpawnPoint.position;
+
         var playerPosition = new PlayerPosition(sceneName, spawnPosition);
         SaveLoadManager.Save(SavesFolderName, PositionFileName, playerPosition);
     }

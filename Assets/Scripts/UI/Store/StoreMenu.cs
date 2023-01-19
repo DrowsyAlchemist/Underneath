@@ -15,10 +15,10 @@ public class StoreMenu : MonoBehaviour
         _playerWallet = AccessPoint.Player.Wallet;
     }
 
-    public void AddWare(Item potion)
+    public void AddWare(Item item)
     {
         var wareRenderer = Instantiate(_wareRenderer, _waresContainer);
-        wareRenderer.Render(potion);
+        wareRenderer.Render(item);
         wareRenderer.ButtonClicked += OnBuyButtonClick;
     }
 
@@ -27,7 +27,7 @@ public class StoreMenu : MonoBehaviour
         if (_playerWallet.Money >= wareRenderer.Cost)
         {
             _playerWallet.GiveMoney(wareRenderer.Cost);
-            _playerInventory.AddItem(Instantiate(wareRenderer.Item));
+            _playerInventory.AddItem(wareRenderer.Item);
         }
         else
         {

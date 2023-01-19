@@ -6,7 +6,7 @@ using UnityEngine;
 public class Store : MonoBehaviour
 {
     [SerializeField] private StoreMenu _menu;
-    [SerializeField] private List<Item> _wares = new List<Item>();
+    [SerializeField] private List<Item> _wareTemplates = new List<Item>();
 
     private BrightnessController _lightControl;
 
@@ -20,7 +20,7 @@ public class Store : MonoBehaviour
 
     private void FillStore()
     {
-        foreach (var ware in _wares)
+        foreach (var ware in _wareTemplates)
             _menu.AddWare(ware);
     }
 

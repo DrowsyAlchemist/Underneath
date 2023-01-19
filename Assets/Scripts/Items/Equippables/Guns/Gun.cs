@@ -10,9 +10,8 @@ public class Gun : AffectingItem
 
     public bool CanShoot => (_timeAfterShot > _secondsBetweenShots);
 
-    protected override void Start()
+    private void OnEnable()
     {
-        base.Start();
         _timeAfterShot = _secondsBetweenShots;
     }
 
@@ -39,7 +38,7 @@ public class Gun : AffectingItem
 
     protected override void StartAffecting(Player player)
     {
-        transform.SetParent(player.transform, false);
+        transform.SetParent(player.transform);
         player.Inventory.SetGun(this);
     }
 

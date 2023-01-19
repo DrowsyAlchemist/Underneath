@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Vector3 _newGamePosition = Vector3.zero;
     [SerializeField] private AccessPoint _accessPoint;
 
+    private void OnEnable()
+    {
+        _cuntinueGameButton.interactable = SaveLoadManager.HasSaves;
+    }
+
     private void Start()
     {
         _newGameButton.onClick.AddListener(OnNewGameButtonClick);

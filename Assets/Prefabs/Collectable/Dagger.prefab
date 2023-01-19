@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectedSound: {fileID: 6564036364801711280}
   _id: DaggerBubble
-  _item: {fileID: -2288829761726499222, guid: 3fdfa25e1811c954b81e0bd67abd35a9, type: 3}
+  _itemTemplate: {fileID: -2288829761726499222, guid: 3fdfa25e1811c954b81e0bd67abd35a9, type: 3}
 --- !u!82 &6564036364801711280
 AudioSource:
   m_ObjectHideFlags: 0

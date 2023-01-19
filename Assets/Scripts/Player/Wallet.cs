@@ -18,7 +18,7 @@ public class Wallet
         
     }
 
-    public static Wallet GetLoadOrDefault()
+    public static Wallet GetLastSaveOrDefault()
     {
         if (_instance == null)
             _instance = new Wallet();
