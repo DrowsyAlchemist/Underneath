@@ -1,10 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public abstract class MessageWindow : MonoBehaviour
 {
-    [SerializeField] private TMPro.TMP_Text _text;
+    [SerializeField] private TMP_Text _text;
 
     private const string ShowAnimation = "Show";
     private const string CloseAnimation = "Close";

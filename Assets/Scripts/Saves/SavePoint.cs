@@ -5,14 +5,14 @@ public class SavePoint : MonoBehaviour
 {
     [SerializeField] private Transform _spawnPoint;
 
-    public Transform SpawnPoint => _spawnPoint;
+    public Vector2 SpawnPoint => _spawnPoint.position;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player _))
         {
-            foreach (var gameObj in FindObjectsOfType<GameObject>(includeInactive: true))
-                if (gameObj.TryGetComponent(out ISaveable saveable))
+            foreach (var gameObjects in FindObjectsOfType<GameObject>(includeInactive: true))
+                if (gameObjects.TryGetComponent(out ISaveable saveable))
                     saveable.Save();
         }
     }

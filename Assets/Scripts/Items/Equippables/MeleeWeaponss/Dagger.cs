@@ -13,6 +13,14 @@ public class Dagger : AffectingItem
 
     public bool CanAttack => (_timeAfterKnifeAttack > _secondsBetweenKnifeAttacks);
 
+    public void Init(Player player)
+    {
+        transform.SetParent(player.transform);
+        _playerBody = player.GetComponent<Rigidbody2D>();
+        _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
+        SetEffectPosition(player.transform);
+    }
+
     private void OnEnable()
     {
         _timeAfterKnifeAttack = _secondsBetweenKnifeAttacks;
@@ -21,6 +29,22 @@ public class Dagger : AffectingItem
     private void Update()
     {
         _timeAfterKnifeAttack += Time.deltaTime;
+    }
+
+    public void IncreaseDamage(int value)
+    {
+        _damage += value;
+    }
+
+    public void DecreaseDamage(int value)
+    {
+        _damage -= value;
+    }
+
+    public void ModifyAttackRange(float modifier)
+    {
+        _knifeAttackRange *= modifier;
+        SetEffectPosition(_playerBody.transform);
     }
 
     public void Attack()
@@ -41,40 +65,16 @@ public class Dagger : AffectingItem
         }
     }
 
-    public void IncreaseDamage(int value)
+    public void SetEffectPosition(Transform playerTransform)
     {
-        _damage += value;
-    }
-
-    public void DecreaseDamage(int value)
-    {
-        _damage -= value;
-    }
-
-    public void ModifyAttackRange(float modifier)
-    {
-        _knifeAttackRange *= modifier;
-        SetEffectPosition(_playerBody.transform);
-    }
-
-    public void Init(Player player)
-    {
-        transform.SetParent(player.transform);
-        _playerBody = player.GetComponent<Rigidbody2D>();
-        _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
-        SetEffectPosition(player.transform);
+        Vector3 direction = (playerTransform.localScale.x > 0) ? Vector2.right : Vector2.left;
+        _knifeAttackEffect.transform.position = playerTransform.position + _knifeAttackRange * direction;
     }
 
     protected override void StartAffecting(Player player)
     {
         Init(player);
         player.Inventory.SetDagger(this);
-    }
-
-    public void SetEffectPosition(Transform playerTransform)
-    {
-        Vector3 direction = (playerTransform.localScale.x > 0) ? Vector2.right : Vector2.left;
-        _knifeAttackEffect.transform.position = playerTransform.position + _knifeAttackRange * direction;
     }
 
     protected override void StopAffecting(Player player)

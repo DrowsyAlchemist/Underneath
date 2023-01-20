@@ -26,11 +26,6 @@ public class WareRenderer : MonoBehaviour
         _buyButton.onClick.RemoveListener(OnButtonClick);
     }
 
-    public void SetCost(int cost)
-    {
-        _cost.text = cost.ToString();
-    }
-
     public void Render(Item item)
     {
         Item = item;

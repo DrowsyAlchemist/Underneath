@@ -247,14 +247,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c31b6b06c135d4c9eab201d3f61d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 7
-  Damage: 1
-  HitEffectTemplate: {fileID: 6057238080004784230, guid: 0c72961176048234e8899f23f652600c, type: 3}
+  _speed: 7
+  _damage: 1
+  _hitEffectTemplate: {fileID: 6057238080004784230, guid: 0c72961176048234e8899f23f652600c, type: 3}
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 200
+  _lounchSound: {fileID: 986019358809173865}
   _hitSound: {fileID: 2002398545865403375}
-  _launchSound: {fileID: 986019358809173865}
   _explosionRadius: 2
 --- !u!1 &9084445628852036136
 GameObject:

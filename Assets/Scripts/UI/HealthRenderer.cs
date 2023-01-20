@@ -8,8 +8,8 @@ public class HealthRenderer : MonoBehaviour
     [SerializeField] private RectTransform _heartsView;
     [SerializeField] private RectTransform _emptyHeartsView;
 
-    [SerializeField] private Image _heart;
-    [SerializeField] private Image _emptyHeart;
+    [SerializeField] private Image _heartTemplate;
+    [SerializeField] private Image _emptyHeartTemplate;
 
     private Health _playerHealth;
     private List<Image> _hearts = new List<Image>();
@@ -20,8 +20,8 @@ public class HealthRenderer : MonoBehaviour
         _playerHealth = _player.Health;
         _playerHealth.CurrentHealthChanged += OnHealthChanged;
         _playerHealth.MaxHealthChanged += OnMaxHealthChanged;
-        OnMaxHealthChanged(_playerHealth.MaxHealth);
         OnHealthChanged(_playerHealth.CurrentHealth);
+        OnMaxHealthChanged(_playerHealth.MaxHealth);
     }
 
     private void OnDestroy()
@@ -30,21 +30,21 @@ public class HealthRenderer : MonoBehaviour
         _playerHealth.MaxHealthChanged -= OnMaxHealthChanged;
     }
 
-    private void OnMaxHealthChanged(int maxHealth)
-    {
-        while (maxHealth > _emptyHearts.Count)
-            _emptyHearts.Add(Instantiate(_emptyHeart, _emptyHeartsView));
-
-        for (int i = 0; i < _emptyHearts.Count; i++)
-            _emptyHearts[i].gameObject.SetActive(i < maxHealth);
-    }
-
     private void OnHealthChanged(int health)
     {
         while (health > _hearts.Count)
-            _hearts.Add(Instantiate(_heart, _heartsView));
+            _hearts.Add(Instantiate(_heartTemplate, _heartsView));
 
         for (int i = 0; i < _hearts.Count; i++)
             _hearts[i].gameObject.SetActive(i < health);
+    }
+
+    private void OnMaxHealthChanged(int maxHealth)
+    {
+        while (maxHealth > _emptyHearts.Count)
+            _emptyHearts.Add(Instantiate(_emptyHeartTemplate, _emptyHeartsView));
+
+        for (int i = 0; i < _emptyHearts.Count; i++)
+            _emptyHearts[i].gameObject.SetActive(i < maxHealth);
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df61eb63f338374fb9c7101a7d68e48, type: 3}
   m_Name: HealingPotion
   m_EditorClassIdentifier: 
-  _lable: HealingPotion
+  _lable: Healing Potion
   _sprite: {fileID: 21300000, guid: 0afcfb9d020404b429ea0206881da437, type: 3}
-  _description: 
+  _description: Instantly restores a few health points.
   _cost: 2
   _saveFileName: HealingPotion

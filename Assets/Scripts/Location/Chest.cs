@@ -21,6 +21,11 @@ public class Chest : MonoBehaviour, ITakeDamage, ISaveable
             _animator.Play(OpenAnimation);
     }
 
+    public void Save()
+    {
+        SaveLoadManager.Save(SavesFolderName, _id, _isOpened);
+    }
+
     public void TakeDamage(int damage, Vector3 attackerPosition)
     {
         if (_isOpened == false)
@@ -28,11 +33,6 @@ public class Chest : MonoBehaviour, ITakeDamage, ISaveable
             Open();
             _isOpened = true;
         }
-    }
-
-    public void Save()
-    {
-        SaveLoadManager.Save(SavesFolderName, _id, _isOpened);
     }
 
     private void Open()

@@ -16,7 +16,7 @@ public class SceneLoader : MonoBehaviour
 
     private AsyncOperation _loadingSceneOperation;
     private Vector3 _playerSpawnPosition;
-    private int fakeProgress;
+    private int _fakeProgress;
 
     private void Awake()
     {
@@ -29,21 +29,20 @@ public class SceneLoader : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
         enabled = false;
     }
 
     private void OnEnable()
     {
-        fakeProgress = 0;
+        _fakeProgress = 0;
         _progressText.text = "0 %";
     }
 
     private void Update()
     {
-        fakeProgress += Random.Range(MinFakeProgressStep, MaxFakeProgressStep);
-        fakeProgress = Mathf.Clamp(fakeProgress, 0, 99);
-        _progressText.text = fakeProgress + " %";
+        _fakeProgress += Random.Range(MinFakeProgressStep, MaxFakeProgressStep);
+        _fakeProgress = Mathf.Clamp(_fakeProgress, 0, 99);
+        _progressText.text = _fakeProgress + " %";
 
         if (_loadingSceneOperation.isDone)
         {

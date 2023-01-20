@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 public abstract class Collectable : MonoBehaviour
 {

@@ -15,7 +15,7 @@ public static class SaveLoadManager
     {
         Directory.CreateDirectory(Application.persistentDataPath + FolderName + "/" + localFolderName);
         string path = _defaultPath + "/" + localFolderName + "/" + fileName + Extention;
-        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        var stream = new FileStream(path, FileMode.OpenOrCreate);
         _binaryFormatter.Serialize(stream, objectForSerialization);
         stream.Close();
     }
@@ -26,12 +26,12 @@ public static class SaveLoadManager
 
         if (File.Exists(path))
         {
-            FileStream stream = new FileStream(path, FileMode.Open);
+            var stream = new FileStream(path, FileMode.Open);
             object result = _binaryFormatter.Deserialize(stream);
             stream.Close();
 
-            if (result is T tResult)
-                return tResult;
+            if (result is T castedResult)
+                return castedResult;
             else
                 throw new System.InvalidCastException();
         }

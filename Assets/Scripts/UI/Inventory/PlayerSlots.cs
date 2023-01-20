@@ -17,26 +17,16 @@ public class PlayerSlots : MonoBehaviour
         if (CanEquipItem(item) == false)
             throw new InvalidOperationException($"The slot for type {item.Type} is already occupied.");
 
-        switch (item.Type)
+        RectTransform container = item.Type switch
         {
-            case ItemType.HeadGear:
-                itemRenderer.transform.SetParent(_headGearSlot);
-                break;
-            case ItemType.BodyArmor:
-                itemRenderer.transform.SetParent(_bodyArmorSlot);
-                break;
-            case ItemType.MeleeWeapon:
-                itemRenderer.transform.SetParent(_meleeWeaponSlot);
-                break;
-            case ItemType.Gun:
-                itemRenderer.transform.SetParent(_gunSlot);
-                break;
-            case ItemType.Artifact:
-                itemRenderer.transform.SetParent(GetEmptyArtifactSlot());
-                break;
-            default:
-                throw new ArgumentException($"Type {item.Type} is invalid.");
-        }
+            ItemType.HeadGear => _headGearSlot,
+            ItemType.BodyArmor => _bodyArmorSlot,
+            ItemType.MeleeWeapon => _meleeWeaponSlot,
+            ItemType.Gun => _gunSlot,
+            ItemType.Artifact => GetEmptyArtifactSlot(),
+            _ => throw new ArgumentException($"Type {item.Type} is invalid."),
+        };
+        itemRenderer.transform.SetParent(container);
     }
 
     public bool CanEquipItem(Item item)

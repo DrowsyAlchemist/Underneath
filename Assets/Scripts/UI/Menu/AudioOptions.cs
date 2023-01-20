@@ -19,6 +19,16 @@ public class AudioOptions : MonoBehaviour
     private const string EffectsVolumeName = "EffectsVolume";
     private const string UIVolumeName = "UIVolume";
 
+    private void OnEnable()
+    {
+        Load();
+    }
+
+    private void OnDisable()
+    {
+        Save();
+    }
+
     public void SetTotalVolume(float volume)
     {
         _totalAudioMixer.audioMixer.SetFloat(TotalVolumeName, Mathf.Lerp(-40, 0, volume));

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Button))]
 public abstract class UIButton : MonoBehaviour
 {
     private Button _button;

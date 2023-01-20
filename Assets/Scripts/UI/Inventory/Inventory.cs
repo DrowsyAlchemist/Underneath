@@ -11,7 +11,6 @@ public class Inventory
     private readonly Player _player;
     private readonly List<Item> _items = new List<Item>();
 
-    public bool IsEmpty => _items.Count == 0;
     public Dagger Dagger { get; private set; }
     public Gun Gun { get; private set; }
 
@@ -60,6 +59,26 @@ public class Inventory
         }
     }
 
+    public void SetDagger(Dagger dagger)
+    {
+        Dagger = dagger ?? throw new ArgumentNullException();
+    }
+
+    public void TakeOffDagger()
+    {
+        Dagger = null;
+    }
+
+    public void SetGun(Gun gun)
+    {
+        Gun = gun ?? throw new ArgumentNullException();
+    }
+
+    public void TakeOffGun()
+    {
+        Gun = null;
+    }
+
     public Item[] GetItems()
     {
         return _items.ToArray();
@@ -82,26 +101,6 @@ public class Inventory
             itemsToSave.Add(itemSave);
         }
         SaveLoadManager.Save("Inventory", "Items", itemsToSave);
-    }
-
-    public void SetDagger(Dagger dagger)
-    {
-        Dagger = dagger ?? throw new ArgumentNullException();
-    }
-
-    public void TakeOffDagger()
-    {
-        Dagger = null;
-    }
-
-    public void SetGun(Gun gun)
-    {
-        Gun = gun ?? throw new ArgumentNullException();
-    }
-
-    public void TakeOffGun()
-    {
-        Gun = null;
     }
 
     public void AddItem(Item itemTemplate)

@@ -1763,7 +1763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 5647792474227583191}
-  _itemRenderer: {fileID: 6684524573230741298, guid: 12741de6417ad5d419d0b4b68b0a64f9, type: 3}
+  _itemRendererTemplate: {fileID: 6684524573230741298, guid: 12741de6417ad5d419d0b4b68b0a64f9, type: 3}
   _itemsContainer: {fileID: 3938650300484761910}
   _activePotionsView: {fileID: 963521007108985558}
   _playerSlots: {fileID: 1514870938080672085}
@@ -4121,8 +4121,8 @@ MonoBehaviour:
   _player: {fileID: 5647792474227583191}
   _heartsView: {fileID: 6111576601081539561}
   _emptyHeartsView: {fileID: 6111576601690540085}
-  _heart: {fileID: 2092705826330693704, guid: 0ffed893a4a2d0b49b7f8fd3624ff487, type: 3}
-  _emptyHeart: {fileID: 5529124131243690954, guid: 35be57cba62c9e34e9c48f9963735677, type: 3}
+  _heartTemplate: {fileID: 2092705826330693704, guid: 0ffed893a4a2d0b49b7f8fd3624ff487, type: 3}
+  _emptyHeartTemplate: {fileID: 5529124131243690954, guid: 35be57cba62c9e34e9c48f9963735677, type: 3}
 --- !u!1 &6111576601081539560
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class Gun : AffectingItem
         {
             _timeAfterShot = 0;
             Bullet bullet = Instantiate(_bullet, shootPoint, Quaternion.identity);
-            bullet.Launch(direction.normalized);
+            bullet.Launch(direction);
             _shotSound.Play();
         }
     }

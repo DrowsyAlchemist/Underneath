@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df61eb63f338374fb9c7101a7d68e48, type: 3}
   m_Name: CoinsBook
   m_EditorClassIdentifier: 
-  _lable: CoinsBook
+  _lable: Coins Book
   _sprite: {fileID: 21300000, guid: 0ff78fb3cdbe16b4295c011c1f1e0fa3, type: 3}
-  _description: 
+  _description: You get more coins from enemies.
   _cost: 5
   _saveFileName: CoinsBook

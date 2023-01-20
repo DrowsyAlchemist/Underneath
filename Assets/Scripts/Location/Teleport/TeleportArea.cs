@@ -3,7 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class TeleportArea : MonoBehaviour
 {
-    public Vector3 Position => transform.position;
+    private void Start()
+    {
+        enabled = false;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

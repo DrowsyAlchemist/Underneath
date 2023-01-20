@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class OpenMainMenuButton : OpenCloseButton
 {
-    [SerializeField] private string _mainMenuSceneName;
+    [SerializeField] private string _mainMenuSceneName = "MainMenu";
 
     protected override void Close()
     {

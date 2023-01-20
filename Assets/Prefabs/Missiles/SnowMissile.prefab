@@ -276,12 +276,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7200dc959e4a9446bd121f32213f11c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 7
-  Damage: 1
-  HitEffectTemplate: {fileID: 8742380403297884837, guid: 2b0f65041d08b1c4f9317fb33b3a7c7f, type: 3}
+  _speed: 8
+  _damage: 1
+  _hitEffectTemplate: {fileID: 8742380403297884837, guid: 2b0f65041d08b1c4f9317fb33b3a7c7f, type: 3}
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136
+  _lounchSound: {fileID: 0}
   _hitSound: {fileID: 2097170758485352302}
 --- !u!1001 &1957020090120929272
 PrefabInstance:

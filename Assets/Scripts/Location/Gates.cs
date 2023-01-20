@@ -31,6 +31,6 @@ public class Gates : MonoBehaviour, ISaveable
 
     public void Save()
     {
-        SaveLoadManager.Save(SavesFolder, _id, true);
+        SaveLoadManager.Save(SavesFolder, _id, _isOpen);
     }
 }

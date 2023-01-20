@@ -107,7 +107,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
 
         foreach (var savePoint in savePoints)
         {
-            float distance = Vector2.Distance(transform.position, savePoint.SpawnPoint.position);
+            float distance = Vector2.Distance(transform.position, savePoint.SpawnPoint);
 
             if (distance < minDistanse)
             {
@@ -115,7 +115,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
                 nearestPoint = savePoint;
             }
         }
-        Vector3 spawnPosition = nearestPoint.SpawnPoint.position;
+        Vector3 spawnPosition = nearestPoint.SpawnPoint;
 
         var playerPosition = new PlayerPosition(sceneName, spawnPosition);
         SaveLoadManager.Save(SavesFolderName, PositionFileName, playerPosition);

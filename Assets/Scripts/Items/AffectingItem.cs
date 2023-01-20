@@ -6,7 +6,6 @@ public abstract class AffectingItem : Item
 
     public event UnityAction AffectingFinished;
 
-
     public void SetAffecting()
     {
         if (IsAffecting == false)
@@ -17,15 +16,8 @@ public abstract class AffectingItem : Item
 
     public void ApplyEffect(Player player)
     {
-        if (IsAffecting == false)
-        {
-            StartAffecting(player);
-            IsAffecting = true;
-        }
-        else
-        {
-            throw new System.InvalidOperationException("Item is already affecting.");
-        }
+        SetAffecting();
+        StartAffecting(player);
     }
 
     public void CancelEffect(Player player)

@@ -147,12 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 099c9224679553540b063e79b5b51a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12
-  Damage: 1
-  HitEffectTemplate: {fileID: 8742380403297884837, guid: 2b0f65041d08b1c4f9317fb33b3a7c7f, type: 3}
+  _speed: 9
+  _damage: 1
+  _hitEffectTemplate: {fileID: 8742380403297884837, guid: 2b0f65041d08b1c4f9317fb33b3a7c7f, type: 3}
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 136
+  _lounchSound: {fileID: 0}
   _hitSound: {fileID: 1763334228043271384}
 --- !u!1 &7077758852313527015
 GameObject:

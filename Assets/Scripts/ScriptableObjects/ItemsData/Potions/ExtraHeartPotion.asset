@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df61eb63f338374fb9c7101a7d68e48, type: 3}
   m_Name: ExtraHeartPotion
   m_EditorClassIdentifier: 
-  _lable: ExtraHeartPotion
+  _lable: Health Potion
   _sprite: {fileID: 21300000, guid: 2bb4d37bdf6839d4a8461ffd6a74939e, type: 3}
-  _description: 
+  _description: Increases maximum health.
   _cost: 2
   _saveFileName: ExtraHeartPotion

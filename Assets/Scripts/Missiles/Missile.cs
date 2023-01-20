@@ -3,13 +3,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public class Missile : MonoBehaviour
 {
-    [SerializeField] protected float Speed;
-    [SerializeField] protected int Damage;
-    [SerializeField] protected ParticleSystem HitEffectTemplate;
+    [SerializeField] private float _speed;
+    [SerializeField] private int _damage;
+    [SerializeField] private ParticleSystem _hitEffectTemplate;
     [SerializeField] private LayerMask _collisionLayers;
+    [SerializeField] private AudioSource _lounchSound;
     [SerializeField] private AudioSource _hitSound;
 
-    protected ContactFilter2D Filter = new ContactFilter2D();
+    protected ContactFilter2D ContactFilter = new();
     private Vector3 _direction;
     private Collider2D _collider;
 
@@ -18,15 +19,8 @@ public class Missile : MonoBehaviour
         enabled = false;
         _collider = GetComponent<Collider2D>();
         _collider.enabled = false;
-        Filter.useLayerMask = true;
-        Filter.layerMask = _collisionLayers;
-    }
-
-    public virtual void Launch(Vector2 direction)
-    {
-        _direction = direction.normalized;
-        _collider.enabled = true;
-        enabled = true;
+        ContactFilter.useLayerMask = true;
+        ContactFilter.layerMask = _collisionLayers;
     }
 
     public void IncreaseDamage(int value)
@@ -34,7 +28,23 @@ public class Missile : MonoBehaviour
         if (value < 0)
             throw new System.ArgumentOutOfRangeException("value");
 
-        Damage += value;
+        _damage += value;
+    }
+
+    public void Launch(Vector2 direction)
+    {
+        if(_lounchSound)
+            _lounchSound.Play();
+
+        _direction = direction.normalized;
+        RotateMissile(direction);
+        _collider.enabled = true;
+        enabled = true;
+    }
+
+    protected virtual void RotateMissile(Vector2 initialDirection)
+    {
+        return;
     }
 
     private void Update()
@@ -42,30 +52,30 @@ public class Missile : MonoBehaviour
         Move();
     }
 
+    private void Move()
+    {
+        transform.position += _speed * Time.deltaTime * _direction;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((1 << collision.gameObject.layer & _collisionLayers) > 0)
-            Hit(collision);
+            Collapse(collision);
     }
 
-    protected virtual void Hit(Collider2D collision)
+    private void Collapse(Collider2D collision)
     {
-        if (collision.transform.TryGetComponent(out ITakeDamage target))
-            target.TakeDamage(Damage, transform.position);
-
-        Collapse();
-    }
-    protected void Collapse()
-    {
-        Instantiate(HitEffectTemplate, transform.position, Quaternion.identity, null);
+        DoDamage(collision, _damage);
+        Instantiate(_hitEffectTemplate, transform.position, Quaternion.identity, null);
         _hitSound.Play();
         _hitSound.transform.SetParent(null);
         Destroy(gameObject);
     }
 
-    private void Move()
+    protected virtual void DoDamage(Collider2D collision, int damage)
     {
-        transform.position += Speed * Time.deltaTime * _direction;
+        if (collision.transform.TryGetComponent(out ITakeDamage subject))
+            subject.TakeDamage(damage, transform.position);
     }
 
     private void OnValidate()

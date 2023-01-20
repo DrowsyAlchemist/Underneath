@@ -6,7 +6,7 @@ public class InventioryWindow : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    [SerializeField] private ItemRenderer _itemRenderer;
+    [SerializeField] private ItemRenderer _itemRendererTemplate;
     [SerializeField] private RectTransform _itemsContainer;
     [SerializeField] private ActivePotionsView _activePotionsView;
     [SerializeField] private PlayerSlots _playerSlots;
@@ -71,7 +71,7 @@ public class InventioryWindow : MonoBehaviour
 
     private void OnItemAdded(Item item)
     {
-        var itemRenderer = Instantiate(_itemRenderer, _itemsContainer);
+        var itemRenderer = Instantiate(_itemRendererTemplate, _itemsContainer);
         _itemRenderers.Add(itemRenderer);
         item.transform.SetParent(itemRenderer.transform);
         itemRenderer.Render(item);

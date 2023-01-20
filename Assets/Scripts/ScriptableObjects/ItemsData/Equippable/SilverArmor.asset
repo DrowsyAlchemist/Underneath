@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df61eb63f338374fb9c7101a7d68e48, type: 3}
   m_Name: SilverArmor
   m_EditorClassIdentifier: 
-  _lable: SilverArmor
+  _lable: Silver Armor
   _sprite: {fileID: 21300000, guid: 6dc09723ee059114f8ae3a0eb7146981, type: 3}
-  _description: +1 to maxHealth
+  _description: +1 to maximum health.
   _cost: 1
   _saveFileName: SilverArmor

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lable: Golden key
   _sprite: {fileID: 21300000, guid: 61f7f8794c24f1d47970851d7351cfc3, type: 3}
-  _description: Open the finish bars
+  _description: Opens the golden gates.
   _cost: 0
   _saveFileName: GoldenKey
