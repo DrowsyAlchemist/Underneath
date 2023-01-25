@@ -14,7 +14,6 @@ public abstract class EnemyState : MonoBehaviour
         enabled = false;
         EnemyAnimator = GetComponent<EnemyAnimator>();
         Enemy = GetComponent<Enemy>();
-      //  Target = Enemy.Target;
     }
 
     public void Enter()

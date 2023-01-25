@@ -29,10 +29,10 @@ public class TeleportArea : MonoBehaviour
     private void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.T))
-            Teleport.ShowWindow();
+            TeleportWindow.ShowWindow();
 
         if (Input.GetKeyDown(KeyCode.Escape))
-            Teleport.HideWindow();
+            TeleportWindow.HideWindow();
     }
 
     private void OnValidate()

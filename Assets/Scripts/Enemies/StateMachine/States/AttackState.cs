@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyMovement))]
 public class AttackState : EnemyState
 {
     [SerializeField] private int _damage = 1;

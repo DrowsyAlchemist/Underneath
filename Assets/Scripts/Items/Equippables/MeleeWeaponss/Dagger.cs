@@ -65,12 +65,6 @@ public class Dagger : AffectingItem
         }
     }
 
-    public void SetEffectPosition(Transform playerTransform)
-    {
-        Vector3 direction = (playerTransform.localScale.x > 0) ? Vector2.right : Vector2.left;
-        _knifeAttackEffect.transform.position = playerTransform.position + _knifeAttackRange * direction;
-    }
-
     protected override void StartAffecting(Player player)
     {
         Init(player);
@@ -80,5 +74,11 @@ public class Dagger : AffectingItem
     protected override void StopAffecting(Player player)
     {
         player.Inventory.TakeOffDagger();
+    }
+
+    private void SetEffectPosition(Transform playerTransform)
+    {
+        Vector3 direction = (playerTransform.localScale.x > 0) ? Vector2.right : Vector2.left;
+        _knifeAttackEffect.transform.position = playerTransform.position + _knifeAttackRange * direction;
     }
 }

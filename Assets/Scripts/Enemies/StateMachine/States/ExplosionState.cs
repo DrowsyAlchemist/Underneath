@@ -31,10 +31,7 @@ public class ExplosionState : EnemyState
         EnemyAnimator.PlayAttack();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
-
-        if (Target.TryGetComponent(out Player player))
-            BlowUpPlayer(player);
-
+        BlowUpPlayer(Target);
         effect.transform.parent = null;
         _explosionSound.Play();
         _explosionSound.transform.SetParent(null);

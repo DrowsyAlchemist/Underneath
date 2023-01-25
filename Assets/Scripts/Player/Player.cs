@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
-[RequireComponent(typeof(AdventureGirlAnimation))]
+[RequireComponent(typeof(PlayerAnimation))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(Health))]
 public class Player : MonoBehaviour, ITakeDamage, ISaveable
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     private bool _isInvulnerability;
 
     public PlayerMovement PlayerMovement { get; private set; }
-    public AdventureGirlAnimation PlayerAnimation { get; private set; }
+    public PlayerAnimation PlayerAnimation { get; private set; }
     public Health Health { get; private set; }
     public Inventory Inventory { get; private set; }
     public Wallet Wallet { get; private set; }
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         {
             _instance = this;
             _collider = GetComponent<Collider2D>();
-            PlayerAnimation = GetComponent<AdventureGirlAnimation>();
+            PlayerAnimation = GetComponent<PlayerAnimation>();
             PlayerMovement = GetComponent<PlayerMovement>();
         }
     }
@@ -95,15 +95,29 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         Wallet.Save();
         Health.Save();
         Inventory.Save();
+        SavePosition();
+    }
 
+    private void SavePosition()
+    {
         string sceneName = SceneManager.GetActiveScene().name;
+
+        var savePoint = FindNearestSavePoint(sceneName);
+        Vector3 spawnPosition = savePoint.SpawnPoint;
+
+        var playerPosition = new PlayerPosition(sceneName, spawnPosition);
+        SaveLoadManager.Save(SavesFolderName, PositionFileName, playerPosition);
+    }
+
+    private SavePoint FindNearestSavePoint(string sceneName)
+    {
         var savePoints = FindObjectsOfType<SavePoint>();
 
         if (savePoints == null)
             throw new System.Exception($"Can't find TeleportArea on scene \"{sceneName}\"");
 
         float minDistanse = float.MaxValue;
-        SavePoint nearestPoint = null;
+        SavePoint nearestPoint = savePoints[0];
 
         foreach (var savePoint in savePoints)
         {
@@ -115,10 +129,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
                 nearestPoint = savePoint;
             }
         }
-        Vector3 spawnPosition = nearestPoint.SpawnPoint;
-
-        var playerPosition = new PlayerPosition(sceneName, spawnPosition);
-        SaveLoadManager.Save(SavesFolderName, PositionFileName, playerPosition);
+        return nearestPoint;
     }
 
     public Vector3 GetPosition()

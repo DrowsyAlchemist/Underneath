@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(IceGolemAnimator))]
 public class IceGolemAttackState : EnemyState
 {
     [SerializeField] private Missile _icicle;
@@ -15,7 +16,7 @@ public class IceGolemAttackState : EnemyState
 
     private void OnEnable()
     {
-        Enemy.EnemyAnimator.PlayIdle();
+        Enemy.Animator.PlayIdle();
         _elapsedTime = _secondsBetweenLounches / 2;
     }
 
@@ -34,33 +35,33 @@ public class IceGolemAttackState : EnemyState
         _elapsedTime += Time.deltaTime;
 
         if (_elapsedTime > _secondsBetweenLounches)
-        {
-            _elapsedTime = 0;
             _coroutine = StartCoroutine(ThrowMissile());
-        }
     }
 
     private IEnumerator ThrowMissile()
     {
-        ((IceGolemAnimator)Enemy.EnemyAnimator).PlayThrow();
+        _elapsedTime = 0;
+        ((IceGolemAnimator)Enemy.Animator).PlayThrow();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(_lounchDelay);
-        Missile template = ChooseMissile();
-        LaunchMissile(template);
+        LaunchMissile();
     }
 
-    private Missile ChooseMissile()
+    private void LaunchMissile()
     {
-        if ((Target.GetPosition().y - transform.position.y) < _targetTrashholdHeight)
-            return _iceMissile;
-        else
-            return _icicle;
-    }
-
-    private void LaunchMissile(Missile template)
-    {
-        _currentMissile = Instantiate(template, transform.position, Quaternion.identity);
+        Missile template;
         Vector2 direction = Target.GetPosition() - transform.position;
+
+        if ((Target.GetPosition().y - transform.position.y) < _targetTrashholdHeight)
+        {
+            template = _iceMissile;
+            direction = direction.x * Vector2.right;
+        }
+        else
+        {
+            template = _icicle;
+        }
+        _currentMissile = Instantiate(template, transform.position, Quaternion.identity);
         _currentMissile.Launch(direction);
         _currentMissile = null;
     }

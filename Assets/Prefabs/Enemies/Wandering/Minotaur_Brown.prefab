@@ -95,10 +95,6 @@ GameObject:
   - component: {fileID: 8778008200703974823}
   - component: {fileID: 1519812533}
   - component: {fileID: 1519812534}
-  - component: {fileID: 4513093315105799051}
-  - component: {fileID: -1104238901699264975}
-  - component: {fileID: 903941150802716689}
-  - component: {fileID: -5280236810600869880}
   m_Layer: 6
   m_Name: Minotaur_Brown
   m_TagString: Untagged
@@ -312,7 +308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8778008200703974823}
-  - {fileID: 4513093315105799051}
   _canFly: 0
   _speed: 1
   _eachPointDelay: 2
@@ -365,62 +360,6 @@ MonoBehaviour:
   _attackRange: 2
   _attackDelay: 0.3
   _meleeSound: {fileID: 2646214056436859953}
---- !u!114 &4513093315105799051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bb84f46b628904e815ae4817472894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: -1104238901699264975}
-  _groundChecker: {fileID: 7948506603588752149}
---- !u!114 &-1104238901699264975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b44822519dccc34a8846c75aeb0c808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 903941150802716689}
-  _fallingAcceleration: 9.8
---- !u!114 &903941150802716689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bc17c19b96f2d4d9482ecb7fa77d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: -5280236810600869880}
-  _groundChecker: {fileID: 7948506603588752149}
---- !u!114 &-5280236810600869880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8778008200703974841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaee7177304558c4ab0811c67e931b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions: []
 --- !u!1001 &3475600400472823964
 PrefabInstance:
   m_ObjectHideFlags: 0

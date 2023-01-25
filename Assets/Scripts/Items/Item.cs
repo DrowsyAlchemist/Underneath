@@ -8,7 +8,7 @@ public abstract class Item : MonoBehaviour
     public ItemData Data => _itemData;
     public ItemType Type => _type;
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         if (TryGetComponent(out SpriteRenderer renderer)) // I need SpriteRenderer to see the sprite of the item in Inspector
             Destroy(renderer);

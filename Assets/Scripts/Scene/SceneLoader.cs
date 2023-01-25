@@ -68,7 +68,7 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadSceneAsync(string sceneName)
     {
-        AccessPoint.SetEnable(false);
+        AccessPoint.SetActive(false);
         enabled = true;
         _loadingSceneOperation = SceneManager.LoadSceneAsync(sceneName);
     }
@@ -81,7 +81,7 @@ public class SceneLoader : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name.Equals(_mainMenuSceneName) == false)
         {
-            AccessPoint.SetEnable(true);
+            AccessPoint.SetActive(true);
             _sceneMusic.PlayGameMusic();
         }
         else

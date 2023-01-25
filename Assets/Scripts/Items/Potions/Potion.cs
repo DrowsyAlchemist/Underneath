@@ -1,22 +1,38 @@
-using System.Collections;
 using UnityEngine;
 
 public abstract class Potion : AffectingItem
 {
     [SerializeField] private float _duration;
 
+    private float _elapsedTime;
+
     public float Duration => _duration;
 
-    protected void CancelAffectingWithDelay(Player player)
+    protected override sealed void Awake()
     {
-        StartCoroutine(CancelAffecting(player, _duration));
+        base.Awake();
+        enabled = false;
     }
 
-    private IEnumerator CancelAffecting(Player player, float delay)
+    protected override sealed void StartAffecting(Player player)
     {
-        yield return new WaitForSeconds(delay);
+        enabled = true;
+        Affect(player);
+    }
 
+    protected abstract void Affect(Player player);
+
+    private void Update()
+    {
+        _elapsedTime += Time.deltaTime;
+
+        if (_elapsedTime > _duration)
+            base.CancelEffect(AccessPoint.Player);
+    }
+
+    private void OnDestroy()
+    {
         if (IsAffecting)
-            base.CancelEffect(player);
+            base.CancelEffect(AccessPoint.Player);
     }
 }

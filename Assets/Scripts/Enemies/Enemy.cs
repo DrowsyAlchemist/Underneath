@@ -13,17 +13,17 @@ public class Enemy : MonoBehaviour, ITakeDamage
 
     private bool _isAlive = true;
     private Coroutine _hurtCoroutine;
+    private EnemyStateMachine _stateMachine;
 
     public Player Target => AccessPoint.Player;
-    public EnemyAnimator EnemyAnimator { get; private set; }
+    public EnemyAnimator Animator { get; private set; }
     public EnemyMovement Movement { get; private set; }
-    protected EnemyStateMachine StateMachine { get; private set; }
 
     private void Awake()
     {
-        EnemyAnimator = GetComponent<EnemyAnimator>();
+        _stateMachine = GetComponent<EnemyStateMachine>();
+        Animator = GetComponent<EnemyAnimator>();
         Movement = GetComponent<EnemyMovement>();
-        StateMachine = GetComponent<EnemyStateMachine>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
         if (damage < 0)
             throw new System.ArgumentOutOfRangeException();
 
-        StateMachine.Pause();
+        _stateMachine.Pause();
         Instantiate(_enemyData.HitEffect, transform.position, Quaternion.identity, null);
         transform.LookForwardDirection(attackerPosition - transform.position);
         _health -= damage;
@@ -62,23 +62,23 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private IEnumerator Hurt(Vector3 attackerPosition)
     {
         _enemySounds.PlayHurt();
-        EnemyAnimator.PlayIdle();
+        Animator.PlayIdle();
         yield return new WaitForEndOfFrame();
-        EnemyAnimator.PlayHurt();
+        Animator.PlayHurt();
         yield return new WaitForEndOfFrame();
-        float hurtDuration = EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length;
+        float hurtDuration = Animator.Animator.GetCurrentAnimatorStateInfo(0).length;
         Movement.FlyAway(attackerPosition, hurtDuration);
         yield return new WaitForSeconds(hurtDuration);
-        StateMachine.Resume();
+        _stateMachine.Resume();
     }
 
     private IEnumerator Die()
     {
         _enemySounds.PlayDeath();
         _isAlive = false;
-        EnemyAnimator.PlayDie();
+        Animator.PlayDie();
         yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(EnemyAnimator.Animator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(Animator.Animator.GetCurrentAnimatorStateInfo(0).length);
         CoinsSpawner.Spawn(_enemyData.Award, transform.position, useModifier: true);
 
         if (gameObject)

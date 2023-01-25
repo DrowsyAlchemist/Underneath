@@ -8,24 +8,24 @@ public class ShootState : EnemyState
     [SerializeField] private Missile _missile;
     [SerializeField] private Transform _missileLocalPosition;
     [SerializeField] private float _secondsBetweenShots = 1;
-    [SerializeField][Range(0, 90)] private float _spreadInDegrees;
+    [SerializeField][Range(0, 90)] private float _spreadInDegrees = 40;
 
-    [SerializeField] private float _minTargetDistanse;
-    [SerializeField] private float _maxTargetDistanse;
+    [SerializeField] private float _minTargetDistanse = 4;
+    [SerializeField] private float _maxTargetDistanse = 7;
     [SerializeField] private float _lounchDelay = 0.2f;
-    [SerializeField] private float _chaseSpeed;
-    [SerializeField] private float _fleeSpeed;
+    [SerializeField] private float _chaseSpeed = 3;
+    [SerializeField] private float _fleeSpeed = 2;
 
     private Missile _currentMissile;
     private float _elapsedTime;
     private WraithAnimator _animator;
-    private EnemyMovement _movementInFlight;
+    private EnemyMovement _movement;
     private Coroutine _shootCoroutine;
 
     private void Start()
     {
         _animator = GetComponent<WraithAnimator>();
-        _movementInFlight = GetComponent<EnemyMovement>();
+        _movement = GetComponent<EnemyMovement>();
     }
 
     private void OnEnable()
@@ -88,7 +88,7 @@ public class ShootState : EnemyState
     {
         Vector2 direction = Target.GetPosition() - transform.position;
         RaycastHit2D[] hits = new RaycastHit2D[1];
-        ContactFilter2D filter = _movementInFlight.Obstacles;
+        ContactFilter2D filter = _movement.Obstacles;
         float distance = direction.magnitude;
         Debug.DrawRay(transform.position, direction);
         return Physics2D.Raycast(transform.position, direction, filter, hits, distance) > 0;
@@ -97,13 +97,13 @@ public class ShootState : EnemyState
     private void ChaseTarget()
     {
         _animator.PlayWalk();
-        _movementInFlight.MoveToTarget(Target.GetPosition(), _chaseSpeed);
+        _movement.MoveToTarget(Target.GetPosition(), _chaseSpeed);
     }
 
     private void FleeFromTarget()
     {
         _animator.PlayWalk();
-        _movementInFlight.MoveFromTarget(Target.GetPosition(), _chaseSpeed);
+        _movement.MoveFromTarget(Target.GetPosition(), _fleeSpeed);
     }
 
     private void OnValidate()

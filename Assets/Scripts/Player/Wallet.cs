@@ -12,7 +12,6 @@ public class Wallet
 
     public event Action<int> MoneyChanged;
 
-
     private Wallet()
     {
         

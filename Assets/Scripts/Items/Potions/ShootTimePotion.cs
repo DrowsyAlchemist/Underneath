@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class ShootTimePotion : Potion
 {
-    [SerializeField] private float timeModifier;
+    [SerializeField] private float _timeModifier;
 
-    protected override void StartAffecting(Player player)
+    protected override void Affect(Player player)
     {
-        player.Inventory.Gun.ModifyTimeBetweenShots(timeModifier);
-        CancelAffectingWithDelay(player);
+        player.Inventory.Gun.ModifyTimeBetweenShots(_timeModifier);
     }
 
     protected override void StopAffecting(Player player)
     {
-        player.Inventory.Gun.ModifyTimeBetweenShots(1/timeModifier);
+        player.Inventory.Gun.ModifyTimeBetweenShots(1/_timeModifier);
     }
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class EnemyAnimator : MonoBehaviour
 {
-    protected const string IdleAnimation = "Idle";
-    protected const string HurtAnimation = "Hurt";
-    protected const string DieAnimation = "Die";
-    protected const string AttackAnimation = "Attack";
-    protected const string TauntAnimation = "Taunt";
-    protected const string WalkAnimation = "Walk";
+    private const string IdleAnimation = "Idle";
+    private const string HurtAnimation = "Hurt";
+    private const string DieAnimation = "Die";
+    private const string AttackAnimation = "Attack";
+    private const string TauntAnimation = "Taunt";
+    private const string WalkAnimation = "Walk";
 
     public Animator Animator { get; private set; }
 

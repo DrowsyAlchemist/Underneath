@@ -4,10 +4,9 @@ public class AttackRangePotion : Potion
 {
     [SerializeField] private float _rangeModifier;
 
-    protected override void StartAffecting(Player player)
+    protected override void Affect(Player player)
     {
         player.Inventory.Dagger.ModifyAttackRange(_rangeModifier);
-        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

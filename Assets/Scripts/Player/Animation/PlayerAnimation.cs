@@ -10,6 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     private const string KnockAnimation = "Knock";
     private const string StandUpAnimation = "StandUp";
     private const string InvulnerabilityAnimation = "IsInvulnerability";
+    private const string MeleeAnimation = "Melee";
+    private const string ShootAnimation = "Shoot";
 
     public Animator Animator { get; private set; }
 
@@ -56,5 +58,15 @@ public class PlayerAnimation : MonoBehaviour
     public void StopInvulnerability()
     {
         Animator.SetBool(InvulnerabilityAnimation, false);
+    }
+
+    public void PlayMelee()
+    {
+        Animator.Play(MeleeAnimation);
+    }
+
+    public void PlayShoot()
+    {
+        Animator.Play(ShootAnimation);
     }
 }

@@ -1,4 +1,3 @@
-using UnityEditor;
 using UnityEngine;
 
 public class TargetSpottedTransition : EnemyTransition
@@ -11,11 +10,6 @@ public class TargetSpottedTransition : EnemyTransition
 
     private void FixedUpdate()
     {
-        {   // Debug
-            Vector2 dir = (Target.GetPosition() - transform.position).normalized * _radius;//
-            Debug.DrawRay(transform.position, dir);//
-        }
-
         if (_canFly == false)
             if (IsVerticalInvalid())
                 return;

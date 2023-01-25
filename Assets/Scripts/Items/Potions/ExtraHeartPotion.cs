@@ -4,10 +4,9 @@ public class ExtraHeartPotion : Potion
 {
     [SerializeField] private int _heartsCount;
 
-    protected override void StartAffecting(Player player)
+    protected override void Affect(Player player)
     {
         player.Health.IncreaseMaxHealth(_heartsCount);
-        CancelAffectingWithDelay(player);
     }
 
     protected override void StopAffecting(Player player)

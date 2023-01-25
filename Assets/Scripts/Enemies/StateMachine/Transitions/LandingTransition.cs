@@ -4,7 +4,7 @@ public class LandingTransition : EnemyTransition
 {
     [SerializeField] private GroundChecker _groundChecker;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (_groundChecker.IsGrounded)
             NeedTransit = true;

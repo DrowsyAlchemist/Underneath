@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,16 +5,30 @@ public class ActivePotionRenderer : MonoBehaviour
 {
     [SerializeField] private Image _image;
 
-    public void Render(Potion potion)
+    private float _elapsedTime;
+    private float _delay;
+
+    public Potion Potion { get; private set; }
+
+    private void Awake()
     {
-        _image.sprite = potion.Data.Sprite;
-        potion.transform.SetParent(transform);
-        StartCoroutine(DestroyWithDelay(potion.Duration));
+        enabled = false;
     }
 
-    public IEnumerator DestroyWithDelay(float delay)
+    public void Render(Potion potion)
     {
-        yield return new WaitForSeconds(delay);
-        Destroy(gameObject);
+        Potion = potion;
+        _image.sprite = potion.Data.Sprite;
+        potion.transform.SetParent(transform);
+        _delay = potion.Duration;
+        enabled = true;
+    }
+
+    private void Update()
+    {
+        _elapsedTime += Time.deltaTime;
+
+        if(_elapsedTime > _delay)
+            Destroy(gameObject);
     }
 }

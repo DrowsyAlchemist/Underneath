@@ -21,10 +21,6 @@ GameObject:
   - component: {fileID: 1263889835794736328}
   - component: {fileID: 1263889835794736329}
   - component: {fileID: 1263889835794736330}
-  - component: {fileID: 3642781918816702602}
-  - component: {fileID: 7527272200607637156}
-  - component: {fileID: 8024509965368101263}
-  - component: {fileID: 6717247423293129797}
   m_Layer: 6
   m_Name: Satyr_Brown
   m_TagString: Untagged
@@ -238,7 +234,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 1263889835794736328}
-  - {fileID: 3642781918816702602}
   _canFly: 0
   _speed: 1.5
   _eachPointDelay: 2
@@ -291,62 +286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1263889835794736335}
   _seconds: 2
---- !u!114 &3642781918816702602
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263889835794736331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25bb84f46b628904e815ae4817472894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 7527272200607637156}
-  _groundChecker: {fileID: 5868433058892145674}
---- !u!114 &7527272200607637156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263889835794736331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b44822519dccc34a8846c75aeb0c808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 8024509965368101263}
-  _fallingAcceleration: 9.8
---- !u!114 &8024509965368101263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263889835794736331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53bc17c19b96f2d4d9482ecb7fa77d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 6717247423293129797}
-  _groundChecker: {fileID: 5868433058892145674}
---- !u!114 &6717247423293129797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263889835794736331}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaee7177304558c4ab0811c67e931b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions: []
 --- !u!1 &3740352091493648144
 GameObject:
   m_ObjectHideFlags: 0

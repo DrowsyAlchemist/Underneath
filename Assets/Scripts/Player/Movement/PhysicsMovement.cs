@@ -15,15 +15,15 @@ public class PhysicsMovement : MonoBehaviour
     [SerializeField] private float _externalForcesResistance;
 
     private const float _gravity = 9.8f;
-    private ContactFilter2D _filter = new ContactFilter2D();
+    private ContactFilter2D _filter = new();
     private Vector2 _externalForcesVelocity;
     private Vector2 _surfaceVelocity;
     private Vector2 _targetVelocity;
     private bool _canAnimate = true;
     private MovementAnimator _animator;
 
-    public float Speed => _speed;
-    public GroundChecker GroundChecker => _groundChecker;
+    protected float Speed => _speed;
+    protected GroundChecker GroundChecker => _groundChecker;
 
     private void Start()
     {

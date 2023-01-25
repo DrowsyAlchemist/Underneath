@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float _flyAwayDistance = 1;
 
     private Collider2D _collider;
-    private ContactFilter2D _contactFilter = new ContactFilter2D();
+    private ContactFilter2D _contactFilter = new();
     private Coroutine _coroutine;
 
     public ContactFilter2D Obstacles => _contactFilter;
@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
     {
         Move(targetPosition, speed, positiveDirection: true, xAxisOnly: false);
     }
+
     public void MoveToTargetAlongXAxis(Vector3 targetPosition, float speed)
     {
         Move(targetPosition, speed, positiveDirection: true, xAxisOnly: true);

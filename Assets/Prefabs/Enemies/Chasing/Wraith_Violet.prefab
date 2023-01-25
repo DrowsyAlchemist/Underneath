@@ -5137,7 +5137,7 @@ MonoBehaviour:
   _maxTargetDistanse: 7
   _lounchDelay: 0.7
   _chaseSpeed: 3
-  _fleeSpeed: 1.5
+  _fleeSpeed: 2.5
 --- !u!114 &1462649880
 MonoBehaviour:
   m_ObjectHideFlags: 0

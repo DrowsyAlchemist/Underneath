@@ -6,14 +6,14 @@ using UnityEngine;
 public class Store : MonoBehaviour
 {
     [SerializeField] private StoreMenu _menu;
-    [SerializeField] private List<Item> _wareTemplates = new List<Item>();
+    [SerializeField] private List<Item> _wareTemplates = new();
 
-    private BrightnessController _lightControl;
+    private BrightnessController _brightnessController;
 
     private void Start()
     {
-        _lightControl = GetComponent<BrightnessController>();
-        _lightControl.Unlit();
+        _brightnessController = GetComponent<BrightnessController>();
+        _brightnessController.Unlit();
         FillStore();
         enabled = false;
     }
@@ -26,10 +26,10 @@ public class Store : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.TryGetComponent(out Player _))
         {
             enabled = true;
-            _lightControl.Lit();
+            _brightnessController.Lit();
             string message = "Press \"S\" to open store.";
             MessageCreator.ShowMessage(message, AccessPoint.InterfaceCanvas, MessageType.Tip);
         }
@@ -37,10 +37,10 @@ public class Store : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.TryGetComponent(out Player _))
         {
             enabled = false;
-            _lightControl.Unlit();
+            _brightnessController.Unlit();
         }
     }
 
@@ -49,24 +49,19 @@ public class Store : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (_menu.gameObject.activeSelf)
-            {
-                _menu.gameObject.SetActive(false);
-                Time.timeScale = 1;
-            }
+                SetMenuActive(false);
             else
-            {
-                _menu.gameObject.SetActive(true);
-                Time.timeScale = 0;
-            }
+                SetMenuActive(true);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
-        {
             if (_menu.gameObject.activeSelf)
-            {
-                _menu.gameObject.SetActive(false);
-                Time.timeScale = 1;
-            }
-        }
+                SetMenuActive(false);
+    }
+
+    private void SetMenuActive(bool isActive)
+    {
+        _menu.gameObject.SetActive(isActive);
+        Time.timeScale = isActive ? 0 : 1;
     }
 
     private void OnValidate()

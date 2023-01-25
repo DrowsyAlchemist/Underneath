@@ -15,7 +15,7 @@ public class InventioryWindow : MonoBehaviour
     [SerializeField] private Button _useButton;
 
     private ItemRenderer _highlightedItem;
-    private List<ItemRenderer> _itemRenderers = new List<ItemRenderer>();
+    private List<ItemRenderer> _itemRenderers = new();
 
     public Inventory _inventory;
 
@@ -129,6 +129,7 @@ public class InventioryWindow : MonoBehaviour
         var potion = itemRenderer.Item as Potion;
         _activePotionsView.SetPotion(potion);
         UISounds.PlayDrinkPotion();
+        _itemRenderers.Remove(itemRenderer);
         Destroy(itemRenderer.gameObject);
     }
 

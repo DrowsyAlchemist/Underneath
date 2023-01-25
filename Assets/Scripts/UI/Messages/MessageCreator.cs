@@ -10,14 +10,9 @@ public class MessageCreator : MonoBehaviour
     private void Awake()
     {
         if (_instance == null)
-        {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     public static void ShowMessage(string message, RectTransform parentPanel, MessageType type)

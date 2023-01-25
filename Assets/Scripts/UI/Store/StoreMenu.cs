@@ -4,7 +4,6 @@ public class StoreMenu : MonoBehaviour
 {
     [SerializeField] private WareRenderer _wareRenderer;
     [SerializeField] private RectTransform _waresContainer;
-    [SerializeField] private GameObject _notEnoughMoneyPanel;
 
     private Inventory _playerInventory;
     private Wallet _playerWallet;

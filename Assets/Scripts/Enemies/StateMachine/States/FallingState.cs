@@ -5,11 +5,16 @@ public class FallingState : EnemyState
 {
     [SerializeField] private float _fallingAcceleration = 9.8f;
 
+    private EnemyAnimator _enemyAnimator;
     private float _fallingSpeed;
 
     private void OnEnable()
     {
-        GetComponent<EnemyAnimator>().PlayIdle();
+        if(_enemyAnimator)
+            _enemyAnimator.PlayIdle();
+        else
+            _enemyAnimator = GetComponent<EnemyAnimator>();
+
         _fallingSpeed = 0;
     }
 

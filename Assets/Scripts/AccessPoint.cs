@@ -26,12 +26,7 @@ public class AccessPoint : MonoBehaviour
         }
     }
 
-    //private void Start()
-    //{
-    //    gameObject.SetActive(false);
-    //}
-
-    public static void SetEnable(bool value)
+    public static void SetActive(bool value)
     {
         _instance.gameObject.SetActive(value);
     }
