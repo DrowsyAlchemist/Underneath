@@ -6,9 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: fd4f82f2fc76d0a45bb3789c8b8feb7f
+  - enabled: 1
     path: Assets/Scenes/Village.unity
     guid: f8001f94739544844847ae9b6eca8775
   - enabled: 1
     path: Assets/Scenes/DungeonEntry.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/SilverKeyLocation.unity
+    guid: 26939f60104abb84490eeeabdd40099e
+  - enabled: 1
+    path: Assets/Scenes/SilverChestLocation.unity
+    guid: 400d855039f33724b8ff2c7ea8fd6890
+  - enabled: 1
+    path: Assets/Scenes/FallingPlatforms.unity
+    guid: ae26062f0996fab4d8f2b95e74c9f2bd
+  - enabled: 1
+    path: Assets/Scenes/GoldChestLocation.unity
+    guid: 099e079a195e9cd4282afb0fc9c0fb4d
+  - enabled: 1
+    path: Assets/Scenes/Elevator.unity
+    guid: 8871121ac51cf114da5059be4a5465e4
   m_configObjects: {}

@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Silver Revolver
   _sprite: {fileID: 21300000, guid: d3ba0183706161d4ab4124d2a97457ce, type: 3}
   _description: 
-  _cost: 2
+  _cost: 0
   _saveFileName: SilverRevolver

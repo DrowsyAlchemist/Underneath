@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,30 +6,22 @@ public class ActivePotionRenderer : MonoBehaviour
 {
     [SerializeField] private Image _image;
 
-    private float _elapsedTime;
-    private float _delay;
-
     public Potion Potion { get; private set; }
 
-    private void Awake()
-    {
-        enabled = false;
-    }
+    public event Action<ActivePotionRenderer> Destroying;
 
     public void Render(Potion potion)
     {
         Potion = potion;
         _image.sprite = potion.Data.Sprite;
         potion.transform.SetParent(transform);
-        _delay = potion.Duration;
-        enabled = true;
+        potion.AffectingFinished += OnPotionStopAffecting;
     }
 
-    private void Update()
+    private void OnPotionStopAffecting(AffectingItem affectingItem)
     {
-        _elapsedTime += Time.deltaTime;
-
-        if(_elapsedTime > _delay)
-            Destroy(gameObject);
+        affectingItem.AffectingFinished -= OnPotionStopAffecting;
+        Destroying?.Invoke(this);
+        Destroy(gameObject);
     }
 }

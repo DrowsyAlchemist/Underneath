@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Silver Helmet
   _sprite: {fileID: 21300000, guid: d8df4b41b46b5634d9aa64e9d7913871, type: 3}
   _description: +1 to maximum health.
-  _cost: 2
+  _cost: 100
   _saveFileName: SilverHelmet

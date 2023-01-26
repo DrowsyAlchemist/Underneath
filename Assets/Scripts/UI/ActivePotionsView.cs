@@ -1,57 +1,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivePotionsView : MonoBehaviour, ISaveable
+public class ActivePotionsView : MonoBehaviour
 {
     [SerializeField] private RectTransform _container;
     [SerializeField] private ActivePotionRenderer _activePotionRendererTemplate;
 
-    private const string SaveFolderName = "Player";
-    private const string SaveFileName = "ActivePotionsList";
-    private const string PotionsFolder = "Items";
+    private List<ActivePotionRenderer> _activePotionRenderers = new();
 
-    private void OnEnable()
+    public ActivePotions ActivePotions { get; private set; }
+
+    private void Start()
     {
-        List<string> activePotions = SaveLoadManager.GetLoadOrDefault<List<string>>(SaveFolderName, SaveFileName);
+        ActivePotions = AccessPoint.Player.ActivePotions;
+        ActivePotions.PotionAdded += OnPotionAdded;
+        ActivePotions.Cleared += OnActivePotionsCleared;
 
-        if (activePotions != null)
+        var activePotions = ActivePotions.GetActivePotions();
+
+        foreach (var potion in activePotions)
+            OnPotionAdded(potion);
+    }
+
+    private void OnDestroy()
+    {
+        ActivePotions.PotionAdded -= OnPotionAdded;
+        ActivePotions.Cleared -= OnActivePotionsCleared;
+    }
+
+    private void OnActivePotionsCleared()
+    {
+        while (_activePotionRenderers.Count > 0)
         {
-            foreach (string potionName in activePotions)
+            var renderer = _activePotionRenderers[0];
+
+            if (renderer.Potion is ExtraHeartPotion)
             {
-                string localPath = PotionsFolder + "/" + potionName;
-                Potion potionTemplate = Resources.Load<Potion>(localPath);
-
-                if (potionTemplate == null)
-                    throw new System.Exception($"Can't find valid item on path: " + localPath);
-
-                var potion = Instantiate(potionTemplate);
-
-                if (potion is ExtraHeartPotion)
-                    potion.SetAffecting();
-                else
-                    potion.ApplyEffect(AccessPoint.Player);
-
-                SetPotion(potion);
+                OnRendererDestroying(renderer);
+                Destroy(renderer);
+            }
+            else
+            {
+                throw new System.InvalidOperationException();
             }
         }
     }
 
-    public void Save()
-    {
-        if (_container.childCount > 0)
-        {
-            List<string> activePotions = new();
-
-            foreach (var activePotion in _container.GetComponentsInChildren<ActivePotionRenderer>())
-                activePotions.Add(activePotion.Potion.Data.SaveFileName);
-
-            SaveLoadManager.Save(SaveFolderName, SaveFileName, activePotions);
-        }
-    }
-
-    public void SetPotion(Potion potion)
+    private void OnPotionAdded(Potion potion)
     {
         var activePotionRenderer = Instantiate(_activePotionRendererTemplate, _container);
         activePotionRenderer.Render(potion);
+        _activePotionRenderers.Add(activePotionRenderer);
+        activePotionRenderer.Destroying += OnRendererDestroying;
+    }
+
+    private void OnRendererDestroying(ActivePotionRenderer activePotionRenderer)
+    {
+        activePotionRenderer.Destroying -= OnRendererDestroying;
+        _activePotionRenderers.Remove(activePotionRenderer);
     }
 }

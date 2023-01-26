@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Healing Potion
   _sprite: {fileID: 21300000, guid: 0afcfb9d020404b429ea0206881da437, type: 3}
   _description: Instantly restores a few health points.
-  _cost: 2
+  _cost: 25
   _saveFileName: HealingPotion

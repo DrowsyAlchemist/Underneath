@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 2
-  _enemyData: {fileID: 11400000, guid: 8cc419a9ed1830e4abfa27a8eed56617, type: 2}
+  _enemyData: {fileID: 11400000, guid: fa4055fbb7599c947b94036b855e518f, type: 2}
   _enemySounds: {fileID: 7324212521331046842}
 --- !u!114 &2824876092541007434
 MonoBehaviour:

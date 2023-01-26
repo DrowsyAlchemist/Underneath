@@ -101,8 +101,8 @@ MonoBehaviour:
   _itemData: {fileID: 11400000, guid: d6b2c1222916b454c9ebcf28b6aa0101, type: 2}
   _type: 4
   _damage: 2
-  _knifeAttackRange: 2
-  _secondsBetweenKnifeAttacks: 0.6
+  _knifeAttackRange: 2.2
+  _secondsBetweenKnifeAttacks: 0.5
   _knifeAttackEffect: {fileID: 4222722215998479019, guid: 9d8c3666f06d2084e9aad521aca4529b, type: 3}
   _swingSound: {fileID: -7682803653534498732}
 --- !u!82 &-7682803653534498732

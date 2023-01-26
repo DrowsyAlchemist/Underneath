@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Golden Armor
   _sprite: {fileID: 21300000, guid: 07569485998d35e43a7461349b22df43, type: 3}
   _description: +3 to maximum health.
-  _cost: 2
+  _cost: 500
   _saveFileName: GoldArmor

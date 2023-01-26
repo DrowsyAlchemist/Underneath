@@ -1121,8 +1121,9 @@ MonoBehaviour:
   _shootPoint: {fileID: 1154739443}
   _dropForce: 15
   _initialHealth: 4
-  _invulnerabilityDuration: 2
+  _invulnerabilityDuration: 5
   _hurtEffect: {fileID: 4406955855483235490}
+  _activePotionsView: {fileID: 0}
 --- !u!114 &8699937211585495361
 MonoBehaviour:
   m_ObjectHideFlags: 0

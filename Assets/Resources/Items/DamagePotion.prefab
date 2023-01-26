@@ -100,4 +100,4 @@ MonoBehaviour:
   _itemData: {fileID: 11400000, guid: bb0c9e80f2cd56a4b8858bf472b9ab25, type: 2}
   _type: 1
   _duration: 20
-  extraDamage: 1
+  _extraDamage: 1

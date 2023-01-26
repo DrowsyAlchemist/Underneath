@@ -4,6 +4,7 @@ public class UISounds : MonoBehaviour
 {
     [SerializeField] private AudioSource _potionDrinkSound;
     [SerializeField] private AudioSource _equipSound;
+    [SerializeField] private AudioSource _sellingSound;
 
     private static UISounds _instance;
 
@@ -23,5 +24,10 @@ public class UISounds : MonoBehaviour
     public static void PlayDrinkPotion()
     {
         _instance._potionDrinkSound.Play();
+    }
+
+    public static void PlaySell()
+    {
+        _instance._sellingSound.Play();
     }
 }

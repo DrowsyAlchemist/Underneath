@@ -17,7 +17,7 @@ public class InventioryWindow : MonoBehaviour
     private ItemRenderer _highlightedItem;
     private List<ItemRenderer> _itemRenderers = new();
 
-    public Inventory _inventory;
+    public Inventory _inventory { get; private set; }
 
     private void Start()
     {
@@ -127,7 +127,7 @@ public class InventioryWindow : MonoBehaviour
     private void SetPotion(ItemRenderer itemRenderer)
     {
         var potion = itemRenderer.Item as Potion;
-        _activePotionsView.SetPotion(potion);
+        _activePotionsView.ActivePotions.AddPotion(potion);
         UISounds.PlayDrinkPotion();
         _itemRenderers.Remove(itemRenderer);
         Destroy(itemRenderer.gameObject);

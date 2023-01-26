@@ -100,4 +100,4 @@ MonoBehaviour:
   _itemData: {fileID: 11400000, guid: bd22d948468b41146be470aaef8c6959, type: 2}
   _type: 1
   _duration: 20
-  timeModifier: 0.3
+  _timeModifier: 0.5

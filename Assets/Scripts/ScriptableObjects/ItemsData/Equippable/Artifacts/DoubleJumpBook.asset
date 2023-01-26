@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Extra Jump Book
   _sprite: {fileID: 21300000, guid: 002a76db75394b1479f72a86d2d760e2, type: 3}
   _description: You get the opportunity to make an extra jump.
-  _cost: 2
+  _cost: 200
   _saveFileName: DoubleJumpBook

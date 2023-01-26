@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Agility Potion
   _sprite: {fileID: 21300000, guid: 57f61813b6d838d49a0963ea4b84e832, type: 3}
   _description: Reduces the time between shots.
-  _cost: 2
+  _cost: 45
   _saveFileName: ShootTimePotion

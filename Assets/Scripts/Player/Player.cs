@@ -27,6 +27,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     public Health Health { get; private set; }
     public Inventory Inventory { get; private set; }
     public Wallet Wallet { get; private set; }
+    public ActivePotions ActivePotions { get; private set; }
 
     public void ResetPlayer()
     {
@@ -42,6 +43,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
                 Destroy(Inventory.Dagger.gameObject);
         }
         Inventory = Inventory.LoadLastSaveOrDefault(this);
+        ActivePotions = ActivePotions.LoadLastSaveOrDefault(this);
     }
 
     private void Awake()
@@ -57,6 +59,11 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
             PlayerAnimation = GetComponent<PlayerAnimation>();
             PlayerMovement = GetComponent<PlayerMovement>();
         }
+    }
+
+    private void OnEnable()
+    {
+        StopInvulnerability();
     }
 
     private void Update()
@@ -95,6 +102,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         Wallet.Save();
         Health.Save();
         Inventory.Save();
+        ActivePotions.Save();
         SavePosition();
     }
 
@@ -198,6 +206,11 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     {
         PlayerAnimation.PlayInvulnerability();
         yield return new WaitForSeconds(_invulnerabilityDuration);
+        StopInvulnerability();
+    }
+
+    private void StopInvulnerability()
+    {
         _isInvulnerability = false;
         PlayerAnimation.StopInvulnerability();
     }
@@ -223,7 +236,9 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
 
     private void Die()
     {
-
+        string sceneName = GetSavedSceneName();
+        ResetPlayer();
+        SceneLoader.LoadScene(sceneName, GetSavedPosition());
     }
 
     [System.Serializable]

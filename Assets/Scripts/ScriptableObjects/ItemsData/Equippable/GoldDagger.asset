@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Golden Dagger
   _sprite: {fileID: 21300000, guid: c729e3db62aa89d45a7371846bc9be3d, type: 3}
   _description: Does increased damage.
-  _cost: 1
+  _cost: 450
   _saveFileName: GoldDagger

@@ -25,6 +25,7 @@ public class StoreMenu : MonoBehaviour
     {
         if (_playerWallet.Money >= wareRenderer.Cost)
         {
+            UISounds.PlaySell();
             _playerWallet.GiveMoney(wareRenderer.Cost);
             _playerInventory.AddItem(wareRenderer.Item);
         }

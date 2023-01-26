@@ -4,13 +4,28 @@ public class AttackRangePotion : Potion
 {
     [SerializeField] private float _rangeModifier;
 
-    protected override void Affect(Player player)
+    private Dagger _dagger;
+
+    protected override void StartAffecting(Player player)
     {
-        player.Inventory.Dagger.ModifyAttackRange(_rangeModifier);
+        _dagger = player.Inventory.Dagger;
+
+        if (_dagger != null)
+            _dagger.ModifyAttackRange(_rangeModifier);
     }
 
     protected override void StopAffecting(Player player)
     {
-        player.Inventory.Dagger.ModifyAttackRange(1/_rangeModifier);
+        if (_dagger != null)
+        {
+            _dagger.ModifyAttackRange(1 / _rangeModifier);
+            _dagger = null;
+        }
+    }
+
+    private void OnValidate()
+    {
+        if (_rangeModifier <= 0)
+            _rangeModifier = 1;
     }
 }

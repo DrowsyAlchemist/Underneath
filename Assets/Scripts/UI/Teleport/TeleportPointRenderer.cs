@@ -16,7 +16,7 @@ public class TeleportPointRenderer : MonoBehaviour
     public void Render(TeleportPoint point)
     {
         _teleportPoint = point;
-        _lable.text = point.TargetLocationName;
+        _lable.text = point.PointName;
         _button.interactable = point.IsAvailable;
 
         if (point.IsAvailable)

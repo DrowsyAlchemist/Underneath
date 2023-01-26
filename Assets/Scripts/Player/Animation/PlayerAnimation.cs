@@ -15,7 +15,7 @@ public class PlayerAnimation : MonoBehaviour
 
     public Animator Animator { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         Animator = GetComponent<Animator>();
     }

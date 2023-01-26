@@ -67,8 +67,8 @@ public class AudioOptions : MonoBehaviour
 
     private void LoadParameter(string volumeName, AudioMixerGroup mixer, Slider slider)
     {
-        float volume = PlayerPrefs.GetFloat(volumeName);
-        mixer.audioMixer.SetFloat(volumeName, volume);
+        float volume = PlayerPrefs.GetFloat(volumeName, 1);
+        mixer.audioMixer.SetFloat(UIVolumeName, Mathf.Lerp(-40, 0, volume));
         slider.value = volume;
     }
 }

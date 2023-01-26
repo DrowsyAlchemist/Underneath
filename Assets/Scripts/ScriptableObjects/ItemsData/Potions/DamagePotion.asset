@@ -15,5 +15,5 @@ MonoBehaviour:
   _lable: Strength Potion
   _sprite: {fileID: 21300000, guid: 3436ab4f5cec78943abb974c2a098732, type: 3}
   _description: Increases the dagger damage.
-  _cost: 2
+  _cost: 40
   _saveFileName: DamagePotion

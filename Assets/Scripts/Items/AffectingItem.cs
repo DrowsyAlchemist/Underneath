@@ -1,10 +1,10 @@
-using UnityEngine.Events;
+using System;
 
 public abstract class AffectingItem : Item
 {
     public bool IsAffecting { get; private set; }
 
-    public event UnityAction AffectingFinished;
+    public event Action<AffectingItem> AffectingFinished;
 
     public void SetAffecting()
     {
@@ -26,7 +26,7 @@ public abstract class AffectingItem : Item
         {
             StopAffecting(player);
             IsAffecting = false;
-            AffectingFinished?.Invoke();
+            AffectingFinished?.Invoke(this);
         }
         else
         {

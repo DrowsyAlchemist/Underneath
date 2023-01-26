@@ -4,7 +4,7 @@ public class IncreaseDamagePotion : Potion
 {
     [SerializeField] private int _extraDamage;
 
-    protected override void Affect(Player player)
+    protected override void StartAffecting(Player player)
     {
         player.Inventory.Dagger.IncreaseDamage(_extraDamage);
     }
