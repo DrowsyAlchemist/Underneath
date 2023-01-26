@@ -253,7 +253,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1443988569034183698}
   _canFly: 0
-  _speed: 1
+  _speed: 2
   _eachPointDelay: 2
   _patrolPoints:
   - {fileID: 0}
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2389440847894647267}
-  _radius: 10
+  _radius: 13
   _canFly: 0
   _canSeeThrowObstacles: 0
   _maxTargetHeight: 7
@@ -294,7 +294,7 @@ MonoBehaviour:
   - {fileID: 1443988569034183697}
   - {fileID: 4148351079771186611}
   _canFly: 0
-  _speed: 3.5
+  _speed: 5
 --- !u!114 &4148351079771186611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 4930062054614190938}
-  _radius: 9
+  _radius: 11
   _canFly: 0
   _canSeeThrowObstacles: 1
   _maxTargetHeight: 7
@@ -360,7 +360,7 @@ MonoBehaviour:
   - {fileID: 1443988569034183700}
   _icicle: {fileID: 2090744709717752093, guid: 8196f5e8a206f1547a6df9b25d8a43fd, type: 3}
   _iceMissile: {fileID: 7396096055039368264, guid: d45e3b71815bca04c9300f960f9668da, type: 3}
-  _secondsBetweenLounches: 1.5
+  _secondsBetweenLounches: 1.3
   _lounchDelay: 0.3
   _targetTrashholdHeight: 2
 --- !u!114 &1443988569034183700
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183699}
-  _distanse: 2
+  _distanse: 3.75
 --- !u!114 &1443988569034183711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183701}
-  _maxTargetDistance: 10
+  _maxTargetDistance: 13
   _canFly: 0
   _maxTargetHeight: 10
   _minTargetHeight: -3
@@ -409,8 +409,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1443988569034183710}
   _damage: 1
-  _attackRange: 2
-  _attackDelay: 0.3
+  _attackRange: 4.3
+  _attackDelay: 0.2
   _meleeSound: {fileID: 3382818874639839962}
 --- !u!114 &1443988569034183710
 MonoBehaviour:
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183703}
-  _maxTargetDistance: 12
+  _maxTargetDistance: 15
   _canFly: 0
   _maxTargetHeight: 8
   _minTargetHeight: -3

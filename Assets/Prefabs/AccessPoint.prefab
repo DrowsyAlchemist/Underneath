@@ -1687,6 +1687,7 @@ MonoBehaviour:
   _pointName: GCL
   _targetLocationName: GoldChestLocation
   _spawnPosition: {x: -79, y: -179}
+  _isInitiallyAvailable: 0
 --- !u!1 &2488203470801261255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2958,6 +2959,7 @@ MonoBehaviour:
   _pointName: Entry
   _targetLocationName: DungeonEntry
   _spawnPosition: {x: 6.5, y: -82}
+  _isInitiallyAvailable: 0
 --- !u!1 &5439720493609204387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3480,6 +3482,7 @@ MonoBehaviour:
   _pointName: Village
   _targetLocationName: Village
   _spawnPosition: {x: 5, y: -1.5}
+  _isInitiallyAvailable: 1
 --- !u!1 &6091774486703892026
 GameObject:
   m_ObjectHideFlags: 0
@@ -3527,6 +3530,7 @@ MonoBehaviour:
   _pointName: SCL
   _targetLocationName: SilverChestLocation
   _spawnPosition: {x: -178, y: -57.5}
+  _isInitiallyAvailable: 0
 --- !u!1 &6111576600043747399
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5024,7 @@ MonoBehaviour:
   _pointName: FPL
   _targetLocationName: FallingPlatforms
   _spawnPosition: {x: -158, y: -144}
+  _isInitiallyAvailable: 0
 --- !u!1 &6443433067148229405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5337,6 +5342,7 @@ MonoBehaviour:
   _pointName: SKL
   _targetLocationName: SilverKeyLocation
   _spawnPosition: {x: -55, y: -80.5}
+  _isInitiallyAvailable: 0
 --- !u!1 &6681435409922094326
 GameObject:
   m_ObjectHideFlags: 0

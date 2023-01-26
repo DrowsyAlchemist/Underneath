@@ -225,8 +225,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8778008200703974823}
   _canFly: 1
-  _speed: 2
-  _eachPointDelay: 1.4
+  _speed: 2.5
+  _eachPointDelay: 1.25
   _patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1519812534}
-  _distanse: 1.5
+  _distanse: 1.85
 --- !u!114 &1519812533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1519812533}
   _damage: 1
-  _attackRange: 1.5
+  _attackRange: 2
   _attackDelay: 0.15
   _meleeSound: {fileID: 7989031754003984865}
 --- !u!114 &1519812535

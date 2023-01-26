@@ -6,10 +6,20 @@ public class TeleportPoint : MonoBehaviour
     [SerializeField] private string _pointName;
     [SerializeField] private string _targetLocationName;
     [SerializeField] private Vector2 _spawnPosition;
+    [SerializeField] private bool _isInitiallyAvailable;
 
     private const string SavesFolderName = "TeleportPoints";
 
-    public bool IsAvailable => SaveLoadManager.GetLoadOrDefault<bool>(SavesFolderName, _id);
+    public bool IsAvailable
+    {
+        get
+        {
+            if (_isInitiallyAvailable)
+                return true;
+            else
+                return SaveLoadManager.GetLoadOrDefault<bool>(SavesFolderName, _id);
+        }
+    }
     public string PointName => _pointName;  
     public string TargetLocationName => _targetLocationName;
     private string _id => _targetLocationName + "Point";

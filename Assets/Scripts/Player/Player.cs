@@ -14,12 +14,13 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
     [SerializeField] private int _initialHealth = 4;
     [SerializeField] private float _invulnerabilityDuration = 2;
     [SerializeField] private PlayerHurtEffect _hurtEffect;
+    [SerializeField] private float _loadAfterDieDelay = 3;
 
     private const string SavesFolderName = "Player";
     private const string PositionFileName = "Position";
     private static Player _instance;
     private Collider2D _collider;
-    private bool _knocked;
+    private bool _isKnocked;
     private bool _isInvulnerability;
 
     public PlayerMovement PlayerMovement { get; private set; }
@@ -63,12 +64,15 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
 
     private void OnEnable()
     {
-        StopInvulnerability();
+        _isInvulnerability = false;
+        _isKnocked = false;
+        PlayerMovement.AllowAnimation(true);
+        PlayerMovement.AllowInpupControl(true);
     }
 
     private void Update()
     {
-        if (_knocked == false)
+        if (_isKnocked == false)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
                 KnifeAttack();
@@ -160,7 +164,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
             Health.ReduceHealth(damage);
 
             Vector2 dropForce = _dropForce * (GetPosition() - soursePosition).normalized;
-            Debug.DrawRay(transform.position, dropForce, Color.red, 1);
+            Debug.DrawRay(GetPosition(), dropForce, Color.red, 1);
             PlayerMovement.AddForce(dropForce);
 
             Knock();
@@ -168,7 +172,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
             if (Health.CurrentHealth > 0)
                 StartCoroutine(StandUp());
             else
-                Die();
+                StartCoroutine(Die(_loadAfterDieDelay));
         }
     }
 
@@ -182,7 +186,7 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
 
     private void Knock()
     {
-        _knocked = true;
+        _isKnocked = true;
         PlayerMovement.AllowAnimation(false);
         PlayerMovement.AllowInpupControl(false);
         PlayerAnimation.PlayKnock();
@@ -199,18 +203,13 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         yield return new WaitForSeconds(PlayerAnimation.Animator.GetCurrentAnimatorStateInfo(0).length);
         PlayerMovement.AllowAnimation(true);
         PlayerMovement.AllowInpupControl(true);
-        _knocked = false;
+        _isKnocked = false;
     }
 
     private IEnumerator PlayInvulnerability()
     {
         PlayerAnimation.PlayInvulnerability();
         yield return new WaitForSeconds(_invulnerabilityDuration);
-        StopInvulnerability();
-    }
-
-    private void StopInvulnerability()
-    {
         _isInvulnerability = false;
         PlayerAnimation.StopInvulnerability();
     }
@@ -234,8 +233,9 @@ public class Player : MonoBehaviour, ITakeDamage, ISaveable
         }
     }
 
-    private void Die()
+    private IEnumerator Die(float delay)
     {
+        yield return new WaitForSeconds(delay);
         string sceneName = GetSavedSceneName();
         ResetPlayer();
         SceneLoader.LoadScene(sceneName, GetSavedPosition());

@@ -16,8 +16,9 @@ public class Dagger : AffectingItem
     public void Init(Player player)
     {
         transform.SetParent(player.transform);
+        transform.position = player.GetPosition();
         _playerBody = player.GetComponent<Rigidbody2D>();
-        _knifeAttackEffect = Instantiate(_knifeAttackEffect, transform);
+        _knifeAttackEffect = Instantiate(_knifeAttackEffect, player.transform);
         SetEffectPosition(player.transform);
     }
 

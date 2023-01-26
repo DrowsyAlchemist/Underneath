@@ -1119,11 +1119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 1154739443}
-  _dropForce: 15
+  _dropForce: 20
   _initialHealth: 4
-  _invulnerabilityDuration: 5
+  _invulnerabilityDuration: 2
   _hurtEffect: {fileID: 4406955855483235490}
-  _activePotionsView: {fileID: 0}
+  _loadAfterDieDelay: 3
 --- !u!114 &8699937211585495361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,7 +1147,7 @@ MonoBehaviour:
   _shellRadius: 0.01
   _externalForcesResistance: 70
   _jumpForse: 19
-  _maxJumpCount: 2
+  _maxJumpCount: 1
   _timeBeforeLanding: 0.08
   _timeAflerGetOffGround: 0.08
 --- !u!114 &4765570615897907332

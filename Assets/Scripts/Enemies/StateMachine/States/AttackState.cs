@@ -23,6 +23,7 @@ public class AttackState : EnemyState
 
         if (Vector2.Distance(transform.position, player.GetPosition()) < _attackRange)
         {
+            if (Enemy.IsAlive)
             player.TakeDamage(_damage, transform.position);
             Debug.DrawRay(transform.position, (player.GetPosition() - transform.position).normalized * _attackRange, Color.red, 1);
         }

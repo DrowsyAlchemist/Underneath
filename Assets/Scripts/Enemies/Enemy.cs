@@ -11,10 +11,10 @@ public class Enemy : MonoBehaviour, ITakeDamage
     [SerializeField] private EnemyData _enemyData;
     [SerializeField] private EnemySounds _enemySounds;
 
-    private bool _isAlive = true;
     private Coroutine _hurtCoroutine;
     private EnemyStateMachine _stateMachine;
 
+    public bool IsAlive { get; private set; } = true;
     public Player Target => AccessPoint.Player;
     public EnemyAnimator Animator { get; private set; }
     public EnemyMovement Movement { get; private set; }
@@ -29,14 +29,14 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Spikes _))
-            if (_isAlive)
+            if (IsAlive)
                 StartCoroutine(Die());
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out Player player))
-            if (_isAlive)
+            if (IsAlive)
                 player.TakeDamage(_enemyData.DefaultDamage, transform.position);
     }
 
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour, ITakeDamage
     private IEnumerator Die()
     {
         _enemySounds.PlayDeath();
-        _isAlive = false;
+        IsAlive = false;
         Animator.PlayDie();
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(Animator.Animator.GetCurrentAnimatorStateInfo(0).length);
