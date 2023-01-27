@@ -2,11 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Coin : Collectable
+public class CollectableMovement : MonoBehaviour
 {
-    [SerializeField] private float _collectionDuration = 0.33f;
+    [SerializeField] private float _collectingDuration = 0.33f;
 
-    private const int CoinWorth = 1;
     private Rigidbody2D _rigidbody;
 
     private void Awake()
@@ -19,10 +18,9 @@ public class Coin : Collectable
         _rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
 
-    protected override void CollectByPlayer(Player player)
+    public void MoveToCollector(Player player)
     {
         StartCoroutine(MoveToPlayer(player));
-        player.Wallet.TakeMoney(CoinWorth);
     }
 
     private IEnumerator MoveToPlayer(Player player)
@@ -33,7 +31,7 @@ public class Coin : Collectable
         while (gameObject)
         {
             elapsedTime += Time.deltaTime;
-            t = elapsedTime / _collectionDuration;
+            t = elapsedTime / _collectingDuration;
             transform.position = Vector2.Lerp(transform.position, player.GetPosition(), t);
             yield return null;
         }

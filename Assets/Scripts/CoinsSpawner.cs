@@ -43,6 +43,6 @@ public class CoinsSpawner : MonoBehaviour
         Vector2 force = Random.Range(_minDropForce, _maxDropForce) * Vector2.up;
         float angle = Random.Range(-1 * _maxDropAngle, _maxDropAngle);
         force = Quaternion.Euler(0, 0, angle) * force;
-        coin.AddForce(force);
+        coin.Movement.AddForce(force);
     }
 }

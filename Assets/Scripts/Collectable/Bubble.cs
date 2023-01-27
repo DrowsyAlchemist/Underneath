@@ -7,11 +7,6 @@ public abstract class Bubble : Collectable, ISaveable
     private const string SavesFolderName = "Bubbles";
     private bool _isCollected;
 
-    public void Save()
-    {
-        SaveLoadManager.Save(SavesFolderName, _id, _isCollected);
-    }
-
     protected sealed override void Start()
     {
         base.Start();
@@ -19,6 +14,11 @@ public abstract class Bubble : Collectable, ISaveable
 
         if (_isCollected)
             Destroy(gameObject);
+    }
+
+    public void Save()
+    {
+        SaveLoadManager.Save(SavesFolderName, _id, _isCollected);
     }
 
     protected sealed override void CollectByPlayer(Player player)
