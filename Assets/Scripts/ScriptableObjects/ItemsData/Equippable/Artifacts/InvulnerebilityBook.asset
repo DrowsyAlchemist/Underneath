@@ -16,4 +16,4 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: d924d00b549f98440807151cf7b85c67, type: 3}
   _description: Increases invulnerability time after taking damage.
   _cost: 150
-  _saveFileName: InvulnerebilityBook
+  _saveFileName: InvulnerabilityBook

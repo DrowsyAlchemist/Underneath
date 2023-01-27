@@ -17,7 +17,7 @@ public class IceGolemAttackState : EnemyState
     private void OnEnable()
     {
         Enemy.Animator.PlayIdle();
-        _elapsedTime = _secondsBetweenLounches / 2;
+        _elapsedTime = _secondsBetweenLounches;
     }
 
     private void OnDisable()

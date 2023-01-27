@@ -376,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1443988569034183699}
-  _distanse: 3.75
+  _distanse: 2
 --- !u!114 &1443988569034183711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,8 +409,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1443988569034183710}
   _damage: 1
-  _attackRange: 4.3
-  _attackDelay: 0.2
+  _attackRange: 2.8
+  _attackDelay: 0.18
   _meleeSound: {fileID: 3382818874639839962}
 --- !u!114 &1443988569034183710
 MonoBehaviour:

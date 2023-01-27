@@ -42,5 +42,7 @@ public static class SaveLoadManager
     {
         if (Directory.Exists(_defaultPath))
             Directory.Delete(_defaultPath, true);
+
+        Debug.Log(_defaultPath);
     }
 }
